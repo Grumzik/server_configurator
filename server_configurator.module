@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Main module file for Server Configurator module.
+ */
+
+
+/**
+ * Implements hook_page_attachments().
+ */
+
+
+
+function server_configurator_page_attachments(array &$attachments) {
+  \Drupal::service('server_configurator.attachments_builder')
+    ->build($attachments);
+}
+
+/**
+ * Implements hook_hook_info().
+ *
+ * ОПИСАНИЕ:
+ * Эта функция сообщает Drupal, что наш модуль использует
+ * определённые хуки (hook) и где их искать.
+ *
+ * ЗАЧЕМ НУЖНА:
+ * Drupal ищет файлы .inc автоматически, но для токенов
+ * нужно явно указать, что у нас есть hooks для токенов.
+ */
+function server_configurator_hook_info() {
+  $hooks = [];
+
+  // Говорим Drupal, что у нас есть hook_token_info
+  // и его нужно искать в server_configurator.tokens.inc
+  $hooks['token_info'] = [
+    'group' => 'token',  // Группа хуков для токенов
+  ];
+
+  // Говорим Drupal, что у нас есть hook_tokens
+  $hooks['tokens'] = [
+    'group' => 'token',
+  ];
+
+  return $hooks;
+}

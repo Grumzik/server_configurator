@@ -1,0 +1,711 @@
+.dual-range-slider .noUi-connect{
+  background: #ff820e !important;
+}
+
+
+
+/* ===== Элемент вебформы RANGE  ===== */
+
+.range-marks {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  margin-top: 10px;
+  pointer-events: none;
+}
+
+/* minor */
+.range-tick {
+  position: absolute;
+  width: 1px;
+  height: 6px;
+  background: #bbb;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+/* major */
+.range-mark {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #333;
+  top: 10px;
+  white-space: nowrap;
+}
+
+.form-type-range output {
+  padding: 0 20px;
+  border: 0 !important;
+  background: rgba(0,0,0,0) !important;
+}
+
+
+
+
+
+
+
+
+.form-type-range .form-label {
+  margin-bottom: 20px;
+}
+
+.form-type-range input[type="range"] {
+  margin-top: 10px;
+}
+
+/* ===== MOBILE ===== */
+
+#server-config-summary {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-height: 85vh;
+  overflow-y: auto;
+ /*height: 100%;
+  height: 100vh; */
+
+  background: #fff;
+  z-index: 1001;
+
+  transform: translateX(100%);
+  transition: transform 0.35s ease;
+  box-shadow: -8px 0 24px rgba(0,0,0,.2);
+  transition: transform 0.35s ease;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+#server-config-summary.is-open {
+  transform: translateX(0);
+}
+
+.summary-backdrop {
+  position: fixed;
+  inset: 0;
+  /* background-color: rgba(92,108,129,.7); */
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+#server-config-summary.is-open + .summary-backdrop,
+.summary-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.summary-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: 0;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+
+  .server-config-layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .server-config-elements {
+    width: 50%;
+  }
+
+  .server-config-summary-wrapper {
+    position: sticky;
+    top: 100px;
+    padding: 0 5%;
+  }
+
+  .config-toggle {
+    display: none;
+  }
+  .summary-backdrop,
+  .summary-close {
+    display: none;
+  }
+
+  #server-config-summary {
+    position: sticky;
+    top: 100px;
+    height: auto;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+
+
+}
+@media (max-width: 991px) {
+
+  #edit-group-konfigurator .details-wrapper {
+    position: relative;
+    overflow: visible;
+    /*overflow: hidden; /* важно */
+  }
+
+  #edit-group-konfigurator .details-children {
+    /* max-height: calc(300vh - 56px); /* summary + отступы */
+    max-height: none;
+    overflow: visible;
+    /* overflow-y: auto; */
+     padding-bottom: 80px; /* место под кнопку */
+  }
+
+  #edit-group-konfigurator .config-toggle {
+    /* position: fixed;*/
+    bottom: 0;
+
+    width: 100%;
+    margin: 0;
+    padding: 14px 16px;
+
+    background: #ff820e;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+
+    z-index: 10;
+  }
+  #server-config-summary.is-open ~ .config-toggle,
+  body.summary-open #edit-group-konfigurator .config-toggle {
+    display: none;
+  }
+
+  .config-toggle {
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    margin: 0;
+    padding: 14px 16px;
+
+    background: #ff820e;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+
+    z-index: 1002; /* выше backdrop */
+    border-radius: 0;
+
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+
+  .config-toggle.is-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+  }
+
+
+
+  #server-config-summary.is-open {
+    display: block;
+    padding: 10px;
+  }
+
+
+}
+
+
+
+/* ======================================================
+   Стили слайдеров
+====================================================== */
+
+
+/* ======================================================
+   UNIVERSAL SLIDER STYLE (range + dual_range_slider)
+====================================================== */
+
+
+/* =========================
+   Общие отступы
+========================= */
+
+.dual-range-wrapper,
+.form-type-range {
+  margin: 1.5rem 0;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.dual-range-labels .form-label,
+.form-type-range .form-label {
+
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+
+/* ======================================================
+   SINGLE RANGE (input[type=range])
+====================================================== */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  background: #e5e5e5;
+  outline: none;
+  transition: background 0.2s ease;
+}
+
+/* активная часть (через градиент) */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 4px;
+  background: #e5e5e5;
+}
+
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 4px;
+  background: #e5e5e5;
+}
+
+/* ручка */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50%;
+  background: #ff820e;
+  cursor: pointer;
+  margin-top: -6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px !important;;
+  height: 18px !important;;
+  border-radius: 50%;
+  background: #ff820e;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+
+
+
+
+/* ======================================================
+   DUAL RANGE (noUiSlider) — unified with input[type=range]
+====================================================== */
+
+/* базовый трек */
+.dual-range-slider {
+  height: 6px !important;
+  border-radius: 4px !important;
+  background: #e5e5e5 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* внутренний base */
+.dual-range-slider .noUi-base {
+  height: 6px;
+  border-radius: 4px;
+}
+
+/* inactive track */
+.dual-range-slider .noUi-connects {
+  border-radius: 4px;
+}
+
+/* активная часть */
+.dual-range-slider .noUi-connect {
+  background: #ff820e !important;
+  border-radius: 4px !important;
+}
+
+/* убираем outline */
+.dual-range-slider.noUi-target,
+.dual-range-slider * {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* =========================
+   HANDLE (ползунок)
+========================= */
+
+.dual-range-slider .noUi-handle {
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+  background: #ff820e !important;
+  border: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25) !important;
+  cursor: pointer;
+  top: -6px !important;
+  transition: transform 0.15s ease;
+}
+
+/* убрать стандартные полоски */
+.dual-range-slider .noUi-handle:before,
+.dual-range-slider .noUi-handle:after {
+  display: none !important;
+}
+
+/* hover как у single range */
+.dual-range-slider .noUi-handle:hover {
+  transform: scale(1.1);
+}
+
+/* active (при перетаскивании) */
+.dual-range-slider .noUi-handle:active {
+  transform: scale(1.15);
+}
+
+/* focus эффект в стиле MUI */
+.dual-range-slider .noUi-handle:focus {
+  /*  box-shadow:
+     0 0 0 4px rgba(255,130,14,0.2),
+     0 2px 6px rgba(0,0,0,0.25) !important;
+
+   color: var(--bs-body-color);
+   background-color: var(--bs-body-bg);
+   border-color: rgb(173.5, 181.5, 192);*/
+
+ }
+/* ======================================================
+   Focus ring как у native range
+====================================================== */
+
+.dual-range-slider .noUi-handle:focus,
+.dual-range-slider .noUi-handle:focus-visible {
+  box-shadow:
+    0 0 0 3px #ffffff,                      /* белая окантовка */
+    0 0 0 0.3rem rgba(92,108,129,0.35),    /* серая внешняя */
+    0 2px 6px rgba(0,0,0,0.25) !important;  /* базовая тень */
+}
+
+
+ /* ======================================================
+    CURRENT VALUE (dual)
+ ====================================================== */
+
+.dual-range-current {
+  text-align: center;
+  margin-top: 0.7rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+
+/* ======================================================
+   MARKS
+====================================================== */
+
+.range-marks {
+  position: relative;
+  width: 100%;
+  height: 28px;
+  margin-top: 12px;
+  cursor: none;
+  z-index: 5000;
+}
+
+.range-mark {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: #444;
+  top: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  z-index:6000;
+  pointer-events: auto;
+}
+
+.range-tick {
+  position: absolute;
+  width: 1px;
+  height: 6px;
+  background: #ccc;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+
+/* ======================================================
+   OUTPUT (single range)
+====================================================== */
+.form-type-range .form-label {
+  margin-bottom: 2.6rem !important;
+}
+.form-type-range output {
+  display: block;
+  text-align: center;
+  margin-top: 2rem !important;
+  font-weight: 600;
+  color: #333;
+  opacity: 1 !important;
+}
+
+
+
+
+input[type="range"] {
+  box-shadow: none !important;
+}
+
+input[type="range"]:focus {
+  box-shadow: none !important;
+  outline: none;
+}
+
+
+/* ======================================================
+   MIU range
+====================================================== */
+
+/* ===== Container ===== */
+
+.server-configurator .mui-range-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 28px;
+}
+
+/* ===== Base range reset ===== */
+
+.server-configurator .mui-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  outline: none;
+  background: linear-gradient(to right, #1976d2 0%, #1976d2 40%, #e0e0e0 40%, #e0e0e0 100%);
+  transition: background 0.2s ease;
+  cursor: pointer;
+  box-shadow: none !important;
+}
+
+.server-configurator .mui-range:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+/* ===== Webkit Thumb ===== */
+
+.server-configurator .mui-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1976d2;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.server-configurator .mui-range::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.server-configurator .mui-range::-webkit-slider-thumb:active {
+  transform: scale(1.25);
+}
+
+/* ===== Firefox Thumb ===== */
+
+.server-configurator .mui-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #1976d2;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.server-configurator .mui-range::-moz-range-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* ===== Firefox Track ===== */
+
+.server-configurator .mui-range::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: #e0e0e0;
+}
+
+/* ===== Value bubble ===== */
+
+.server-configurator .mui-range-value {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  background: #1976d2;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: left 0.15s ease;
+}
+
+/* ===== disable кнопку "добавить накопитель"  ===== */
+/*.webform-multiple-add.is-disabled {*/
+/*  pointer-events: none;*/
+/*  opacity: 0.4;*/
+/*}*/
+.webform-multiple-add.limit-reached {
+  pointer-events: none;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.storage-limit-message {
+  margin-left: 10px;
+  font-size: 13px;
+/*  color: #b71c1c;*/
+  color: #ff820e;
+  font-weight: 500;
+}
+
+
+/*[data-component-id="radix:radios"] {*/
+/*  display: flex;*/
+/*  flex-wrap: wrap;*/
+/*}*/
+table[data-drupal-selector="edit-kompozitnyy-elemen-storage-items"] thead{
+  display: none;
+}
+.ds-2col-stacked-fluid .group-footer thead{
+  border-width: 0;
+}
+
+.webform-submission-form .form-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.form-radios .form-item {
+  flex: 0 0 auto;
+}
+
+/* ===== таблица процессоров в конфигураторе"  ===== */
+table.sticky-header thead {
+  top: calc(var(--drupal-displace-offset-top, 0px) + 20px);
+  z-index: 502;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.label-nvme {
+  border-color: #4caf50;
+}
+
+/* ===== form-configurator PREVIEW   ===== */
+.server-configurator-preview .webform-element,
+.lan-preset{
+  color: #ff820e;
+  font-size: 1.6em;
+  }
+.server-configurator-preview .webform-element a{
+  color: #3c4858;
+}
+ .server-configurator-preview .form-label{
+   color: inherit;
+   margin-bottom: 0;
+ }
+.server-configurator-preview .form-label::after{
+  content: ":  ";
+  margin-right: 15px;
+}
+.server-configurator-preview .form-item-add-setevoy-interfeys .form-label::after,
+.lan-preset ::after{
+  content: "  ";
+  margin-right: 15px;
+}
+
+
+.server-configurator-preview .webform-element,
+.server-configurator-preview .webform-element b,
+.server-configurator-preview .lan-preset{
+  color: #3c4858 !important;
+  font-size: calc(1.275rem + 0.3vw);
+  font-weight: normal;
+}
+.server-configurator-preview .webform-section-title{
+  font-size: 1.6em;
+  display: none;
+}
+
+.server-configurator-preview
+~ .form-actions
+.webform-button--draft {
+  display: none !important;
+}
+
+.form-item-agreement-call-back .form-label{
+  display: inline;
+}
+
+.form-item-selected-processors-text .form-label{
+  display: block;
+}
+
+
+/*=====  Кнопки CPU Показать и Сбросить фильтр ===== */
+/* размещаем в одну линию */
+[data-drupal-selector="edit-cpu-show-reset-buttons-flexbox"] {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+[data-drupal-selector="edit-cpu-show-reset-buttons-flexbox"] .webform-flex {
+  flex: 0 0 auto;
+}
+
+[data-drupal-selector="edit-cpu-show-reset-buttons-flexbox"] .webform-flex .webform-button--draft {
+  margin-top: 0;
+}
+
+[data-drupal-selector="edit-kompozitnyy-elemen-storage-add-submit"]{
+  margin: 20px auto;
+
+}
