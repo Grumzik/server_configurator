@@ -1,0 +1,22 @@
+uuid: abfca047-310d-497d-b34f-e08e914e92ca
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_ssdsystem
+label: 'Содержимое - ssdsystem'
+type: 'canonical_entities:node'
+pattern: 'ssd/[node:title]'
+selection_criteria:
+  83a85792-40e8-4ce3-909a-767a51175aca:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 83a85792-40e8-4ce3-909a-767a51175aca
+    context_mapping:
+      node: node
+    bundles:
+      ssdsystem: ssdsystem
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,26 @@
+uuid: 3904148d-c8c0-47b8-a71d-fbe5df987caf
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: tis_page
+type: tis_page
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

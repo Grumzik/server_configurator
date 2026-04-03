@@ -1,0 +1,23 @@
+uuid: c6832506-47b6-4d2c-8c40-0a63525ebca7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_tabs
+    - field.storage.block_content.field_ebt_settings
+  module:
+    - ebt_core
+_core:
+  default_config_hash: _Gn1i1ea7T8MzoBSjiDcnQMYgfSAq2jN9g-ZJfv27PA
+id: block_content.ebt_tabs.field_ebt_settings
+field_name: field_ebt_settings
+entity_type: block_content
+bundle: ebt_tabs
+label: 'Настройки блока'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: ebt_settings

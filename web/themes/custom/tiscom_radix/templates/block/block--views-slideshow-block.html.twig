@@ -1,0 +1,12 @@
+{% embed 'radix:block' with{} %}
+
+  {% block block_content %}
+    {% if content %}
+{{ dump(content) }}
+      {%  include 'tiscom_radix:view-carousel' with{} %}
+
+
+    {% endif %}
+  {% endblock %}
+
+{% endembed %}

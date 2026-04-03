@@ -1,0 +1,30 @@
+uuid: 7c2ad378-8c50-407f-b25f-c51eb000136b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_tab_page
+    - node.type.page
+    - paragraphs.paragraphs_type.ebt_tab
+_core:
+  default_config_hash: t9WpCMZrY0hReO2jvRG2Rte22ZW2y4Dq_5kF4YVAWqo
+id: paragraph.ebt_tab.field_ebt_tab_page
+field_name: field_ebt_tab_page
+entity_type: paragraph
+bundle: ebt_tab
+label: 'Tab page'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

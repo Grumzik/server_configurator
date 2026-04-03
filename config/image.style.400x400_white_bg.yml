@@ -1,0 +1,41 @@
+uuid: e9c86e5e-0f67-4737-9515-e76c9182b206
+langcode: ru
+status: true
+dependencies:
+  module:
+    - image_effects
+name: 400x400_white_bg
+label: '400x400 white bg'
+effects:
+  fdef121f-a5cb-4e46-8b11-19a2eca2ff62:
+    uuid: fdef121f-a5cb-4e46-8b11-19a2eca2ff62
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      upscale: true
+  a9480aef-3c5b-42ed-b00a-d4fb404bbdfe:
+    uuid: a9480aef-3c5b-42ed-b00a-d4fb404bbdfe
+    id: image_convert
+    weight: 3
+    data:
+      extension: webp
+  47c4be0a-d3ff-44b8-bc73-67d965992634:
+    uuid: 47c4be0a-d3ff-44b8-bc73-67d965992634
+    id: image_effects_set_canvas
+    weight: 2
+    data:
+      canvas_size: exact
+      canvas_color: '#FFFFFFFF'
+      exact:
+        width: '400'
+        height: '400'
+        placement: center-center
+        x_offset: 0
+        y_offset: 0
+      relative:
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0

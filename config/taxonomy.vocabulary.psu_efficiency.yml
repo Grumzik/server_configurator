@@ -1,0 +1,9 @@
+uuid: 5a6c2d08-699a-4093-92c3-1c345ed1ebdc
+langcode: und
+status: true
+dependencies: {  }
+name: 'PSU Efficiency'
+vid: psu_efficiency
+description: null
+weight: 0
+new_revision: false

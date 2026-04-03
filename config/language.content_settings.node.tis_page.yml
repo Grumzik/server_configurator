@@ -1,0 +1,11 @@
+uuid: 62cda1f5-79c2-4eb7-aedd-f30882aef728
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.tis_page
+id: node.tis_page
+target_entity_type_id: node
+target_bundle: tis_page
+default_langcode: site_default
+language_alterable: false

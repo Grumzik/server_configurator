@@ -1,0 +1,36 @@
+uuid: 1fa8f571-fb64-4562-b0c5-88017e81f785
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.superhero_portfolio.body
+    - field.field.node.superhero_portfolio.superhero_portfolio_categories
+    - field.field.node.superhero_portfolio.superhero_portfolio_image
+    - node.type.superhero_portfolio
+  module:
+    - text
+    - user
+id: node.superhero_portfolio.teaser
+targetEntityType: node
+bundle: superhero_portfolio
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  superhero_portfolio_categories: true
+  superhero_portfolio_image: true

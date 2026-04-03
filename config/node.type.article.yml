@@ -1,0 +1,23 @@
+uuid: 2aae3928-4e6e-4fc6-9d13-abb5558e5c82
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">Статья</em> content'
+_core:
+  default_config_hash: Fe3N1uqaAyyKJbVkqT-btXy3t98puW8GCRD822xjl10
+name: Статья
+type: article
+description: 'Статья — это документ, который обычно используется для новостей, анонсов и любых других сообщений, для которых не задействованы другие типы документов. Этот тип документа также используют для ведения персонального блога. По умолчанию, документы этого типа выводятся на первую страницу сайта и их разрешено комментировать.'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

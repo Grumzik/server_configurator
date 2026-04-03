@@ -1,0 +1,41 @@
+uuid: d3f262e9-0548-4b5d-a303-3bd37d02712e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dexp_portfolio
+    - field.field.node.news.body
+    - field.field.node.news.feeds_item
+    - field.field.node.news.field_image
+    - field.field.node.news.field_imagestory
+    - field.field.node.news.field_metatag
+    - field.field.node.news.field_news_anons
+    - field.field.node.news.field_tags
+    - field.field.node.news.field_vendor
+    - node.type.news
+  module:
+    - user
+id: node.news.dexp_portfolio
+targetEntityType: node
+bundle: news
+mode: dexp_portfolio
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_image: true
+  field_imagestory: true
+  field_metatag: true
+  field_news_anons: true
+  field_tags: true
+  field_vendor: true
+  langcode: true

@@ -1,0 +1,23 @@
+uuid: e3daf4f4-dd81-4f20-b178-d62986e0f331
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_use_in_configurator
+    - node.type.processor
+id: node.processor.field_use_in_configurator
+field_name: field_use_in_configurator
+entity_type: node
+bundle: processor
+label: 'Использовать в конфигураторе'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Да
+  off_label: Нет
+field_type: boolean

@@ -1,0 +1,851 @@
+uuid: 115d7ca2-3c25-4edc-8f4d-7b472d994d7d
+langcode: ru
+status: open
+dependencies: {  }
+weight: 0
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: server_configurator
+title: 'Server Configurator'
+description: ''
+categories: {  }
+elements: |-
+  rlayout_container:
+    '#type': container
+    '#attributes':
+      class:
+        - server-config-layout
+    elements_container:
+      '#type': container
+      '#attributes':
+        class:
+          - server-config-elements
+      server:
+        '#type': label
+        '#title': 'Сервер:  [current-page:title]'
+        '#attributes':
+          class:
+            - hidden
+      server_title:
+        '#type': hidden
+        '#title': Сервер
+        '#default_value': '[current-page:title]'
+      cpu:
+        '#type': webform_section
+        '#title': Процессор
+        '#open': true
+        kolichestvo_processorov:
+          '#type': radios
+          '#title': 'Количество процессоров'
+          '#multiple': false
+          '#options':
+            1: '1'
+            2: '2'
+          '#options_display': side_by_side
+          '#default_value': '2'
+          '#js_select': false
+        cpu_generation:
+          '#type': textfield
+          '#title': 'Поколение процессора'
+          '#default_value': '[webform_submission:source-entity:field_cpu_generation:entity:name]'
+          '#wrapper_attributes':
+            class:
+              - hidden
+        test_cpu_vendor:
+          '#type': textfield
+          '#title': 'cpu vendor'
+          '#default_value': '[webform_submission:source-entity:field_cpu_vendor:entity:name]'
+          '#wrapper_attributes':
+            class:
+              - hidden
+        dual_range_slider_frequency:
+          '#type': dual_range_slider
+          '#name': dual_range_slider_frequency
+          '#title': Частота
+          '#min': 1
+          '#max': 4
+          '#step': 0.1
+          '#default_value': '1,4'
+          '#attributes':
+            class:
+              - storage_count
+              - mui-range
+        frequency_min:
+          '#type': number
+          '#title': frequency_min
+          '#autocomplete': ''
+          '#wrapper_attributes':
+            style: 'display: none;'
+          '#min': 1
+          '#max': 4
+          '#step': 0.1
+        frequency_max:
+          '#type': number
+          '#title': frequency_max
+          '#autocomplete': ''
+          '#wrapper_attributes':
+            style: 'display: none;'
+          '#min': 1
+          '#max': 4
+          '#step': 0.1
+        dual_range_slider_cores:
+          '#type': dual_range_slider
+          '#name': dual_range_slider_cores
+          '#title': 'Количество ядер каждого процессора'
+          '#min': 2
+          '#max': 144
+          '#step': 2
+          '#default_value': '2,144'
+          '#output': below
+          '#attributes':
+            class:
+              - storage_count
+              - mui-range
+              - dual-range-slider-cores
+        cores_min:
+          '#type': number
+          '#title': cores_min
+          '#title_display': invisible
+          '#description_display': invisible
+          '#wrapper_attributes':
+            class:
+              - hidden
+        cores_max:
+          '#type': number
+          '#title': cores_max
+          '#title_display': invisible
+          '#description_display': invisible
+          '#wrapper_attributes':
+            class:
+              - hidden
+        cpu_container:
+          '#type': container
+          '#attributes':
+            style: ''
+            class:
+              - mb-3
+          '#format': fieldset
+          cpu_container_title:
+            '#type': label
+            '#title': 'Совместимые процессоры'
+            '#attributes':
+              class:
+                - form-label
+          cpu_show_reset_buttons_flexbox:
+            '#type': webform_flexbox
+            '#align_items': flex-end
+            actions_01:
+              '#type': webform_actions
+              '#title': 'Показать  совместимые процессоры'
+              '#submit_hide': true
+              '#reset_hide': true
+              '#draft__label': Показать
+              '#update__label': Обновить
+              '#wizard_prev_hide': true
+              '#wizard_prev__label': 'test button  Wizard previus'
+              '#wizard_next_hide': true
+              '#wizard_next__label': 'test button Wizard next'
+              '#preview_prev_hide': true
+              '#preview_prev__label': 'test button Preview label'
+              '#preview_next_hide': true
+              '#preview_next__label': 'test button Nex label'
+              '#submit_attributes':
+                data-show-processors: 1
+            my_reset:
+              '#type': button
+              '#value': 'Сбросить фильтр'
+              '#attributes':
+                class:
+                  - configurator-reset
+          cpu_generation_twig:
+            '#type': webform_computed_twig
+            '#title': cpu_generation_twig
+            '#wrapper_attributes':
+              class:
+                - hidden
+            '#display_on': form
+            '#template': |-
+              {% set node = webform_submission.getSourceEntity()%}
+              {% if  (node.field_cpu_generation is not empty) %}
+              {{ node.field_cpu_generation.target_id }}
+              {% else %}539
+              {% endif %}
+            '#whitespace': trim
+          processor_for_server:
+            '#type': view
+            '#states':
+              visible:
+                ':input[name="show_processors"]':
+                  checked: true
+            '#wrapper_attributes':
+              class:
+                - mt-5
+            '#display_on': form
+            '#name': cpu
+            '#display_id': entity_browser_processor_for_server
+            '#arguments':
+              - '[webform_submission:values:cpu_generation_twig]'
+              - '[webform_submission:values:frequency_min]--[webform_submission:values:frequency_max]'
+              - '[webform_submission:values:cores_min]--[webform_submission:values:cores_max]'
+              - '[webform_submission:values:kolichestvo_processorov]'
+        show_processors:
+          '#type': checkbox
+          '#title': show_processor
+          '#wrapper_attributes':
+            class:
+              - hidden
+        selected_processors_text:
+          '#type': textarea
+          '#title': 'Выбранные процессоры'
+          '#wrapper_attributes':
+            class:
+              - hidden
+        horizontal_rule5:
+          '#type': webform_horizontal_rule
+          '#attributes':
+            style: 'background-color: #ff820e; margin: 40px 0;     height: 2px;'
+        obem_operativnoy_pamyati_v_gb:
+          '#type': radios
+          '#title': 'Объем оперативной памяти в Gb'
+          '#multiple': true
+          '#options':
+            16: '16'
+            32: '32'
+            64: '64'
+            128: '128'
+            256: '256'
+            384: '384'
+            512: '512'
+            768: '768'
+            1024: '1024'
+            1536: '1536'
+            2048: '2048'
+          '#options_display': side_by_side
+          '#attributes':
+            class:
+              - ram
+          '#js_select': false
+      horizontal_rule:
+        '#type': webform_horizontal_rule
+        '#attributes':
+          style: 'background-color: #ff820e; margin: 40px 0;     height: 2px;'
+      storage:
+        '#type': webform_section
+        '#title': Накопители
+        '#open': true
+        '#prev_button_label': Назад
+        '#next_button_label': Вперед
+        kompozitnyy_elemen_storage:
+          '#type': webform_custom_composite
+          '#title': Накопители
+          '#title_display': invisible
+          '#multiple__header': false
+          '#multiple__sorting': false
+          '#multiple__add_more_input': false
+          '#multiple__add_more_button_label': 'Добавить накопитель'
+          '#wrapper_type': form_element
+          '#wrapper_attributes':
+            class:
+              - mb-5
+          '#format_items': ol
+          '#element':
+            tip_ustanovlennyh_nakopiteley:
+              '#type': radios
+              '#options':
+                ' HDD': ' HDD'
+                ' SSD SATA': ' SSD SATA'
+                'SSD NVMe': 'SSD NVMe'
+              '#title': 'Тип установленных накопителей'
+              '#multiple': false
+              '#options_display': side_by_side
+              '#attributes':
+                class:
+                  - storage_types
+              '#js_select': false
+            kolichestvo_ustanovlennyh_nakopiteley:
+              '#type': range
+              '#title': 'Количество установленных накопителей'
+              '#default_value': '0'
+              '#attributes':
+                class:
+                  - storage_count
+                  - mui-range
+              '#max': 24
+              '#output': above
+            obem_nakopitelya_ssd_sata:
+              '#type': radios
+              '#options':
+                240Gb: 240Gb
+                480Gb: 480Gb
+                960Gb: 960Gb
+                1.92Tb: 1.92Tb
+                3.84Tb: 3.84Tb
+                7.68Tb: 7.68Tb
+                15.36Tb: 15.36Tb
+              '#title': 'Объем каждого накопителя SSD SATA'
+              '#multiple': false
+              '#options_display': side_by_side
+              '#js_select': false
+              '#attributes':
+                class:
+                  - storage_count_wrapper
+                  - storage-volume
+                  - storage-volume--sata
+            obem_nakopitelya_ssd_nvme:
+              '#type': radios
+              '#options':
+                960Gb: 960Gb
+                1.92Tb: 1.92Tb
+                3.84Tb: 3.84Tb
+                7.68Tb: 7.68Tb
+                15.36Tb: 15.36Tb
+                30.72Tb: 30.72Tb
+              '#title': 'Объем каждого накопителя SSD NVMe'
+              '#multiple': false
+              '#options_display': side_by_side
+              '#js_select': false
+              '#attributes':
+                class:
+                  - storage_count_wrapper
+                  - storage-volume
+                  - storage-volume--nvme
+            obem_nakopitelya_hdd:
+              '#type': radios
+              '#options':
+                4Tb: 4Tb
+                6Tb: 6Tb
+                8Tb: 8Tb
+                10Tb: 10Tb
+                12Tb: 12Tb
+                14Tb: 14Tb
+                16Tb: 16Tb
+                18Tb: 18Tb
+                20Tb: 20Tb
+                22Tb: 22Tb
+                24Tb: 24Tb
+              '#title': 'Объем каждого накопителя HDD'
+              '#multiple': false
+              '#other__title': 'Укажите желаемый объем дисковой подсистемы'
+              '#options_display': side_by_side
+              '#js_select': false
+              '#attributes':
+                class:
+                  - storage_count_wrapper
+                  - storage-volume
+                  - storage-volume--hdd
+        ili_ukazhite_zhelaemyy_obshchiy_obem_diskovoy_podsistemy:
+          '#type': textfield
+          '#title': 'Или укажите желаемый общий объем дисковой подсистемы'
+          '#wrapper_attributes':
+            class:
+              - mt-5
+        nalichie_otdelnogo_nakopitelya_dlya_ustanovki_os:
+          '#type': radios
+          '#title': 'Наличие отдельного накопителя для установки ОС'
+          '#multiple': false
+          '#options':
+            '1 шт': '1 шт'
+            '2 шт': '2 шт'
+            нет: нет
+          '#options_display': side_by_side
+          '#default_value': нет
+          '#wrapper_attributes':
+            class:
+              - mt-3
+          '#js_select': false
+        nalichie_appratnogo_diskovogo_kontrollera:
+          '#type': radios
+          '#title': 'Наличие аппратного дискового контроллера'
+          '#multiple': false
+          '#options':
+            Нет: Нет
+            ' HBA': ' HBA'
+            ' RAID': ' RAID'
+          '#options_display': side_by_side
+          '#default_value': Нет
+          '#js_select': false
+        nalichie_adaptera_fibre_channel_dual_port:
+          '#type': select
+          '#title': 'Наличие адаптера Fibre Channel'
+          '#options':
+            нет: нет
+            1х16G: 1х16G
+            2х16G: 2х16G
+            1х32G: 1х32G
+            2х32G: 2х32G
+          '#default_value': нет
+        horizontal_rule_02:
+          '#type': webform_horizontal_rule
+          '#attributes':
+            style: 'background-color: #ff820e; margin: 40px 0;     height: 2px;'
+        lan:
+          '#type': webform_section
+          '#title': LAN
+          preset_lan:
+            '#type': webform_computed_twig
+            '#title': 'В сервере установен '
+            '#wrapper_attributes':
+              class:
+                - border-bottom
+                - border-primary
+                - border-5
+            '#template': |+
+              {# Получаем ноду из source entity вебформы #}
+              {% set node = webform_submission.getSourceEntity() %}
+
+
+              {% if node and node.bundle() == 'server' %}
+                {# Проверяем, что есть поле платформы #}
+                {% if node.hasField('field_platform') and not node.field_platform.isEmpty() %}
+                  {% set platform = node.field_platform.entity %}
+
+                  {# Получаем LAN характеристики #}
+                  {% if platform and platform.hasField('field_lan_ports_speed') %}
+                {% set attributes = create_attribute() %}
+
+                <label{{ attributes.setAttribute('class',  'lan-preset') }}>    {{ platform.field_lan_ports_speed.value }}   </label>
+                  {% else %}
+                    Поле field_lan не найдено
+                  {% endif %}
+                {% else %}
+                  Поле field_platform не найдено или пустое
+                {% endif %}
+              {% else %}
+                Вебформа не привязана к ноде Server
+              {% endif %}
+
+          add_setevoy_interfeys:
+            '#type': checkbox
+            '#title': 'Добавить опциональный сетевой адаптер?'
+            '#wrapper_attributes':
+              class:
+                - mt-3
+                - mb-5
+        setevoy_interfeys:
+          '#type': webform_section
+          '#title': 'Сетевой интерфейс'
+          '#open': true
+          '#states':
+            visible:
+              ':input[name="add_setevoy_interfeys"]':
+                checked: true
+          '#prev_button_label': Назад
+          '#next_button_label': Вперед
+          tip_setevyh_interfeysov:
+            '#type': radios
+            '#title': 'Тип сетевых интерфейсов'
+            '#multiple': false
+            '#options':
+              Медный: Медный
+              Оптический: Оптический
+            '#options_display': side_by_side
+            '#default_value': Медный
+            '#js_select': false
+          kolichestvo_setevyh_portov:
+            '#type': radios
+            '#title': 'Количество сетевых портов'
+            '#multiple': false
+            '#options':
+              2: '2'
+              4: '4'
+              8: '8'
+            '#options_display': side_by_side
+            '#default_value': '2'
+            '#js_select': false
+          skorost_setevyh_portov_gbit_sek_med:
+            '#type': radios
+            '#title': 'Скорость сетевых портов Гбит/сек'
+            '#multiple': false
+            '#options':
+              1: '1'
+              10: '10'
+            '#options_display': side_by_side
+            '#states':
+              visible:
+                ':input[name="tip_setevyh_interfeysov"]':
+                  value: Медный
+            '#default_value': '1'
+            '#js_select': false
+          skorost_setevyh_portov_gbit_sek_optika:
+            '#type': radios
+            '#title': 'Скорость сетевых портов Гбит/сек'
+            '#multiple': false
+            '#options':
+              10: '10'
+              25: '25'
+              100: '100'
+              200: '200'
+              400: '400'
+            '#options_display': side_by_side
+            '#states':
+              visible:
+                ':input[name="tip_setevyh_interfeysov"]':
+                  value: Оптический
+            '#default_value': '10'
+            '#js_select': false
+      horizontal_rule_01:
+        '#type': webform_horizontal_rule
+        '#attributes':
+          style: 'background-color: #ff820e; margin: 40px 0;     height: 2px;'
+      contacts:
+        '#type': webform_section
+        '#title': 'Ваши контакты'
+        '#open': true
+        '#prev_button_label': Назад
+        '#next_button_label': Вперед
+        imya_i_familiya:
+          '#type': textfield
+          '#title': 'Ваше имя'
+          '#placeholder': 'Ваше имя'
+          '#wrapper_attributes':
+            class:
+              - bs-mt-2
+        e_mail:
+          '#type': email
+          '#title': E-mail
+          '#placeholder': 'Ваша почта'
+          '#required': true
+          '#wrapper_attributes':
+            class:
+              - mt-3
+        telefon:
+          '#type': tel
+          '#title': Телефон
+          '#placeholder': 'Ваш телефон'
+          '#input_mask': +7(999)999-9999
+          '#wrapper_attributes':
+            class:
+              - 'container-inline clearfix'
+              - mt-3
+          '#label_attributes':
+            class:
+              - bs-mr-2
+          '#phone__help': 'Укажите Ваш номер телефона, пожалуйста'
+        agreement_call_back:
+          '#type': checkbox
+          '#title': 'Согласен на получение обратного звонка и обработку моего номера телефона в целях консультации'
+          '#states':
+            visible:
+              ':input[name="telefon"]':
+                filled: true
+            required:
+              ':input[name="telefon"]':
+                filled: true
+          '#wrapper_attributes':
+            class:
+              - mt-3
+              - mb-5
+        dopolnitelnye_kommentarii:
+          '#type': textarea
+          '#title': 'Дополнительные требования и комментарии'
+          '#wrapper_attributes':
+            class:
+              - mt-3
+        agreement:
+          '#type': checkbox
+          '#title': 'Согласен на обработку персональных данных'
+          '#description': '<p>Отправляя данную форму, я подтверждаю, что ознакомлен(а) с <a class="color-tis-orange" style="color:#FF820E !important;" href="/politika-v-otnoshenii-obrabotki-personalnykh-dannykh" target="_blank">Политикой в отношении обработки персональных данных </a>и даю свое <a class="color-tis-orange" style="color:#FF820E !important;" href="/content/soglasie-na-obrabotku-personalnykh-dannykh">Согласие на обработку персональных данных</a>, в соответствии с требованиями Федерального закона № 152-ФЗ «О персональных данных».</p>'
+          '#wrapper_attributes':
+            class:
+              - mt-3
+              - ''
+          '#required': true
+      actions:
+        '#type': webform_actions
+        '#title': 'Submit button(s)'
+        '#reset__attributes':
+          class:
+            - configurator-reset
+        '#draft_hide': true
+        '#preview_prev__attributes':
+          class:
+            - configurator-preview
+    summary_container:
+      '#type': container
+      '#attributes':
+        class:
+          - server-config-summary-wrapper
+          - js-configurator-wrapper
+      summary:
+        '#type': webform_markup
+        '#wrapper_attributes':
+          style: 'background-color: light-gray;'
+        '#markup': '<div class="server-config-summary-wrapper" id="server-config-summary"><h3>Итоговая конфигурация</h3><div class="summary-server">&nbsp;</div><div class="summary-platform">&nbsp;</div><div class="summary-cpu">&nbsp;</div><div class="summary-form">&nbsp;</div></div>'
+  opcii:
+    '#type': webform_wizard_page
+    '#title': Опции
+    '#open': true
+    '#prev_button_label': Назад
+    '#next_button_label': Вперед
+  selected_processors:
+    '#type': hidden
+    '#title': 'Выбранные процессоры'
+  selected_cpu:
+    '#type': hidden
+    '#title': selected_cpu
+  summary_twig:
+    '#type': webform_computed_twig
+    '#title': 'Конфигурация Вашего сервера'
+    '#display_on': none
+    '#template': |-
+      <p>Название формы: {{ webform_token('[webform:title]', webform_submission) }}</p>
+      <p>ID формы: {{ webform_token('[webform:id]', webform_submission) }}</p>
+      <p>Текущая дата: {{ webform_token('[current-date:html_date]', webform_submission) }}</p>
+      <p>Текущее время: {{ webform_token('[current-date:html_time]', webform_submission) }}</p>
+      <p>Пользователь: {{ webform_token('[current-user:name]', webform_submission) }}</p>
+      <p>Тип накопителей: {{ data.tip_ustanovlennyh_nakopiteley }}</p>
+
+      {# Получаем ноду из source entity вебформы #}
+      {% set node = webform_submission.getSourceEntity() %}
+      <p class="mb-0">LAN: {{ node.field_platform.entity.field_lan_ports_speed.value }}</p>
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: ''
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_theme_name: ''
+  form_title: source_entity_webform
+  form_submit_once: true
+  form_open_message: ''
+  form_close_message: ''
+  form_exception_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_disable_remote_addr: false
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: eca
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_reset: true
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  form_attributes:
+    class:
+      - bs-mt-3
+      - ''
+  form_method: ''
+  form_action: ''
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  submission_label: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_log: false
+  submission_excluded_elements:
+    dual_range_slider_frequency: dual_range_slider_frequency
+    selected_processors: selected_processors
+    selected_cpu: selected_cpu
+    summary_twig: summary_twig
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: false
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: true
+  wizard_progress_states: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_track: name
+  wizard_prev_button_label: Назад
+  wizard_next_button_label: Вперед
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  wizard_page_type: container
+  wizard_page_title_tag: h2
+  preview: 1
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes:
+    class:
+      - server-configurator-preview
+  preview_excluded_elements:
+    test_cpu_vendor: test_cpu_vendor
+    dual_range_slider_frequency: dual_range_slider_frequency
+    frequency_min: frequency_min
+    frequency_max: frequency_max
+    dual_range_slider_cores: dual_range_slider_cores
+    cores_min: cores_min
+    cores_max: cores_max
+    cpu_container_title: cpu_container_title
+    my_reset: my_reset
+    processor_for_server: processor_for_server
+    show_processors: show_processors
+    selected_processors: selected_processors
+    selected_cpu: selected_cpu
+    summary_twig: summary_twig
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: all
+  draft_multiple: false
+  draft_auto_save: true
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: modal
+  confirmation_url: ''
+  confirmation_title: 'Спасибо за обращение в компанию ТИСКОМ!'
+  confirmation_message: '<p>Ваш запрос отправлен.&nbsp;</p><p>Наш специалист скоро свяжется с Вами.</p>'
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: 'Обратно в каталог'
+  confirmation_back_attributes:
+    class:
+      - back
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: draft
+  purge_days: 1
+  results_disabled: false
+  results_disabled_ignore: false
+  results_customize: false
+  token_view: false
+  token_update: false
+  token_delete: false
+  serial_disabled: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email_podbor_servera_po_parametram:
+    id: email
+    handler_id: email_podbor_servera_po_parametram
+    label: 'Подтверждение Подбор сервера по параметрам'
+    notes: ''
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: main@ts0.ru
+      to_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      cc_mail: _default
+      cc_options: {  }
+      from_mail: main@ts0.ru
+      from_options: {  }
+      from_name: 'ТИСКОМ форма ПОДБОР СЕРВЕРА ПО ПАРАМЕТРАМ'
+      reply_to: '[webform_submission:values:e_mail:raw]'
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      subject: 'ТИСКОМ отправка формы ПОДБОР СЕРВЕРА ПО ПАРАМЕТРАМ'
+      body: _default
+      excluded_elements:
+        agreement: agreement
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      exclude_attachments: false
+      html: true
+      attachments: false
+      twig: false
+      theme_name: ''
+      parameters: {  }
+      debug: false
+variants: {  }

@@ -1,0 +1,30 @@
+uuid: 768549d9-3ea0-4f77-98cd-79963e497c15
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b7519732-2624-475a-9f85-4f828fda0a1a'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: jollyness_block_42
+theme: olivero
+region: content
+weight: -11
+provider: null
+plugin: 'block_content:b7519732-2624-475a-9f85-4f828fda0a1a'
+settings:
+  id: 'block_content:b7519732-2624-475a-9f85-4f828fda0a1a'
+  label: banner_xeon
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /scalable-xeon-processors

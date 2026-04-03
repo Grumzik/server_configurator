@@ -1,0 +1,24 @@
+uuid: e5e70345-f1b5-4c1c-af79-25098025c7dc
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.ssdsystem
+  module:
+    - text
+id: node.ssdsystem.body
+field_name: body
+entity_type: node
+bundle: ssdsystem
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

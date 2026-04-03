@@ -1,0 +1,300 @@
+uuid: 3f080f04-e806-4147-a1a1-371fc13d2f46
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.sh.body
+    - field.field.node.sh.field_adds
+    - field.field.node.sh.field_carry
+    - field.field.node.sh.field_color
+    - field.field.node.sh.field_complectation
+    - field.field.node.sh.field_depth
+    - field.field.node.sh.field_description
+    - field.field.node.sh.field_height
+    - field.field.node.sh.field_image
+    - field.field.node.sh.field_ip
+    - field.field.node.sh.field_useful_depth
+    - field.field.node.sh.field_vendor
+    - field.field.node.sh.field_width
+    - image.style.400x400_white_bg
+    - image.style.thumbnail
+    - image.style.wide
+    - node.type.sh
+  module:
+    - ds
+    - entity_reference_revisions
+    - field_group
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left:
+            server-img: server-img
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      footer:
+        - field_description
+        - field_complectation
+        - field_adds
+        - group_details_tabs
+        - group_opisanie
+        - group_komplektaciya
+        - group_dokumenty
+        - group_zapros_ceny
+      right:
+        - field_height
+        - field_width
+        - field_depth
+        - field_useful_depth
+        - field_carry
+        - field_color
+        - field_ip
+      left:
+        - field_image
+  field_group:
+    group_details_tabs:
+      children:
+        - group_opisanie
+        - group_komplektaciya
+        - group_dokumenty
+        - group_zapros_ceny
+      label: details_tabs
+      parent_name: ''
+      region: footer
+      weight: 20
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_opisanie:
+      children:
+        - field_description
+      label: Описание
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_komplektaciya:
+      children:
+        - field_complectation
+      label: Комплектация
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_dokumenty:
+      children: {  }
+      label: Документы
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_zapros_ceny:
+      children: {  }
+      label: 'Запрос цены'
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+id: node.sh.default
+targetEntityType: node
+bundle: sh
+mode: default
+content:
+  field_adds:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings: {  }
+    weight: 12
+    region: footer
+  field_carry:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: right
+  field_color:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: right
+  field_complectation:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+  field_depth:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: right
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+  field_height:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: right
+  field_image:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: server_carousel
+      link: ''
+      by_delta: -1
+      layout: bottom
+      view_mode: ''
+      cache: -1
+      admin_uri: '/admin/structure/types/manage/sh/display?ajax_form=1&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: entity_title
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: wide
+      image_style: 400x400_white_bg
+      media_switch: slick_lightbox
+      ratio: ''
+      thumbnail_style: thumbnail
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: server_thumbnail_carousel
+      skin_thumbnail: asnavfor
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 3
+    region: left
+  field_ip:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: right
+  field_useful_depth:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: right
+  field_width:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: right
+hidden:
+  addtoany: true
+  body: true
+  field_vendor: true
+  langcode: true
+  links: true

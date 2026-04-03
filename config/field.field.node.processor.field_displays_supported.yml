@@ -1,0 +1,23 @@
+uuid: fd26782a-0973-42cf-981e-c7643ed32cfb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_displays_supported
+    - node.type.processor
+id: node.processor.field_displays_supported
+field_name: field_displays_supported
+entity_type: node
+bundle: processor
+label: 'Displays Supported'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

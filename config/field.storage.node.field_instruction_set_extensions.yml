@@ -1,0 +1,21 @@
+uuid: ac9cd771-b774-413c-9522-381de3d7ab2d
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_instruction_set_extensions
+field_name: field_instruction_set_extensions
+entity_type: node
+type: string
+settings:
+  max_length: 80
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

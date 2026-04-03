@@ -1,0 +1,30 @@
+uuid: 8cc0b9df-4944-4056-835d-2d6f253ae46f
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ac01cd26-b930-4a61-81c8-2c2061a9a3d7'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: jollyness_block_50
+theme: olivero
+region: content
+weight: -15
+provider: null
+plugin: 'block_content:ac01cd26-b930-4a61-81c8-2c2061a9a3d7'
+settings:
+  id: 'block_content:ac01cd26-b930-4a61-81c8-2c2061a9a3d7'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /data_ssd_intel

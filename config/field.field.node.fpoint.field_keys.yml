@@ -1,0 +1,22 @@
+uuid: 3cb5f6de-882e-4ae3-8413-80fc21b37a82
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.fpoint
+  module:
+    - text
+id: node.fpoint.field_keys
+field_name: field_keys
+entity_type: node
+bundle: fpoint
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

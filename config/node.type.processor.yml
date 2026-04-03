@@ -1,0 +1,26 @@
+uuid: a783d1a7-62d5-4c15-9694-48aa059594ce
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: processor
+type: processor
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,23 @@
+uuid: 001c5061-e035-428c-80be-e521229d8433
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ecc_memory_supported
+    - node.type.processor
+id: node.processor.field_ecc_memory_supported
+field_name: field_ecc_memory_supported
+entity_type: node
+bundle: processor
+label: 'ECC Memory Supported'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

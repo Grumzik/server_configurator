@@ -1,0 +1,20 @@
+uuid: eb9c0e8a-cda0-49af-8430-717ad4c4b6bb
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_max_of_pci_express_lanes
+field_name: field_max_of_pci_express_lanes
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

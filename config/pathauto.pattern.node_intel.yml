@@ -1,0 +1,22 @@
+uuid: e8c7faf9-a9fd-4d7b-860e-9174a3330a97
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_intel
+label: 'Содержимое - intel'
+type: 'canonical_entities:node'
+pattern: 'product/[node:title]'
+selection_criteria:
+  07ac45a5-a51e-40ff-8822-541c5a325ff8:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 07ac45a5-a51e-40ff-8822-541c5a325ff8
+    context_mapping:
+      node: node
+    bundles:
+      intel: intel
+selection_logic: and
+weight: 0
+relationships: {  }

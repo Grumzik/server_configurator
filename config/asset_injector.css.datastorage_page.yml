@@ -1,0 +1,54 @@
+uuid: 8dc8afb8-fb12-458d-a24b-a726a28b2827
+langcode: ru
+status: true
+dependencies: {  }
+id: datastorage_page
+label: 'datastorage page'
+code: |+
+  #slick-a6ceaf50e59{
+  	  max-height: 400px;
+  	  width: auto; /* Ширина автоматически подстраивается под высоту */
+      overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+  	#slick-a6ceaf50e59{
+  	 max-height: 250px;
+  	}
+  }
+  /* #slick-a6ceaf50e59-nav img{
+  	max-height: 130px;
+    width: auto;
+    padding: 0;
+  } */
+  #slick-a6ceaf50e59-nav .slick-track{
+  	padding-top: 3px;
+  }
+
+
+
+  .group-right  .field {
+   /*  display: flex; /* Разрешаем flexbox layout */
+    /* align-items: center; /* Вертикальное выравнивание */
+  }
+
+  .group-right .field__label {
+    margin-right: 0.5em; 
+  }
+
+
+  .group-right .field__item {
+    margin-left: 0.5em; /* Добавляем отступ слева */
+  }
+
+  .group-right .field__label::after {
+    content: ": "; /* Добавляем двоеточие и пробел после field__label */
+    margin-right: 0.5em;
+  }
+
+
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

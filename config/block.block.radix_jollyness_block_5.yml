@@ -1,0 +1,25 @@
+uuid: 0741478f-dfbe-4f54-8b57-c3d3bb97cbb6
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:82c1b25a-ffb0-4e97-bba3-be1c65ab0130'
+  module:
+    - block_content
+  theme:
+    - radix
+id: radix_jollyness_block_5
+theme: radix
+region: content
+weight: -17
+provider: null
+plugin: 'block_content:82c1b25a-ffb0-4e97-bba3-be1c65ab0130'
+settings:
+  id: 'block_content:82c1b25a-ffb0-4e97-bba3-be1c65ab0130'
+  label: 'Contact Call Us Information'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

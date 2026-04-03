@@ -1,0 +1,38 @@
+uuid: 59d74c6f-6119-4f04-b14c-cd5620bb0a51
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.dexp_portfolio.body
+    - field.field.node.dexp_portfolio.field_portfolio_categories
+    - field.field.node.dexp_portfolio.field_portfolio_images
+    - field.field.node.dexp_portfolio.field_portfolio_url
+    - node.type.dexp_portfolio
+  module:
+    - text
+    - user
+id: node.dexp_portfolio.teaser
+targetEntityType: node
+bundle: dexp_portfolio
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_portfolio_categories: true
+  field_portfolio_images: true
+  field_portfolio_url: true
+  langcode: true

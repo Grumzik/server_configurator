@@ -1,0 +1,32 @@
+uuid: 2dbb8ea9-623b-475a-82d6-add04dee9973
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.adds.field_add_description
+    - field.field.paragraph.adds.field_adds_file
+    - paragraphs.paragraphs_type.adds
+  module:
+    - file
+id: paragraph.adds.default
+targetEntityType: paragraph
+bundle: adds
+mode: default
+content:
+  field_add_description:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_adds_file:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

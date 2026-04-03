@@ -1,0 +1,52 @@
+uuid: 576972fe-7c30-49f0-8cb4-fcfa74ea5c30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ebt_slick_slider.field_ebt_slick_slider_image
+    - field.field.paragraph.ebt_slick_slider.field_ebt_slick_slider_link
+    - field.field.paragraph.ebt_slick_slider.field_ebt_slick_slider_text
+    - image.style.slick_slider_card
+    - paragraphs.paragraphs_type.ebt_slick_slider
+  module:
+    - link
+    - media
+    - text
+_core:
+  default_config_hash: VVV9wfo5l1gK1weU695gzyXqp5on_oNav7jAwjjWowQ
+id: paragraph.ebt_slick_slider.default
+targetEntityType: paragraph
+bundle: ebt_slick_slider
+mode: default
+content:
+  field_ebt_slick_slider_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: slick_slider_card
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ebt_slick_slider_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 1024
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_ebt_slick_slider_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

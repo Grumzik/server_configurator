@@ -1,0 +1,67 @@
+uuid: 2ae81345-278c-4651-83fe-4d3c40dd4e3a
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_catalog
+label: 'tis catalog'
+code: |2
+   .catalog, .catalog .view-content{
+   		margin-top: 50px;
+   		margin-bottom: 50px;
+   	}   
+   .catalog .view-content{
+   		margin-top: 30px;
+   	}   
+  .catalog__entry{
+  		padding: 20px;
+  		position: relative;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+  }   
+  @media (min-width: 767px) {
+      .catalog__entry:hover {
+          z-index: 30;
+          -webkit-box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+          box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+      	
+   }}
+      
+  .catalog__entry{
+  	font-size: 0.85rem;
+  }
+  .catalog__entry ul{
+  	padding: 0px;
+  }
+  .catalog__entry li{
+  	list-style-type: none;
+  }
+
+  .catalog__entry p{
+  	margin-bottom: 0;
+  }
+
+  .catalog__image{
+  	display: block; /* Или inline-block, в зависимости от вашей верстки */
+    overflow: hidden; /* Скрываем лишнее изображение при увеличении */
+    margin: 20px 0;
+    text-align: center;
+  }
+
+
+
+  .catalog__image img {
+    transition: transform 0.3s ease; /* Плавный переход */
+    max-height: 350px;
+    width: auto;
+
+  }
+
+  .catalog__image img:hover {
+    transform: scale(1.1); /* Увеличение на 10% */
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

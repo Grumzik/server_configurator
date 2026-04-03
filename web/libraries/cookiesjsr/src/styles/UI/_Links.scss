@@ -1,0 +1,43 @@
+@use "../vars" as v;
+
+.cookiesjsr-links {
+  list-style: none;
+  margin: 0 -0.75em;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+
+  &--row {
+    li {
+      margin: 0;
+      padding-left: 0.75em;
+      padding-right: 0.75em;
+      position: relative;
+
+      a {
+        margin: 0;
+        padding: 0;
+        line-height: 2em;
+        display: inline-block;
+      }
+
+      &:last-child::before {
+        content: none;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 0.3em;
+        height: 0.3em;
+        background-color: var(--link-list-separator-color, #fff);
+        transform: translate(50%, -40%);
+      }
+    }
+  }
+}

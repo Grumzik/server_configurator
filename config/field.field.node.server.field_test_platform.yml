@@ -1,0 +1,19 @@
+uuid: 7706781c-fbde-4e17-b9d6-6501b11020b3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_test_platform
+    - node.type.server
+id: node.server.field_test_platform
+field_name: field_test_platform
+entity_type: node
+bundle: server
+label: test_platform
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

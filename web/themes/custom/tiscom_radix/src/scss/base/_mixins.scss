@@ -1,0 +1,20 @@
+// Define your custom mixins here.
+// -----------------------------------------------------------------------------
+// Breakpoits mixins
+@mixin breakpoint($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($breakpoint) {
+  @media only screen and (max-width: $breakpoint - 1px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-between($min, $max) {
+  @media only screen and (min-width: $min) and (max-width: $max - 1px) {
+    @content;
+  }
+}

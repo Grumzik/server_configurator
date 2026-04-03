@@ -1,0 +1,20 @@
+uuid: a147d6e3-1c3c-4692-a924-811b27525d19
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tcase
+field_name: field_tcase
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

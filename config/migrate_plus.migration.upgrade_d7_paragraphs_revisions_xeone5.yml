@@ -1,0 +1,47 @@
+uuid: 6432fa58-258f-4ae8-97f1-65c2b6db556a
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_paragraphs_revisions_xeone5
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Revisions Content'
+migration_group: migrate_drupal_7
+label: 'Paragraphs Revisions (xeone5)'
+source:
+  plugin: d7_paragraphs_item_revision
+  bundle: xeone5
+process:
+  id:
+    -
+      plugin: paragraphs_lookup
+      tags:
+        - 'Paragraphs Content'
+      source: item_id
+    -
+      plugin: extract
+      index:
+        - id
+  type:
+    -
+      plugin: get
+      source: bundle
+  field_metatag:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  new_revisions: true
+  default_bundle: xeone5
+migration_dependencies:
+  required:
+    - upgrade_d7_paragraphs_i1
+    - upgrade_d7_paragraphs_paragraphs_pack_content
+    - upgrade_d7_paragraphs_paragraphs_pack_node_list
+    - upgrade_d7_paragraphs_xeone5
+  optional: {  }

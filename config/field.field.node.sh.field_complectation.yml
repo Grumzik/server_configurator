@@ -1,0 +1,22 @@
+uuid: ac5771b3-00d0-4d6f-80a8-1a76b0c562ca
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_complectation
+    - node.type.sh
+  module:
+    - text
+id: node.sh.field_complectation
+field_name: field_complectation
+entity_type: node
+bundle: sh
+label: Комплектация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

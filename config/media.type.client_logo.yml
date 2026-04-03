@@ -1,0 +1,13 @@
+uuid: 44c98010-7b8d-4efc-b417-ad35a42a4b92
+langcode: ru
+status: true
+dependencies: {  }
+id: client_logo
+label: 'Client logo'
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

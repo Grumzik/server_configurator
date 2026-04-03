@@ -1,0 +1,23 @@
+uuid: 02953c45-4a4f-4115-854d-13a127c920da
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraphs_pack_node_list.pp_items_node
+    - field.field.paragraph.paragraphs_pack_node_list.pp_title
+    - paragraphs.paragraphs_type.paragraphs_pack_node_list
+id: paragraph.paragraphs_pack_node_list.default
+targetEntityType: paragraph
+bundle: paragraphs_pack_node_list
+mode: default
+content:
+  pp_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  pp_items_node: true

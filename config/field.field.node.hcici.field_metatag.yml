@@ -1,0 +1,21 @@
+uuid: 069c2378-c249-4954-b82e-ffd6f33cf4b2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.hcici
+  module:
+    - metatag
+id: node.hcici.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: hcici
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

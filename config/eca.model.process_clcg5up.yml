@@ -1,0 +1,248 @@
+uuid: 196d1278-4d49-4c22-9eac-70cf3ca4560d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - eca.eca.process_clcg5up
+id: process_clcg5up
+label: 'Server platforms from field_test_platform'
+tags:
+  - untagged
+documentation: ''
+filename: ''
+modeldata: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="Process_cLcG5Up" name="Server platforms from field_test_platform" isExecutable="false">
+      <bpmn2:startEvent id="Event_1654b6t" name="presave server entity" camunda:modelerTemplate="org.drupal.event.content_entity:presave">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="content_entity:presave"/>
+          </camunda:properties>
+          <camunda:field name="type">
+            <camunda:string>node server</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_13s5x09</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="Activity_0e6ohj0" name="Get field_test_platform_vendor value" camunda:modelerTemplate="org.drupal.action.eca_get_field_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_get_field_value"/>
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>field_test_platform_vendor</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>platform_vendor</camunda:string>
+          </camunda:field>
+          <camunda:field name="object">
+            <camunda:string>entity</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_13s5x09</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_01fos0r</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_13s5x09" sourceRef="Event_1654b6t" targetRef="Activity_0e6ohj0"/>
+      <bpmn2:task id="Activity_11c3rbd" name="Get field_test_platform_name value" camunda:modelerTemplate="org.drupal.action.eca_get_field_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_get_field_value"/>
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>field_test_platform</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>platform_name</camunda:string>
+          </camunda:field>
+          <camunda:field name="object">
+            <camunda:string>entity</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_01fos0r</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0gb2cer</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_01fos0r" sourceRef="Activity_0e6ohj0" targetRef="Activity_11c3rbd"/>
+      <bpmn2:task id="Activity_0rx0s59" name="message токен есть" camunda:modelerTemplate="org.drupal.action.eca_warning_message">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_warning_message"/>
+          </camunda:properties>
+          <camunda:field name="message">
+            <camunda:string>токен есть</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace_tokens">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0h31dho</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0cuqujk</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="Activity_1vc0oc2" name="Entity platform load" camunda:modelerTemplate="org.drupal.action.eca_token_load_entity">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_load_entity"/>
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>platform_entity</camunda:string>
+          </camunda:field>
+          <camunda:field name="from">
+            <camunda:string>properties</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity_type">
+            <camunda:string>node</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity_id">
+            <camunda:string/>
+          </camunda:field>
+          <camunda:field name="revision_id">
+            <camunda:string/>
+          </camunda:field>
+          <camunda:field name="langcode">
+            <camunda:string>_interface</camunda:string>
+          </camunda:field>
+          <camunda:field name="latest_revision">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="unchanged">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="properties">
+            <camunda:string>type: platform
+  title: "[platform_name]"</camunda:string>
+          </camunda:field>
+          <camunda:field name="object">
+            <camunda:string/>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0gb2cer</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0h31dho</bpmn2:outgoing>
+        <bpmn2:outgoing>Flow_0ijtg3j</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0gb2cer" sourceRef="Activity_11c3rbd" targetRef="Activity_1vc0oc2"/>
+      <bpmn2:task id="Activity_0rhhku0" name="Set platform value" camunda:modelerTemplate="org.drupal.action.eca_set_field_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_set_field_value"/>
+          </camunda:properties>
+          <camunda:field name="method">
+            <camunda:string>set:empty</camunda:string>
+          </camunda:field>
+          <camunda:field name="strip_tags">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="field_name">
+            <camunda:string>field_platform</camunda:string>
+          </camunda:field>
+          <camunda:field name="trim">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="field_value">
+            <camunda:string>[platform_entity]</camunda:string>
+          </camunda:field>
+          <camunda:field name="save_entity">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="object">
+            <camunda:string>entity</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0cuqujk</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0h31dho" name="token exists?" camunda:modelerTemplate="org.drupal.condition.eca_token_exists" sourceRef="Activity_1vc0oc2" targetRef="Activity_0rx0s59">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_exists"/>
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>platform_entity</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:sequenceFlow id="Flow_0cuqujk" sourceRef="Activity_0rx0s59" targetRef="Activity_0rhhku0"/>
+      <bpmn2:task id="Activity_1nx6pki" name="message entity есть" camunda:modelerTemplate="org.drupal.action.eca_warning_message">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_warning_message"/>
+          </camunda:properties>
+          <camunda:field name="message">
+            <camunda:string>entity есть:  [platform_entity]</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace_tokens">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0ijtg3j</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0ijtg3j" name="entity exists?" sourceRef="Activity_1vc0oc2" targetRef="Activity_1nx6pki"/>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="sid-806a24d7-ec0d-48ab-93ef-46b59cc56cec">
+      <bpmndi:BPMNPlane id="sid-3ba3de69-8f84-475e-b0ea-facfaa078305" bpmnElement="Process_cLcG5Up">
+        <bpmndi:BPMNShape id="Event_1654b6t_di" bpmnElement="Event_1654b6t">
+          <dc:Bounds x="172" y="132" width="36" height="36"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="155" y="175" width="74" height="27"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0e6ohj0_di" bpmnElement="Activity_0e6ohj0">
+          <dc:Bounds x="260" y="110" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="BPMNShape_1y11qm0" bpmnElement="Activity_11c3rbd">
+          <dc:Bounds x="390" y="110" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0rhhku0_di" bpmnElement="Activity_0rhhku0">
+          <dc:Bounds x="930" y="110" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0rx0s59_di" bpmnElement="Activity_0rx0s59">
+          <dc:Bounds x="750" y="110" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="BPMNShape_1mvinhy" bpmnElement="Activity_1nx6pki">
+          <dc:Bounds x="760" y="290" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_1vc0oc2_di" bpmnElement="Activity_1vc0oc2">
+          <dc:Bounds x="550" y="110" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_13s5x09_di" bpmnElement="Flow_13s5x09">
+          <di:waypoint x="208" y="150"/>
+          <di:waypoint x="260" y="150"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_01fos0r_di" bpmnElement="Flow_01fos0r">
+          <di:waypoint x="360" y="150"/>
+          <di:waypoint x="390" y="150"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0gb2cer_di" bpmnElement="Flow_0gb2cer">
+          <di:waypoint x="490" y="150"/>
+          <di:waypoint x="550" y="150"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0h31dho_di" bpmnElement="Flow_0h31dho">
+          <di:waypoint x="650" y="150"/>
+          <di:waypoint x="750" y="150"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="669" y="132" width="64" height="14"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0cuqujk_di" bpmnElement="Flow_0cuqujk">
+          <di:waypoint x="850" y="150"/>
+          <di:waypoint x="930" y="150"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0ijtg3j_di" bpmnElement="Flow_0ijtg3j">
+          <di:waypoint x="650" y="150"/>
+          <di:waypoint x="715" y="150"/>
+          <di:waypoint x="715" y="350"/>
+          <di:waypoint x="760" y="350"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="700" y="247" width="64" height="14"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

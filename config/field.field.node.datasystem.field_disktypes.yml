@@ -1,0 +1,21 @@
+uuid: 96d3ee24-cc83-4dc3-bac9-283f08e111f1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disktypes
+    - node.type.datasystem
+  module:
+    - options
+id: node.datasystem.field_disktypes
+field_name: field_disktypes
+entity_type: node
+bundle: datasystem
+label: 'Тип дисков'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

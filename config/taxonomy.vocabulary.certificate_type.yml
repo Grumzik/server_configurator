@@ -1,0 +1,9 @@
+uuid: d13f9483-bec7-4d97-9c28-4863b78dbdf3
+langcode: ru
+status: true
+dependencies: {  }
+name: certificate_type
+vid: certificate_type
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,21 @@
+uuid: f8a40a80-d6d6-4ddd-8ee6-528296b9cb09
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">adv</em> content'
+name: adv
+type: adv
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

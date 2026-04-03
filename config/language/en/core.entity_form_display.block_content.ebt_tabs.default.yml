@@ -1,0 +1,13 @@
+third_party_settings:
+  field_group:
+    group_tabs:
+      label: Tabs
+    group_content:
+      label: Content
+    group_settings:
+      label: Settings
+content:
+  field_ebt_tabs:
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs

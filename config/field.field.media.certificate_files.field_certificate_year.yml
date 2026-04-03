@@ -1,0 +1,23 @@
+uuid: 9e60695f-7fdc-4a55-a2f2-f98b4d823dce
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_certificate_year
+    - media.type.certificate_files
+id: media.certificate_files.field_certificate_year
+field_name: field_certificate_year
+entity_type: media
+bundle: certificate_files
+label: 'Certificate Year'
+description: 'Год получения сертификата'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1980
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

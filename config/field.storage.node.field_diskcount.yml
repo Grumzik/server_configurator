@@ -1,0 +1,20 @@
+uuid: 937c0fcd-bbf4-4891-b4f9-84ce399526cb
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_diskcount
+field_name: field_diskcount
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

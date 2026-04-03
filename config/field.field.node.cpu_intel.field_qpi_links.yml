@@ -1,0 +1,23 @@
+uuid: 8aa1fd25-bf39-48f3-ab69-3ec200b55cd3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_qpi_links
+    - node.type.cpu_intel
+id: node.cpu_intel.field_qpi_links
+field_name: field_qpi_links
+entity_type: node
+bundle: cpu_intel
+label: 'QPI links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

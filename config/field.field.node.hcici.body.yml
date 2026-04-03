@@ -1,0 +1,24 @@
+uuid: cbae1e6a-e734-4505-ad18-bd2a8dfbcaad
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.hcici
+  module:
+    - text
+id: node.hcici.body
+field_name: body
+entity_type: node
+bundle: hcici
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

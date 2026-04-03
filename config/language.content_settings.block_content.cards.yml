@@ -1,0 +1,11 @@
+uuid: cdfb6061-61cf-47f9-83c2-891b6704ff1a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+id: block_content.cards
+target_entity_type_id: block_content
+target_bundle: cards
+default_langcode: site_default
+language_alterable: false

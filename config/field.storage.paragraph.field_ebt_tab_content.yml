@@ -1,0 +1,35 @@
+uuid: 04f8a080-e0e0-4e16-8408-2ad8358b6989
+langcode: ru
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+_core:
+  default_config_hash: 7FvDDnDFUS9rxHT4MbM9RwHPArBckbhp09KzHNMtD10
+id: paragraph.field_ebt_tab_content
+field_name: field_ebt_tab_content
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: text
+      label: Текст
+    -
+      value: page
+      label: Страница
+    -
+      value: block
+      label: Блок
+    -
+      value: views
+      label: Представление
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

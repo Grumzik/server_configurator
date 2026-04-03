@@ -1,0 +1,20 @@
+uuid: 8760542c-0251-4f27-812b-1b2a5950a768
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_lan_speed
+field_name: field_lan_speed
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: ab40fae1-3b14-49bb-8308-ebbb5a9b2581
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_quantity
+    - node.type.server
+  module:
+    - options
+id: node.server.field_cpu_quantity
+field_name: field_cpu_quantity
+entity_type: node
+bundle: server
+label: 'CPU Quantity'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

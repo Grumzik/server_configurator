@@ -1,0 +1,23 @@
+uuid: a2cb1f03-95f2-4c17-8261-387383cf2ee2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vtx
+    - node.type.cpu_intel
+id: node.cpu_intel.field_vtx
+field_name: field_vtx
+entity_type: node
+bundle: cpu_intel
+label: VTX
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

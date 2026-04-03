@@ -1,0 +1,19 @@
+uuid: 001cc30f-2cc6-4bd9-aeef-e2cc6bced7cf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_system_management
+    - node.type.platform
+id: node.platform.field_system_management
+field_name: field_system_management
+entity_type: node
+bundle: platform
+label: 'System Management'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

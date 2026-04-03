@@ -1,0 +1,32 @@
+uuid: a2b02573-0b05-4b96-915b-55de4f144a68
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file
+    - node.type.certificate
+  module:
+    - file
+    - pdf_preview_image
+third_party_settings:
+  pdf_preview_image:
+    enable: 1
+    target_field: field_image
+id: node.certificate.field_file
+field_name: field_file
+entity_type: node
+bundle: certificate
+label: 'Версия для печати'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: certificate
+  file_extensions: 'zip pdf'
+  max_filesize: '5 MB'
+  description_field: true
+field_type: file

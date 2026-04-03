@@ -1,0 +1,21 @@
+uuid: 3bb7428c-1d00-40db-baa1-5dbd60a91540
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.server2
+  module:
+    - metatag
+id: node.server2.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: server2
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

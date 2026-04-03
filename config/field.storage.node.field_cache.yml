@@ -1,0 +1,20 @@
+uuid: 6e88f1a9-e938-4e19-af87-df0c042f10f8
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cache
+field_name: field_cache
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

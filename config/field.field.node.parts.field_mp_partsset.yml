@@ -1,0 +1,26 @@
+uuid: bd0ceb3d-92f0-4ca2-a319-ff9931686e16
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mp_partsset
+    - node.type.parts
+    - taxonomy.vocabulary.parts_set
+id: node.parts.field_mp_partsset
+field_name: field_mp_partsset
+entity_type: node
+bundle: parts
+label: mp_partsset
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      parts_set: parts_set
+    sort:
+      field: _none
+field_type: entity_reference

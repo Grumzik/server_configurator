@@ -1,0 +1,21 @@
+uuid: bc0b4585-1f4b-4a25-8fb5-adf4fa998e65
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_in_block
+    - node.type.advertisment
+  module:
+    - options
+id: node.advertisment.field_in_block
+field_name: field_in_block
+entity_type: node
+bundle: advertisment
+label: 'Показывать в блоке'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

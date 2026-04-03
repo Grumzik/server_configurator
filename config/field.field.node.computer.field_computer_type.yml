@@ -1,0 +1,26 @@
+uuid: 16ab675b-0496-49eb-a6a1-c79d6d8d528d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_computer_type
+    - node.type.computer
+    - taxonomy.vocabulary.computer_type
+id: node.computer.field_computer_type
+field_name: field_computer_type
+entity_type: node
+bundle: computer
+label: 'Тип компьютера'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      computer_type: computer_type
+    sort:
+      field: _none
+field_type: entity_reference

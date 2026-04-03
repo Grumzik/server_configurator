@@ -1,0 +1,11 @@
+uuid: 74e0b9b0-fd79-4ff8-a5aa-73c9bb4e0c58
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.motherboard
+id: taxonomy_term.motherboard
+target_entity_type_id: taxonomy_term
+target_bundle: motherboard
+default_langcode: und
+language_alterable: false

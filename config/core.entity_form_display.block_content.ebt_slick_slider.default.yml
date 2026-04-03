@@ -1,0 +1,113 @@
+uuid: 1bafb07c-9968-442c-b4a3-f88b19fd1ecd
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_slick_slider
+    - field.field.block_content.ebt_slick_slider.body
+    - field.field.block_content.ebt_slick_slider.field_ebt_settings
+    - field.field.block_content.ebt_slick_slider.field_ebt_slick_slider
+  module:
+    - ebt_slick_slider
+    - field_group
+    - paragraphs
+    - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_content
+        - group_settings
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 120
+    group_content:
+      children:
+        - body
+        - field_ebt_slick_slider
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_settings:
+      children:
+        - field_ebt_settings
+      label: Settings
+      region: content
+      parent_name: group_tabs
+      weight: 8
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: bpVaLzDSRRw2IoN4B7lX2DmpEtGagQ_kHdtfu2QnBWk
+id: block_content.ebt_slick_slider.default
+targetEntityType: block_content
+bundle: ebt_slick_slider
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 6
+    region: content
+    settings:
+      rows: 4
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_ebt_settings:
+    type: ebt_settings_slick_slider
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ebt_slick_slider:
+    type: entity_reference_paragraphs
+    weight: 7
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

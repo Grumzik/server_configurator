@@ -1,0 +1,25 @@
+uuid: 95187659-f8e5-4a30-a9a9-6a4a95e871ac
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:carousel:7f2c9b48-1ab3-44c9-9254-507a8abdddb2'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: olivero_slider
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: 'block_content:7f2c9b48-1ab3-44c9-9254-507a8abdddb2'
+settings:
+  id: 'block_content:7f2c9b48-1ab3-44c9-9254-507a8abdddb2'
+  label: Slider
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

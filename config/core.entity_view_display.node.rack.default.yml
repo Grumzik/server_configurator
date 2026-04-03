@@ -1,0 +1,133 @@
+uuid: 946c6b4e-c9fa-4337-9371-b987a902b983
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.rack.field_adds
+    - field.field.node.rack.field_description
+    - field.field.node.rack.field_image
+    - field.field.node.rack.field_specification
+    - image.style.400x400_white_bg
+    - image.style.thumbnail
+    - image.style.wide
+    - node.type.rack
+  module:
+    - ds
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left: {  }
+          right:
+            server-img: server-img
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      left:
+        - field_image
+      right:
+        - field_description
+      footer:
+        - field_specification
+id: node.rack.default
+targetEntityType: node
+bundle: rack
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: right
+  field_image:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: server_carousel
+      link: ''
+      by_delta: -1
+      layout: bottom
+      view_mode: ''
+      cache: -1
+      admin_uri: '/admin/structure/types/manage/rack/display?ajax_form=1&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: entity_title
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: wide
+      image_style: 400x400_white_bg
+      media_switch: slick_lightbox
+      ratio: ''
+      thumbnail_style: thumbnail
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: server_thumbnail_carousel
+      skin_thumbnail: asnavfor
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: footer
+hidden:
+  addtoany: true
+  field_adds: true
+  langcode: true
+  links: true

@@ -1,0 +1,20 @@
+uuid: 708c5317-be65-4d23-859b-299d90d2495f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - cookies
+  theme:
+    - tiscom_radix
+id: tiscom_radix_cookiesui
+theme: tiscom_radix
+region: content
+weight: -9
+provider: null
+plugin: cookies_ui_block
+settings:
+  id: cookies_ui_block
+  label: 'Cookies UI'
+  label_display: '0'
+  provider: cookies
+visibility: {  }

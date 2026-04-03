@@ -1,0 +1,11 @@
+dual_range_slider:
+  js:
+    /libraries/nouislider/nouislider.min.js: { minified: true }
+    js/dual_range_slider.js: {}
+  css:
+    theme:
+      /libraries/nouislider/nouislider.min.css: {}
+      css/dual_range_slider.css: {}
+  dependencies:
+    - core/drupal
+

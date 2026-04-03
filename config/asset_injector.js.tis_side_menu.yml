@@ -1,0 +1,62 @@
+uuid: 1ddca7fd-8c30-44b5-a209-816df6e32f01
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_side_menu
+label: 'tis side menu'
+code: |+
+  (function (Drupal, $) {
+
+    'use strict';
+
+    Drupal.behaviors.offcanvasWidth = {
+      attach: function (context, settings) {
+      	
+
+      	
+        // Находим offcanvas элемент
+        const offcanvas = document.getElementById('js-bootstrap-offcanvas');
+
+
+        // Находим элементы подменю (адаптируйте селектор под вашу разметку)
+        const submenuToggles = document.querySelectorAll('.dropdown-toggle');
+
+
+        submenuToggles.forEach(toggle => {
+           toggle.addEventListener('click', function() {
+
+            // Проверяем, открыто ли подменю
+            const isSubmenuOpen = this.nextElementSibling.classList.contains('show');
+
+            if (isSubmenuOpen) {
+              offcanvas.classList.remove('offcanvas-extra-wide');
+              offcanvas.classList.add('offcanvas-wide'); // Вернуть стандартную ширину
+            } else {
+              offcanvas.classList.remove('offcanvas-wide');
+              offcanvas.classList.add('offcanvas-extra-wide'); // Расширить offcanvas
+            }
+
+
+          });
+        });
+
+
+
+
+      }
+    };
+
+  })(Drupal, jQuery);
+
+
+
+
+
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

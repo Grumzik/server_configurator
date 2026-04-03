@@ -1,0 +1,19 @@
+uuid: 27d6df93-98cf-4dfb-beab-e3855e6dc99f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_sas
+field_name: field_sas
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

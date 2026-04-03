@@ -1,0 +1,103 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.highlighted: Items for the highlighted content region.
+ * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.footer: Items for the footer region.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+{% include 'tiscom_radix:page'  with {
+  content_attributes: content_attributes.setAttribute('class', ['custom-class']),
+  page_main_utility_classes: ['utility-class'],
+  page_header_container_type: false,
+  page_content_container_type: 'container-fluid',
+}
+%}
+
+{#<div class="container m-5">#}
+{#  <p class="bg-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquid deserunt laboriosam similique tempore! Accusamus, aliquid animi delectus dicta distinctio enim eum iste maiores nemo quae repellat sit ut voluptas!</p>#}
+
+{#  <div class="has-success" data-bs-theme="tis">#}
+{#  <h1 class="display-2">Test</h1>#}
+{#  <p>test, test, test</p>#}
+{#  <p class="lead">paragraph lead</p>#}
+{#  <p class="lead text-center">p lead text center</p>#}
+{#  <p class="lead text-start">p lead text start#}
+{#  <p class="lead text-end">p lead text end</p>#}
+{#</div>#}
+{#  <a href="#" class="btn btn-tis-orange">btn-tis-orange</a>#}
+{#  <a href="" class="btn btn-tis-primary">btn tis-primary</a>#}
+
+
+{#  <p class="text-primary">p .text-primary</p>#}
+{#  <p class="text-primary-emphasis">p .text-primary-emphasis</p>#}
+{#  <p class="text-secondary">p .text-secondary</p>#}
+{#  <p class="text-secondary-emphasis">p .text-secondary-emphasis</p>#}
+{#  <p class="text-tis-primary">p .text-tis-primary</p>#}
+{#  <p class="text-tis-primary-emphasis">p .text-tis-primary-emphasis</p>#}
+{#  <p class="text-tis-secondary">p .text-tis-secondary</p>#}
+{#  <p class="text-tis-secondary-emphasis">p .text-tis-secondary-emphasis</p>#}
+
+{#  <div class="container mt-5">#}
+{#  <button type="button" class="btn btn-primary">Primary</button>#}
+{#  <button type="button" class="btn btn-secondary">Secondary</button>#}
+{#  <button type="button" class="btn btn-success">Success</button>#}
+{#  <button type="button" class="btn btn-info">Info</button>#}
+{#  <button type="button" class="btn btn-warning">Warning</button>#}
+{#  <button type="button" class="btn btn-danger">Danger</button>#}
+{#  <button type="button" class="btn btn-light">Light</button>#}
+{#  <button type="button" class="btn btn-dark">Dark</button>#}
+{#  <button type="button" class="btn btn-link">Link</button>#}
+{#  <button type="button" class="btn btn-tis-orange">tis-orang</button>#}
+{#  <button type="button" class="btn btn-tis-primary">tis-primary</button>#}
+{#  <button type="button" class="btn btn-tis-gray">tis-gray</button>#}
+{#</div>#}
+
+{#</div>#}
+
+
+{#{%#}
+{#  include 'tiscom_radix:alert' with {#}
+{#  type: 'success',#}
+{#  heading: 'Important Notice!',#}
+{#  dismissible: true,#}
+{#  alert_utility_classes: ['mb-4', 'shadow-sm'],#}
+{#  content: 'This is an important alert message. Please pay attention!'#}
+{#}#}
+{#%}#}

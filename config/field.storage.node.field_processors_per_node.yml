@@ -1,0 +1,30 @@
+uuid: f9955f72-67cd-4f0e-b198-228d57e52260
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_processors_per_node
+field_name: field_processors_per_node
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: Один
+    -
+      value: 2
+      label: Два
+    -
+      value: 4
+      label: Четыре
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

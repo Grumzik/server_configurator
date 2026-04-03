@@ -1,0 +1,26 @@
+uuid: 0e5e5997-5592-4de2-814c-356d86bd3522
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vendor
+    - node.type.ssdsystem
+    - taxonomy.vocabulary.vendors
+id: node.ssdsystem.field_vendor
+field_name: field_vendor
+entity_type: node
+bundle: ssdsystem
+label: Производитель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vendors: vendors
+    sort:
+      field: _none
+field_type: entity_reference

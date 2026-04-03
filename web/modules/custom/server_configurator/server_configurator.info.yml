@@ -1,0 +1,9 @@
+name: 'Server Configurator'
+type: module
+description: 'Client-side logic for server hardware configurator'
+core_version_requirement: ^10
+package: Tiscom
+dependencies:
+  - drupal:webform
+  - drupal:views
+

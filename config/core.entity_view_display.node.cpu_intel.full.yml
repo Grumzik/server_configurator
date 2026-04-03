@@ -1,0 +1,384 @@
+uuid: 6e659303-ce8b-486d-9c23-2b760406ebfb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.cpu_intel.field__iflexma
+    - field.field.node.cpu_intel.field_aesni
+    - field.field.node.cpu_intel.field_bus_speed
+    - field.field.node.cpu_intel.field_bus_type
+    - field.field.node.cpu_intel.field_clock_speed
+    - field.field.node.cpu_intel.field_cores
+    - field.field.node.cpu_intel.field_cpu_cache
+    - field.field.node.cpu_intel.field_cpu_codename
+    - field.field.node.cpu_intel.field_cpu_name
+    - field.field.node.cpu_intel.field_cpu_number
+    - field.field.node.cpu_intel.field_displays_supported
+    - field.field.node.cpu_intel.field_dual_display_capable
+    - field.field.node.cpu_intel.field_ecc_memory_supported
+    - field.field.node.cpu_intel.field_edb
+    - field.field.node.cpu_intel.field_eist
+    - field.field.node.cpu_intel.field_ept
+    - field.field.node.cpu_intel.field_graphics_base_frequency
+    - field.field.node.cpu_intel.field_graphics_max_dynamic_frequ
+    - field.field.node.cpu_intel.field_ht
+    - field.field.node.cpu_intel.field_idbs
+    - field.field.node.cpu_intel.field_ifastma
+    - field.field.node.cpu_intel.field_instruction_set
+    - field.field.node.cpu_intel.field_instruction_set_extensions
+    - field.field.node.cpu_intel.field_intel_clear_video_hd_techn
+    - field.field.node.cpu_intel.field_intel_flexible_display_int
+    - field.field.node.cpu_intel.field_intel_insider
+    - field.field.node.cpu_intel.field_intel_intru_3d_technology
+    - field.field.node.cpu_intel.field_intel_quick_sync_video
+    - field.field.node.cpu_intel.field_is
+    - field.field.node.cpu_intel.field_lithography
+    - field.field.node.cpu_intel.field_max_cpu_configuration
+    - field.field.node.cpu_intel.field_max_memory_bandwidth
+    - field.field.node.cpu_intel.field_max_memory_size
+    - field.field.node.cpu_intel.field_memory_channels
+    - field.field.node.cpu_intel.field_memory_types
+    - field.field.node.cpu_intel.field_processor_graphics
+    - field.field.node.cpu_intel.field_qpi_links
+    - field.field.node.cpu_intel.field_sockets_supported
+    - field.field.node.cpu_intel.field_tbt
+    - field.field.node.cpu_intel.field_tdp
+    - field.field.node.cpu_intel.field_threads
+    - field.field.node.cpu_intel.field_tm
+    - field.field.node.cpu_intel.field_turbo_speed
+    - field.field.node.cpu_intel.field_txt
+    - field.field.node.cpu_intel.field_vpro
+    - field.field.node.cpu_intel.field_vtd
+    - field.field.node.cpu_intel.field_vtx
+    - node.type.cpu_intel
+  module:
+    - field_group
+    - user
+third_party_settings:
+  field_group:
+    group_1:
+      children:
+        - group_2
+        - group_3
+        - group_memory
+        - group_expansion
+        - group_platformprotection
+        - group_dataprotection
+        - group_techlogies
+        - group_graphics
+      label: '1'
+      parent_name: ''
+      region: content
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: vertical
+        width_breakpoint: 640
+    group_2:
+      children:
+        - field_cpu_number
+        - field_cpu_codename
+        - field_cpu_cache
+        - field_bus_speed
+        - field_bus_type
+        - field_instruction_set
+        - field_qpi_links
+        - field_lithography
+        - field_max_cpu_configuration
+        - field_sockets_supported
+        - field_intel_insider
+      label: 'Основные функции'
+      parent_name: group_1
+      region: content
+      weight: 44
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_3:
+      children:
+        - field_clock_speed
+        - field_turbo_speed
+        - field_cores
+        - field_threads
+        - field_tdp
+      label: Производительность
+      parent_name: group_1
+      region: content
+      weight: 45
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_memory:
+      children:
+        - field_max_memory_size
+        - field_memory_types
+        - field_memory_channels
+        - field_max_memory_bandwidth
+        - field_ecc_memory_supported
+      label: 'Спецификации модулей памяти'
+      parent_name: group_1
+      region: content
+      weight: 46
+      format_type: tab
+      format_settings:
+        classes: 'group-memory field-group-tab'
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_expansion:
+      children:
+        - field_instruction_set_extensions
+      label: 'Варианты расширения'
+      parent_name: group_1
+      region: content
+      weight: 48
+      format_type: tab
+      format_settings:
+        classes: 'group-expansion field-group-tab'
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_platformprotection:
+      children:
+        - field_txt
+        - field_edb
+      label: 'Технология Intel® Platform Protection'
+      parent_name: group_1
+      region: content
+      weight: 51
+      format_type: tab
+      format_settings:
+        classes: 'group-platformprotection field-group-tab'
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_dataprotection:
+      children:
+        - field_aesni
+      label: 'Технология Intel® Data Protection'
+      parent_name: group_1
+      region: content
+      weight: 50
+      format_type: tab
+      format_settings:
+        classes: 'group-dataprotection field-group-tab'
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_techlogies:
+      children:
+        - field_ept
+        - field_vtx
+        - field_vtd
+        - field_tbt
+        - field_eist
+        - field_vpro
+        - field_ht
+        - field_tm
+        - field_is
+        - field_idbs
+        - field_ifastma
+        - field__iflexma
+      label: 'Усовершенствованные технологии'
+      parent_name: group_1
+      region: content
+      weight: 49
+      format_type: tab
+      format_settings:
+        classes: 'group-techlogies field-group-tab'
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_graphics:
+      children:
+        - field_processor_graphics
+        - field_graphics_base_frequency
+        - field_graphics_max_dynamic_frequ
+        - field_intel_quick_sync_video
+        - field_intel_intru_3d_technology
+        - field_intel_flexible_display_int
+        - field_intel_clear_video_hd_techn
+        - field_dual_display_capable
+        - field_displays_supported
+      label: 'Графическая подсистема'
+      parent_name: group_1
+      region: content
+      weight: 47
+      format_type: tab
+      format_settings:
+        classes: 'group-graphics field-group-tab'
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+id: node.cpu_intel.full
+targetEntityType: node
+bundle: cpu_intel
+mode: full
+content:
+  field__iflexma:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cpu_cache:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 47
+    region: content
+  field_cpu_codename:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 45
+    region: content
+  field_eist:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_ept:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_ht:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ifastma:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_max_cpu_configuration:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 46
+    region: content
+  field_tm:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_vpro:
+    type: boolean
+    label: inline
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  field_aesni: true
+  field_bus_speed: true
+  field_bus_type: true
+  field_clock_speed: true
+  field_cores: true
+  field_cpu_name: true
+  field_cpu_number: true
+  field_displays_supported: true
+  field_dual_display_capable: true
+  field_ecc_memory_supported: true
+  field_edb: true
+  field_graphics_base_frequency: true
+  field_graphics_max_dynamic_frequ: true
+  field_idbs: true
+  field_instruction_set: true
+  field_instruction_set_extensions: true
+  field_intel_clear_video_hd_techn: true
+  field_intel_flexible_display_int: true
+  field_intel_insider: true
+  field_intel_intru_3d_technology: true
+  field_intel_quick_sync_video: true
+  field_is: true
+  field_lithography: true
+  field_max_memory_bandwidth: true
+  field_max_memory_size: true
+  field_memory_channels: true
+  field_memory_types: true
+  field_processor_graphics: true
+  field_qpi_links: true
+  field_sockets_supported: true
+  field_tbt: true
+  field_tdp: true
+  field_threads: true
+  field_turbo_speed: true
+  field_txt: true
+  field_vtd: true
+  field_vtx: true
+  langcode: true

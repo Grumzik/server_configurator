@@ -1,0 +1,19 @@
+uuid: 68d7e3fb-2d5f-48ed-af9a-2e721b536c52
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_color
+    - node.type.sh
+id: node.sh.field_color
+field_name: field_color
+entity_type: node
+bundle: sh
+label: Цвет
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,24 @@
+uuid: a6bd9d4a-687e-4a33-9214-b8928613f2db
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.arcsystem
+  module:
+    - text
+id: node.arcsystem.body
+field_name: body
+entity_type: node
+bundle: arcsystem
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

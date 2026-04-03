@@ -1,0 +1,16 @@
+uuid: acf2e22c-0b6c-4cf6-889d-05dc443114b9
+langcode: ru
+status: true
+dependencies:
+  module:
+    - type_tray
+third_party_settings:
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">Superhero Portfolio</em> content'
+name: 'Superhero Portfolio'
+type: superhero_portfolio
+description: 'Provides information on Client/Work Portfolios'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

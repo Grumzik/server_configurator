@@ -1,0 +1,21 @@
+uuid: 55ab3c4f-a411-43ed-b39b-a3eb8c1f7bc8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_family_hdd
+    - node.type.server
+  module:
+    - options
+id: node.server.field_family_hdd
+field_name: field_family_hdd
+entity_type: node
+bundle: server
+label: family_hdd
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

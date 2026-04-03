@@ -1,0 +1,19 @@
+uuid: 37ef6b78-c71f-479c-bbae-009e5141c36d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_depth
+    - node.type.sh
+id: node.sh.field_depth
+field_name: field_depth
+entity_type: node
+bundle: sh
+label: Глубина
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

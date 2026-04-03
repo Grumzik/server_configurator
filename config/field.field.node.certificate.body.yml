@@ -1,0 +1,24 @@
+uuid: 1a7e858f-b80a-4052-a2d2-9d87fec42d8e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.certificate
+  module:
+    - text
+id: node.certificate.body
+field_name: body
+entity_type: node
+bundle: certificate
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

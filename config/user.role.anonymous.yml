@@ -1,0 +1,25 @@
+uuid: 504a7c0f-4fd8-40b1-b777-2b5cc616860a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_html
+  module:
+    - exclude_node_title
+    - filter
+    - media
+    - search
+    - system
+_core:
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+id: anonymous
+label: 'анонимный посетитель'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use advanced search'
+  - 'use exclude node title'
+  - 'use text format filtered_html'
+  - 'view media'

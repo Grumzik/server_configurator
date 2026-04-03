@@ -1,0 +1,101 @@
+uuid: b9444084-9ca0-41f0-8a05-294a5d4b402a
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_accordion
+label: 'tis accordion'
+code: |2
+   .accordion-button{
+        font-size: 2rem;
+    		font-weight: 600;
+     }
+    
+    .accordion-button:not(.collapsed){
+      	background-color: #fff;
+      }
+
+  .tis-accordion__image{
+  	display:block;
+  }
+
+  .accordion-button::after{
+  	content: "";
+    background-image:  url(/sites/default/files/tis-icons/plus.svg);
+    width: 48px;
+    height: 48px;
+    background-size: cover; /* Важно для масштабирования */
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+
+  .accordion-button:hover::after {
+    content: "";
+    display: block; /* Важно для позиционирования */
+    width: 48px;
+    height: 48px;
+    background-image: url(/sites/default/files/tis-icons/tis_plus_orange_circle.svg);
+    background-size: cover; /* Важно для масштабирования */
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .accordion-button:not(.collapsed):hover::after{
+  	    background-image: url(/sites/default/files/tis-icons/plus.svg);
+  	    transform: rotate(-45deg);
+      	transition: all ease-in-out .3s;
+  }
+
+
+  .accordion-button:not(.collapsed)::after{
+  		  content: "";
+  		  display: block; /* Важно для позиционирования */
+    		width: 48px;
+    		height: 48px;
+  	    background-image: url(/sites/default/files/tis-icons/plus.svg);
+        transform: rotate(-45deg);
+      	transition: all ease-in-out .3s;
+      	background-size: cover; /* Важно для масштабирования */
+    		background-repeat: no-repeat;
+    		position: relative;
+  }
+
+
+    .accordion-button:not::after {
+        background-image: url(/sites/default/files/tis-icons/plus.svg);
+        transform: rotate(-180deg);
+       	transition: all ease-in-out .3s;
+      }
+      
+      .accordion-button:not(.collapsed){
+      	background-color: #fff;
+      }
+      
+
+
+      
+    .accordion-button:focus {
+      z-index: 3;
+      outline: 0;
+     -webkit-box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+      box-shadow: 0 0px 0px rgba(104, 115, 255, 0.4);
+  }
+      
+     .accordion-body ul{
+     	list-style-type: disc; 
+      padding-left: 2rem;
+     }
+     
+     .accordion-body li{
+  	   	margin-bottom: 1rem;
+     }
+     
+      .accordion-body li::marker{
+     	color: #ff820e;
+     }
+      
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

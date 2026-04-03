@@ -1,0 +1,18 @@
+configurator:
+  version: 1.x
+  js:
+    js/configurator.behaviors.js: { }
+    js/configurator.engine.js: { }
+    js/configurator.events.js: { }
+    js/configurator.render.js: { }
+    js/configurator.restorer.js: { }
+    js/configurator.state.js: { }
+    js/configurator.storage.js: { }
+    js/server_configurator.js: { }
+    js/configurator.utils.js: { }
+  css:
+    component:
+      css/server_configurator.css: { }
+  dependencies:
+    - core/drupal
+    - core/once

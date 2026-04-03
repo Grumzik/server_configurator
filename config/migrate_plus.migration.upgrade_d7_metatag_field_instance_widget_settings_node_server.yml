@@ -1,0 +1,61 @@
+uuid: 2b64f1d9-e234-46b5-ab61-0779c263edaf
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_metatag_field_instance_widget_settings_node_server
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Metatag field instance widget settings of сервер материалы'
+source:
+  plugin: d7_metatag_field_instance
+  source_module: metatag
+  ignore_map: true
+  constants:
+    field_name: field_metatag
+    form_mode: default
+  entity_type_id: node
+  entity_type: node
+  bundle: server
+process:
+  bundle:
+    -
+      plugin: get
+      source: bundle
+  entity_type:
+    0:
+      plugin: get
+      source: entity_type
+    profile:
+      plugin: static_map
+      map:
+        profile2: profile
+      bypass: true
+    1:
+      plugin: static_map
+      map:
+        field_collection_item: paragraph
+        paragraphs_item: paragraph
+      bypass: true
+  field_name:
+    -
+      plugin: get
+      source: constants/field_name
+  form_mode:
+    -
+      plugin: get
+      source: constants/form_mode
+destination:
+  plugin: component_entity_form_display
+idMap: {  }
+migration_dependencies:
+  required:
+    - upgrade_d7_metatag_field_instance_node_server
+  optional:
+    - upgrade_d7_field_collection_type
+    - upgrade_d7_paragraphs_type
+include: null

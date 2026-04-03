@@ -1,0 +1,46 @@
+uuid: c8a0a5e4-758e-477a-97dc-bb5c09587017
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dexp_portfolio
+    - field.field.node.arcsystem.body
+    - field.field.node.arcsystem.field_adds
+    - field.field.node.arcsystem.field_arc_type
+    - field.field.node.arcsystem.field_capacity
+    - field.field.node.arcsystem.field_description
+    - field.field.node.arcsystem.field_image
+    - field.field.node.arcsystem.field_interface_type
+    - field.field.node.arcsystem.field_keys
+    - field.field.node.arcsystem.field_model
+    - field.field.node.arcsystem.field_quantity
+    - field.field.node.arcsystem.field_specification
+    - field.field.node.arcsystem.field_vendor
+    - node.type.arcsystem
+  module:
+    - user
+id: node.arcsystem.dexp_portfolio
+targetEntityType: node
+bundle: arcsystem
+mode: dexp_portfolio
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  field_adds: true
+  field_arc_type: true
+  field_capacity: true
+  field_description: true
+  field_image: true
+  field_interface_type: true
+  field_keys: true
+  field_model: true
+  field_quantity: true
+  field_specification: true
+  field_vendor: true
+  langcode: true

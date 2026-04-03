@@ -1,0 +1,29 @@
+uuid: 484b07ea-1089-44a5-ad3b-7104495a3b3b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_form_factor
+    - node.type.platform
+    - taxonomy.vocabulary.form_factor
+id: node.platform.field_form_factor
+field_name: field_form_factor
+entity_type: node
+bundle: platform
+label: 'Form Factor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      form_factor: form_factor
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: 1cee64ac-6aff-4123-8c01-48b32d72f19c
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7913ddda-225d-4cac-b7df-bbb947429765'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: jollyness_block_46
+theme: olivero
+region: content
+weight: -9
+provider: null
+plugin: 'block_content:7913ddda-225d-4cac-b7df-bbb947429765'
+settings:
+  id: 'block_content:7913ddda-225d-4cac-b7df-bbb947429765'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /content/seagate-exos-i-nytro

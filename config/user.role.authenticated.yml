@@ -1,0 +1,25 @@
+uuid: 1bbaddd0-364e-49c7-86e3-73518e187089
+langcode: ru
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_html
+  module:
+    - exclude_node_title
+    - filter
+    - media
+    - search
+    - system
+_core:
+  default_config_hash: cFrlqjtkTfvY3RGccjJkPf1SGIfJ942IrxTLWAO4mgA
+id: authenticated
+label: 'зарегистрированный пользователь'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'search content'
+  - 'use advanced search'
+  - 'use exclude node title'
+  - 'use text format filtered_html'
+  - 'view media'

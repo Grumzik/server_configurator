@@ -1,0 +1,119 @@
+uuid: 675c971b-4685-46b9-bfcb-8d613b380f5a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.processor.body
+    - field.field.node.processor.feeds_item
+    - field.field.node.processor.field_cache
+    - field.field.node.processor.field_ccu_tdp
+    - field.field.node.processor.field_cpu_generation
+    - field.field.node.processor.field_cpu_instruction_set_extens
+    - field.field.node.processor.field_cpu_max_memory_size
+    - field.field.node.processor.field_cpu_memory_types
+    - field.field.node.processor.field_displays_supported
+    - field.field.node.processor.field_dts_max
+    - field.field.node.processor.field_dual_display_capable
+    - field.field.node.processor.field_ecc_memory_supported
+    - field.field.node.processor.field_max_of_memory_channels
+    - field.field.node.processor.field_max_of_pci_express_lanes
+    - field.field.node.processor.field_max_turbo_frequency
+    - field.field.node.processor.field_memory_speed
+    - field.field.node.processor.field_memory_speed_1dpc
+    - field.field.node.processor.field_memory_speed_2dpc
+    - field.field.node.processor.field_pci_express_revision
+    - field.field.node.processor.field_processor_base_frequency
+    - field.field.node.processor.field_processor_number
+    - field.field.node.processor.field_scalability
+    - field.field.node.processor.field_socket
+    - field.field.node.processor.field_tcase
+    - field.field.node.processor.field_test
+    - field.field.node.processor.field_total_cores
+    - field.field.node.processor.field_total_threads
+    - field.field.node.processor.field_use_in_configurator
+    - field.field.node.processor.field_vendor
+    - node.type.processor
+  module:
+    - editablefields
+    - user
+id: node.processor.full
+targetEntityType: node
+bundle: processor
+mode: full
+content:
+  field_displays_supported:
+    type: boolean
+    label: inline
+    settings:
+      format: unicode-yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 30
+    region: blb_region_col_1
+  field_dual_display_capable:
+    type: boolean
+    label: inline
+    settings:
+      format: unicode-yes-no
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 29
+    region: blb_region_col_1
+  field_ecc_memory_supported:
+    type: editablefields_formatter
+    label: inline
+    settings:
+      form_mode: default
+      behaviour: inline
+      bypass_access: false
+      fallback_access: false
+      display_mode_access: ''
+      fallback_edit: false
+      display_mode_edit: ''
+      fields_ajax_trigger: ''
+      fields_ajax_trigger_event: change
+    third_party_settings: {  }
+    weight: 35
+    region: blb_region_col_1
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_cache: true
+  field_ccu_tdp: true
+  field_cpu_generation: true
+  field_cpu_instruction_set_extens: true
+  field_cpu_max_memory_size: true
+  field_cpu_memory_types: true
+  field_dts_max: true
+  field_flag: true
+  field_max_of_memory_channels: true
+  field_max_of_pci_express_lanes: true
+  field_max_turbo_frequency: true
+  field_memory_speed: true
+  field_memory_speed_1dpc: true
+  field_memory_speed_2dpc: true
+  field_pci_express_revision: true
+  field_processor_base_frequency: true
+  field_processor_number: true
+  field_scalability: true
+  field_socket: true
+  field_tcase: true
+  field_test: true
+  field_total_cores: true
+  field_total_threads: true
+  field_use_in_configurator: true
+  field_vendor: true
+  langcode: true
+  search_api_excerpt: true

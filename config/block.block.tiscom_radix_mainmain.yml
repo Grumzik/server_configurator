@@ -1,0 +1,25 @@
+uuid: 15b1396a-ce97-40a8-9e38-e5445bc0eed1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.menu-mainmain
+  module:
+    - system
+  theme:
+    - tiscom_radix
+id: tiscom_radix_mainmain
+theme: tiscom_radix
+region: side_menu
+weight: -10
+provider: null
+plugin: 'system_menu_block:menu-mainmain'
+settings:
+  id: 'system_menu_block:menu-mainmain'
+  label: mainmain
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: true
+visibility: {  }

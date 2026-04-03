@@ -1,0 +1,22 @@
+uuid: cbdea885-e24c-4f0b-b26d-ce165e6afe6b
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_san_controller
+label: 'Содержимое - san_controller'
+type: 'canonical_entities:node'
+pattern: 'controller/[node:title]'
+selection_criteria:
+  1012a1c8-614d-4f1e-b31a-4e41164614c3:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 1012a1c8-614d-4f1e-b31a-4e41164614c3
+    context_mapping:
+      node: node
+    bundles:
+      san_controller: san_controller
+selection_logic: and
+weight: 0
+relationships: {  }

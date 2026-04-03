@@ -1,0 +1,23 @@
+uuid: 1a041cfe-66f6-4513-8a5c-ccdb9e110a5a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_storage_bays
+    - node.type.platform
+id: node.platform.field_storage_bays
+field_name: field_storage_bays
+entity_type: node
+bundle: platform
+label: 'Storage Bays'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

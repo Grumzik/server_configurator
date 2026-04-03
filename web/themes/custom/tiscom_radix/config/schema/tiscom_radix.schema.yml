@@ -1,0 +1,5 @@
+# Schema for the configuration files of the tiscom_radix theme.
+
+tiscom_radix.settings:
+  type: theme_settings
+  label: 'tiscom_radix settings'

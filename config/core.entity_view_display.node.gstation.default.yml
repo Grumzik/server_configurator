@@ -1,0 +1,123 @@
+uuid: 439caeb5-09b4-47ad-8b9f-491b59a720f3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.gstation.field_adds
+    - field.field.node.gstation.field_complectation
+    - field.field.node.gstation.field_description
+    - field.field.node.gstation.field_image
+    - field.field.node.gstation.field_keys
+    - field.field.node.gstation.field_model
+    - field.field.node.gstation.field_specification
+    - node.type.gstation
+  module:
+    - ds
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        label: ''
+    regions:
+      left:
+        - field_image
+      right:
+        - field_keys
+      footer:
+        - field_specification
+id: node.gstation.default
+targetEntityType: node
+bundle: gstation
+mode: default
+content:
+  field_image:
+    type: slick_image
+    label: hidden
+    settings:
+      caption: {  }
+      optionset: default
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: ''
+      cache: 0
+      admin_uri: ''
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: lazy
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: ''
+      overridables: {  }
+      optionset_thumbnail: ''
+      skin_thumbnail: ''
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: 0
+    third_party_settings: {  }
+    weight: 0
+    region: left
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: right
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: footer
+hidden:
+  addtoany: true
+  field_adds: true
+  field_complectation: true
+  field_description: true
+  field_model: true
+  langcode: true
+  links: true

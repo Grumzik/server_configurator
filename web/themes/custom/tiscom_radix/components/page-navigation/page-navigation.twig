@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Template for a Page Navigation component.
+ *  color: 'primary',
+ *  placement:'sticky-top'
+ *  placement:'fixed-top',
+#}
+{% apply spaceless %}
+
+
+{%
+  embed 'tiscom_radix:navbar' with {
+    container: 'fixed',
+    navbar_theme: 'tis',
+    navbar_utility_classes: [
+      'justify-content-between',
+      'navbar-dark',
+      'text-bg-primary',
+      'nav-justified',
+    ],
+    fill: 'justify',
+    items: 'links',
+    style: 'pills',
+    placement:'sticky-top',
+    nav_item_utility_classes: ['px-2'],
+  }
+%}
+  {% block branding %}
+    {% if page.navbar_branding %}
+      {{ page.navbar_branding }}
+    {% endif %}
+  {% endblock %}
+
+  {% block left %}
+    {% if page.navbar_left %}
+      <div class="me-auto">
+        {{ page.navbar_left }}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block right %}
+    {% if page.navbar_right %}
+      <div class="ms-auto">
+        {{ page.navbar_right }}
+      </div>
+    {% endif %}
+  {% endblock %}
+{% endembed %}
+
+{% endapply %}

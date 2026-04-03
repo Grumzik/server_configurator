@@ -1,0 +1,22 @@
+uuid: ecfdd23a-f1f1-4004-ae94-05f3ba7ca6ae
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_hcici
+label: 'Содержимое - HCICI'
+type: 'canonical_entities:node'
+pattern: 'hcici/[node:title]'
+selection_criteria:
+  f71e2202-6789-4993-963a-3956306d71ac:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f71e2202-6789-4993-963a-3956306d71ac
+    context_mapping:
+      node: node
+    bundles:
+      hcici: hcici
+selection_logic: and
+weight: 0
+relationships: {  }

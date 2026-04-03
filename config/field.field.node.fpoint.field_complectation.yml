@@ -1,0 +1,22 @@
+uuid: e8f7c674-8680-4f1c-ad1b-54bf02816f87
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_complectation
+    - node.type.fpoint
+  module:
+    - text
+id: node.fpoint.field_complectation
+field_name: field_complectation
+entity_type: node
+bundle: fpoint
+label: Комплектация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

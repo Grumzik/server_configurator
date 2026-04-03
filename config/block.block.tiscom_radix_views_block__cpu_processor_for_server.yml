@@ -1,0 +1,33 @@
+uuid: 4586fc7f-7a4b-4912-bcd8-b9b42b9e09bf
+langcode: ru
+status: false
+dependencies:
+  config:
+    - views.view.cpu
+  module:
+    - node
+    - views
+  theme:
+    - tiscom_radix
+id: tiscom_radix_views_block__cpu_processor_for_server
+theme: tiscom_radix
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:cpu-processor_for_server'
+settings:
+  id: 'views_block:cpu-processor_for_server'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      server: server

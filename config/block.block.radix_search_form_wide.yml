@@ -1,0 +1,23 @@
+uuid: 472eed39-191a-44a6-adb6-67121aaeba35
+langcode: ru
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - radix
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: radix_search_form_wide
+theme: radix
+region: navbar_branding
+weight: -21
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Форма поиска (широкая)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

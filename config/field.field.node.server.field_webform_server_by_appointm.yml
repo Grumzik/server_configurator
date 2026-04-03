@@ -1,0 +1,32 @@
+uuid: 1dacc12b-f0cd-4073-8ce3-ee7f36805548
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_server_by_appointm
+    - node.type.server
+    - webform.webform.podbor_servera_po_zadacham
+  module:
+    - webform
+id: node.server.field_webform_server_by_appointm
+field_name: field_webform_server_by_appointm
+entity_type: node
+bundle: server
+label: webform_server_by_appointment
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 1dfc0561-625d-4192-99bf-4af7081d0fff
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

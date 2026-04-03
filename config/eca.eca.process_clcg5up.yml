@@ -1,0 +1,112 @@
+uuid: e744c468-db33-4ac5-9ecf-4fd6c46cdea0
+langcode: ru
+status: false
+dependencies:
+  config:
+    - field.field.node.server.field_platform
+    - field.field.node.server.field_test_platform
+    - field.field.node.server.field_test_platform_vendor
+    - field.storage.node.field_platform
+    - field.storage.node.field_test_platform
+    - field.storage.node.field_test_platform_vendor
+    - node.type.server
+  module:
+    - eca_base
+    - eca_content
+id: process_clcg5up
+modeller: bpmn_io
+label: 'Server platforms from field_test_platform'
+version: ''
+weight: 0
+events:
+  Event_1654b6t:
+    plugin: 'content_entity:presave'
+    label: 'presave server entity'
+    configuration:
+      type: 'node server'
+    successors:
+      -
+        id: Activity_0e6ohj0
+        condition: ''
+conditions:
+  Flow_0h31dho:
+    plugin: eca_token_exists
+    configuration:
+      negate: false
+      token_name: platform_entity
+gateways: {  }
+actions:
+  Activity_0e6ohj0:
+    plugin: eca_get_field_value
+    label: 'Get field_test_platform_vendor value'
+    configuration:
+      field_name: field_test_platform_vendor
+      token_name: platform_vendor
+      object: entity
+    successors:
+      -
+        id: Activity_11c3rbd
+        condition: ''
+  Activity_11c3rbd:
+    plugin: eca_get_field_value
+    label: 'Get field_test_platform_name value'
+    configuration:
+      field_name: field_test_platform
+      token_name: platform_name
+      object: entity
+    successors:
+      -
+        id: Activity_1vc0oc2
+        condition: ''
+  Activity_0rx0s59:
+    plugin: eca_warning_message
+    label: 'message токен есть'
+    configuration:
+      replace_tokens: false
+      message: 'токен есть'
+    successors:
+      -
+        id: Activity_0rhhku0
+        condition: ''
+  Activity_1vc0oc2:
+    plugin: eca_token_load_entity
+    label: 'Entity platform load'
+    configuration:
+      token_name: platform_entity
+      from: properties
+      entity_type: node
+      entity_id: ''
+      revision_id: ''
+      properties: |-
+        type: platform
+        title: "[platform_name]"
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_0rx0s59
+        condition: Flow_0h31dho
+      -
+        id: Activity_1nx6pki
+        condition: ''
+  Activity_0rhhku0:
+    plugin: eca_set_field_value
+    label: 'Set platform value'
+    configuration:
+      field_name: field_platform
+      field_value: '[platform_entity]'
+      method: 'set:empty'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: entity
+    successors: {  }
+  Activity_1nx6pki:
+    plugin: eca_warning_message
+    label: 'message entity есть'
+    configuration:
+      replace_tokens: false
+      message: 'entity есть:  [platform_entity]'
+    successors: {  }

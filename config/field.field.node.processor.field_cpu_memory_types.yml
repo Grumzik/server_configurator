@@ -1,0 +1,29 @@
+uuid: 86f635e4-c6b2-409e-9802-0c92dfd8af2b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_memory_types
+    - node.type.processor
+    - taxonomy.vocabulary.memory_type
+id: node.processor.field_cpu_memory_types
+field_name: field_cpu_memory_types
+entity_type: node
+bundle: processor
+label: 'CPU Memory Types'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      memory_type: memory_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

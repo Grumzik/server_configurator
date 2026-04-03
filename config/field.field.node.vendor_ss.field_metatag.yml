@@ -1,0 +1,21 @@
+uuid: b92225d4-51a3-4062-8220-79620d7f85c2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.vendor_ss
+  module:
+    - metatag
+id: node.vendor_ss.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: vendor_ss
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

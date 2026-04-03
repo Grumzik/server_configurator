@@ -1,0 +1,19 @@
+uuid: 1be7bead-7f02-470f-a3e4-82bfb913bfbf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_test
+    - node.type.processor
+id: node.processor.field_test
+field_name: field_test
+entity_type: node
+bundle: processor
+label: test
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

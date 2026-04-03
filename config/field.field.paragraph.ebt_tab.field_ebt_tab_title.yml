@@ -1,0 +1,24 @@
+uuid: 25771f10-2b8d-4341-a055-324b0dcc1277
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_tab_title
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - text
+_core:
+  default_config_hash: axHae-sP24gbeAgLnxqUi-W0N6tnY4ImUB_wdC1bCiM
+id: paragraph.ebt_tab.field_ebt_tab_title
+field_name: field_ebt_tab_title
+entity_type: paragraph
+bundle: ebt_tab
+label: 'Название вкладки'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

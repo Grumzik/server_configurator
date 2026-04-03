@@ -1,0 +1,22 @@
+uuid: 89b12d23-2a20-46c9-87e3-c9f309cba580
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.computer
+  module:
+    - text
+id: node.computer.field_keys
+field_name: field_keys
+entity_type: node
+bundle: computer
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

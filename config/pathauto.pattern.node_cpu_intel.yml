@@ -1,0 +1,22 @@
+uuid: d9624ff8-be26-46b3-9bea-49c23c9b90c5
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_cpu_intel
+label: 'Содержимое - Процессор'
+type: 'canonical_entities:node'
+pattern: 'cpu/[node:title]'
+selection_criteria:
+  f18d95e1-68b1-414c-ae8a-92fb1ad30974:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: f18d95e1-68b1-414c-ae8a-92fb1ad30974
+    context_mapping:
+      node: node
+    bundles:
+      cpu_intel: cpu_intel
+selection_logic: and
+weight: 0
+relationships: {  }

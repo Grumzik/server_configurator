@@ -1,0 +1,11 @@
+uuid: 029e220d-88ca-43e6-ab25-37c5d720f35f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.processor
+id: node.processor
+target_entity_type_id: node
+target_bundle: processor
+default_langcode: site_default
+language_alterable: false

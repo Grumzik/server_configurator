@@ -1,0 +1,10 @@
+uuid: 44ab2f85-f058-4052-833d-38cb131a4c9f
+langcode: ru
+status: true
+dependencies: {  }
+id: i1
+label: i1
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle i1'
+behavior_plugins: {  }

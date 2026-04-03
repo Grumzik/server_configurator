@@ -1,0 +1,53 @@
+uuid: 6544f9fe-725b-4592-914f-70e93d694316
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.computer.field_adds
+    - field.field.node.computer.field_computer_line
+    - field.field.node.computer.field_computer_type
+    - field.field.node.computer.field_description
+    - field.field.node.computer.field_image
+    - field.field.node.computer.field_keys
+    - field.field.node.computer.field_specification
+    - field.field.node.computer.field_vendor
+    - node.type.computer
+  module:
+    - text
+    - user
+id: node.computer.teaser
+targetEntityType: node
+bundle: computer
+mode: teaser
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_keys:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_adds: true
+  field_computer_line: true
+  field_computer_type: true
+  field_description: true
+  field_specification: true
+  field_vendor: true
+  langcode: true

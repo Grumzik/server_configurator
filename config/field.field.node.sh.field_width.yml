@@ -1,0 +1,19 @@
+uuid: d2a779d6-1fe7-43b5-87fd-d2730dcf5ec8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_width
+    - node.type.sh
+id: node.sh.field_width
+field_name: field_width
+entity_type: node
+bundle: sh
+label: Ширина
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: c55ebf1b-66de-43ec-8f63-2648077c1849
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_complectation
+    - node.type.advertisment
+  module:
+    - text
+id: node.advertisment.field_complectation
+field_name: field_complectation
+entity_type: node
+bundle: advertisment
+label: 'Дополнительная информация'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

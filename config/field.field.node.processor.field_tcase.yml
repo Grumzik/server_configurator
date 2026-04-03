@@ -1,0 +1,23 @@
+uuid: c2178503-ef3e-490b-8684-b140b70a2dd3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tcase
+    - node.type.processor
+id: node.processor.field_tcase
+field_name: field_tcase
+entity_type: node
+bundle: processor
+label: TCASE
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: °C
+field_type: integer

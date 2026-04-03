@@ -1,0 +1,407 @@
+uuid: 30de117d-cb8d-4c7b-b0f8-4089c3b2a670
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.processor.field_cache
+    - field.field.node.processor.field_ccu_tdp
+    - field.field.node.processor.field_cpu_generation
+    - field.field.node.processor.field_cpu_instruction_set_extens
+    - field.field.node.processor.field_cpu_max_memory_size
+    - field.field.node.processor.field_cpu_memory_types
+    - field.field.node.processor.field_dts_max
+    - field.field.node.processor.field_max_of_memory_channels
+    - field.field.node.processor.field_max_of_pci_express_lanes
+    - field.field.node.processor.field_max_turbo_frequency
+    - field.field.node.processor.field_memory_speed
+    - field.field.node.processor.field_pci_express_revision
+    - field.field.node.processor.field_processor_base_frequency
+    - field.field.node.processor.field_processor_number
+    - field.field.node.processor.field_socket
+    - field.field.node.processor.field_tcase
+    - field.field.node.processor.field_test
+    - field.field.node.processor.field_total_cores
+    - field.field.node.processor.field_total_threads
+    - node.type.processor
+  module:
+    - feeds_log
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+  feeds_tamper:
+    tampers:
+      b57956b7-40ae-4f7f-ad72-cc020eab903b:
+        find: '/^.*?(DDR[0-9](?:\s*(?:RDIMM|UDIMM|LRDIMM|SODIMM)?)?).*$/is'
+        replace: $1
+        limit: null
+        uuid: b57956b7-40ae-4f7f-ad72-cc020eab903b
+        plugin: find_replace_regex
+        source: memory_types
+        weight: 0
+        label: 'Find replace REGEX'
+      957a9995-e583-4e86-b9e9-632f404f9d9a:
+        find: '/(\d{3,5})/is'
+        replace: '$1,'
+        limit: null
+        uuid: 957a9995-e583-4e86-b9e9-632f404f9d9a
+        plugin: find_replace_regex
+        source: memory_speed
+        weight: 2
+        label: 'Find replace REGEX'
+      23146274-0c5b-46ed-8ca3-b4a98df3fedb:
+        find: '/[^\d,]+/is'
+        replace: ''
+        limit: null
+        uuid: 23146274-0c5b-46ed-8ca3-b4a98df3fedb
+        plugin: find_replace_regex
+        source: memory_speed
+        weight: 3
+        label: 'Find replace REGEX'
+      ce90b442-9950-4bfa-a6a1-42bc5783d043:
+        find: '/,+$/'
+        replace: ''
+        limit: null
+        uuid: ce90b442-9950-4bfa-a6a1-42bc5783d043
+        plugin: find_replace_regex
+        source: memory_speed
+        weight: 4
+        label: 'Find replace REGEX'
+      4ebc3896-8fca-40cc-ae4b-60594f4fafeb:
+        separator: ','
+        limit: null
+        uuid: 4ebc3896-8fca-40cc-ae4b-60594f4fafeb
+        plugin: explode
+        source: memory_speed
+        weight: 5
+        label: Explode
+      8c7a40e6-2de4-4797-94ef-ca603d7f72b9:
+        find: '/(DDR[0-9](?:\s*(?:RDIMM|UDIMM|LRDIMM|SODIMM)?)?)/is'
+        replace: ''
+        limit: null
+        uuid: 8c7a40e6-2de4-4797-94ef-ca603d7f72b9
+        plugin: find_replace_regex
+        source: memory_speed
+        weight: 0
+        label: 'Find replace REGEX'
+      5191247f-9609-45e1-a393-7ceb25e6544c:
+        find: '/([0-9]DPC?)/is'
+        replace: ''
+        limit: null
+        uuid: 5191247f-9609-45e1-a393-7ceb25e6544c
+        plugin: find_replace_regex
+        source: memory_speed
+        weight: 1
+        label: 'Find replace REGEX'
+label: 'NODE Processor'
+id: node_processor
+description: ''
+help: ''
+import_period: -1
+import_period_per_feed: false
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: processor
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 1
+custom_sources:
+  processor_number:
+    value: 'Processor Number'
+    label: 'Processor Number'
+    machine_name: processor_number
+    type: csv
+  processor_base_frequency_ghz:
+    value: 'Processor Base Frequency (GHz)'
+    label: 'Processor Base Frequency (GHz)'
+    machine_name: processor_base_frequency_ghz
+    type: csv
+  vendor:
+    value: Vendor
+    label: Vendor
+    machine_name: vendor
+    type: csv
+  max_turbo_frequency_ghz:
+    value: 'Max Turbo Frequency (GHz)'
+    label: 'Max Turbo Frequency (GHz)'
+    machine_name: max_turbo_frequency_ghz
+    type: csv
+  inlet:
+    value: Inlet
+    label: Inlet
+    machine_name: inlet
+    type: blank
+  cache_mb:
+    value: 'Cache (MB)'
+    label: 'Cache (MB)'
+    machine_name: cache_mb
+    type: csv
+  tdp_w:
+    value: 'TDP (W)'
+    label: 'TDP (W)'
+    machine_name: tdp_w
+    type: csv
+  max_memory_size_dependent_on_memory_type_tb:
+    value: 'Max Memory Size (dependent on memory type) (TB)'
+    label: 'Max Memory Size (dependent on memory type) (TB)'
+    machine_name: max_memory_size_dependent_on_memory_type_tb
+    type: csv
+  total_cores:
+    value: 'Total Cores'
+    label: 'Total Cores'
+    machine_name: total_cores
+    type: csv
+  cpu_generation:
+    value: 'Cpu Generation'
+    label: 'Cpu Generation'
+    machine_name: cpu_generation
+    type: csv
+  memory_types:
+    value: 'Memory Types'
+    label: 'Memory Types'
+    machine_name: memory_types
+    type: csv
+  field_test:
+    value: '[field_test]'
+    label: '[field_test]'
+    machine_name: field_test
+    type: blank
+  memory_speed:
+    value: 'Memory Speed'
+    label: 'Memory Speed'
+    machine_name: memory_speed
+    type: csv
+  memory_types_source:
+    value: 'Memory Types Source'
+    label: 'Memory Types Source'
+    machine_name: memory_types_source
+    type: csv
+  total_threads:
+    value: 'Total Threads'
+    label: 'Total Threads'
+    machine_name: total_threads
+    type: csv
+  max_of_memory_channels:
+    value: 'Max of Memory Channels'
+    label: 'Max of Memory Channels'
+    machine_name: max_of_memory_channels
+    type: csv
+  pci_express_revision:
+    value: 'PCI Express Revision'
+    label: 'PCI Express Revision'
+    machine_name: pci_express_revision
+    type: csv
+  sockets_supported:
+    value: 'Sockets Supported'
+    label: 'Sockets Supported'
+    machine_name: sockets_supported
+    type: csv
+  max_of_pci_express_lanes:
+    value: 'Max of PCI Express Lanes'
+    label: 'Max of PCI Express Lanes'
+    machine_name: max_of_pci_express_lanes
+    type: csv
+  dts_max:
+    value: 'DTS Max'
+    label: 'DTS Max'
+    machine_name: dts_max
+    type: csv
+  tcase:
+    value: TCASE
+    label: TCASE
+    machine_name: tcase
+    type: csv
+  scalability:
+    value: Scalability
+    label: Scalability
+    machine_name: scalability
+    type: csv
+  instruction_set_extensions:
+    value: 'Instruction Set Extensions'
+    label: 'Instruction Set Extensions'
+    machine_name: instruction_set_extensions
+    type: csv
+mappings:
+  -
+    target: field_processor_number
+    map:
+      value: processor_number
+    settings:
+      language: null
+    unique:
+      value: 1
+  -
+    target: field_processor_base_frequency
+    map:
+      value: processor_base_frequency_ghz
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: title
+    map:
+      value: processor_number
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_max_turbo_frequency
+    map:
+      value: max_turbo_frequency_ghz
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cache
+    map:
+      value: cache_mb
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_ccu_tdp
+    map:
+      value: tdp_w
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cpu_max_memory_size
+    map:
+      value: max_memory_size_dependent_on_memory_type_tb
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cpu_generation
+    map:
+      target_id: cpu_generation
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: cpu_generation
+  -
+    target: field_test
+    map:
+      value: memory_types_source
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cpu_memory_types
+    map:
+      target_id: memory_types
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: memory_type
+  -
+    target: field_memory_speed
+    map:
+      value: memory_speed
+    settings:
+      language: ''
+    unique: {  }
+  -
+    target: field_total_cores
+    map:
+      value: total_cores
+    settings:
+      language: ''
+    unique: {  }
+  -
+    target: field_total_threads
+    map:
+      value: total_threads
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_max_of_memory_channels
+    map:
+      value: max_of_memory_channels
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_pci_express_revision
+    map:
+      value: pci_express_revision
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_socket
+    map:
+      target_id: sockets_supported
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: socket
+  -
+    target: field_max_of_pci_express_lanes
+    map:
+      value: max_of_pci_express_lanes
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_dts_max
+    map:
+      value: dts_max
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_tcase
+    map:
+      value: tcase
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_cpu_instruction_set_extens
+    map:
+      target_id: instruction_set_extensions
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: cpu_instruction_set_extens

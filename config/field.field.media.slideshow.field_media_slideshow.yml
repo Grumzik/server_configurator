@@ -1,0 +1,34 @@
+uuid: d4ead9c1-6abc-4395-93ce-3eaf9239cef0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_slideshow
+    - media.type.image
+    - media.type.remote_video
+    - media.type.slideshow
+    - media.type.video
+id: media.slideshow.field_media_slideshow
+field_name: field_media_slideshow
+entity_type: media
+bundle: slideshow
+label: Слайд-шоу
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      slideshow: slideshow
+      video: video
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

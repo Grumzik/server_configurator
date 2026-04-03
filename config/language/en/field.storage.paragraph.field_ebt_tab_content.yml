@@ -1,0 +1,10 @@
+settings:
+  allowed_values:
+    -
+      label: Text
+    -
+      label: Page
+    -
+      label: Block
+    -
+      label: Views

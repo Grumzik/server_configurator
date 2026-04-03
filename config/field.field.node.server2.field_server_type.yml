@@ -1,0 +1,26 @@
+uuid: d3363fa4-bff4-4a19-b648-b5e3a4ecdcee
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_server_type
+    - node.type.server2
+    - taxonomy.vocabulary.server_types
+id: node.server2.field_server_type
+field_name: field_server_type
+entity_type: node
+bundle: server2
+label: 'Тип сервера'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      server_types: server_types
+    sort:
+      field: _none
+field_type: entity_reference

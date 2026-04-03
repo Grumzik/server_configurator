@@ -1,0 +1,33 @@
+uuid: d396d045-5824-47e6-b327-9e50dab7e722
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_scalability
+field_name: field_scalability
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 1
+      label: '1'
+    -
+      value: 2
+      label: '2'
+    -
+      value: 4
+      label: '4'
+    -
+      value: 8
+      label: '8'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

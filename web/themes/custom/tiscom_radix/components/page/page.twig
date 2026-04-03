@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Template for the main page.
+ */
+#}
+{% set page_attributes = attributes ?: create_attribute() %}
+{% set
+  page_classes = [
+    'page',
+  ]|merge(page_utility_classes ?: [])
+%}
+
+<div {{ page_attributes.addClass(page_classes) }}>
+	{% block page_navigation %}
+		{% include 'tiscom_radix:page-navigation' %}
+	{% endblock %}
+
+
+ {% block side_menu %}
+    <aside class="page__sidemenu">
+      {{ page.side_menu|without('#theme') }}
+    </aside>
+  {% endblock %}
+
+
+  {% block page_content %}
+    {% include 'radix:page-content' with {
+      page_main_utility_classes: ['py-0'],
+      page_header_container_utility_classes: ['mb-0'],
+    }%}
+  {% endblock %}
+
+	{% block page_footer %}
+		{% include 'tiscom_radix:page-footer' with {
+      footer_utility_classes: [''],
+    }  %}
+	{% endblock %}
+</div>

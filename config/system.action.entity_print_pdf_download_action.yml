@@ -1,0 +1,14 @@
+uuid: 3b3ce033-e43d-4fcd-89cb-36929c124138
+langcode: ru
+status: true
+dependencies:
+  module:
+    - entity_print
+_core:
+  default_config_hash: '-1tKqx12tWtYmD0zG5XJIem7pCyfpZ3zyS9BNWbjlFk'
+id: entity_print_pdf_download_action
+label: 'Скачать PDF'
+type: node
+plugin: entity_print_download_action
+configuration:
+  export_type: pdf

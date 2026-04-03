@@ -1,0 +1,21 @@
+uuid: ae46a136-effe-4b0a-b950-85bed7640c9a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">san_controller</em> content'
+name: san_controller
+type: san_controller
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,10 @@
+uuid: 92be6222-255c-4b30-857d-543252a49ece
+langcode: ru
+status: true
+dependencies: {  }
+id: xeone5
+label: xeone5
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle xeone5'
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: 9dcb7d8f-f883-4c62-b898-3805918b7dd8
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_platform_video
+field_name: field_platform_video
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

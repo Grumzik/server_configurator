@@ -1,0 +1,22 @@
+uuid: 5ed256d8-38e2-4134-8b41-b53f2e9d2011
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tiscom_radix
+_core:
+  default_config_hash: oLvFt4S4qQuz3nVYGoCnz4Oj6_AS1POXHn2jnFxCD68
+id: tiscom_radix_content
+theme: tiscom_radix
+region: content
+weight: -10
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Содержимое страницы'
+  label_display: '0'
+  provider: system
+visibility: {  }

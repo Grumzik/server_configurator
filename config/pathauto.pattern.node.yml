@@ -1,0 +1,14 @@
+uuid: f99f5a36-ff24-4a06-b08d-d992b64bf57c
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node
+label: 'Содержимое - default'
+type: 'canonical_entities:node'
+pattern: 'content/[node:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 1
+relationships: {  }

@@ -1,0 +1,20 @@
+uuid: 54786a9f-e087-4a81-898d-9219135fe0d0
+langcode: ru
+status: true
+dependencies:
+  module:
+    - media
+id: media.field_certificate_year
+field_name: field_certificate_year
+entity_type: media
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

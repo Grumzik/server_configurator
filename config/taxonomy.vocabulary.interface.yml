@@ -1,0 +1,9 @@
+uuid: 7e48414b-acd2-4f02-a9bf-d8aeecc03a56
+langcode: ru
+status: true
+dependencies: {  }
+name: interface
+vid: interface
+description: null
+weight: 0
+new_revision: false

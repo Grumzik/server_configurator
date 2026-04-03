@@ -1,0 +1,4 @@
+api_key: 68b1b7b8-9ead-4ba3-802b-17a2e6bd7496
+presets_file_path: modules/contrib/yandex_maps/js/yandex-maps-presets.example.js
+objects_default_preset: 'islands#blueDotIcon'
+debug_mode: true

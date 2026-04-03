@@ -1,0 +1,19 @@
+uuid: 83a53550-4b5b-4cb0-a91b-7cfcfb36d32d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_closedate
+    - node.type.advertisment
+id: node.advertisment.field_closedate
+field_name: field_closedate
+entity_type: node
+bundle: advertisment
+label: 'Дата окончания'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

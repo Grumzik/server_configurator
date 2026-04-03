@@ -1,0 +1,22 @@
+uuid: 0acf0605-4dc1-4881-b3d9-210b9ed3d94c
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_blade_components
+label: 'Содержимое - blade_components'
+type: 'canonical_entities:node'
+pattern: 'blade/[node:title]'
+selection_criteria:
+  98778da0-8e76-4c88-a075-c3ad28072f31:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 98778da0-8e76-4c88-a075-c3ad28072f31
+    context_mapping:
+      node: node
+    bundles:
+      blade_components: blade_components
+selection_logic: and
+weight: 0
+relationships: {  }

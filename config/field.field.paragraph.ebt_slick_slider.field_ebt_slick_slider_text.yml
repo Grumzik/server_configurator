@@ -1,0 +1,24 @@
+uuid: bcfc7059-e2ed-46f6-96dc-693800cd72d6
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_slick_slider_text
+    - paragraphs.paragraphs_type.ebt_slick_slider
+  module:
+    - text
+_core:
+  default_config_hash: ob6mfPaJJwePb80FfSWg_M2reWUeqydWDbjtcshe-Bw
+id: paragraph.ebt_slick_slider.field_ebt_slick_slider_text
+field_name: field_ebt_slick_slider_text
+entity_type: paragraph
+bundle: ebt_slick_slider
+label: 'Slide Text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

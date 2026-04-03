@@ -1,0 +1,8 @@
+langcode: ru
+status: true
+dependencies: {  }
+name: server_types
+vid: server_types
+description: null
+weight: 0
+new_revision: false

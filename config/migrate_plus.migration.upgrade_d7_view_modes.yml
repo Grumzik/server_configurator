@@ -1,0 +1,64 @@
+uuid: 46f434b4-c254-4b7e-9ff8-f17c345b6d25
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_view_modes
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'View modes'
+source:
+  plugin: d7_view_mode
+  mapMigrationProcessValueToMedia: true
+process:
+  mode:
+    -
+      plugin: static_map
+      source: view_mode
+      bypass: true
+      map:
+        default: full
+  label:
+    -
+      plugin: static_map
+      source: view_mode
+      bypass: true
+      map:
+        search_index: 'Search index'
+        search_result: 'Search result'
+        rss: RSS
+        print: Print
+        teaser: Teaser
+        full: Full
+        default: Full
+  targetEntityType:
+    0:
+      plugin: get
+      source: entity_type
+    1:
+      plugin: static_map
+      map:
+        file: media
+      bypass: true
+    profile:
+      plugin: static_map
+      map:
+        profile2: profile
+      bypass: true
+    2:
+      plugin: static_map
+      map:
+        field_collection_item: paragraph
+        paragraphs_item: paragraph
+      bypass: true
+destination:
+  plugin: 'entity:entity_view_mode'
+migration_dependencies:
+  required: {  }
+  optional:
+    - upgrade_d7_field_collection_type
+    - upgrade_d7_paragraphs_type

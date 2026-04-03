@@ -1,0 +1,30 @@
+uuid: 80f9c7ec-9b1f-40f7-b129-b1b7a8c05b2f
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:299087c5-aa1f-472e-ab58-352c22c1aebb'
+  module:
+    - block_content
+    - system
+  theme:
+    - radix
+id: radix_jollyness_block_47
+theme: radix
+region: content
+weight: -20
+provider: null
+plugin: 'block_content:299087c5-aa1f-472e-ab58-352c22c1aebb'
+settings:
+  id: 'block_content:299087c5-aa1f-472e-ab58-352c22c1aebb'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /temp

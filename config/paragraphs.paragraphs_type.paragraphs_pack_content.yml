@@ -1,0 +1,10 @@
+uuid: c2c9b23f-479f-44cb-a754-b0f5f2148c72
+langcode: ru
+status: true
+dependencies: {  }
+id: paragraphs_pack_content
+label: Content
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Content'
+behavior_plugins: {  }

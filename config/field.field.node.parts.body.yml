@@ -1,0 +1,24 @@
+uuid: 2f0fe9ea-f2d6-4155-a7da-0966b645a911
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.parts
+  module:
+    - text
+id: node.parts.body
+field_name: body
+entity_type: node
+bundle: parts
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

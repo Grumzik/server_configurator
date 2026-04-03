@@ -1,0 +1,139 @@
+uuid: cee7c606-b133-4fde-afae-a75a4b342457
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.computer.field_adds
+    - field.field.node.computer.field_computer_line
+    - field.field.node.computer.field_computer_type
+    - field.field.node.computer.field_description
+    - field.field.node.computer.field_image
+    - field.field.node.computer.field_keys
+    - field.field.node.computer.field_specification
+    - field.field.node.computer.field_vendor
+    - image.style.400x400_white_bg
+    - image.style.wide
+    - node.type.computer
+  module:
+    - ds
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      left:
+        - field_image
+      right:
+        - field_keys
+      footer:
+        - field_specification
+id: node.computer.default
+targetEntityType: node
+bundle: computer
+mode: default
+content:
+  field_image:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: server_carousel
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: ''
+      cache: 0
+      admin_uri: '/admin/structure/types/manage/computer/display?ajax_form=1&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: default
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: wide
+      image_style: 400x400_white_bg
+      media_switch: slick_lightbox
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: server_thumbnail_carousel
+      skin_thumbnail: asnavfor
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: right
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: footer
+hidden:
+  addtoany: true
+  field_adds: true
+  field_computer_line: true
+  field_computer_type: true
+  field_description: true
+  field_vendor: true
+  langcode: true
+  links: true

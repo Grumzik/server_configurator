@@ -1,0 +1,26 @@
+uuid: 3bbb3950-6883-49da-80c7-fd42aa5d254d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vendor
+    - node.type.sh
+    - taxonomy.vocabulary.vendors
+id: node.sh.field_vendor
+field_name: field_vendor
+entity_type: node
+bundle: sh
+label: Производитель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vendors: vendors
+    sort:
+      field: _none
+field_type: entity_reference

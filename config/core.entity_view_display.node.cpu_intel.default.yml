@@ -1,0 +1,496 @@
+uuid: 2bcae3de-5cf6-40fc-b502-538aa6970721
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.cpu_intel.field__iflexma
+    - field.field.node.cpu_intel.field_aesni
+    - field.field.node.cpu_intel.field_bus_speed
+    - field.field.node.cpu_intel.field_bus_type
+    - field.field.node.cpu_intel.field_clock_speed
+    - field.field.node.cpu_intel.field_cores
+    - field.field.node.cpu_intel.field_cpu_cache
+    - field.field.node.cpu_intel.field_cpu_codename
+    - field.field.node.cpu_intel.field_cpu_name
+    - field.field.node.cpu_intel.field_cpu_number
+    - field.field.node.cpu_intel.field_displays_supported
+    - field.field.node.cpu_intel.field_dual_display_capable
+    - field.field.node.cpu_intel.field_ecc_memory_supported
+    - field.field.node.cpu_intel.field_edb
+    - field.field.node.cpu_intel.field_eist
+    - field.field.node.cpu_intel.field_ept
+    - field.field.node.cpu_intel.field_graphics_base_frequency
+    - field.field.node.cpu_intel.field_graphics_max_dynamic_frequ
+    - field.field.node.cpu_intel.field_ht
+    - field.field.node.cpu_intel.field_idbs
+    - field.field.node.cpu_intel.field_ifastma
+    - field.field.node.cpu_intel.field_instruction_set
+    - field.field.node.cpu_intel.field_instruction_set_extensions
+    - field.field.node.cpu_intel.field_intel_clear_video_hd_techn
+    - field.field.node.cpu_intel.field_intel_flexible_display_int
+    - field.field.node.cpu_intel.field_intel_insider
+    - field.field.node.cpu_intel.field_intel_intru_3d_technology
+    - field.field.node.cpu_intel.field_intel_quick_sync_video
+    - field.field.node.cpu_intel.field_is
+    - field.field.node.cpu_intel.field_lithography
+    - field.field.node.cpu_intel.field_max_cpu_configuration
+    - field.field.node.cpu_intel.field_max_memory_bandwidth
+    - field.field.node.cpu_intel.field_max_memory_size
+    - field.field.node.cpu_intel.field_memory_channels
+    - field.field.node.cpu_intel.field_memory_types
+    - field.field.node.cpu_intel.field_processor_graphics
+    - field.field.node.cpu_intel.field_qpi_links
+    - field.field.node.cpu_intel.field_sockets_supported
+    - field.field.node.cpu_intel.field_tbt
+    - field.field.node.cpu_intel.field_tdp
+    - field.field.node.cpu_intel.field_threads
+    - field.field.node.cpu_intel.field_tm
+    - field.field.node.cpu_intel.field_turbo_speed
+    - field.field.node.cpu_intel.field_txt
+    - field.field.node.cpu_intel.field_vpro
+    - field.field.node.cpu_intel.field_vtd
+    - field.field.node.cpu_intel.field_vtx
+    - node.type.cpu_intel
+  module:
+    - ds
+    - field_formatter
+    - options
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+    regions:
+      content:
+        - langcode
+        - field_cpu_name
+        - links
+        - field_cpu_number
+        - field_cpu_codename
+        - field_cpu_cache
+        - field_max_cpu_configuration
+        - field_instruction_set
+        - field_sockets_supported
+        - field_bus_type
+        - field_vpro
+        - field_bus_speed
+        - field_ht
+        - field_qpi_links
+        - field_vtx
+        - field_lithography
+        - field_vtd
+        - field_ept
+        - field_intel_insider
+        - field_tbt
+        - field_aesni
+        - field_eist
+        - field_tm
+        - field_txt
+        - field_edb
+        - field_instruction_set_extensions
+        - field_is
+        - field_idbs
+        - field_ifastma
+        - field__iflexma
+        - field_processor_graphics
+        - field_graphics_base_frequency
+        - field_graphics_max_dynamic_frequ
+        - field_intel_quick_sync_video
+        - field_intel_intru_3d_technology
+        - field_intel_flexible_display_int
+        - field_intel_clear_video_hd_techn
+        - field_dual_display_capable
+        - field_displays_supported
+        - field_memory_types
+        - field_max_memory_bandwidth
+        - field_memory_channels
+        - field_max_memory_size
+        - field_ecc_memory_supported
+        - field_cores
+        - field_threads
+        - field_clock_speed
+        - field_turbo_speed
+        - field_tdp
+id: node.cpu_intel.default
+targetEntityType: node
+bundle: cpu_intel
+mode: default
+content:
+  field__iflexma:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_aesni:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_bus_speed:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_bus_type:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_clock_speed:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 45
+    region: content
+  field_cores:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 43
+    region: content
+  field_cpu_cache:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_cpu_codename:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_cpu_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_cpu_number:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_displays_supported:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_dual_display_capable:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_ecc_memory_supported:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 38
+    region: content
+  field_edb:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_eist:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_ept:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_graphics_base_frequency:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_graphics_max_dynamic_frequ:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_ht:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_idbs:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_ifastma:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_instruction_set:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_instruction_set_extensions:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_intel_clear_video_hd_techn:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_intel_flexible_display_int:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_intel_insider:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_intel_intru_3d_technology:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_intel_quick_sync_video:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_is:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_lithography:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_max_cpu_configuration:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_max_memory_bandwidth:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_max_memory_size:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_memory_channels:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_memory_types:
+    type: text_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 34
+    region: content
+  field_processor_graphics:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_qpi_links:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_sockets_supported:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_tbt:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_tdp:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 47
+    region: content
+  field_threads:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 44
+    region: content
+  field_tm:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_turbo_speed:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 46
+    region: content
+  field_txt:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_vpro:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_vtd:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_vtx:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  langcode:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true

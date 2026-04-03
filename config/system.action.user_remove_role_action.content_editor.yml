@@ -1,0 +1,14 @@
+uuid: 783635ad-dfea-428e-802a-8d5f21cecf5a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.content_editor
+  module:
+    - user
+id: user_remove_role_action.content_editor
+label: 'Remove the Content editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: content_editor

@@ -1,0 +1,21 @@
+uuid: f169f582-ab8a-491b-ad7a-7c710ae7af2f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">vendor_ss</em> content'
+name: vendor_ss
+type: vendor_ss
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,16 @@
+uuid: 658680ed-f523-4235-80c2-495904b1ccf8
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: abTny1lyNxMwOlYpJ0hYhXehciFbPraDFbyyvp0_xQg
+id: blb_col_6_six_equal_columns
+layout_id: blb_col_6
+label: 'Шесть равных колонок'
+structure: '2 2 2 2 2 2'
+breakpoints:
+  desktop: desktop
+  tablet: tablet
+  mobile: mobile
+default_breakpoints: null
+weight: 0

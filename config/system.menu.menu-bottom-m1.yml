@@ -1,0 +1,8 @@
+uuid: 441d5682-653c-4506-a564-adde1d8708e4
+langcode: ru
+status: true
+dependencies: {  }
+id: menu-bottom-m1
+label: 'bottom M1 Техподдержка'
+description: Техподдержка
+locked: false

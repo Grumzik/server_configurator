@@ -1,0 +1,22 @@
+uuid: 170d8eef-f767-4933-b0e1-aa82eeb6aa80
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - radix
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: radix_powered
+theme: radix
+region: navbar_branding
+weight: -21
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Сделано на Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

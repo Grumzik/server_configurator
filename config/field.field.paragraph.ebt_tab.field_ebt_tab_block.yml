@@ -1,0 +1,26 @@
+uuid: e0fb50f6-b27c-4030-be1e-99c6eeb7035c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_tab_block
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - block_field
+_core:
+  default_config_hash: 7dftnJ-QEc2wq727UtTNqtQGbbQis8Pwgykf0EPgU5U
+id: paragraph.ebt_tab.field_ebt_tab_block
+field_name: field_ebt_tab_block
+entity_type: paragraph
+bundle: ebt_tab
+label: 'Tab Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selection: blocks
+  selection_settings:
+    plugin_ids: {  }
+field_type: block_field

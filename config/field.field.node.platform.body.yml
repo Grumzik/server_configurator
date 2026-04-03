@@ -1,0 +1,24 @@
+uuid: 019047f9-270c-4100-97a6-fdaa2e6b81ca
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.platform
+  module:
+    - text
+id: node.platform.body
+field_name: body
+entity_type: node
+bundle: platform
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

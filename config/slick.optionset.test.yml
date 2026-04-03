@@ -1,0 +1,45 @@
+uuid: 0b6e944a-97e8-4d5a-a397-457da7d52f03
+langcode: ru
+status: false
+dependencies:
+  enforced:
+    module:
+      - slick
+id: test
+name: test
+weight: -10
+label: test
+group: thumbnail
+skin: default
+breakpoints: 2
+optimized: true
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    centerMode: true
+    lazyLoad: ondemand
+    slidesToShow: 3.0
+    swipeToSlide: true
+    waitForAnimate: false
+  responsives:
+    responsive:
+      -
+        breakpoint: null
+        unslick: false
+        settings:
+          arrows: false
+          draggable: false
+          infinite: false
+          swipe: false
+          touchMove: false
+          waitForAnimate: false
+      -
+        breakpoint: null
+        unslick: false
+        settings:
+          arrows: false
+          draggable: false
+          infinite: false
+          swipe: false
+          touchMove: false
+          waitForAnimate: false

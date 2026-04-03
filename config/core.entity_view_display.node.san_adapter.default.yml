@@ -1,0 +1,40 @@
+uuid: 756e70e5-a3fc-47ae-a939-63045e675950
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.san_adapter.field_adds
+    - field.field.node.san_adapter.field_description
+    - field.field.node.san_adapter.field_image
+    - field.field.node.san_adapter.field_keys
+    - field.field.node.san_adapter.field_specification
+    - field.field.node.san_adapter.field_vendor
+    - node.type.san_adapter
+  module:
+    - text
+    - user
+id: node.san_adapter.default
+targetEntityType: node
+bundle: san_adapter
+mode: default
+content:
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_adds: true
+  field_description: true
+  field_image: true
+  field_specification: true
+  field_vendor: true
+  langcode: true

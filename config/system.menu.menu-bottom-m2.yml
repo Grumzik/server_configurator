@@ -1,0 +1,8 @@
+uuid: cd49bcb1-0234-4256-b283-e3db84985dd6
+langcode: ru
+status: true
+dependencies: {  }
+id: menu-bottom-m2
+label: 'bottom M3 О нас'
+description: 'О нас'
+locked: false

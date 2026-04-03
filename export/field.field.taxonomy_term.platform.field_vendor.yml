@@ -1,0 +1,28 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_vendor
+    - taxonomy.vocabulary.platform
+    - taxonomy.vocabulary.vendors
+id: taxonomy_term.platform.field_vendor
+field_name: field_vendor
+entity_type: taxonomy_term
+bundle: platform
+label: vendor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vendors: vendors
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

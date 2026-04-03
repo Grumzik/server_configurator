@@ -1,0 +1,21 @@
+uuid: ee879ee6-f13b-4cf6-8d1d-422f69dd50ee
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_clock_speed
+field_name: field_clock_speed
+entity_type: node
+type: string
+settings:
+  max_length: 10
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

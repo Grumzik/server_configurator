@@ -1,0 +1,48 @@
+
+{% embed 'radix:block' with{} %}
+
+  {% block block_content %}
+    {% if content %}
+
+
+
+
+{#      {% set carousel_items = [] %}#}
+{#      {%  for item in content['#block_content'].field_carousel_items %}#}
+
+{#        {% set carousel_item = {#}
+{#          caption_title: 'item.entity.field_title.value',#}
+{#          interval: 3000,#}
+{#          image_src: 'item.entity.field_image',#}
+{#          caption_content: 'item.entity.field_caption.value',#}
+{#        } %}#}
+
+
+{#        {% set carousel_items = carousel_items|merge([carousel_item]) %}#}
+
+{#      {% endfor %}#}
+
+
+
+
+      {%  include 'tiscom_radix:carousel' with{
+
+        carousel_utility_classes: [carousel, slide, mb-5],
+        carousel_item_utility_classes: [carousel-item ],
+        show_carousel_control: true,
+        show_carousel_indicators: true,
+        show_carousel_caption: true,
+        caption_title_tag: 'h1',
+        caption_content_tag: 'h4',
+        items: content['#block_content'].field_carousel_items
+
+      } %}
+
+
+    {% endif %}
+  {% endblock %}
+
+{% endembed %}
+
+
+

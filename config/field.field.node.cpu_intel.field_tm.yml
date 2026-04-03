@@ -1,0 +1,23 @@
+uuid: e036beaa-6e08-4f47-91be-56eb5e321591
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tm
+    - node.type.cpu_intel
+id: node.cpu_intel.field_tm
+field_name: field_tm
+entity_type: node
+bundle: cpu_intel
+label: TM
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

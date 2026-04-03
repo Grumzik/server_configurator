@@ -1,0 +1,9 @@
+uuid: c3d04bcb-4c3c-49b1-97fb-bb57f91218f0
+langcode: ru
+status: true
+dependencies: {  }
+name: SSD_interface
+vid: ssd_interface
+description: null
+weight: 0
+new_revision: false

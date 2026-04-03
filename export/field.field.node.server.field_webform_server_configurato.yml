@@ -1,0 +1,31 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_webform_server_configurato
+    - node.type.server
+    - webform.webform.server_configurator
+  module:
+    - webform
+id: node.server.field_webform_server_configurato
+field_name: field_webform_server_configurato
+entity_type: node
+bundle: server
+label: webform_server_configurator
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 115d7ca2-3c25-4edc-8f4d-7b472d994d7d
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

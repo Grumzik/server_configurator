@@ -1,0 +1,9 @@
+uuid: 03b18384-7401-4261-94cf-e2d85b1608f7
+langcode: und
+status: true
+dependencies: {  }
+name: 'Packaging Dimensions'
+vid: packaging_dimensions
+description: null
+weight: 0
+new_revision: false

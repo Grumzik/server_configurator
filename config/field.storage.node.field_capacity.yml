@@ -1,0 +1,20 @@
+uuid: 49576e86-22b7-47c6-92d9-34c6f5af8d2c
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_capacity
+field_name: field_capacity
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

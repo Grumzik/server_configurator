@@ -1,0 +1,9 @@
+uuid: b35dcc1a-170c-44c6-9bd4-b7cec09ac649
+langcode: ru
+status: true
+dependencies: {  }
+name: parts_type
+vid: parts_type
+description: null
+weight: 0
+new_revision: false

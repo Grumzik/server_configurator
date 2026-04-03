@@ -1,0 +1,23 @@
+uuid: 0fc6a6cb-abe0-4dde-8813-33faa2ed8cb5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_cpu_configuration
+    - node.type.cpu_intel
+id: node.cpu_intel.field_max_cpu_configuration
+field_name: field_max_cpu_configuration
+entity_type: node
+bundle: cpu_intel
+label: 'Max CPU Configuration'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

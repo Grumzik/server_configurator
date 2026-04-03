@@ -1,0 +1,19 @@
+uuid: 0ddd73be-5d0b-448e-8103-9a474ea6d487
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_certsystem
+    - node.type.certificate
+id: node.certificate.field_certsystem
+field_name: field_certsystem
+entity_type: node
+bundle: certificate
+label: 'Система сертификации'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,23 @@
+uuid: 338a4643-6c13-4483-8bca-ef3febb1d21c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cache
+    - node.type.processor
+id: node.processor.field_cache
+field_name: field_cache
+entity_type: node
+bundle: processor
+label: Cache
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1.0
+  max: 1000.0
+  prefix: ''
+  suffix: MB
+field_type: decimal

@@ -1,0 +1,21 @@
+uuid: aec5c16a-0e94-4847-b608-513c9ea4f13d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_usage
+    - node.type.server2
+  module:
+    - options
+id: node.server2.field_usage
+field_name: field_usage
+entity_type: node
+bundle: server2
+label: 'Типовое использование'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,303 @@
+uuid: ea5ad635-da57-4797-aed8-2039aaf13589
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_side_menu
+label: 'tis side menu'
+code: |+
+  /*.mOpen .hamburger button {
+    transform: rotate(-90deg);
+  	font-size: 1.4rem;
+  	font-weight: 600;
+  	text-transform: uppercase;
+  }
+
+  .mOpen .hamburger button:hover {
+  	color:   #eb8025;
+  }
+
+  .mOpen .btn-close{
+  	margin-right: 10px;
+  }
+
+  .con, .special-con{
+      cursor: pointer;
+      display: inline-block;
+  }
+  .special-con:hover .arrow-top-fall {
+  	transition: all .25s ease-in-out;
+  	transform: translateY(15px);
+  }
+
+  .special-con .arrow-bottom-fall {
+  	transition: all .25s ease-in-out;
+  	transform: translateY(-15px);
+  }
+
+  .con:hover .bar, .special-con:hover .bar{
+  	background-color: #eb8025;
+  }
+
+  */
+
+  /*side menu*/
+  @media (max-width: 993px) {
+   .mOpen{
+   	visibility: hidden;
+   }
+  }
+
+
+  .mOpen, #tissidemenu{
+  	  z-index: 50;
+  }
+  #tissidemenu{
+  	position: relative;
+  }
+  #tissidemenu.hamburger button {
+    transform: rotate(-90deg);
+  	font-size: 1.4rem;
+  	font-weight: 600;
+  	text-transform: uppercase;
+  }
+
+  #tissidemenu.hamburger button:hover {
+  	color:   #eb8025;
+  }
+
+  #tissidemenu.btn-close{
+  	margin-right: 10px;
+  }
+
+  #tissidemenu.hamburger{
+      cursor: pointer;
+      display: inline-block;
+  }
+  #tissidemenu.hamburger:hover .arrow-top-fall {
+  	transition: all .25s ease-in-out;
+  	transform: translateY(15px);
+  }
+
+  #tissidemenu.hamburger:hover .arrow-bottom-fall {
+  	transition: all .25s ease-in-out;
+  	transform: translateY(-15px);
+  }
+
+  #tissidemenu.hamburger:hover .bar{
+  	background-color: #eb8025;
+  }
+
+
+  .bar {
+      -webkit-transition: all .25s ease;
+      -moz-transition: all .25s ease;
+      -ms-transition: all .25s ease;
+      -o-transition: all .25s ease;
+      transition: all .25s ease;
+  }
+
+  .bar {
+      display: block;
+      height: 5px;
+      width: 50px;
+      background: #898989;
+      margin: 10px auto;
+      background-color: #eb8025;
+  }
+  /* отображение подменю бокового меню*/
+  .offcanvas{
+  	background-color: rgba(255,255,255,1);
+  }
+
+  .offcanvas-body{
+  	flex-grow: 0!important;
+  }
+
+  .dropdown{
+  	transition: left 0.3s ease-in-out !important; /* Плавное появление */
+  }
+
+  #tissidemenu .dropdown{
+  	height: 37px;
+  }
+
+  #tissidemenu .dropdown-menu {
+    position: fixed; /* Фиксируем положение относительно экрана */
+    top: 0px;
+    left: -100%; /* Скрываем за левой границей */
+   /* width: 250px;  Ширина подменю */
+    height: 100vw; /* Высота на всю видимую область */
+    background-color: white; /* Цвет фона */
+  /*  overflow-y: auto; /* Добавляем вертикальную прокрутку, если контент выходит за пределы */
+     transition: left 0.3s ease-in-out !important;  /*Плавное появление */
+    z-index: 1000; /* Устанавливаем высокий z-index, чтобы меню было поверх других элементов */
+  }
+
+  #tissidemenu .dropdown-menu a{
+  	padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #tissidemenu .nav.navbar-nav li:first-child, #tissidemenu .dropdown-menu.show  li:first-child {
+  	margin-top: 70px; 
+  }
+
+  .nav-link{
+  	font-size: inherit;
+  /*	padding-top: inherit;
+  	padding-bottom: inherit; */
+  	--bs-nav-link-padding-y: 5px;
+  }
+
+
+
+  #tissidemenu .dropdown-menu.show .dropdown-menu.show{
+  /*	position: fixed;  */
+  	top: -19.2px !important;
+  }
+
+  /* Основные стили для offcanvas */
+
+
+  .offcanvas-start.show {
+      transform: translateX(0); /* Показываем меню */
+  }
+
+  .offcanvas-body {
+      width: auto; /* Ширина определяется содержимым */
+      
+      padding: 0;
+    /*  overflow-y: auto;*/
+
+  }
+
+  /* Стили для многоуровневого меню */
+  .offcanvas .navbar-nav {
+      flex-direction: column; /* Вертикальное расположение элементов меню */
+      flex-wrap: nowrap;
+      height: 100%; /* Занимаем всю высоту offcanvas */
+  }
+
+
+
+  .offcanvas .dropdown-menu.show {
+  		position: fixed; /* Позиционируем подменю абсолютно относительно экрана */
+   /*    position: absolute; /* Позиционируем подменю абсолютно относительно родительского пункта меню */
+      padding: 20px !important; 
+  		right: 0  !important; /* Располагаем подменю справа */
+      width: auto; /* Ширина подменю определяется содержимым */
+      height: 100vh; /* Занимаем всю высоту экрана */
+      display: block; /* Показываем подменю */
+    /*  overflow-y: auto; /* Позволяем прокрутку подменю */
+     /* border: 1px solid #ccc; /* Добавляем рамку (опционально) */
+    /*  padding: 16px;*/
+      z-index: 1000; /* Устанавливаем высокий z-index, чтобы меню было поверх других элементов */
+      background-color: rgba(255,255,255,1);
+  }
+
+
+  #tismenu1 .dropdown-menu .dropdown-menu{
+         position: fixed;
+         top: -19.2px;
+         background-color: rgba(255,255,255,1);
+  }
+
+
+  #tissidemenu .offcanvas .dropend{
+  	position: static !important;
+  }
+
+  /* Стили для вложенных подменю */
+  .offcanvas .dropdown-submenu .dropdown-menu {
+  right: 100%; /* Располагаем вложенные подменю справа от родительского */
+   /*   margin-top: -1px; /* Корректировка позиции для перекрытия рамки */
+  }
+
+
+  .dropdown-item {
+  	color:  rgb(60, 72, 88);
+  }
+
+  .nav, #tismenu1 > div.offcanvas-body > ul > li{
+  	transition: transform 1s ease !important;
+  }
+
+  .nav-link:hover::after, .dropdown-item.show::after{
+  	  transition: transform 0.3s ease, color  0.3s ease;
+  }
+
+
+  /*изменяем цвет стрелочек пунктов меню*/
+  .nav-link:hover::after,
+  .nav-item:focus-within .nav-link::after,
+  .dropend:focus-within .dropdown-item.show::after
+  {
+    color:  #eb8025;
+    transform: translateX(15px)  scale(1.4);
+  }
+
+
+
+  :root {
+    --bs-nav-link-font-size: 1.1rem; /* Установи нужное значение */
+  }
+
+
+
+
+  .dropdown-item:hover, .dropdown-item:focus {
+       color: rgb(60, 72, 88); 
+       background-color: #fff; 
+  }
+
+
+
+
+  .navbar {
+  	--bs-navbar-nav-link-padding-x: 1rem;
+  	--bs-navbar-active-color: #ff820e;
+  }
+
+  .nav-link:hover, .nav-link:focus {
+  	--bs-nav-link-hover-color: #ff820e;
+  }
+
+  .dropdown-item:hover, .dropdown-item:focus{
+  	--bs-dropdown-link-hover-bg: RGBA(92,108,129,1);
+  }
+
+
+
+
+  .dropdown-item:hover{
+  	color: #ff820e;
+  }
+
+
+
+  .offcanvas-body {
+  	margin: 20px;
+    overflow-y: hidden;
+  }
+
+
+  .dropdown-menu ul {
+    word-break: break-word; /* Разрешаем перенос слов */
+    overflow-wrap: break-word; /* Для совместимости со старыми браузерами */
+  }
+
+
+  .dropdown-menu  a {
+    display: inline-block; /* Позволяет применять width и height к ссылке */
+    width: 100%; /* Ширина ссылки равна ширине li (которая ограничена шириной ul) */
+    overflow: hidden;
+  }
+
+
+
+
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

@@ -1,0 +1,18 @@
+uuid: b37edc25-ebe5-4a69-95cf-00748499be33
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.superhero_portfolio
+id: node.superhero_portfolio.title
+field_name: title
+entity_type: node
+bundle: superhero_portfolio
+label: Имя
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

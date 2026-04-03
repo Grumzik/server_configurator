@@ -1,0 +1,25 @@
+uuid: 0ded20b6-b65e-4c87-aafa-7f03e5905cfd
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c828c4b0-025b-4703-b8dc-c2e933819caf'
+  module:
+    - block_content
+  theme:
+    - tiscom_radix
+id: tiscom_radix_tiscomlogofooter
+theme: tiscom_radix
+region: footer
+weight: 0
+provider: null
+plugin: 'block_content:c828c4b0-025b-4703-b8dc-c2e933819caf'
+settings:
+  id: 'block_content:c828c4b0-025b-4703-b8dc-c2e933819caf'
+  label: 'Tiscom   logo footer'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,143 @@
+uuid: f220752b-c415-4540-8b7b-0108529c4f2a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.news.body
+    - field.field.node.news.field_image
+    - field.field.node.news.field_news_anons
+    - node.type.news
+  module:
+    - feeds_log
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+  feeds_tamper:
+    tampers:
+      b5483663-18b3-40ed-bbbf-57cc63db5d83:
+        find: 'https://tiscom.ru/sites/default/files/'
+        replace: 'https://tiscom/sites/default/files/news/'
+        case_sensitive: false
+        word_boundaries: false
+        whole: false
+        uuid: b5483663-18b3-40ed-bbbf-57cc63db5d83
+        plugin: find_replace
+        source: image
+        weight: 0
+        label: 'Find replace'
+label: News
+id: news
+description: ''
+help: ''
+import_period: 3600
+import_period_per_feed: false
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ','
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: news
+  langcode: ru
+  insert_new: 1
+  update_existing: 0
+  update_non_existent: _keep
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  zagolovok:
+    value: Title
+    label: Title
+    machine_name: zagolovok
+    type: csv
+  '':
+    value: ''
+    label: ''
+    machine_name: ''
+    type: csv
+  title:
+    value: Title
+    label: Title
+    machine_name: title
+    type: csv
+  anons:
+    value: Anons
+    label: Anons
+    machine_name: anons
+    type: csv
+  image:
+    value: Image
+    label: Image
+    machine_name: image
+    type: csv
+  body:
+    value: Body
+    label: Body
+    machine_name: body
+    type: csv
+  post_date:
+    value: Post_date
+    label: Post_date
+    machine_name: post_date
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: title
+    settings:
+      language: ''
+    unique:
+      value: 1
+  -
+    target: field_news_anons
+    map:
+      value: anons
+    settings:
+      language: null
+  -
+    target: field_image
+    map:
+      target_id: image
+      alt: ''
+      title: ''
+    settings:
+      language: ''
+      reference_by: filename
+      existing: '1'
+  -
+    target: body
+    map:
+      value: body
+      summary: ''
+    settings:
+      language: null
+      format: plain_text

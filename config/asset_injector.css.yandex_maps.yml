@@ -1,0 +1,70 @@
+uuid: 7d0974be-e74f-469e-938c-95b79061ba41
+langcode: ru
+status: true
+dependencies: {  }
+id: yandex_maps
+label: 'yandex maps'
+code: |2
+      /* Основные стили для контейнера */
+      #map {
+          position: relative;
+          padding-top: 50px; /* Резервируем место для кнопок */
+          
+      }
+      
+      #map .map-buttons-container {
+          display: flex;
+          gap: 10px;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          right: 10px;
+          z-index: 40;
+      }
+
+      /* Стили для кнопок */
+      #map .map-buttons-container > * {
+          flex: 1;
+          min-width: 0;
+      }
+      
+      #map .map-buttons-container .tis-button,
+      #map .map-buttons-container .dropdown > button {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          padding: 8px 5px;
+      }
+
+      /* Мобильная версия */
+      @media (max-width: 576px) {
+          #map {
+              padding-top: 160px; /* Больше места для 3 кнопок */
+              height: 80vh!important;
+          }
+          
+          #map .map-buttons-container {
+              flex-direction: column;
+              top: 10px;
+              left: 10px;
+              right: 10px;
+              background: white;
+              border-radius: 4px;
+              box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+              padding: 10px;
+          }
+          
+          #map .map-buttons-container > * {
+              margin-bottom: 8px;
+          }
+          
+          #map .map-buttons-container > *:last-child {
+              margin-bottom: 0;
+          }
+      }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

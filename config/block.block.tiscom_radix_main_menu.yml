@@ -1,0 +1,27 @@
+uuid: 0dcf7934-11bc-4c05-b168-3418ee6984b5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - tiscom_radix
+_core:
+  default_config_hash: aq9KO8Ca8pyNt-XyvoFDCFxZT4bFbr21qQ-QAD1Jg-Y
+id: tiscom_radix_main_menu
+theme: tiscom_radix
+region: navbar_right
+weight: -11
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Основная навигация'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 6
+  expand_all_items: false
+visibility: {  }

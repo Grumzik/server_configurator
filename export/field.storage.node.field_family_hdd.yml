@@ -1,0 +1,26 @@
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_family_hdd
+field_name: field_family_hdd
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '2.5'
+      label: '2.5'
+    -
+      value: '3.5'
+      label: '3.5'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

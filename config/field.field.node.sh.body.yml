@@ -1,0 +1,24 @@
+uuid: 58dde4dd-97e8-4a5e-8daa-752a30cb66b1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.sh
+  module:
+    - text
+id: node.sh.body
+field_name: body
+entity_type: node
+bundle: sh
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

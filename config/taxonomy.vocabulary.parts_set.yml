@@ -1,0 +1,9 @@
+uuid: e81eb27a-a3d0-4d40-b0e2-7fe27ff34d89
+langcode: ru
+status: true
+dependencies: {  }
+name: parts_set
+vid: parts_set
+description: null
+weight: 0
+new_revision: false

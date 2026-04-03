@@ -1,0 +1,23 @@
+uuid: 83a3303d-a24e-4d78-8ef7-f4a44cee37e5
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_slick_slider
+    - field.storage.block_content.field_ebt_settings
+  module:
+    - ebt_core
+_core:
+  default_config_hash: YIrMWNLT6TiXF-tmAzVOGQaDbDkIa_qy9_KBL0B4TxA
+id: block_content.ebt_slick_slider.field_ebt_settings
+field_name: field_ebt_settings
+entity_type: block_content
+bundle: ebt_slick_slider
+label: 'Block settings'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: ebt_settings

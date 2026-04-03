@@ -1,0 +1,316 @@
+uuid: 222df3d0-3296-4cab-a4ea-077e2e0a73f8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.server.field_adds
+    - field.field.node.server.field_configurator_id
+    - field.field.node.server.field_cpu
+    - field.field.node.server.field_cpu_generation
+    - field.field.node.server.field_cpu_quantity
+    - field.field.node.server.field_cpu_vendor
+    - field.field.node.server.field_description
+    - field.field.node.server.field_df_base_configuration
+    - field.field.node.server.field_family_cpu
+    - field.field.node.server.field_family_hdd
+    - field.field.node.server.field_family_hddcount
+    - field.field.node.server.field_family_units
+    - field.field.node.server.field_fc_base_configuration
+    - field.field.node.server.field_image
+    - field.field.node.server.field_keys
+    - field.field.node.server.field_metatag
+    - field.field.node.server.field_platform
+    - field.field.node.server.field_server_by_params
+    - field.field.node.server.field_server_configurator
+    - field.field.node.server.field_server_type
+    - field.field.node.server.field_specification
+    - field.field.node.server.field_test_platform
+    - field.field.node.server.field_test_platform_vendor
+    - field.field.node.server.field_usage
+    - field.field.node.server.field_vendor
+    - field.field.node.server.field_webform_server_by_appointm
+    - field.field.node.server.field_webform_server_configurato
+    - image.style.400x400_white_bg
+    - image.style.thumbnail
+    - image.style.wide
+    - node.type.server
+  module:
+    - cshs
+    - ds
+    - entity_print
+    - field_group
+    - layout_builder
+    - slick
+    - text
+    - user
+    - webform
+third_party_settings:
+  field_group:
+    group_details:
+      children:
+        - group_specifikaciya
+        - group_konfigurator
+        - group_parametry
+      label: details
+      parent_name: ''
+      region: footer
+      weight: 4
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        direction: horizontal
+        width_breakpoint: 640
+    group_specifikaciya:
+      children:
+        - field_specification
+      label: Спецификация
+      parent_name: group_details
+      region: footer
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_parametry:
+      children:
+        - servers_server_platform_details_eva
+        - field_adds
+        - field_configurator_id
+        - field_cpu
+        - field_cpu_generation
+        - field_cpu_quantity
+        - field_cpu_vendor
+        - field_description
+        - field_family_cpu
+        - field_family_hdd
+        - field_family_units
+        - field_server_configurator
+        - field_server_type
+        - field_usage
+        - addtoany
+        - links
+        - 'bundle_field:node'
+        - node_link
+        - node_links
+      label: Параметры
+      parent_name: group_details
+      region: footer
+      weight: 7
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: closed
+        description: ''
+    group_konfigurator:
+      children:
+        - field_webform_server_configurato
+      label: Конфигуратор
+      parent_name: group_details
+      region: footer
+      weight: 6
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+  layout_builder:
+    enabled: false
+    allow_custom: false
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left:
+            server-img: server-img
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      left:
+        - field_image
+      footer:
+        - field_webform_server_configurato
+        - servers_server_platform_details_eva
+        - group_details
+        - group_specifikaciya
+        - field_specification
+        - group_konfigurator
+        - group_parametry
+      right:
+        - field_keys
+        - field_vendor
+  entity_print:
+    pdf_label: 'View PDF'
+    epub_label: 'View EPub'
+    word_docx_label: 'View Word Document'
+id: node.server.full
+targetEntityType: node
+bundle: server
+mode: full
+content:
+  field_image:
+    type: slick_image
+    label: above
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: server_carousel
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: ''
+      cache: 0
+      admin_uri: '/admin/structure/types/manage/server/display/full?ajax_form=1&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: entity_title
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: wide
+      image_style: 400x400_white_bg
+      media_switch: slick_lightbox
+      ratio: ''
+      thumbnail_style: thumbnail
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: server_thumbnail_carousel
+      skin_thumbnail: asnavfor
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_keys:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: right
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: footer
+  field_vendor:
+    type: cshs_flexible_hierarchy
+    label: above
+    settings:
+      linked: false
+      reverse: false
+      format: '[term:name]'
+      clear: true
+    third_party_settings: {  }
+    weight: 2
+    region: right
+  field_webform_server_configurato:
+    type: webform_entity_reference_entity_view
+    label: hidden
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+  servers_entity_view_3:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: footer
+  servers_server_platform_details_eva:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+hidden:
+  addtoany: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  field_adds: true
+  field_configurator_id: true
+  field_cpu: true
+  field_cpu_generation: true
+  field_cpu_quantity: true
+  field_cpu_vendor: true
+  field_description: true
+  field_df_base_configuration: true
+  field_family_cpu: true
+  field_family_hdd: true
+  field_family_hddcount: true
+  field_family_units: true
+  field_fc_base_configuration: true
+  field_metatag: true
+  field_platform: true
+  field_server_by_params: true
+  field_server_configurator: true
+  field_server_type: true
+  field_test_platform: true
+  field_test_platform_vendor: true
+  field_usage: true
+  field_webform_server_by_appointm: true
+  langcode: true
+  links: true
+  search_api_excerpt: true
+  servers_entity_view_1: true
+  servers_entity_view_2: true
+  servers_entity_view_2_form: true
+  vendors_entity_view_1: true

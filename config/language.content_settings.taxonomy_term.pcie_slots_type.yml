@@ -1,0 +1,11 @@
+uuid: 0abc28c7-8615-48c8-bf1d-6c0d77730876
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.pcie_slots_type
+id: taxonomy_term.pcie_slots_type
+target_entity_type_id: taxonomy_term
+target_bundle: pcie_slots_type
+default_langcode: site_default
+language_alterable: false

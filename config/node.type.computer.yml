@@ -1,0 +1,21 @@
+uuid: beb0d694-1f72-42f8-bfd5-a95bbbf8821c
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">computer</em> content'
+name: computer
+type: computer
+description: Компьютер
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

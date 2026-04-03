@@ -1,0 +1,22 @@
+uuid: c0035d69-3da2-4409-8a76-c08a030a5a18
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_sale
+label: 'Содержимое - sale'
+type: 'canonical_entities:node'
+pattern: 'sale/[node:title]'
+selection_criteria:
+  a8895751-45d8-4917-915e-ae5529cf0b11:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a8895751-45d8-4917-915e-ae5529cf0b11
+    context_mapping:
+      node: node
+    bundles:
+      sale: sale
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,23 @@
+uuid: f6076577-02cf-411b-ba3c-e2d0cf61ca37
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_psu_power
+    - node.type.platform
+id: node.platform.field_psu_power
+field_name: field_psu_power
+entity_type: node
+bundle: platform
+label: 'PSU Power'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: W
+field_type: integer

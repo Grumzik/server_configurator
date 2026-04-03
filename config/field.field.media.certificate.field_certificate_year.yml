@@ -1,0 +1,23 @@
+uuid: afb431d4-8b5d-42bb-9c72-a0b819f70102
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_certificate_year
+    - media.type.certificate
+id: media.certificate.field_certificate_year
+field_name: field_certificate_year
+entity_type: media
+bundle: certificate
+label: 'Certificate Year'
+description: 'Год получения сертификата'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1980
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

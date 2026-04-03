@@ -1,0 +1,22 @@
+uuid: fed1aef9-b0f3-4bd7-8475-c5f25a6b12d8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.hcici
+  module:
+    - text
+id: node.hcici.field_description
+field_name: field_description
+entity_type: node
+bundle: hcici
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

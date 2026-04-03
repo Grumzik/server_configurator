@@ -1,0 +1,22 @@
+uuid: ffb64e8f-40d7-4c9e-88e7-f5f76d97ddd3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.datasystem
+  module:
+    - text
+id: node.datasystem.field_specification
+field_name: field_specification
+entity_type: node
+bundle: datasystem
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,29 @@
+uuid: fc7f4b8d-4f9c-4b03-8264-48c7f5ff6e03
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraphs_pack_content.pp_body
+    - field.field.paragraph.paragraphs_pack_content.pp_title
+    - paragraphs.paragraphs_type.paragraphs_pack_content
+id: paragraph.paragraphs_pack_content.default
+targetEntityType: paragraph
+bundle: paragraphs_pack_content
+mode: default
+content:
+  pp_body:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  pp_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

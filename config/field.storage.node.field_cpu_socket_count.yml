@@ -1,0 +1,20 @@
+uuid: 7531928c-aad9-4fe5-a4eb-8af2789ea9d2
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cpu_socket_count
+field_name: field_cpu_socket_count
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

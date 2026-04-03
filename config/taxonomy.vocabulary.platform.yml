@@ -1,0 +1,9 @@
+uuid: 28934fc0-c03b-4585-bb6a-934c42595175
+langcode: und
+status: true
+dependencies: {  }
+name: platform
+vid: platform
+description: null
+weight: 0
+new_revision: false

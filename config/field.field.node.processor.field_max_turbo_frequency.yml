@@ -1,0 +1,23 @@
+uuid: 12c68753-49a4-4c6c-aa83-01e877845b63
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_turbo_frequency
+    - node.type.processor
+id: node.processor.field_max_turbo_frequency
+field_name: field_max_turbo_frequency
+entity_type: node
+bundle: processor
+label: 'Max Turbo Frequency'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1.0
+  max: 99.9
+  prefix: ''
+  suffix: GHz
+field_type: decimal

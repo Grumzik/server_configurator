@@ -1,0 +1,9 @@
+uuid: c8620190-1550-4e68-ab48-969855309279
+langcode: ru
+status: true
+dependencies: {  }
+name: 'Серия компьютера'
+vid: computer_line
+description: 'Серия компьютера'
+weight: 0
+new_revision: false

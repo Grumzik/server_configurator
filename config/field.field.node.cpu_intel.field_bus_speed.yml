@@ -1,0 +1,19 @@
+uuid: d9bdcf8c-2369-4edc-988a-dde8e1136900
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bus_speed
+    - node.type.cpu_intel
+id: node.cpu_intel.field_bus_speed
+field_name: field_bus_speed
+entity_type: node
+bundle: cpu_intel
+label: 'частота шины'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

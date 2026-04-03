@@ -1,0 +1,23 @@
+uuid: 3d433dbb-5418-4c75-a98f-a93722c69a26
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_storage_form_factor
+    - node.type.platform
+id: node.platform.field_storage_form_factor
+field_name: field_storage_form_factor
+entity_type: node
+bundle: platform
+label: 'Storage Form Factor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: '"'
+field_type: decimal

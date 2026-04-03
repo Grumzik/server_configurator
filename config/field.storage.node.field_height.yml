@@ -1,0 +1,21 @@
+uuid: 1d42ebe4-7050-496c-8a91-124d55168cea
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_height
+field_name: field_height
+entity_type: node
+type: string
+settings:
+  max_length: 50
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 0e1f635d-6dcc-4c1c-805d-5f16928c6e3d
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">intel</em> content'
+name: intel
+type: intel
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,32 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - filter.format.ds_code
+    - filter.format.filtered_html
+    - filter.format.full_html
+    - filter.format.php_code
+    - node.type.article
+    - node.type.page
+    - node.type.parts
+  module:
+    - addtoany
+    - block
+    - contextual
+    - filter
+    - image
+    - language
+    - locale
+    - media
+    - node
+    - path
+    - pathauto
+    - search
+    - shortcut
+    - system
+    - taxonomy
+    - views_ui
+id: administrator
+label: administrator
+weight: 2
+is_admin: true

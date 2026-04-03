@@ -1,0 +1,9 @@
+uuid: 4f5ae82e-6c8a-4a91-a314-5199476c79b0
+langcode: ru
+status: true
+dependencies: {  }
+name: server_types
+vid: server_types
+description: null
+weight: 0
+new_revision: false

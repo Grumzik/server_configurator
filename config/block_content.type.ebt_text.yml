@@ -1,0 +1,10 @@
+uuid: 4f96b6e8-81c5-48d7-8b5b-e0203527ab7c
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EfDKjvl4An381lwiUletrxyYGHVSXr0ylsIz7wG4FkM
+id: ebt_text
+label: 'EBT Text'
+revision: true
+description: 'Adds Text block type with WYSIWYG editor'

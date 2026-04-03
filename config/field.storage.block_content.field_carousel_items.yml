@@ -1,0 +1,21 @@
+uuid: 8b554b30-973b-481d-969d-c8b2fc1d089f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_reference_revisions
+    - paragraphs
+id: block_content.field_carousel_items
+field_name: field_carousel_items
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

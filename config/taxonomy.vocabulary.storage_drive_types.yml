@@ -1,0 +1,9 @@
+uuid: 4672a6ea-3b5e-4228-a99b-4e00af6c50c1
+langcode: und
+status: true
+dependencies: {  }
+name: 'Storage Drive Types'
+vid: storage_drive_types
+description: null
+weight: 0
+new_revision: false

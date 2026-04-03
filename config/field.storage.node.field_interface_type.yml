@@ -1,0 +1,33 @@
+uuid: eb6eb2d0-6f9f-4edb-a2f2-c7b5f026d04a
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_interface_type
+field_name: field_interface_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: FC
+      label: FC
+    -
+      value: SAS
+      label: SAS
+    -
+      value: iSCSI
+      label: iSCSI
+    -
+      value: USB
+      label: USB
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

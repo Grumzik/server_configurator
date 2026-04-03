@@ -1,0 +1,21 @@
+uuid: 5a54c907-142e-4827-9cb7-badfe64986ca
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_family_cpu
+    - node.type.server
+  module:
+    - options
+id: node.server.field_family_cpu
+field_name: field_family_cpu
+entity_type: node
+bundle: server
+label: family_cpu
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

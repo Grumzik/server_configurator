@@ -1,0 +1,19 @@
+uuid: 5a68db87-3233-462f-ae11-4e3c3f79d802
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_raid
+field_name: field_raid
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

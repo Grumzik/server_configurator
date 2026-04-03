@@ -1,0 +1,31 @@
+uuid: f1894f9f-beb5-45ac-a376-e1e86f8ab43e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.node_processor
+    - field.storage.node.feeds_item
+    - node.type.processor
+  module:
+    - feeds
+id: node.processor.feeds_item
+field_name: feeds_item
+entity_type: node
+bundle: processor
+label: 'Feeds item'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings:
+    target_bundles:
+      node_processor: node_processor
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: feeds_item

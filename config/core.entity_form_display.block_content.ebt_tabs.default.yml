@@ -1,0 +1,100 @@
+uuid: c8a6e9c4-ef7a-448c-a0d1-63448b18aab2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_tabs
+    - field.field.block_content.ebt_tabs.field_ebt_settings
+    - field.field.block_content.ebt_tabs.field_ebt_tabs
+  module:
+    - ebt_tabs
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_content
+        - group_settings
+      label: Вкладки
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 120
+    group_content:
+      children:
+        - field_ebt_tabs
+      label: Содержимое
+      region: content
+      parent_name: group_tabs
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_settings:
+      children:
+        - field_ebt_settings
+      label: Настройки
+      region: content
+      parent_name: group_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: FiD2k00iSxydyLNXRexQsZwtt3kdC7yWjKnIE2TPsds
+id: block_content.ebt_tabs.default
+targetEntityType: block_content
+bundle: ebt_tabs
+mode: default
+content:
+  field_ebt_settings:
+    type: ebt_settings_tabs
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_ebt_tabs:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Параграф
+      title_plural: Параграфы
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

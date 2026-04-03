@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Template for a Page Footer component.
+ *
+#}
+{% apply spaceless %}
+
+{% set footer_attributes = footer_attributes ?: create_attribute() %}
+{%
+  set footer_classes = [
+    'page__footer',
+  ]|merge(footer_utility_classes ?: [])
+%}
+
+{% if page.footer %}
+  <footer {{ footer_attributes.addClass(footer_classes) }}>
+    <div class="mt-5">
+    {% block page_inner_footer_animation %}
+      {{ page.footer_animation }}
+    {% endblock %}
+    </div>
+
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-12 col-sm-6  col-md-6  col-lg-4 mt-5">
+          {% block page_inner_footer1 %}
+            {{ page.footer1 }}
+          {% endblock %}
+        </div>
+        <div class="col-12 col-sm-6  col-md-6  col-lg-4 mt-5">
+          {% block page_inner_footer2 %}
+            {{ page.footer2 }}
+          {% endblock %}
+        </div>
+        <div class="col-12 col-sm-6  col-md-6  col-lg-4 mt-5">
+          {% block page_inner_footer3 %}
+            {{ page.footer3 }}
+          {% endblock %}
+        </div>
+      </div>
+
+      <div class="d-flex flex-wrap justify-content-start align-items-md-center mt-5">
+        {% block page_inner_footer %}
+          {{ page.footer }}
+        {% endblock %}
+      </div>
+    </div>
+  </footer>
+{% endif %}
+
+{% endapply %}

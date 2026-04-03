@@ -1,0 +1,11 @@
+uuid: cfab2141-cac6-4a6a-8fad-918ebfff3db5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.architecture
+id: taxonomy_term.architecture
+target_entity_type_id: taxonomy_term
+target_bundle: architecture
+default_langcode: site_default
+language_alterable: false

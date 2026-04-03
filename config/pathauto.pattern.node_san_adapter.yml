@@ -1,0 +1,22 @@
+uuid: 93e0f35d-5075-4ff2-a7df-2f78b2141c47
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_san_adapter
+label: 'Содержимое - san_adapter'
+type: 'canonical_entities:node'
+pattern: 'adapter/[node:title]'
+selection_criteria:
+  6c8c08b5-43f7-4fa9-85ac-9d198ba56b93:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 6c8c08b5-43f7-4fa9-85ac-9d198ba56b93
+    context_mapping:
+      node: node
+    bundles:
+      san_adapter: san_adapter
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,22 @@
+uuid: ee57b22b-0047-4df0-bd43-973352299c5f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_server
+label: 'Содержимое - сервер'
+type: 'canonical_entities:node'
+pattern: 'server/[node:title]'
+selection_criteria:
+  9375250d-c87b-44b6-950b-e977a1e309b3:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 9375250d-c87b-44b6-950b-e977a1e309b3
+    context_mapping:
+      node: node
+    bundles:
+      server: server
+selection_logic: and
+weight: 0
+relationships: {  }

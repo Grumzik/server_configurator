@@ -1,0 +1,19 @@
+uuid: 092b47c5-2a83-4033-87d2-9057a00c96ab
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_login_page
+label: 'tis login page'
+code: |-
+  .form--user-login-form{
+  	width: 50% !important;
+  	margin: 20px auto !important;
+  }
+  .form--user-login-form .btn{
+  	margin-top: 20px !important;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

@@ -1,0 +1,8 @@
+uuid: aefe3f87-bdf7-4da5-8172-cd80ce8847c0
+langcode: ru
+status: true
+dependencies: {  }
+id: certificat-menu
+label: 'Certificat menu'
+description: ''
+locked: false

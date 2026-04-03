@@ -1,0 +1,8 @@
+uuid: bb0e360e-27d8-4ed6-a352-4d5340f5909c
+langcode: ru
+status: true
+dependencies: {  }
+id: menu-bottom-m3
+label: 'bottom M3 Решения'
+description: Решения
+locked: false

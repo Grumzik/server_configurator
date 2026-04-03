@@ -1,0 +1,19 @@
+uuid: 1e6c1d3a-83ca-426c-96b8-51f330e08804
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product
+    - node.type.certificate
+id: node.certificate.field_product
+field_name: field_product
+entity_type: node
+bundle: certificate
+label: 'Наименование продукта'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

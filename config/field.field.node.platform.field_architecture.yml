@@ -1,0 +1,33 @@
+uuid: c187d65f-4a93-4c83-910a-53cd1837efa6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_architecture
+    - node.type.platform
+    - taxonomy.vocabulary.architecture
+  content:
+    - 'taxonomy_term:architecture:517b481f-3ca9-44fe-b00c-d81aeb235d12'
+id: node.platform.field_architecture
+field_name: field_architecture
+entity_type: node
+bundle: platform
+label: Architecture
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 517b481f-3ca9-44fe-b00c-d81aeb235d12
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      architecture: architecture
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

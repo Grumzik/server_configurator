@@ -1,0 +1,15 @@
+uuid: 43657c89-156a-4923-b8ef-43972f9efe21
+langcode: ru
+status: true
+dependencies: {  }
+name: full_screan_banner_1024x600
+label: full_screan_banner_1024x600
+effects:
+  1886b362-60d3-4b11-ab9a-dd123d5d2373:
+    uuid: 1886b362-60d3-4b11-ab9a-dd123d5d2373
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 600
+      anchor: center-center

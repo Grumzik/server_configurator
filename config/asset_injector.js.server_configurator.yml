@@ -1,0 +1,263 @@
+uuid: 775c507b-94b4-49de-bd30-bd40a0f98018
+langcode: ru
+status: false
+dependencies: {  }
+id: server_configurator
+label: 'server configurator'
+code: |
+  /**
+   * server-configurator — AJAX фильтр View + выбор CPU → запись в Webform
+   *
+   * Требования HTML на странице:
+   * - Контейнер Webform (любой)
+   * - Контейнер View блока (например <div id="block-processor-view">...)
+   * - В строке view должна быть кнопка с классом .js-select-cpu и data-cpu-id
+   * - В Webform есть скрытое поле <input name="selected_cpu" ...>
+   *
+   * Разместить этот файл в теме и подключить через libraries.yml, затем clear cache.
+   */
+
+  (function () {
+    'use strict';
+
+    // --------------- Конфигурация (подправь селекторы если нужно) ---------------
+    var CONFIG = {
+      // входное поле tdp (число) — откуда брать значение для фильтра
+      tdpInputSelector: 'input[name="tdp_min"], #edit-tdp',
+
+      // контейнер, куда Drupal рендерит наш View (блок/контейнер на странице)
+      viewBlockSelector: '#edit-processor-for-server, .view-display-id-processor_for_server, [data-drupal-selector="edit-processor-for-server"]',
+
+      // стабильный внутренний селектор самой view (display id)
+      viewInnerSelector: '.view-display-id-processor_for_server, .view-id-cpu.view-display-id-processor_for_server',
+
+      // URL для AJAX запроса к Views
+      viewAjaxBase: '/views/ajax?view_name=cpu&view_display_id=processor_for_server',
+
+      // Селектор/имя поля в webform, куда будем писать выбранные CPU
+      webformHiddenSelector: 'input[name="selected_cpu"], #edit-selected-cpu',
+
+      // Селектор/имя поля preview (показываем выбранные CPU)
+      webformPreviewSelector: 'input[name="selected_cpu_preview"], #edit-selected-cpu-preview, #selected-cpu-preview',
+
+      // Кнопки и триггеры (кнопка Показать/Apply и кнопки Select у строк)
+      triggerShowSelector: '.js-show-processor-view, input[name="cpu_button"][value*="Показать"], .js-webform-computed-submit',
+      selectCpuButtonSelector: '.js-select-cpu',
+      clearSelectionSelector: '.js-clear-selected-cpu', // опционально
+    };
+
+    // --------------- Утилиты ---------------
+    function qs(selector, ctx) { ctx = ctx || document; return ctx.querySelector(selector); }
+    function qsa(selector, ctx) { ctx = ctx || document; return Array.prototype.slice.call(ctx.querySelectorAll(selector)); }
+    function isEmpty(v) { return v === null || v === undefined || String(v).trim() === ''; }
+    function numericOnly(str) {
+      if (str == null) return '';
+      var m = String(str).match(/(-?\d+(\.\d+)?)/);
+      return m ? m[1] : '';
+    }
+
+    // логирование
+    var DEBUG = true;
+    function log() {
+      if (!DEBUG) return;
+      console.log.apply(console, ['[server-configurator]'].concat(Array.prototype.slice.call(arguments)));
+    }
+
+    // --------------- Чтение TDP (значение для фильтра) ---------------
+    function readTdp() {
+      var inp = qs(CONFIG.tdpInputSelector);
+      if (inp && !isEmpty(inp.value)) {
+        log('readTdp -> from input:', inp.value);
+        return numericOnly(inp.value);
+      }
+      // fallback: если есть computed wrapper, попробовать его
+  //++Nat
+
+      var comp = qs('.js-webform-computed-wrapper, .webform-computed, [data-webform-computed-last]');
+   //   var comp = qs('.js-form-item [data-drupal-selector="edit-test-computed-token"]');
+  //--Nat
+
+      if (comp) {
+      	console.log("IT'S COMPUTED FIELD");
+        var txt = comp.textContent || comp.innerText || '';
+        var val = numericOnly(txt);
+        if (val) {
+          log('readTdp -> from computed:', val);
+          return val;
+        }
+      }
+      log('readTdp -> empty');
+      return '';
+    }
+
+    // --------------- Обновление hidden поля и preview ---------------
+    function writeSelectedCpuIds(idsArray) {
+      var hidden = qs(CONFIG.webformHiddenSelector);
+      var preview = qs(CONFIG.webformPreviewSelector);
+      var csv = (idsArray && idsArray.length) ? idsArray.join(',') : '';
+      if (hidden) {
+        hidden.value = csv;
+        log('writeSelectedCpuIds -> hidden:', csv);
+      } else {
+        log('writeSelectedCpuIds -> hidden not found', CONFIG.webformHiddenSelector);
+      }
+      if (preview) {
+        preview.value = csv; // или вывести human-readable
+      }
+    }
+
+    // --------------- AJAX: загрузить View с аргументом и заменить блок ---------------
+    function fetchViewWithArg(argValue) {
+      if (isEmpty(argValue)) {
+        log('fetchViewWithArg -> empty arg, abort');
+        return Promise.resolve();
+      }
+      var url = CONFIG.viewAjaxBase + '&arg=' + encodeURIComponent(argValue);
+      log('fetchViewWithArg requesting', url);
+      return fetch(url, {
+        method: 'GET',
+        credentials: 'same-origin',
+        headers: {'X-Requested-With': 'XMLHttpRequest'}
+      }).then(function (resp) {
+        if (!resp.ok) throw new Error('Network response not ok: ' + resp.status);
+        return resp.json();
+      }).then(function (commands) {
+        if (!Array.isArray(commands)) {
+          log('fetchViewWithArg -> unexpected response', commands);
+          return;
+        }
+        // Найдём контейнер webform/view на странице
+        var container = qs(CONFIG.viewBlockSelector);
+        if (!container) {
+          log('fetchViewWithArg -> view container not found:', CONFIG.viewBlockSelector);
+          return;
+        }
+        // Drupal возвращает массив команд; обычно одна из команд типа insert содержит HTML в .data
+        // Мы будем искать первую команду с .command === 'insert' и непустым .data
+        var insertCmd = commands.find(function (c) {
+          return c && c.command === 'insert' && c.data && String(c.data).trim() !== '';
+        });
+        if (!insertCmd) {
+          log('fetchViewWithArg -> insert command not found; commands:', commands);
+          // иногда data пустая — в этом случае лучше просто перезаписать внутренний контейнер HTML тем, что пришло в любой команде.data
+          var anyDataCmd = commands.find(c => c && c.data && String(c.data).trim() !== '');
+          if (anyDataCmd) {
+            container.innerHTML = anyDataCmd.data;
+            if (window.Drupal && Drupal.attachBehaviors) {
+              try { Drupal.attachBehaviors(container); } catch (e) { console.warn(e); }
+            }
+          }
+          return;
+        }
+        // Вставляем ответ: вместо контейнера внутри него заменим .view-display-id-... блок
+        // Удаляем старую внутреннюю view (если есть) и вставляем новую
+        var oldInner = qs(CONFIG.viewInnerSelector, container);
+        if (oldInner) oldInner.remove();
+        // вставим html команды в начало контейнера
+        container.insertAdjacentHTML('afterbegin', insertCmd.data);
+        // attach behaviors на новый блок
+        var newInner = qs(CONFIG.viewInnerSelector, container);
+        if (newInner && window.Drupal && Drupal.attachBehaviors) {
+          try { Drupal.attachBehaviors(newInner); } catch (e) { console.warn(e); }
+        }
+        log('fetchViewWithArg -> updated view for arg:', argValue);
+      }).catch(function (err) {
+        console.error('[server-configurator] fetchViewWithArg error:', err);
+      });
+    }
+
+    // --------------- Обработчики выбора CPU ---------------
+    function onSelectCpuClick(e) {
+      var btn = e.target.closest(CONFIG.selectCpuButtonSelector) || e.target.closest('[data-cpu-id]');
+      if (!btn) return;
+      e.preventDefault();
+      // CPU id: пытаемся взять из data-cpu-id на кнопке или на row
+      var id = btn.getAttribute('data-cpu-id') || (btn.closest('[data-cpu-id]') && btn.closest('[data-cpu-id]').getAttribute('data-cpu-id'));
+      if (!id) {
+        log('onSelectCpuClick -> cpu-id not found');
+        return;
+      }
+      // прочитаем текущее значение hidden (CSV) и допишем новый (если его ещё нет)
+      var hidden = qs(CONFIG.webformHiddenSelector);
+      var ids = [];
+      if (hidden && !isEmpty(hidden.value)) {
+        ids = hidden.value.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      }
+      if (ids.indexOf(id) === -1) ids.push(id);
+      writeSelectedCpuIds(ids);
+
+      // пометка выбранной строки на UI
+      var allRows = qsa('[data-cpu-id]');
+      allRows.forEach(function (r) { r.classList.toggle('selected-cpu', (r.getAttribute('data-cpu-id') === id && ids.indexOf(id) !== -1)); });
+
+      log('onSelectCpuClick -> selected ids:', ids);
+    }
+
+    // Очистка выбора
+    function onClearSelection(e) {
+      e.preventDefault();
+      writeSelectedCpuIds([]);
+      var allRows = qsa('[data-cpu-id]');
+      allRows.forEach(function (r) { r.classList.remove('selected-cpu'); });
+    }
+
+    // --------------- Триггер "Показать" — прочитать tdp и обновить view ---------------
+    function onShowTrigger(e) {
+      // если это радиокнопка - игнорируем, если не "Показать"
+      var t = e.target;
+      if (t.tagName === 'INPUT' && t.type === 'radio') {
+        var v = t.value || '';
+        if (v.indexOf('Показать') === -1 && v.indexOf('Show') === -1) return;
+      }
+      e.preventDefault();
+      var tdp = readTdp();
+      if (isEmpty(tdp)) {
+        log('onShowTrigger -> no tdp');
+        return;
+      }
+      // fetch view by tdp (arg)
+      fetchViewWithArg(tdp);
+    }
+
+    // --------------- Инициализация ---------------
+    function init() {
+      log('init: server-configurator init');
+
+      // делегированный слушатель для кнопок Select внутри контейнера view
+      document.addEventListener('click', function (e) {
+        // выбор CPU
+        if (e.target.closest(CONFIG.selectCpuButtonSelector) || e.target.closest('[data-cpu-id]')) {
+          onSelectCpuClick(e);
+          return;
+        }
+        // clear selection
+        if (e.target.closest(CONFIG.clearSelectionSelector)) {
+          onClearSelection(e);
+          return;
+        }
+        // show trigger
+        if (e.target.closest(CONFIG.triggerShowSelector)) {
+          onShowTrigger(e);
+          return;
+        }
+      }, false);
+
+      log('init done');
+    }
+
+    // старт
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+  })();
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

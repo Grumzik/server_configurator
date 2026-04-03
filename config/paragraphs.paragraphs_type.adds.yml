@@ -1,0 +1,10 @@
+uuid: 5e5ba85e-716a-4f3f-85c1-cae002b1909e
+langcode: ru
+status: true
+dependencies: {  }
+id: adds
+label: Adds
+icon_uuid: null
+icon_default: null
+description: 'Migrated from field_collection field_adds'
+behavior_plugins: {  }

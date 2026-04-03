@@ -1,0 +1,45 @@
+.page-hero {
+  background: $color-primary-light;
+  padding-top: 150px;
+  padding-bottom: 150px;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 24px 48px;
+  }
+
+  &__group {
+    width: 480px;
+  }
+
+  &__title {
+    span {
+      color: $color-primary;
+    }
+  }
+
+  &__text {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__actions {
+    margin-top: 48px;
+
+    a {
+      @extend .button;
+      @extend .button--primary;
+    }
+  }
+
+  &__image {
+    width: calc(100% - 528px);
+
+    img {
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

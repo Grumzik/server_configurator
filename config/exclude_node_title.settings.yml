@@ -1,0 +1,90 @@
+_core:
+  default_config_hash: 0yJNd4uWv8TzhYEPQBDiApPL2e8ar88kBmQrzDjNCqc
+nid_list:
+  0: 7879
+  2: 7881
+  3: 7880
+  4: 7878
+  5: 7873
+  6: 7905
+  7: 7917
+translation_sync: true
+search: true
+type: hidden
+content_types:
+  adv: none
+  advertisment: none
+  arcsystem: none
+  article: none
+  blade_components: none
+  certificate: none
+  computer: none
+  cpu_intel: none
+  datasystem: none
+  dexp_portfolio: none
+  fpoint: none
+  gstation: none
+  hcici: none
+  intel: none
+  moduleserver_components: none
+  news: none
+  page: all
+  parts: none
+  rack: none
+  sale: none
+  san_adapter: none
+  san_controller: none
+  server: none
+  server2: none
+  sh: none
+  software: none
+  ssdsystem: none
+  superhero_portfolio: none
+  tis_page: all
+  vendor_ss: none
+  webform: none
+  yandex_maps_example: none
+content_type_modes:
+  adv: {  }
+  advertisment: {  }
+  arcsystem: {  }
+  article: {  }
+  blade_components: {  }
+  certificate: {  }
+  computer: {  }
+  cpu_intel: {  }
+  datasystem: {  }
+  dexp_portfolio: {  }
+  fpoint: {  }
+  gstation: {  }
+  hcici: {  }
+  intel: {  }
+  moduleserver_components: {  }
+  news: {  }
+  page:
+    - full
+  parts: {  }
+  rack: {  }
+  sale: {  }
+  san_adapter: {  }
+  san_controller: {  }
+  server: {  }
+  server2: {  }
+  sh: {  }
+  software: {  }
+  ssdsystem: {  }
+  superhero_portfolio: {  }
+  tis_page:
+    - dexp_portfolio
+    - full
+    - medium
+    - rss
+    - search_index
+    - search_result
+    - superhero_portfolio
+    - teaser
+    - token
+    - nodeform
+  vendor_ss: {  }
+  webform: {  }
+  yandex_maps_example: {  }

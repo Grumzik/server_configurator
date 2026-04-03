@@ -1,0 +1,22 @@
+uuid: 1980629b-ad90-415c-be62-aae881038191
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_datasystem
+label: 'Содержимое - datasystem'
+type: 'canonical_entities:node'
+pattern: 'datastorage/[node:title]'
+selection_criteria:
+  80563def-2816-44fe-8550-78b2b259c51b:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 80563def-2816-44fe-8550-78b2b259c51b
+    context_mapping:
+      node: node
+    bundles:
+      datasystem: datasystem
+selection_logic: and
+weight: 0
+relationships: {  }

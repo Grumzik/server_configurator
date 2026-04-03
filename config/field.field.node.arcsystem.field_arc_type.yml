@@ -1,0 +1,21 @@
+uuid: fe91f5c4-7897-4648-af1d-640b8d3c9801
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arc_type
+    - node.type.arcsystem
+  module:
+    - options
+id: node.arcsystem.field_arc_type
+field_name: field_arc_type
+entity_type: node
+bundle: arcsystem
+label: 'Тип хранения'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

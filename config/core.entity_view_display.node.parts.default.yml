@@ -1,0 +1,64 @@
+uuid: 0b34dcb2-f84e-4869-9f00-a47a8b4aa8b2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.parts.body
+    - field.field.node.parts.field_metatag
+    - field.field.node.parts.field_mp_partsset
+    - field.field.node.parts.field_mp_partstype
+    - field.field.node.parts.field_price
+    - field.field.node.parts.field_set
+    - node.type.parts
+  module:
+    - text
+    - user
+id: node.parts.default
+targetEntityType: node
+bundle: parts
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_mp_partsset:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_mp_partstype:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_price:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_metatag: true
+  field_set: true
+  langcode: true

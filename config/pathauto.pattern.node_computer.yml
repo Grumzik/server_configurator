@@ -1,0 +1,22 @@
+uuid: 7a120ea9-d164-4e4c-bf0c-1e5443a20285
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_computer
+label: 'Содержимое - computer'
+type: 'canonical_entities:node'
+pattern: 'c/[node:title]'
+selection_criteria:
+  fee7f4b6-f5da-4dc9-a334-b913ba9f26c2:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: fee7f4b6-f5da-4dc9-a334-b913ba9f26c2
+    context_mapping:
+      node: node
+    bundles:
+      computer: computer
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,51 @@
+_core:
+  default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
+protect_all_forms: true
+unprotected_forms:
+  - user_login_form
+  - search_form
+  - search_block_form
+  - views_exposed_form
+  - honeypot_settings_form
+log: true
+element_name: email
+time_limit: 7
+expire: 300
+form_settings:
+  user_register_form: false
+  user_pass: false
+  contact_message_feedback_form: false
+  contact_message_personal_form: false
+  node_adv_form: false
+  node_advertisment_form: false
+  node_arcsystem_form: false
+  node_article_form: false
+  node_blade_components_form: false
+  node_certificate_form: false
+  node_computer_form: false
+  node_cpu_intel_form: false
+  node_datasystem_form: false
+  node_dexp_portfolio_form: false
+  node_fpoint_form: false
+  node_gstation_form: false
+  node_hcici_form: false
+  node_intel_form: false
+  node_moduleserver_components_form: false
+  node_news_form: false
+  node_page_form: false
+  node_parts_form: false
+  node_rack_form: false
+  node_sale_form: false
+  node_san_adapter_form: false
+  node_san_controller_form: false
+  node_server_form: false
+  node_server2_form: false
+  node_sh_form: false
+  node_software_form: false
+  node_ssdsystem_form: false
+  node_superhero_portfolio_form: false
+  node_tis_page_form: false
+  node_vendor_ss_form: false
+  node_webform_form: false
+  node_yandex_maps_example_form: false
+  comment_comment_form: false

@@ -1,0 +1,47 @@
+uuid: 0e66d257-1932-4487-b76a-07f13f8b4b17
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.san_controller.field_adds
+    - field.field.node.san_controller.field_description
+    - field.field.node.san_controller.field_image
+    - field.field.node.san_controller.field_keys
+    - field.field.node.san_controller.field_specification
+    - field.field.node.san_controller.field_vendor
+    - node.type.san_controller
+  module:
+    - text
+    - user
+id: node.san_controller.default
+targetEntityType: node
+bundle: san_controller
+mode: default
+content:
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_vendor:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_adds: true
+  field_description: true
+  field_image: true
+  field_specification: true
+  langcode: true

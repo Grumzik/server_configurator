@@ -1,0 +1,9 @@
+uuid: c437cb0e-7266-420b-b699-9ede06927504
+langcode: und
+status: true
+dependencies: {  }
+name: Architecture
+vid: architecture
+description: 'Серверная архитектура'
+weight: 0
+new_revision: false

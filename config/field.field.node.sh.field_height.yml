@@ -1,0 +1,19 @@
+uuid: 6d090b46-36ad-46d1-9db1-036f1443224f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_height
+    - node.type.sh
+id: node.sh.field_height
+field_name: field_height
+entity_type: node
+bundle: sh
+label: Высота
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

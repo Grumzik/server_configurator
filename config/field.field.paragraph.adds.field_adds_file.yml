@@ -1,0 +1,32 @@
+uuid: 8b6dd723-5314-4e8f-80dd-d36bec5e0fda
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_adds_file
+    - paragraphs.paragraphs_type.adds
+  module:
+    - file
+    - pdf_preview_image
+third_party_settings:
+  pdf_preview_image:
+    enable: 1
+    target_field: ''
+id: paragraph.adds.field_adds_file
+field_name: field_adds_file
+entity_type: paragraph
+bundle: adds
+label: adds_file
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: additional
+  file_extensions: 'txt doc docx xls xlsx pdf zip'
+  max_filesize: '50 MB'
+  description_field: false
+field_type: file

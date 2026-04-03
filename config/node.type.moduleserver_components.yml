@@ -1,0 +1,19 @@
+uuid: 0a97623a-e65e-47d6-ad47-004c1556a53a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">moduleserver_components</em> content'
+name: moduleserver_components
+type: moduleserver_components
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

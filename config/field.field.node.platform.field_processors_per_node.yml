@@ -1,0 +1,21 @@
+uuid: 24b62141-585d-4087-8d5d-2e59d6f98201
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_processors_per_node
+    - node.type.platform
+  module:
+    - options
+id: node.platform.field_processors_per_node
+field_name: field_processors_per_node
+entity_type: node
+bundle: platform
+label: 'Processors per node'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

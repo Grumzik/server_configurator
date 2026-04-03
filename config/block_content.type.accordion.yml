@@ -1,0 +1,8 @@
+uuid: a60829a2-5c65-42a2-bcd3-2fb4a44a61a3
+langcode: ru
+status: true
+dependencies: {  }
+id: accordion
+label: Accordion
+revision: false
+description: null

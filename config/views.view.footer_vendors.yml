@@ -1,0 +1,320 @@
+uuid: 1ebe6c2e-cb7d-437b-86e1-0409fd8632ba
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - image.style.thumbnail
+    - node.type.vendor_ss
+  module:
+    - image
+    - node
+    - user
+id: footer_vendors
+label: footer_vendors
+module: views
+description: ''
+tag: default
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 1
+    display_options:
+      title: footer_vendors
+      fields:
+        field_image:
+          id: field_image
+          table: node__field_image
+          field: field_image
+          relationship: none
+          group_type: group
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: null
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: fid
+          type: image
+          settings:
+            image_link: ''
+            image_style: thumbnail
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          ui_name: ''
+      pager:
+        type: full
+        options:
+          pagination_heading_level: h4
+          items_per_page: 10
+      exposed_form:
+        type: basic
+      access:
+        type: perm
+      cache:
+        type: none
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          plugin_id: date
+          order: DESC
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          plugin_id: bundle
+          operator: in
+          value:
+            vendor_ss: vendor_ss
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            operator_label: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          ui_name: ''
+      style:
+        type: default
+        options:
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+          row_class_special: 1
+          dexp_portfolio_col_lg: '3'
+          dexp_portfolio_col_md: '3'
+          dexp_portfolio_col_sm: '2'
+          dexp_portfolio_col_xs: '1'
+          dexp_portfolio_filter: 0
+          dexp_portfolio_filter_vocabulary: '0'
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options: {  }
+      display_extenders: {  }
+      style_plugin: dexp_portfolio
+      style_options:
+        row_class: ''
+        default_row_class: 1
+        row_class_special: 1
+        uses_fields: 0
+        dexp_portfolio_col_lg: '3'
+        dexp_portfolio_col_md: '3'
+        dexp_portfolio_col_sm: '2'
+        dexp_portfolio_col_xs: '1'
+        dexp_portfolio_filter: 0
+        dexp_portfolio_filter_vocabulary: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_image'
+  block:
+    id: block
+    display_title: Block
+    display_plugin: block
+    position: 3
+    display_options:
+      pager:
+        type: none
+        options:
+          offset: 0
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          row_class_special: 1
+          type: ul
+          wrapper_class: item-list
+          class: ''
+          mode: horizontal
+          rows: '1'
+          speed: '500'
+          touchEnabled: '1'
+          auto: '1'
+          pause: '4000'
+          infiniteloop: '1'
+          slidemargin: 15px
+          startslide: '0'
+          randomstart: '0'
+          pager: '0'
+          controls: '0'
+          nexttext: '<i class="fa fa-angle-right"></i>'
+          prevtext: '<i class="fa fa-angle-left"></i>'
+          minslides: '3'
+          maxslides: '3'
+          moveslides: '1'
+          slidewidth: '0'
+      row:
+        type: fields
+        options:
+          build_mode: teaser
+          links: true
+          comments: false
+      query:
+        type: views_query
+        options: {  }
+      defaults:
+        pager: false
+        style: false
+        row: false
+        pager_options: false
+      display_extenders: {  }
+      style_plugin: dexp_bxslider
+      style_options:
+        grouping: {  }
+        row_class: ''
+        default_row_class: 1
+        row_class_special: 1
+        type: ul
+        wrapper_class: item-list
+        class: ''
+        mode: horizontal
+        rows: '1'
+        speed: '500'
+        touchEnabled: '1'
+        auto: '1'
+        pause: '4000'
+        infiniteloop: '1'
+        slidemargin: 15px
+        startslide: '0'
+        randomstart: '0'
+        pager: '0'
+        controls: '0'
+        nexttext: '<i class="fa fa-angle-right"></i>'
+        prevtext: '<i class="fa fa-angle-left"></i>'
+        minslides: '3'
+        maxslides: '3'
+        moveslides: '1'
+        slidewidth: '0'
+      pager_options: null
+      field:
+        title:
+          link_to_node: 1
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_image'
+  page:
+    id: page
+    display_title: Page
+    display_plugin: page
+    position: 2
+    display_options:
+      query:
+        type: views_query
+        options: {  }
+      display_extenders: {  }
+      path: footer-vendors
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_image'

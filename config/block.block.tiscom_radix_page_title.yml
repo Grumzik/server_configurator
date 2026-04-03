@@ -1,0 +1,26 @@
+uuid: 0239b0ee-302a-46af-ab59-1aee8487022e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tiscom_radix
+_core:
+  default_config_hash: VUcswrO3-6AxpNaKsSAHEHGeF5wmxJg99-6JxOn2Xpk
+id: tiscom_radix_page_title
+theme: tiscom_radix
+region: header
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Заголовок страницы'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/tisserver\r\n/tisserver2\r\n/lan\r\n/shd\r\n/comp\r\n/accessories\r\n/support\r\n/certificate\r\n/podbor-servera\r\n/about\r\n"

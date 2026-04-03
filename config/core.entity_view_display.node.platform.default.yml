@@ -1,0 +1,484 @@
+uuid: 42c7b4cf-5b7e-4ce9-999f-7d5e35cc0078
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.platform.body
+    - field.field.node.platform.feeds_item
+    - field.field.node.platform.field__iflexma
+    - field.field.node.platform.field_architecture
+    - field.field.node.platform.field_backplane_board
+    - field.field.node.platform.field_ccu_tdp
+    - field.field.node.platform.field_chipset
+    - field.field.node.platform.field_cpu_generation
+    - field.field.node.platform.field_cpu_notes
+    - field.field.node.platform.field_cpu_socket_count
+    - field.field.node.platform.field_form_factor
+    - field.field.node.platform.field_front_i_o
+    - field.field.node.platform.field_lan
+    - field.field.node.platform.field_lan_management
+    - field.field.node.platform.field_lan_ports
+    - field.field.node.platform.field_lan_ports_speed
+    - field.field.node.platform.field_lan_speed
+    - field.field.node.platform.field_memory_module_type
+    - field.field.node.platform.field_memory_notes
+    - field.field.node.platform.field_memory_slots_total
+    - field.field.node.platform.field_memory_speed_1dpc
+    - field.field.node.platform.field_memory_speed_2dpc
+    - field.field.node.platform.field_memory_type
+    - field.field.node.platform.field_modular_gpu
+    - field.field.node.platform.field_motherboard
+    - field.field.node.platform.field_operating_properties
+    - field.field.node.platform.field_os_certifications
+    - field.field.node.platform.field_os_compatibility
+    - field.field.node.platform.field_packaging_content
+    - field.field.node.platform.field_packaging_dimensions
+    - field.field.node.platform.field_part_numbers
+    - field.field.node.platform.field_pcie_expansion_slots
+    - field.field.node.platform.field_pcie_slots_count
+    - field.field.node.platform.field_pcie_slots_type
+    - field.field.node.platform.field_platform_storage
+    - field.field.node.platform.field_platform_video
+    - field.field.node.platform.field_power_supply
+    - field.field.node.platform.field_processors_per_node
+    - field.field.node.platform.field_proizvoditel
+    - field.field.node.platform.field_psu_efficiency
+    - field.field.node.platform.field_psu_power
+    - field.field.node.platform.field_psu_type
+    - field.field.node.platform.field_raid
+    - field.field.node.platform.field_rear_i_o
+    - field.field.node.platform.field_sas
+    - field.field.node.platform.field_security_modules
+    - field.field.node.platform.field_sockettype
+    - field.field.node.platform.field_storage_bays
+    - field.field.node.platform.field_storage_drive_types
+    - field.field.node.platform.field_storage_form_factor
+    - field.field.node.platform.field_system_fans
+    - field.field.node.platform.field_system_management
+    - field.field.node.platform.field_weight
+    - node.type.platform
+  module:
+    - options
+    - text
+    - user
+id: node.platform.default
+targetEntityType: node
+bundle: platform
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field__iflexma:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_architecture:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_backplane_board:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 135
+    region: content
+  field_ccu_tdp:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_chipset:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_cpu_generation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_cpu_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 150
+    region: content
+  field_cpu_socket_count:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_form_factor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_front_i_o:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 133
+    region: content
+  field_lan:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_lan_management:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 153
+    region: content
+  field_lan_ports:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_lan_ports_speed:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 152
+    region: content
+  field_lan_speed:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_memory_module_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_memory_notes:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_memory_slots_total:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_memory_speed_1dpc:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_memory_speed_2dpc:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_memory_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_modular_gpu:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_motherboard:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_operating_properties:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 144
+    region: content
+  field_os_certifications:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 148
+    region: content
+  field_os_compatibility:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_packaging_content:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 146
+    region: content
+  field_packaging_dimensions:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 145
+    region: content
+  field_part_numbers:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 147
+    region: content
+  field_pcie_expansion_slots:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 130
+    region: content
+  field_pcie_slots_count:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 131
+    region: content
+  field_pcie_slots_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 132
+    region: content
+  field_platform_storage:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_platform_video:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_power_supply:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_processors_per_node:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 151
+    region: content
+  field_proizvoditel:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_psu_efficiency:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_psu_power:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 139
+    region: content
+  field_psu_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_raid:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_rear_i_o:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 134
+    region: content
+  field_sas:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_security_modules:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 136
+    region: content
+  field_sockettype:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_storage_bays:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_storage_drive_types:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_storage_form_factor:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_system_fans:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 143
+    region: content
+  field_system_management:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 141
+    region: content
+  field_weight:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 149
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  langcode: true

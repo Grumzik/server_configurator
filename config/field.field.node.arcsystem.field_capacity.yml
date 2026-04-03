@@ -1,0 +1,23 @@
+uuid: 95db5674-7ecf-40fa-a558-92d3f217fa2b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_capacity
+    - node.type.arcsystem
+id: node.arcsystem.field_capacity
+field_name: field_capacity
+entity_type: node
+bundle: arcsystem
+label: Объем
+description: 'Объем в терабайтах'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: Тб
+field_type: integer

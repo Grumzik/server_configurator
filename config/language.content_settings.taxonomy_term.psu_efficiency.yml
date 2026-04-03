@@ -1,0 +1,11 @@
+uuid: 717c106b-d0bb-454a-ad9d-07abc1ca8b04
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.psu_efficiency
+id: taxonomy_term.psu_efficiency
+target_entity_type_id: taxonomy_term
+target_bundle: psu_efficiency
+default_langcode: site_default
+language_alterable: false

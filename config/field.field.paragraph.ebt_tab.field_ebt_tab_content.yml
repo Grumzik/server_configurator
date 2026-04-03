@@ -1,0 +1,23 @@
+uuid: 064bfca0-c158-46a8-bfd1-b8be81b7ceb8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_tab_content
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - options
+_core:
+  default_config_hash: as55Dml1Xd2yWFDU0vGxsQmoXaIr9fZ2lC4KG8TpvzA
+id: paragraph.ebt_tab.field_ebt_tab_content
+field_name: field_ebt_tab_content
+entity_type: paragraph
+bundle: ebt_tab
+label: 'Содержимое вкладки'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

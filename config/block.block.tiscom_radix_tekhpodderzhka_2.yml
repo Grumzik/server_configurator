@@ -1,0 +1,25 @@
+uuid: 7643e5a3-0b5a-4c20-90d6-e85ad12addad
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e096902b-8194-4294-a996-f866efbb707f'
+  module:
+    - block_content
+  theme:
+    - tiscom_radix
+id: tiscom_radix_tekhpodderzhka_2
+theme: tiscom_radix
+region: footer4
+weight: -8
+provider: null
+plugin: 'block_content:e096902b-8194-4294-a996-f866efbb707f'
+settings:
+  id: 'block_content:e096902b-8194-4294-a996-f866efbb707f'
+  label: Техподдержка
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

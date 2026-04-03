@@ -1,0 +1,19 @@
+uuid: 5647aa93-52a3-49af-ad6c-050b9756ab11
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_power_supply
+    - node.type.platform
+id: node.platform.field_power_supply
+field_name: field_power_supply
+entity_type: node
+bundle: platform
+label: 'Power Supply'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

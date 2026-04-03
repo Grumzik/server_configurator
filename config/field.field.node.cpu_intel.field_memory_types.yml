@@ -1,0 +1,22 @@
+uuid: fc3e4490-a2a1-4d79-896f-8fef74da23d8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_memory_types
+    - node.type.cpu_intel
+  module:
+    - text
+id: node.cpu_intel.field_memory_types
+field_name: field_memory_types
+entity_type: node
+bundle: cpu_intel
+label: 'Memory Types'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text

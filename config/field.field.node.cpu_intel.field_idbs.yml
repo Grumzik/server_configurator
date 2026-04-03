@@ -1,0 +1,23 @@
+uuid: 2b799148-31ca-43b0-b3bc-008eed4dbe30
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_idbs
+    - node.type.cpu_intel
+id: node.cpu_intel.field_idbs
+field_name: field_idbs
+entity_type: node
+bundle: cpu_intel
+label: IDBS
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

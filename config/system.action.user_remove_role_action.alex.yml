@@ -1,0 +1,14 @@
+uuid: 983421b7-ee00-40a4-ba35-2fecf96d5151
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.alex
+  module:
+    - user
+id: user_remove_role_action.alex
+label: 'Удалить роль Alex из выбранных пользователей'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: alex

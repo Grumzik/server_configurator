@@ -1,0 +1,28 @@
+services:
+
+  smart_compatibility_engine.rule.cpu_tdp:
+    class: Drupal\smart_compatibility_engine\Domain\Rule\CpuTdpRule
+    tags: [{ name: smart_compatibility_engine.rule, priority: 100 }]
+
+  smart_compatibility_engine.engine:
+    class: Drupal\smart_compatibility_engine\Domain\Service\CompatibilityEngine
+    arguments:
+      - !tagged_iterator smart_compatibility_engine.rule
+
+  smart_compatibility_engine.platform_repository:
+    class: Drupal\smart_compatibility_engine\Infrastructure\Drupal\Repository\DrupalPlatformRepository
+    arguments:
+      - '@entity_type.manager'
+    tags: []
+
+  smart_compatibility_engine.cpu_repository:
+    class: Drupal\smart_compatibility_engine\Infrastructure\Drupal\Repository\DrupalCpuRepository
+    arguments:
+      - '@entity_type.manager'
+    tags: []
+
+  Drupal\smart_compatibility_engine\Domain\Repository\PlatformRepository:
+    alias: smart_compatibility_engine.platform_repository
+
+  Drupal\smart_compatibility_engine\Domain\Repository\CpuRepository:
+    alias: smart_compatibility_engine.cpu_repository

@@ -1,0 +1,177 @@
+uuid: 0d1af65c-7525-4189-8658-158760414aac
+langcode: ru
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_html
+    - filter.format.full_html
+    - node.type.advertisment
+    - node.type.arcsystem
+    - node.type.article
+    - node.type.blade_components
+    - node.type.certificate
+    - node.type.computer
+    - node.type.cpu_intel
+    - node.type.datasystem
+    - node.type.gstation
+    - node.type.hcici
+    - node.type.moduleserver_components
+    - node.type.news
+    - node.type.page
+    - node.type.parts
+    - node.type.rack
+    - node.type.sale
+    - node.type.san_adapter
+    - node.type.san_controller
+    - node.type.server
+    - node.type.sh
+    - node.type.software
+    - node.type.ssdsystem
+    - node.type.vendor_ss
+    - node.type.webform
+  module:
+    - addtoany
+    - block
+    - contextual
+    - exclude_node_title
+    - filter
+    - image
+    - media
+    - node
+    - path
+    - pathauto
+    - search
+    - shortcut
+    - system
+    - taxonomy
+id: editor
+label: editor
+weight: 3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access site reports'
+  - 'administer addtoany'
+  - 'administer blocks'
+  - 'administer filters'
+  - 'administer image styles'
+  - 'administer menu'
+  - 'administer pathauto'
+  - 'administer search'
+  - 'administer shortcuts'
+  - 'administer taxonomy'
+  - 'administer url aliases'
+  - 'bypass node access'
+  - 'change own username'
+  - 'create advertisment content'
+  - 'create arcsystem content'
+  - 'create article content'
+  - 'create blade_components content'
+  - 'create certificate content'
+  - 'create computer content'
+  - 'create cpu_intel content'
+  - 'create datasystem content'
+  - 'create gstation content'
+  - 'create hcici content'
+  - 'create moduleserver_components content'
+  - 'create news content'
+  - 'create page content'
+  - 'create parts content'
+  - 'create rack content'
+  - 'create sale content'
+  - 'create san_adapter content'
+  - 'create san_controller content'
+  - 'create server content'
+  - 'create sh content'
+  - 'create software content'
+  - 'create ssdsystem content'
+  - 'create url aliases'
+  - 'create vendor_ss content'
+  - 'create webform content'
+  - 'customize shortcut links'
+  - 'delete any advertisment content'
+  - 'delete any arcsystem content'
+  - 'delete any article content'
+  - 'delete any blade_components content'
+  - 'delete any certificate content'
+  - 'delete any computer content'
+  - 'delete any cpu_intel content'
+  - 'delete any datasystem content'
+  - 'delete any gstation content'
+  - 'delete any moduleserver_components content'
+  - 'delete any news content'
+  - 'delete any page content'
+  - 'delete any parts content'
+  - 'delete any rack content'
+  - 'delete any sale content'
+  - 'delete any san_adapter content'
+  - 'delete any san_controller content'
+  - 'delete any server content'
+  - 'delete any sh content'
+  - 'delete any software content'
+  - 'delete any ssdsystem content'
+  - 'delete any vendor_ss content'
+  - 'delete any webform content'
+  - 'delete own arcsystem content'
+  - 'delete own blade_components content'
+  - 'delete own certificate content'
+  - 'delete own computer content'
+  - 'delete own cpu_intel content'
+  - 'delete own datasystem content'
+  - 'delete own hcici content'
+  - 'delete own moduleserver_components content'
+  - 'delete own parts content'
+  - 'delete own rack content'
+  - 'delete own san_adapter content'
+  - 'delete own san_controller content'
+  - 'delete own server content'
+  - 'delete own sh content'
+  - 'delete own ssdsystem content'
+  - 'edit any advertisment content'
+  - 'edit any arcsystem content'
+  - 'edit any article content'
+  - 'edit any blade_components content'
+  - 'edit any certificate content'
+  - 'edit any computer content'
+  - 'edit any cpu_intel content'
+  - 'edit any datasystem content'
+  - 'edit any gstation content'
+  - 'edit any hcici content'
+  - 'edit any moduleserver_components content'
+  - 'edit any news content'
+  - 'edit any page content'
+  - 'edit any parts content'
+  - 'edit any rack content'
+  - 'edit any sale content'
+  - 'edit any san_adapter content'
+  - 'edit any san_controller content'
+  - 'edit any server content'
+  - 'edit any sh content'
+  - 'edit any software content'
+  - 'edit any ssdsystem content'
+  - 'edit any vendor_ss content'
+  - 'edit any webform content'
+  - 'edit own arcsystem content'
+  - 'edit own blade_components content'
+  - 'edit own computer content'
+  - 'edit own cpu_intel content'
+  - 'edit own datasystem content'
+  - 'edit own hcici content'
+  - 'edit own moduleserver_components content'
+  - 'edit own parts content'
+  - 'edit own rack content'
+  - 'edit own san_adapter content'
+  - 'edit own san_controller content'
+  - 'edit own server content'
+  - 'edit own ssdsystem content'
+  - 'notify of path changes'
+  - 'search content'
+  - 'select account cancellation method'
+  - 'switch shortcut sets'
+  - 'use advanced search'
+  - 'use exclude node title'
+  - 'use text format filtered_html'
+  - 'use text format full_html'
+  - 'view media'

@@ -1,0 +1,17 @@
+display:
+  default:
+    display_options:
+      fields:
+        import_id:
+          label: ID
+        uid:
+          label: User
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      arguments:
+        feed:
+          exception:
+            title: All
+  page_1:
+    display_title: Page

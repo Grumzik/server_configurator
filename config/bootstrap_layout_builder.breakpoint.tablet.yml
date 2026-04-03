@@ -1,0 +1,10 @@
+uuid: e91ec3b6-1c8c-4ef3-829c-9cb531af1a40
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 96ZiDaMm48OUV0myM8JrBfkZXmvUfFzDsZ30EGzn_OU
+id: tablet
+label: Планшет
+base_class: col-md
+weight: -9

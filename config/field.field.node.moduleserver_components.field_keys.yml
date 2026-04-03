@@ -1,0 +1,22 @@
+uuid: 66a8a825-d28b-47e9-b46b-3af2f56607ab
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.moduleserver_components
+  module:
+    - text
+id: node.moduleserver_components.field_keys
+field_name: field_keys
+entity_type: node
+bundle: moduleserver_components
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

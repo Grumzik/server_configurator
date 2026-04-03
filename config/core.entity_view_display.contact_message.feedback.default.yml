@@ -1,0 +1,24 @@
+uuid: c63b23ee-faa9-4f4d-86b5-7f1fc20ac070
+langcode: ru
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+  module:
+    - field_formatter
+id: contact_message.feedback.default
+targetEntityType: contact_message
+bundle: feedback
+mode: default
+content:
+  message:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

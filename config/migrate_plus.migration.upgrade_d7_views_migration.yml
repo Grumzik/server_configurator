@@ -1,0 +1,49 @@
+uuid: fe1ff2d5-ba77-4455-be46-bfffb2a96c01
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_views_migration
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Views
+migration_group: migrate_drupal_7
+label: 'Views Migration (Drupal 7)'
+source:
+  plugin: d7_views_migration
+process:
+  id:
+    -
+      plugin: get
+      source: name
+  label:
+    -
+      plugin: get
+      source: human_name
+  description:
+    -
+      plugin: get
+      source: description
+  tag:
+    -
+      plugin: get
+      source: tag
+  base_table:
+    -
+      plugin: get
+      source: base_table
+  base_field:
+    -
+      plugin: get
+      source: base_field
+  display:
+    -
+      plugin: get
+      source: display
+destination:
+  plugin: 'entity:view'
+migration_dependencies:
+  required: {  }
+  optional: {  }

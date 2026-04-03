@@ -1,0 +1,30 @@
+uuid: 82bba101-897b-409a-9e82-e7527bd9ba1d
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:299087c5-aa1f-472e-ab58-352c22c1aebb'
+  module:
+    - block_content
+    - system
+  theme:
+    - olivero
+id: jollyness_block_47
+theme: olivero
+region: content
+weight: -17
+provider: null
+plugin: 'block_content:299087c5-aa1f-472e-ab58-352c22c1aebb'
+settings:
+  id: 'block_content:299087c5-aa1f-472e-ab58-352c22c1aebb'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /temp

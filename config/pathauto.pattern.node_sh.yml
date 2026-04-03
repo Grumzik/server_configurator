@@ -1,0 +1,22 @@
+uuid: 3ddc7574-df7e-47c5-9e6a-2c30bc48d55d
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_sh
+label: 'Содержимое - sh'
+type: 'canonical_entities:node'
+pattern: 'cabinet/[node:title]'
+selection_criteria:
+  864fb4aa-a6ed-493e-a01b-ad7bb3c42cfa:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 864fb4aa-a6ed-493e-a01b-ad7bb3c42cfa
+    context_mapping:
+      node: node
+    bundles:
+      sh: sh
+selection_logic: and
+weight: 0
+relationships: {  }

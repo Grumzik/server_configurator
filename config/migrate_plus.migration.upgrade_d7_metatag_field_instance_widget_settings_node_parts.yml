@@ -1,0 +1,59 @@
+uuid: 361f4af4-24c1-40d6-bce0-99cbcd38819b
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_metatag_field_instance_widget_settings_node_parts
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Metatag field instance widget settings of parts материалы'
+source:
+  plugin: d7_metatag_field_instance
+  source_module: metatag
+  ignore_map: true
+  constants:
+    field_name: field_metatag
+    form_mode: default
+  entity_type_id: node
+  entity_type: node
+  bundle: parts
+process:
+  bundle:
+    -
+      plugin: get
+      source: bundle
+  entity_type:
+    0:
+      plugin: get
+      source: entity_type
+    profile:
+      plugin: static_map
+      map:
+        profile2: profile
+      bypass: true
+    1:
+      plugin: static_map
+      map:
+        field_collection_item: paragraph
+        paragraphs_item: paragraph
+      bypass: true
+  field_name:
+    -
+      plugin: get
+      source: constants/field_name
+  form_mode:
+    -
+      plugin: get
+      source: constants/form_mode
+destination:
+  plugin: component_entity_form_display
+migration_dependencies:
+  required:
+    - upgrade_d7_metatag_field_instance_node_parts
+  optional:
+    - upgrade_d7_field_collection_type
+    - upgrade_d7_paragraphs_type

@@ -1,0 +1,9 @@
+uuid: 11b0dabe-3374-4c4a-b42d-75aa0c3a232f
+langcode: und
+status: true
+dependencies: {  }
+name: memory_type
+vid: memory_type
+description: null
+weight: 0
+new_revision: false

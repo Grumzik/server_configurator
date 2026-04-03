@@ -1,0 +1,22 @@
+uuid: e5ea11ad-9da4-47b5-b7a4-8919822dde35
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - radix
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: radix_primary_local_tasks
+theme: radix
+region: header
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Главные вкладки'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

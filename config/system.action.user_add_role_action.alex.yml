@@ -1,0 +1,14 @@
+uuid: ab56c338-d1b4-48f0-8007-f83b1a7f8a92
+langcode: ru
+status: true
+dependencies:
+  config:
+    - user.role.alex
+  module:
+    - user
+id: user_add_role_action.alex
+label: 'Добавьте роль Alex выбранным пользователям'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: alex

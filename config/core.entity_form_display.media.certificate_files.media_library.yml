@@ -1,0 +1,30 @@
+uuid: 235bc66f-8424-4a51-91fe-a61f24086b41
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.certificate_files.field_certificate_year
+    - field.field.media.certificate_files.field_media_default
+    - media.type.certificate_files
+id: media.certificate_files.media_library
+targetEntityType: media
+bundle: certificate_files
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_certificate_year: true
+  field_media_default: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

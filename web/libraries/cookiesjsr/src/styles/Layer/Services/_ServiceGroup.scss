@@ -1,0 +1,69 @@
+@use "../../vars" as v;
+
+.cookiesjsr-service-group {
+  position: static !important;
+  line-height: 1.5em;
+  list-style: none;
+
+  &__tab {
+    min-height: 3em;
+    padding: 1em var(--default-margin, v.$default-margin);
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 700;
+    margin: 0;
+    border: 0;
+    color: var(--layer-tab-font-color, v.$color-5);
+    background: var(--layer-tab-bg-color, v.$color-1);
+    border-bottom: 1px solid var(--layer-border-color, v.$color-2);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    @media (min-width: v.$md) {
+      padding: 1em #{v.$default-margin + 2em} 1em v.$default-margin;
+      width: calc(30% + 2em);
+    }
+  }
+  &__content {
+    display: none;
+    @media (min-width: v.$md) {
+      position: absolute;
+      width: 70%;
+      height: 100%;
+      overflow: auto;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  &__intro {
+    padding: 1em var(--default-margin, v.$default-margin);
+  }
+
+  &__services {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  &--active {
+    .cookiesjsr-service-group__tab {
+      color: var(--layer-tab-active-font-color, v.$color-1);
+      background: var(--layer-tab-active-bg-color, v.$color-4);
+      border-bottom: 0 none;
+    }
+
+    .cookiesjsr-service-group__content {
+      display: block;
+      color: var(--layer-tab-active-font-color, v.$color-1);
+      background: var(--layer-tab-active-bg-color, v.$color-4);
+      font-weight: 500;
+    }
+  }
+}

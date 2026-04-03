@@ -1,0 +1,14 @@
+uuid: 4d246100-4d58-4852-9d18-72e7a476ac9f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - user
+id: user
+label: 'Пользователь - default'
+type: 'canonical_entities:user'
+pattern: 'users/[user:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 1
+relationships: {  }

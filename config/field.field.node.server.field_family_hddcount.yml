@@ -1,0 +1,21 @@
+uuid: 40187b66-da4b-4686-a9fa-391a199d11f2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_family_hddcount
+    - node.type.server
+  module:
+    - options
+id: node.server.field_family_hddcount
+field_name: field_family_hddcount
+entity_type: node
+bundle: server
+label: family_hddcount
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

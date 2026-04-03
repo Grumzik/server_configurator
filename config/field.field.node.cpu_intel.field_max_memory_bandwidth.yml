@@ -1,0 +1,19 @@
+uuid: a304d4f2-28d5-4a36-a68b-e6119027d65a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_memory_bandwidth
+    - node.type.cpu_intel
+id: node.cpu_intel.field_max_memory_bandwidth
+field_name: field_max_memory_bandwidth
+entity_type: node
+bundle: cpu_intel
+label: 'Max Memory Bandwidth'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

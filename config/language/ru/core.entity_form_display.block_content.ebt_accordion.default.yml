@@ -1,0 +1,13 @@
+third_party_settings:
+  field_group:
+    group_tabs:
+      label: Вкладки
+    group_content:
+      label: Содержимое
+    group_settings:
+      label: Настройки
+content:
+  field_ebt_accordion:
+    settings:
+      title: Параграф
+      title_plural: Параграфы

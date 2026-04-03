@@ -1,0 +1,11 @@
+uuid: 664e6d00-a453-401b-a389-4b6a5b2fe7a9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.storage_drive_types
+id: taxonomy_term.storage_drive_types
+target_entity_type_id: taxonomy_term
+target_bundle: storage_drive_types
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,177 @@
+uuid: c1a695c3-6a95-4ef2-ba14-fb400d471078
+langcode: ru
+status: true
+dependencies: {  }
+id: software
+label: software
+code: |-
+  @media (min-width: 768px) {
+  	
+  	 .software.ds-2col-stacked-fluid > .group-left,
+    .software .ds-2col-stacked-fluid > .group-left{
+      width: calc(40% - 10px);
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .software.ds-2col-stacked-fluid > .group-right,
+    .software .ds-2col-stacked-fluid > .group-right{
+      width: calc(60% - 10px);
+      margin-right: 10px;
+      margin-bottom: 10px;
+     }
+  }
+  	
+  @media (max-width: 768px) {
+  	.software.ds-2col-stacked-fluid > .group-right{
+  	 	order:inherit;
+  	 }
+  	.software.ds-2col-stacked-fluid > .group-left{
+  	 	order:inherit;
+  	 }
+  	 .software.ds-2col-stacked-fluid > .group-footer{
+  	 	order:inherit;
+  	 }
+
+  }
+  	
+  	
+  .software.ds-2col-stacked-fluid > .group-right	ul {
+      list-style-type: inherit;
+  }
+
+  .software.ds-2col-stacked-fluid > .group-right ul li::marker {
+      color: #FF820E; /* Изменяет цвет маркера */
+  } 
+
+  .software table td{
+  	padding: 10px; 
+  	border: 1px solid #808080 !important;
+  }
+
+  .software.ds-2col-stacked-fluid  > .group-footer{
+  	border_bottom: 1px solid orange;
+  }
+
+
+
+  /* КНОПКА ПЕЧАТЬ */
+
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf {
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a {
+    display: inline-flex;
+  /*  align-items: center; */
+    justify-content: center;
+    width: 50px; /* Уменьшили ширину */
+    height: 36px; /* Уменьшили высоту */
+    padding: 0;
+    background-color: #FFF;
+    color: transparent !important;
+    text-decoration: none !important;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid #ff820e;
+    transition: all 0.3s ease; /* Плавные переходы для всех свойств */
+    box-sizing: border-box;
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Текст и иконка */
+  /**.paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a::before {
+    content: "";
+    color: #ff820e !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background: url("/sites/default/files/tis-icons/print-orange.svg") no-repeat left center;
+    background-size: 24px 24px; 
+    background-position: 12px center; 
+    padding-left: 20px;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  */
+
+  /* Иконка загрузки (правая) */
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: url("/sites/default/files/tis-icons/download-orange.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  /* Эффекты при наведении */
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a:hover {
+    border-color: #e67300; /* Темнеет на 10% */
+  }
+
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a:hover::before {
+    color: #e67300 !important; /* Темнеет текст */
+    background-size: 26px 26px; /* Увеличиваем иконку */
+    background-image: url("/sites/default/files/tis-icons/print-orange-dark.svg"); /* Темная версия иконки */
+  }
+
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a:hover::after {
+    color: #e67300 !important; /* Темнеет текст */
+    background-size: 26px 26px; /* Увеличиваем иконку */
+    background-image: url("/sites/default/files/tis-icons/download-orange-dark.svg"); /* Темная версия иконки */
+  }
+
+  /* Эффект при нажатии */
+  .paragraph--type--adds  .file.file--mime-application-pdf.file--application-pdf a:active {
+    border-color: #cc6600; /* Еще темнее */
+  }
+
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a:active::before ,
+  .paragraph--type--adds .file.file--mime-application-pdf.file--application-pdf a:active::after {
+    color: #cc6600 !important;
+    background-size: 24px 24px; /* Возвращаем исходный размер */
+  }
+
+
+  /* Стиль для span с размером файла, который следует сразу после .file */
+  .paragraph--type--adds  .file.file--mime-application-pdf.file--application-pdf + span {
+    margin-left: 10px; /* Отступ слева от кнопки */
+    font-size: 0.9em; /* Размер шрифта (опционально) */
+  }
+
+
+
+  /* Стили для кнопки и размера файла */
+  .paragraph--type--adds .file.file--mime-application-pdf {
+    margin-top: auto; /* Прижимаем к низу */
+
+  }
+
+
+  .document-item .file span,
+  .document-item .file a,
+  .document-item .file {
+    display: inline-flex;
+    align-items: center;
+    line-height: 3;
+    vertical-align: middle;
+  }
+
+
+  	
+  	
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

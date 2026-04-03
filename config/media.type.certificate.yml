@@ -1,0 +1,13 @@
+uuid: fb941bdb-c730-4784-9964-433fa752a778
+langcode: ru
+status: true
+dependencies: {  }
+id: certificate
+label: Certificate
+description: ''
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

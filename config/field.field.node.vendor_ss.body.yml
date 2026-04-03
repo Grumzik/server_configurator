@@ -1,0 +1,24 @@
+uuid: ddcc93bf-32c8-440d-9649-5ee5e6312528
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.vendor_ss
+  module:
+    - text
+id: node.vendor_ss.body
+field_name: body
+entity_type: node
+bundle: vendor_ss
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

@@ -1,0 +1,9 @@
+uuid: e8c45997-fcb9-4548-a224-5d6b39f9b65b
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: kih7eZ2j4giD51zNZ7gS6Ym7YMRX1reSlB1JiA0I34Y
+id: blb_col_9
+label: '9 столбцов Bootstrap'
+number_of_columns: 9

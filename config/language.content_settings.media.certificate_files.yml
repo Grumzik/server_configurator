@@ -1,0 +1,11 @@
+uuid: 1fb20b2c-479e-4cd2-85d4-7a9adf445521
+langcode: ru
+status: true
+dependencies:
+  config:
+    - media.type.certificate_files
+id: media.certificate_files
+target_entity_type_id: media
+target_bundle: certificate_files
+default_langcode: site_default
+language_alterable: false

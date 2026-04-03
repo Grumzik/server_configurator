@@ -1,0 +1,151 @@
+uuid: dea08739-7d36-49d1-8e3e-33890161180b
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: material_count
+label: material_count
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Defaults
+    display_plugin: default
+    position: 1
+    display_options:
+      fields:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          plugin_id: field
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            external: false
+            replace_spaces: false
+            trim_whitespace: false
+            nl2br: false
+            word_boundary: true
+            ellipsis: true
+            strip_tags: false
+            trim: false
+            html: false
+          element_label_colon: true
+          element_default_classes: true
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          group_type: count
+          plugin_id: field
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            external: false
+            replace_spaces: false
+            trim_whitespace: false
+            nl2br: false
+            word_boundary: true
+            ellipsis: true
+            strip_tags: false
+            trim: false
+            html: false
+          element_label_colon: true
+          element_default_classes: true
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+        options:
+          reset_button_label: Сбросить
+      access:
+        type: none
+      cache:
+        type: none
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            type: type
+            title: title
+          default: '-1'
+          info:
+            type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          row_class_special: 1
+      row:
+        type: fields
+      query:
+        type: views_query
+        options: {  }
+      group_by: true
+      display_extenders: {  }
+      style_plugin: table
+      style_options:
+        grouping: {  }
+        row_class: ''
+        default_row_class: 1
+        row_class_special: 1
+        override: 1
+        sticky: 0
+        caption: ''
+        summary: ''
+        columns:
+          type: type
+          title: title
+        info:
+          type:
+            sortable: 0
+            default_sort_order: asc
+            align: ''
+            separator: ''
+            empty_column: 0
+          title:
+            sortable: 0
+            default_sort_order: asc
+            align: ''
+            separator: ''
+            empty_column: 0
+        default: '-1'
+        empty_table: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+      tags: {  }

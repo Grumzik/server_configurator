@@ -1,0 +1,22 @@
+uuid: 594e93bb-2049-49a6-adfe-f734027ef342
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.server2
+  module:
+    - text
+id: node.server2.field_keys
+field_name: field_keys
+entity_type: node
+bundle: server2
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,52 @@
+uuid: 823686f6-47f1-470a-adc8-1b3ed915157d
+langcode: ru
+status: false
+dependencies:
+  enforced:
+    module:
+      - elevatezoomplus
+_core:
+  default_config_hash: rBkW6O3ZCbTKrr77b7oFZ7a_0Z08Ixc6Ra4k38jz7Fk
+id: default
+name: default
+weight: 10
+label: 'По умолчанию'
+options:
+  misc:
+    lightbox: ''
+  settings:
+    responsive: false
+    zoomType: window
+    scrollZoom: false
+    lensSize: 200
+    zoomWindowWidth: 400
+    zoomWindowHeight: 400
+    zoomWindowOffsetX: 0
+    zoomWindowOffsetY: 0
+    zoomWindowPosition: '1'
+    lensFadeIn: false
+    lensFadeOut: false
+    zoomWindowFadeIn: false
+    zoomWindowFadeOut: false
+    zoomTintFadeIn: false
+    zoomTintFadeOut: false
+    borderSize: 4
+    showLens: true
+    borderColour: '#888'
+    lensBorder: 1
+    lensShape: square
+    containLensZoom: false
+    lensColour: white
+    lensOpacity: 0.4
+    lenszoom: false
+    easing: false
+    easingType: zoomdefault
+    easingDuration: 2000
+    tint: false
+    tintColour: '#333'
+    tintOpacity: 0.4
+    cursor: default
+    imageCrossfade: false
+    loadingIcon: ''
+    constrainType: ''
+    constrainSize: ''

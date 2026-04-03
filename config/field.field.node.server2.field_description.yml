@@ -1,0 +1,22 @@
+uuid: 425ceeb9-bb77-45bd-bb7a-7b5abf46ea6d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.server2
+  module:
+    - text
+id: node.server2.field_description
+field_name: field_description
+entity_type: node
+bundle: server2
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

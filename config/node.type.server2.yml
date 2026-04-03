@@ -1,0 +1,21 @@
+uuid: 067eb03f-301b-44f3-9fb9-7584e47e3c5f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">server2</em> content'
+name: server2
+type: server2
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

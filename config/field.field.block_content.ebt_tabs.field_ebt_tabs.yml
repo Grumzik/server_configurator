@@ -1,0 +1,33 @@
+uuid: 0c3255d2-d45d-4448-b90b-6ac4f83db4a8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_tabs
+    - field.storage.block_content.field_ebt_tabs
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 4qzYKe-tuRQPHfXtyOyfFfwSfj-Onz88kqc6nsXX4ns
+id: block_content.ebt_tabs.field_ebt_tabs
+field_name: field_ebt_tabs
+entity_type: block_content
+bundle: ebt_tabs
+label: Вкладки
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ebt_tab: ebt_tab
+    negate: 0
+    target_bundles_drag_drop:
+      ebt_tab:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

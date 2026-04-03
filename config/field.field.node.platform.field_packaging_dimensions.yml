@@ -1,0 +1,29 @@
+uuid: 24a1bb20-c812-4ee4-942d-264c88f854f0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_packaging_dimensions
+    - node.type.platform
+    - taxonomy.vocabulary.packaging_dimensions
+id: node.platform.field_packaging_dimensions
+field_name: field_packaging_dimensions
+entity_type: node
+bundle: platform
+label: 'Packaging Dimensions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      packaging_dimensions: packaging_dimensions
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

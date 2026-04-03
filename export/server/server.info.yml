@@ -1,0 +1,59 @@
+name: сервер
+description: 'Provides сервер тип материала and related configuration.'
+type: module
+core_version_requirement: '^10 || ^11'
+dependencies:
+  - addtoany
+  - asset_injector
+  - better_exposed_filters
+  - blazy
+  - block
+  - contextual
+  - cshs
+  - csv_serialization
+  - datafield
+  - ds
+  - eca
+  - eca_base
+  - eca_content
+  - eca_views
+  - editor
+  - entity_print
+  - entity_reference_revisions
+  - eva
+  - field
+  - field_collection
+  - field_formatter
+  - field_group
+  - filter
+  - image
+  - language
+  - layout_builder
+  - locale
+  - media
+  - menu_ui
+  - metatag
+  - migrate_plus
+  - node
+  - options
+  - paragraphs
+  - path
+  - pathauto
+  - rest
+  - search
+  - serialization
+  - shortcode
+  - shortcut
+  - slick
+  - system
+  - taxonomy
+  - text
+  - type_tray
+  - user
+  - views
+  - views_bulk_operations
+  - views_data_export
+  - views_infinite_scroll
+  - views_selective_filters
+  - views_ui
+  - webform

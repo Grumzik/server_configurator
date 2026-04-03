@@ -1,0 +1,9 @@
+uuid: e5b6dbcb-3bef-4854-aeee-ba761dbb5312
+langcode: ru
+status: true
+dependencies: {  }
+name: module_server_parts
+vid: module_server_parts
+description: null
+weight: 0
+new_revision: false

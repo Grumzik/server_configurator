@@ -1,0 +1,14 @@
+uuid: 4bc563b1-ed2a-43b1-b671-ce1e5346892d
+langcode: ru
+status: true
+dependencies:
+  module:
+    - user
+    - views_bulk_edit
+_core:
+  default_config_hash: Bjz27y1Z8D8KsOY6XIy3E79Cl7VDXkWLpePx2NqCc1M
+id: user_edit_action
+label: 'Редактировать пользователей'
+type: user
+plugin: 'entity:edit_action:user'
+configuration: {  }

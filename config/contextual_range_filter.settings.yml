@@ -1,0 +1,4 @@
+numeric_field_names:
+  'node__field_ccu_tdp:field_ccu_tdp_value': 'node__field_ccu_tdp:field_ccu_tdp_value'
+  'node__field_processor_base_frequency:field_processor_base_frequency_value': 'node__field_processor_base_frequency:field_processor_base_frequency_value'
+  'node__field_total_cores:field_total_cores_value': 'node__field_total_cores:field_total_cores_value'

@@ -1,0 +1,21 @@
+uuid: a1183bdc-0539-4ff9-8963-4f64df8554bc
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interface_type
+    - node.type.arcsystem
+  module:
+    - options
+id: node.arcsystem.field_interface_type
+field_name: field_interface_type
+entity_type: node
+bundle: arcsystem
+label: 'Тип интерфейса'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,18 @@
+uuid: 77e3bedb-70d6-48cd-bc2e-1889866828ea
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ecc_memory_supported
+field_name: field_ecc_memory_supported
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

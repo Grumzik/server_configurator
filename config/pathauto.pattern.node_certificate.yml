@@ -1,0 +1,22 @@
+uuid: f3974e1f-542b-4618-899c-070030a044ba
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_certificate
+label: 'Содержимое - certificate'
+type: 'canonical_entities:node'
+pattern: 'certifificate/[node:title]'
+selection_criteria:
+  38969ba1-7c11-487c-80ce-ff6a8cedfc49:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 38969ba1-7c11-487c-80ce-ff6a8cedfc49
+    context_mapping:
+      node: node
+    bundles:
+      certificate: certificate
+selection_logic: and
+weight: 0
+relationships: {  }

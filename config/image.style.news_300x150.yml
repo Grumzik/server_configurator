@@ -1,0 +1,21 @@
+uuid: 37138b50-da3f-4f78-beca-d9e7cd22932e
+langcode: ru
+status: true
+dependencies: {  }
+name: news_300x150
+label: news(300x150)
+effects:
+  3dc2076d-0d51-4c78-8511-87bb64fdc137:
+    uuid: 3dc2076d-0d51-4c78-8511-87bb64fdc137
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 150
+      anchor: center-center
+  7d090d03-d6a6-4d06-86ad-c2e652abdc94:
+    uuid: 7d090d03-d6a6-4d06-86ad-c2e652abdc94
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

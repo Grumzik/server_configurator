@@ -1,0 +1,34 @@
+uuid: cf22e72d-009b-4db6-97d3-014880838712
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.slideshow.field_media_slideshow
+    - image.style.medium
+    - media.type.slideshow
+  module:
+    - image
+id: media.slideshow.media_library
+targetEntityType: media
+bundle: slideshow
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_media_slideshow: true
+  langcode: true
+  name: true
+  uid: true

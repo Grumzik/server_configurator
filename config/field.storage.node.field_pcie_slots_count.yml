@@ -1,0 +1,20 @@
+uuid: b81c7b82-4386-474f-af95-9b479e7c5b8d
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pcie_slots_count
+field_name: field_pcie_slots_count
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

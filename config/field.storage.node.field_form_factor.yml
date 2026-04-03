@@ -1,0 +1,20 @@
+uuid: 2774ec98-ca26-4b2f-8c04-bebd9861ac5e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_form_factor
+field_name: field_form_factor
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

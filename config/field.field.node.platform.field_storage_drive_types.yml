@@ -1,0 +1,29 @@
+uuid: 6d92c57c-e6c4-48ab-8a14-a91c729e8a53
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_storage_drive_types
+    - node.type.platform
+    - taxonomy.vocabulary.storage_drive_types
+id: node.platform.field_storage_drive_types
+field_name: field_storage_drive_types
+entity_type: node
+bundle: platform
+label: 'Storage Drive Types'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      storage_drive_types: storage_drive_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,25 @@
+uuid: 40a7fb19-9458-45ea-8b23-d6b8f616657d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vendor
+    - node.type.processor
+id: node.processor.field_vendor
+field_name: field_vendor
+entity_type: node
+bundle: processor
+label: Vendor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: vendor_by_partstype
+      display_name: entity_reference_2
+      arguments: {  }
+field_type: entity_reference

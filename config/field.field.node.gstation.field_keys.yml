@@ -1,0 +1,22 @@
+uuid: b189848e-5cbe-483c-9f9a-cbd840f643bf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.gstation
+  module:
+    - text
+id: node.gstation.field_keys
+field_name: field_keys
+entity_type: node
+bundle: gstation
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,22 @@
+uuid: b3c5b32a-77d2-46d8-9e65-25571bb6bd2b
+langcode: ru
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term_tags
+label: 'Термин таксономии - Tags'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'category/tags/[term:name]'
+selection_criteria:
+  cb7370cf-bd82-42ab-9bc4-5683aeb1d8f0:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: cb7370cf-bd82-42ab-9bc4-5683aeb1d8f0
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      tags: tags
+selection_logic: and
+weight: 0
+relationships: {  }

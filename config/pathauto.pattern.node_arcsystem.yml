@@ -1,0 +1,22 @@
+uuid: a9629f9f-512a-47d8-91df-186f848fe90c
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_arcsystem
+label: 'Содержимое - arcsystem'
+type: 'canonical_entities:node'
+pattern: 'datastorage/[node:title]'
+selection_criteria:
+  2e5f696b-2faf-4bcf-8ae8-94b5a8d46a96:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 2e5f696b-2faf-4bcf-8ae8-94b5a8d46a96
+    context_mapping:
+      node: node
+    bundles:
+      arcsystem: arcsystem
+selection_logic: and
+weight: 0
+relationships: {  }

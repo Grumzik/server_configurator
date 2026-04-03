@@ -1,0 +1,46 @@
+uuid: 6bdc7d5b-ab94-4fa0-90ac-c911856094d7
+langcode: ru
+status: true
+dependencies:
+  enforced:
+    module:
+      - slick_lightbox
+_core:
+  default_config_hash: 76Ho2ldVOqCxagaGHYsEXFmHpCpIJmMFsNOWX7O5LTM
+id: slick_lightbox_tis
+name: slick_lightbox_tis
+weight: 0
+label: 'Slick Lightbox Tis'
+group: ''
+skin: default
+breakpoints: 2
+optimized: true
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    infinite: false
+    lazyLoad: ondemand
+    slidesToShow: 3
+    slidesToScroll: 3
+    swipeToSlide: true
+    waitForAnimate: false
+  responsives:
+    responsive:
+      -
+        breakpoint: 1024
+        unslick: false
+        settings:
+          centerMode: true
+          centerPadding: ''
+          slidesToShow: 2
+          slidesToScroll: 2
+          swipeToSlide: true
+          waitForAnimate: false
+      -
+        breakpoint: 767
+        unslick: false
+        settings:
+          centerMode: true
+          centerPadding: ''
+          swipeToSlide: true
+          waitForAnimate: false

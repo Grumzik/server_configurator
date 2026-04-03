@@ -1,0 +1,19 @@
+uuid: 24fa29dd-85d9-42c6-9fca-3cd4233cdf4d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_model
+    - node.type.fpoint
+id: node.fpoint.field_model
+field_name: field_model
+entity_type: node
+bundle: fpoint
+label: Модель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

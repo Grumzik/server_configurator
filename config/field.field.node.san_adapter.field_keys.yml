@@ -1,0 +1,22 @@
+uuid: 574a7944-9d4e-4144-b92f-23659e885841
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.san_adapter
+  module:
+    - text
+id: node.san_adapter.field_keys
+field_name: field_keys
+entity_type: node
+bundle: san_adapter
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

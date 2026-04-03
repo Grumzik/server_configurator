@@ -1,0 +1,19 @@
+uuid: ffa97e45-0bbf-4ef8-88bc-3c3e3b457d80
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_model
+    - node.type.arcsystem
+id: node.arcsystem.field_model
+field_name: field_model
+entity_type: node
+bundle: arcsystem
+label: Модель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

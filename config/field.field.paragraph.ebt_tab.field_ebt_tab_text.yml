@@ -1,0 +1,24 @@
+uuid: 7136e0e7-6ee3-4131-bb4b-0b9ad9e99fa8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_tab_text
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - text
+_core:
+  default_config_hash: qDqTeXYS1CTWbjbJQUSmVXGsWThhwp_YLObjCrj-4wo
+id: paragraph.ebt_tab.field_ebt_tab_text
+field_name: field_ebt_tab_text
+entity_type: paragraph
+bundle: ebt_tab
+label: 'Tab text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

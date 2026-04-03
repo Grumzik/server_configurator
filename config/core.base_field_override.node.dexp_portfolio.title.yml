@@ -1,0 +1,18 @@
+uuid: 93ccd685-a243-4936-ba15-9bebde4f8dfc
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.dexp_portfolio
+id: node.dexp_portfolio.title
+field_name: title
+entity_type: node
+bundle: dexp_portfolio
+label: Заголовок
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

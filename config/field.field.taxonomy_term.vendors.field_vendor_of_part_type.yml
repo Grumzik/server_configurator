@@ -1,0 +1,29 @@
+uuid: 08a074b7-ae1a-46e5-b593-580a402ea653
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_vendor_of_part_type
+    - taxonomy.vocabulary.parts_type
+    - taxonomy.vocabulary.vendors
+id: taxonomy_term.vendors.field_vendor_of_part_type
+field_name: field_vendor_of_part_type
+entity_type: taxonomy_term
+bundle: vendors
+label: vendor_of_part_type
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      parts_type: parts_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: parts_type
+field_type: entity_reference

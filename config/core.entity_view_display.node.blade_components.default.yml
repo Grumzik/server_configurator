@@ -1,0 +1,242 @@
+uuid: 89862ed3-22b0-46e5-8650-1ebe4ae83735
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.blade_components.body
+    - field.field.node.blade_components.field_adds
+    - field.field.node.blade_components.field_blade_components_type
+    - field.field.node.blade_components.field_description
+    - field.field.node.blade_components.field_image
+    - field.field.node.blade_components.field_keys
+    - field.field.node.blade_components.field_specification
+    - field.field.node.blade_components.field_vendor
+    - image.style.400x400_white_bg
+    - image.style.thumbnail
+    - image.style.wide
+    - node.type.blade_components
+  module:
+    - ds
+    - entity_reference_revisions
+    - field_group
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left:
+            server-img: server-img
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      left:
+        - field_image
+      right:
+        - field_blade_components_type
+        - field_vendor
+        - field_keys
+      footer:
+        - field_description
+        - field_specification
+        - group_details_tabs
+        - group_opisanie
+        - group_dokumenty
+        - group_specifikaciya
+        - field_adds
+  field_group:
+    group_details_tabs:
+      children:
+        - group_opisanie
+        - group_dokumenty
+        - group_specifikaciya
+      label: details_tabs
+      parent_name: ''
+      region: footer
+      weight: 20
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_opisanie:
+      children:
+        - field_description
+      label: Описание
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+    group_dokumenty:
+      children:
+        - field_adds
+      label: Документы
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_specifikaciya:
+      children:
+        - field_specification
+      label: Спецификация
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+id: node.blade_components.default
+targetEntityType: node
+bundle: blade_components
+mode: default
+content:
+  field_adds:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: full
+      link: ''
+    third_party_settings: {  }
+    weight: 21
+    region: footer
+  field_blade_components_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: right
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+  field_image:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: server_carousel
+      link: ''
+      by_delta: -1
+      layout: below
+      view_mode: ''
+      cache: -1
+      admin_uri: '/admin/structure/types/manage/blade_components/display?ajax_form=1&_wrapper_format=drupal_ajax&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: entity_title
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: wide
+      image_style: 400x400_white_bg
+      media_switch: slick_lightbox
+      ratio: ''
+      thumbnail_style: thumbnail
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: server_thumbnail_carousel
+      skin_thumbnail: asnavfor
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: right
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+  field_vendor:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: right
+hidden:
+  addtoany: true
+  body: true
+  langcode: true
+  links: true

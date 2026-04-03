@@ -1,0 +1,22 @@
+uuid: 4a5967b9-af59-4c5e-97ca-45d14fc29151
+langcode: ru
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term_vendors
+label: 'Термин таксономии - Vendors'
+type: 'canonical_entities:taxonomy_term'
+pattern: 'category/vendors/[term:name]'
+selection_criteria:
+  fc789a5d-753c-4923-84b7-e84881f9978d:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: fc789a5d-753c-4923-84b7-e84881f9978d
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      vendors: vendors
+selection_logic: and
+weight: 0
+relationships: {  }

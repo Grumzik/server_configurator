@@ -1,0 +1,21 @@
+uuid: 54d3a0a2-1a29-41a6-b697-2b15920cb582
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">gstation</em> content'
+name: gstation
+type: gstation
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

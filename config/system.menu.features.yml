@@ -1,0 +1,8 @@
+uuid: 27d1f278-6246-4d3d-8f53-7d57b237d08c
+langcode: en
+status: true
+dependencies: {  }
+id: features
+label: Особенности
+description: 'Menu items for any enabled features.'
+locked: false

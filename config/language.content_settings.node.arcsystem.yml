@@ -1,0 +1,11 @@
+uuid: df9a45be-132f-460c-8061-0c6aa37c882c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.arcsystem
+id: node.arcsystem
+target_entity_type_id: node
+target_bundle: arcsystem
+default_langcode: site_default
+language_alterable: false

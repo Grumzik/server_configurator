@@ -1,0 +1,23 @@
+uuid: 99d82f9e-344a-4480-b2bb-3ae246252742
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_threads
+    - node.type.processor
+id: node.processor.field_total_threads
+field_name: field_total_threads
+entity_type: node
+bundle: processor
+label: 'Total Threads'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

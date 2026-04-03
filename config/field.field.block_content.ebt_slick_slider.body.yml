@@ -1,0 +1,26 @@
+uuid: cf365024-af73-4a81-bc23-d26de3801d55
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_slick_slider
+    - field.storage.block_content.body
+  module:
+    - text
+_core:
+  default_config_hash: 1VYVNgk5Hp9ZSjh89NrWVzpkv3BfOpNJz3E_qlTqNkY
+id: block_content.ebt_slick_slider.body
+field_name: body
+entity_type: block_content
+bundle: ebt_slick_slider
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

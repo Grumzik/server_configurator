@@ -1,0 +1,26 @@
+uuid: abf5e899-9ba3-42ba-99c1-d85f7896fd1a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: 'View existing <em class="placeholder">arcsystem</em> content'
+    type_weight: 0
+name: arcsystem
+type: arcsystem
+description: 'Системы архивирования данных'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

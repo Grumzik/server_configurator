@@ -1,0 +1,20 @@
+
+
+
+.tis-orange-color , .views-field-title, div.views-field.views-field-title span.field-content a  {
+  color: $tis-orange;
+}
+
+.tis-grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+  grid-gap: 10px; /* промежуток между картинками */
+}
+
+.card-text{
+  font-size: 10px;
+}
+
+:root {
+  --bs-font-sans-serif: Lato, -apple-system, BlinkMacSystemFont, "Montserrat",  "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

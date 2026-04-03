@@ -1,0 +1,23 @@
+uuid: cfeba0ea-8570-4ecd-8a6d-2570b3f321a7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_controllercount
+    - node.type.datasystem
+  module:
+    - options
+id: node.datasystem.field_controllercount
+field_name: field_controllercount
+entity_type: node
+bundle: datasystem
+label: 'Количество контроллеров'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

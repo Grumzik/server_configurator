@@ -1,0 +1,21 @@
+uuid: b2202fa1-be74-4700-8b1c-af9d8f940564
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.certificate
+  module:
+    - metatag
+id: node.certificate.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: certificate
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

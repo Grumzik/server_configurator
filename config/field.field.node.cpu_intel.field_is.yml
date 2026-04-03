@@ -1,0 +1,23 @@
+uuid: 9efdd0f0-5cba-4034-bf88-8d699f56dc9b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is
+    - node.type.cpu_intel
+id: node.cpu_intel.field_is
+field_name: field_is
+entity_type: node
+bundle: cpu_intel
+label: IS
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

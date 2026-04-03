@@ -1,0 +1,417 @@
+uuid: e83e59e9-581a-4f51-9bcb-a0d56340a6a3
+langcode: ru
+status: false
+dependencies:
+  config:
+    - field.field.node.arcsystem.field_specification
+    - field.field.node.blade_components.field_specification
+    - field.field.node.computer.field_specification
+    - field.field.node.datasystem.field_specification
+    - field.field.node.fpoint.field_specification
+    - field.field.node.gstation.field_specification
+    - field.field.node.moduleserver_components.field_specification
+    - field.field.node.rack.field_specification
+    - field.field.node.san_adapter.field_specification
+    - field.field.node.san_controller.field_specification
+    - field.field.node.server.field_specification
+    - field.field.node.server.field_test_platform
+    - field.field.node.server.field_test_platform_vendor
+    - field.field.node.server2.field_specification
+    - field.field.node.software.field_specification
+    - field.field.node.ssdsystem.field_specification
+    - field.storage.node.field_specification
+    - field.storage.node.field_test_platform
+    - field.storage.node.field_test_platform_vendor
+    - node.type.server
+  module:
+    - eca_base
+    - eca_content
+    - eca_tamper
+id: process_bqtp2yc
+modeller: bpmn_io
+label: 'Parsing server Platform name From  field_specification TO field_test_platform'
+version: ''
+weight: 0
+events:
+  Event_0hm9m8x:
+    plugin: 'content_entity:presave'
+    label: 'PRESAVE SERVER  CONTENT ENTITY'
+    configuration:
+      type: 'node server'
+    successors:
+      -
+        id: Activity_0b953xs
+        condition: ''
+conditions:
+  Flow_1w15vw4:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[platform_vendor_raw]'
+      right: PNY
+      operator: contains
+      type: value
+  Flow_03zpkfw:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[platform_vendor_raw]'
+      right: SUPERMICRO
+      operator: contains
+      type: value
+  Flow_1km0um3:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[platform_vendor_raw]'
+      right: GIGABYTE
+      operator: contains
+      type: value
+  Flow_19zlh56:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[platform_vendor_raw]'
+      right: INTEL
+      operator: contains
+      type: value
+  Flow_07kmuy3:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[platform_vendor_raw]'
+      right: ADVANTECH
+      operator: contains
+      type: value
+  Flow_0go5s3r:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[platform_vendor_raw]'
+      right: ASUS
+      operator: contains
+      type: value
+gateways:
+  Gateway_15zx4iu:
+    type: 0
+    successors:
+      -
+        id: Activity_0gc7enf
+        condition: Flow_1w15vw4
+      -
+        id: Activity_1w6e16i
+        condition: Flow_03zpkfw
+      -
+        id: Activity_082e730
+        condition: Flow_1km0um3
+      -
+        id: Activity_0iu4dr6
+        condition: Flow_19zlh56
+      -
+        id: Activity_119f1zr
+        condition: Flow_07kmuy3
+      -
+        id: Activity_1nzj6ka
+        condition: Flow_0go5s3r
+actions:
+  Activity_0b953xs:
+    plugin: eca_get_field_value
+    label: 'Get entity field_specification value'
+    configuration:
+      field_name: field_specification
+      token_name: specification_raw
+      object: entity
+    successors:
+      -
+        id: Activity_1uyxaiq
+        condition: ''
+  Activity_01grhjt:
+    plugin: 'eca_tamper:find_replace_regex'
+    label: 'TAMPER: FIND REPLACE REGEX'
+    configuration:
+      find: '/.*?(GIGABYTE|SUPERMICRO|DELL|HPE|INTEL|ADVANTECH|ASUS)\s*([^\.\n\r]+).*?/sui'
+      replace: $2
+      limit: ''
+      eca_data: '[specification_cut]'
+      eca_token_name: '[platform_name_raw]'
+    successors:
+      -
+        id: Activity_0gmcqoq
+        condition: ''
+  Activity_1js7r6o:
+    plugin: eca_token_load_entity
+    label: 'Entity Server:Load'
+    configuration:
+      token_name: server_item
+      from: current
+      entity_type: node
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: node
+    successors:
+      -
+        id: Activity_0ewns74
+        condition: ''
+  Activity_1tpjf04:
+    plugin: 'eca_tamper:find_replace_regex'
+    label: 'TAMPER: FIND REPLACE REGEX'
+    configuration:
+      find: '/.*?(GIGABYTE|SUPERMICRO|DELL|HPE|PNY)\s*([^\.\n\r]+).*?/sui'
+      replace: $1
+      limit: ''
+      eca_data: '[specification_cut]'
+      eca_token_name: platform_vendor_raw
+    successors:
+      -
+        id: Gateway_15zx4iu
+        condition: ''
+  Activity_1sw6rkk:
+    plugin: eca_token_load_entity
+    label: 'Entity Server:Load'
+    configuration:
+      token_name: server_item
+      from: current
+      entity_type: node
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: node
+    successors:
+      -
+        id: Activity_1hwxtqu
+        condition: ''
+  Activity_0ewns74:
+    plugin: eca_set_field_value
+    label: 'Entity:SET field value'
+    configuration:
+      field_name: field_test_platform_vendor
+      field_value: '[platform_vendor]'
+      method: 'set:empty'
+      strip_tags: false
+      trim: true
+      save_entity: false
+      object: node
+    successors:
+      -
+        id: Activity_01grhjt
+        condition: ''
+  Activity_1hwxtqu:
+    plugin: eca_set_field_value
+    label: 'Entity:SET platform  vendor PNY'
+    configuration:
+      field_name: field_test_platform_vendor
+      field_value: '[platform_vendor]'
+      method: 'set:empty'
+      strip_tags: false
+      trim: true
+      save_entity: false
+      object: node
+    successors: {  }
+  Activity_0gc7enf:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor set PNY'
+    configuration:
+      token_name: platform_vendor
+      token_value: PNY
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1sw6rkk
+        condition: ''
+  Activity_076i0ed:
+    plugin: 'eca_tamper:trim'
+    label: trim
+    configuration:
+      character: ''
+      side: trim
+      eca_data: '[platform_name_clean_clean]'
+      eca_token_name: platform_name_trim
+    successors:
+      -
+        id: Activity_17vy7lf
+        condition: ''
+  Activity_1uyxaiq:
+    plugin: 'eca_tamper:strip_tags'
+    label: 'TAMPER: удалить теги'
+    configuration:
+      allowed_tags: ''
+      eca_data: '[specification_raw]'
+      eca_token_name: '[specification_clean]'
+    successors:
+      -
+        id: Activity_096dbil
+        condition: ''
+  Activity_096dbil:
+    plugin: 'eca_tamper:html_entity_decode'
+    label: 'HTML Entity decode'
+    configuration:
+      eca_data: '[specification_clean]'
+      eca_token_name: '[specification_clean_decode]'
+    successors:
+      -
+        id: Activity_1dsemu1
+        condition: ''
+  Activity_1dsemu1:
+    plugin: 'eca_tamper:trim'
+    label: trim
+    configuration:
+      character: ''
+      side: trim
+      eca_data: '[specification_clean_decode]'
+      eca_token_name: '[specification_trim]'
+    successors:
+      -
+        id: Activity_03rqnke
+        condition: ''
+  Activity_17vy7lf:
+    plugin: eca_set_field_value
+    label: 'Entity:SET field value'
+    configuration:
+      field_name: field_test_platform
+      field_value: '[platform_name_trim]'
+      method: 'set:empty'
+      strip_tags: false
+      trim: true
+      save_entity: false
+      object: node
+    successors: {  }
+  Activity_0pgfqg5:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor set default value'
+    configuration:
+      token_name: platform_vendor
+      token_value: НЕТ
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1tpjf04
+        condition: ''
+  Activity_1w6e16i:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor set SUPERMICRO'
+    configuration:
+      token_name: platform_vendor
+      token_value: SUPERMICRO
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1js7r6o
+        condition: ''
+  Activity_0iu4dr6:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor INTEL'
+    configuration:
+      token_name: platform_vendor
+      token_value: INTEL
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1js7r6o
+        condition: ''
+  Activity_082e730:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor set GIGABYTE'
+    configuration:
+      token_name: platform_vendor
+      token_value: GIGABYTE
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1js7r6o
+        condition: ''
+  Activity_119f1zr:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor set ADVANTECH'
+    configuration:
+      token_name: platform_vendor
+      token_value: ADVANTECH
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1js7r6o
+        condition: ''
+  Activity_0apu14r:
+    plugin: eca_warning_message
+    label: '3) Message'
+    configuration:
+      replace_tokens: false
+      message: '3) platform_name_raw: [platform_name_raw]'
+    successors: {  }
+  Activity_03rqnke:
+    plugin: 'eca_tamper:find_replace_regex'
+    label: 'find repace regex'
+    configuration:
+      find: '/^.*(.{200})$/sui'
+      replace: $1
+      limit: ''
+      eca_data: '[specification_trim]'
+      eca_token_name: specification_cut
+    successors:
+      -
+        id: Activity_0cjpt8h
+        condition: ''
+      -
+        id: Activity_0pgfqg5
+        condition: ''
+  Activity_0cjpt8h:
+    plugin: eca_warning_message
+    label: 'Message  CUT'
+    configuration:
+      replace_tokens: false
+      message: '??????  specification_cut : [specification_cut]'
+    successors: {  }
+  Activity_1as53cn:
+    plugin: 'eca_tamper:find_replace_regex'
+    label: 'find repace regex'
+    configuration:
+      find: '/(&nbsp;|\s)+$/sui'
+      replace: ''
+      limit: ''
+      eca_data: '[platform_name_clean]'
+      eca_token_name: platform_name_clean_clean
+    successors:
+      -
+        id: Activity_076i0ed
+        condition: ''
+  Activity_0gmcqoq:
+    plugin: 'eca_tamper:strip_tags'
+    label: 'TAMPER: удалить теги'
+    configuration:
+      allowed_tags: ''
+      eca_data: '[platform_name_raw]'
+      eca_token_name: '[platform_name_clean]'
+    successors:
+      -
+        id: Activity_1as53cn
+        condition: ''
+  Activity_1nzj6ka:
+    plugin: eca_token_set_value
+    label: 'TOKEN platform_vendor set ASUS'
+    configuration:
+      token_name: platform_vendor
+      token_value: ASUS
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: Activity_1js7r6o
+        condition: ''

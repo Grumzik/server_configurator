@@ -1,0 +1,22 @@
+uuid: e12625e1-36b7-4c64-ad43-028da1faa459
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.san_controller
+  module:
+    - text
+id: node.san_controller.field_keys
+field_name: field_keys
+entity_type: node
+bundle: san_controller
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

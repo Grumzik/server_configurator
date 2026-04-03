@@ -1,0 +1,35 @@
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_family_cpu
+field_name: field_family_cpu
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: E3v3
+      label: E3v3
+    -
+      value: E5v2
+      label: E5v2
+    -
+      value: E5v2-4600
+      label: E5v2-4600
+    -
+      value: E5v3
+      label: E5v3
+    -
+      value: E7v2
+      label: E7v2
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

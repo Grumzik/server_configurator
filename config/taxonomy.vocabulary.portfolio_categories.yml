@@ -1,0 +1,9 @@
+uuid: d74ec5b8-829d-49de-a2de-14e5e05b5f40
+langcode: ru
+status: true
+dependencies: {  }
+name: 'Portfolio Categories'
+vid: portfolio_categories
+description: 'List of categories used to filter the portfolio'
+weight: 0
+new_revision: false

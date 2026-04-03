@@ -1,0 +1,9 @@
+uuid: 392a2b32-b6a6-4b7b-8731-bdcc8e4b400c
+langcode: und
+status: true
+dependencies: {  }
+name: socketType
+vid: sockettype
+description: null
+weight: 0
+new_revision: false

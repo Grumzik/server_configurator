@@ -1,0 +1,21 @@
+uuid: f46b371f-c909-46c6-88dc-dd2de27799f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: xtdycMRMTk1-RbuIsXUkC8uoiTiAeIi8PtDCDuev5pM
+id: paragraph.field_ebt_accordion_title
+field_name: field_ebt_accordion_title
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 18ad5639-2988-459c-a5b2-33a4773d683b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_datefinish
+    - node.type.certificate
+  module:
+    - datetime
+id: node.certificate.field_datefinish
+field_name: field_datefinish
+entity_type: node
+bundle: certificate
+label: 'Срок действия'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

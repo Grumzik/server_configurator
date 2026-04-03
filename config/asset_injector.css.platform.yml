@@ -1,0 +1,19 @@
+uuid: 1587065f-87e9-4b02-ac82-ac6717d596c8
+langcode: ru
+status: true
+dependencies: {  }
+id: platform
+label: platform
+code: |-
+  .node-type--platform .field__label{
+  	color: #FF820E;
+  }
+
+  .node-type--platform .vertical-tabs__menu-item a{
+  	color: black;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

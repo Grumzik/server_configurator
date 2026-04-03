@@ -1,0 +1,95 @@
+uuid: 824b183a-ea74-4880-84fc-4d9cff222ba3
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_tabs
+label: 'tis tabs'
+code: |-
+  .ebt-container.ui-tabs .ui-state-active, .ebt-container.ui-tabs .ui-button:active, .ebt-container.ui-tabs .ui-button.ui-state-active:hover{
+  	background: #5C6C81;
+  	border: 1px solid #687B81;
+  	border-bottom-color: #FF820E;
+  }
+  .ebt-tabs-tabs_like_buttons .ui-tabs-nav li{
+  	border-bottom-color: #FF820E;
+  }
+  .viewsreference--view-title{
+  	font-size: calc(1rem + 1.5vw);
+  }
+
+
+
+  .horizontal-tabs .horizontal-tab-button {
+    /*  background: #5C6C81; */
+      padding-top: 0;
+      margin: 0;
+      min-width: 5em;
+      float: left;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3);
+      border-radius: 0.375rem;
+      border: 1px solid #c5c5c5/*{borderColorDefault}*/;
+  		font-weight: normal/*{fwDefault}*/;
+  		color: #454545/*{fcDefault}*/;
+  		background-color: rgb(246, 246, 246);
+  }
+
+
+  .horizontal-tabs .horizontal-tabs-list{
+  	background-color: #fff;
+  }
+
+
+  .horizontal-tabs .horizontal-tabs-list li {
+      list-style: none;
+      float: left;
+      position: relative;
+      top: 0;
+      margin: 1px .2em 0 0;
+      padding: 0;
+      white-space: nowrap;
+  }
+
+  .horizontal-tabs .horizontal-tab-button{
+  	  border-radius: 0.375rem;
+  }
+
+  .horizontal-tabs .horizontal-tab-button a{
+   color:	 #454545;
+  }
+  .horizontal-tabs .horizontal-tab-button.selected a{
+   color: #fff;
+  }
+  .horizontal-tabs .horizontal-tab-button a:hover {
+    outline: none;
+    color: #454545;
+    border-bottom-color: #FF820E;
+   /* background-color: #F6F6F3;*/
+    background-color: #ededed;
+  }
+
+   
+   .horizontal-tab-button:active, .horizontal-tabs .horizontal-tab-button a:active, 
+   .horizontal-tab-button.selected, .horizontal-tab-button.selected a:hover{   
+   	background: #5C6C81 !important;
+    border: 1px solid #687B81;
+    border-bottom-color: #FF820E !important;
+    color: #fff;
+   }
+   
+  .horizontal-tabs-panes .horizontal-tabs-pane{
+  	padding: 1.5rem;
+  }
+
+  .field--name-field-specification,
+  .field--name-field-description{
+  	 overflow-x: auto; /* Добавляет горизонтальную прокрутку, если содержимое шире контейнера */
+      -webkit-overflow-scrolling: touch; /* Улучшает прокрутку на iOS устройствах */
+      width: 100%; /* Убедитесь, что контейнер занимает всю доступную ширину родителя */
+      max-width: 100%; /* Предотвращает выход контейнера за пределы родителя */
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

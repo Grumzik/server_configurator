@@ -1,0 +1,67 @@
+uuid: ea1a876f-26fd-4b35-97f5-522c426f4882
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_field_group_node_cpu_intel
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Field groups of node (bundle: cpu_intel)'
+source:
+  plugin: d7_field_group
+  entity_type: node
+  bundle: cpu_intel
+process:
+  entity_type:
+    0:
+      plugin: get
+      source: entity_type
+    profile:
+      plugin: static_map
+      map:
+        profile2: profile
+      bypass: true
+    1:
+      plugin: static_map
+      map:
+        field_collection_item: paragraph
+        paragraphs_item: paragraph
+      bypass: true
+  bundle:
+    -
+      plugin: get
+      source: bundle
+  mode:
+    -
+      plugin: static_map
+      source: mode
+      bypass: true
+      map:
+        form: default
+  type:
+    -
+      plugin: static_map
+      source: mode
+      default_value: entity_view_display
+      map:
+        form: entity_form_display
+  group_name:
+    -
+      plugin: get
+      source: group_name
+  settings:
+    -
+      plugin: get
+      source: settings
+destination:
+  plugin: d7_field_group
+migration_dependencies:
+  required:
+    - upgrade_d7_view_modes
+  optional:
+    - upgrade_d7_field_collection_type
+    - upgrade_d7_paragraphs_type

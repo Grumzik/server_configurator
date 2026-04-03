@@ -1,0 +1,11 @@
+uuid: efa09c91-e2bd-4e92-b53d-65742cf1a67b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.packaging_dimensions
+id: taxonomy_term.packaging_dimensions
+target_entity_type_id: taxonomy_term
+target_bundle: packaging_dimensions
+default_langcode: site_default
+language_alterable: false

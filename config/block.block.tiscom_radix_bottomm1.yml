@@ -1,0 +1,25 @@
+uuid: 2b50725c-146c-40f3-b124-bc54c7723223
+langcode: ru
+status: false
+dependencies:
+  config:
+    - system.menu.menu-bottom-m1
+  module:
+    - system
+  theme:
+    - tiscom_radix
+id: tiscom_radix_bottomm1
+theme: tiscom_radix
+region: footer4
+weight: -7
+provider: null
+plugin: 'system_menu_block:menu-bottom-m1'
+settings:
+  id: 'system_menu_block:menu-bottom-m1'
+  label: 'bottom M1'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

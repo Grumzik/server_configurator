@@ -1,0 +1,94 @@
+uuid: 84d3fd3e-bc13-4b6a-95a3-87fc52492fcc
+langcode: ru
+status: true
+dependencies:
+  config:
+    - eca.eca.process_ok4iefx
+id: process_ok4iefx
+label: 'Server Platform View to Taxonomy Term'
+tags:
+  - untagged
+documentation: ''
+filename: ''
+modeldata: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="Process_ok4iEFX" name="Server Platform View to Taxonomy Term" isExecutable="false">
+      <bpmn2:startEvent id="Event_0l3p398" name="View: post execute" camunda:modelerTemplate="org.drupal.event.eca_views:post_execute">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views:post_execute"/>
+          </camunda:properties>
+          <camunda:field name="view_id">
+            <camunda:string>servers</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>server_platform</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_1sgmrqx</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="Activity_1vod9ij" name="view: execution query" camunda:modelerTemplate="org.drupal.action.eca_views_query">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_views_query"/>
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>platform_list</camunda:string>
+          </camunda:field>
+          <camunda:field name="view_id">
+            <camunda:string>servers</camunda:string>
+          </camunda:field>
+          <camunda:field name="display_id">
+            <camunda:string>server_platform</camunda:string>
+          </camunda:field>
+          <camunda:field name="arguments">
+            <camunda:string/>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1sgmrqx</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_08jqzzi</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1sgmrqx" sourceRef="Event_0l3p398" targetRef="Activity_1vod9ij"/>
+      <bpmn2:task id="Activity_0k121k5" camunda:modelerTemplate="org.drupal.action.eca_warning_message">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_warning_message"/>
+          </camunda:properties>
+          <camunda:field name="message">
+            <camunda:string>platform_list: [platform_list]</camunda:string>
+          </camunda:field>
+          <camunda:field name="replace_tokens">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_08jqzzi</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_08jqzzi" sourceRef="Activity_1vod9ij" targetRef="Activity_0k121k5"/>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="sid-94dfdbbf-a6ff-4fa4-a4f4-035b8ed1c2cf">
+      <bpmndi:BPMNPlane id="sid-005b7947-862f-432a-8e9e-796bf8da43b6" bpmnElement="Process_ok4iEFX">
+        <bpmndi:BPMNShape id="Event_0l3p398_di" bpmnElement="Event_0l3p398">
+          <dc:Bounds x="192" y="202" width="36" height="36"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="186" y="245" width="51" height="27"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_1vod9ij_di" bpmnElement="Activity_1vod9ij">
+          <dc:Bounds x="280" y="180" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0k121k5_di" bpmnElement="Activity_0k121k5">
+          <dc:Bounds x="440" y="180" width="100" height="80"/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_1sgmrqx_di" bpmnElement="Flow_1sgmrqx">
+          <di:waypoint x="228" y="220"/>
+          <di:waypoint x="280" y="220"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_08jqzzi_di" bpmnElement="Flow_08jqzzi">
+          <di:waypoint x="380" y="220"/>
+          <di:waypoint x="440" y="220"/>
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

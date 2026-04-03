@@ -1,0 +1,24 @@
+uuid: 4c5e1cae-b3b6-4699-b25b-50a5bdc7ae3f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.sale
+  module:
+    - text
+id: node.sale.body
+field_name: body
+entity_type: node
+bundle: sale
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

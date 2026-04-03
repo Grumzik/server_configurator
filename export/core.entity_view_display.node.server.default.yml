@@ -1,0 +1,372 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.server.field_adds
+    - field.field.node.server.field_configurator_id
+    - field.field.node.server.field_cpu
+    - field.field.node.server.field_cpu_generation
+    - field.field.node.server.field_cpu_quantity
+    - field.field.node.server.field_cpu_vendor
+    - field.field.node.server.field_description
+    - field.field.node.server.field_df_base_configuration
+    - field.field.node.server.field_family_cpu
+    - field.field.node.server.field_family_hdd
+    - field.field.node.server.field_family_hddcount
+    - field.field.node.server.field_family_units
+    - field.field.node.server.field_fc_base_configuration
+    - field.field.node.server.field_image
+    - field.field.node.server.field_keys
+    - field.field.node.server.field_metatag
+    - field.field.node.server.field_platform
+    - field.field.node.server.field_server_by_params
+    - field.field.node.server.field_server_configurator
+    - field.field.node.server.field_server_type
+    - field.field.node.server.field_specification
+    - field.field.node.server.field_test_platform
+    - field.field.node.server.field_usage
+    - field.field.node.server.field_vendor
+    - field.field.node.server.field_webform_server_by_appointm
+    - field.field.node.server.field_webform_server_configurato
+    - node.type.server
+  module:
+    - datafield
+    - ds
+    - entity_reference_revisions
+    - field_collection
+    - field_formatter
+    - image
+    - metatag
+    - options
+    - text
+    - user
+    - webform
+third_party_settings:
+  ds:
+    layout:
+      id: ds_1col_wrapper
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class: {  }
+        wrappers:
+          ds_content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      ds_content:
+        - langcode
+        - field_adds
+        - field_configurator_id
+        - field_description
+        - field_family_cpu
+        - field_family_hdd
+        - field_family_hddcount
+        - field_family_units
+        - field_specification
+        - field_keys
+        - field_vendor
+        - field_server_type
+        - field_usage
+        - field_image
+        - links
+        - field_metatag
+id: node.server.default
+targetEntityType: node
+bundle: server
+mode: default
+content:
+  field_adds:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_configurator_id:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_cpu:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_cpu_generation:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_cpu_quantity:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_cpu_vendor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_description:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_df_base_configuration:
+    type: data_field_table_formatter
+    label: above
+    settings:
+      number_column: false
+      number_column_label: №
+      direction: horizontal
+      mode: table
+      caption: ''
+      footer_text: ''
+      datatables_options:
+        bExpandable: true
+        bInfo: true
+        scrollX: true
+        bStateSave: false
+        paging: true
+        ordering: true
+        searching: true
+        show-export: true
+        bMultiFilter: false
+      bootstrap_table_options:
+        sticky-header: true
+        search: true
+        show-search-clear-button: true
+        show-refresh: true
+        show-toggle: true
+        show-fullscreen: true
+        show-columns: true
+        data-detail-view: true
+        show-columns-toggle-all: true
+        mobile-responsive: true
+        show-print: true
+        show-copy-rows: true
+        show-export: true
+        sortable: true
+        click-to-select: true
+        show-pagination-switch: true
+        pagination: true
+        cookie: true
+        show-footer: false
+      formatter_settings: {  }
+      ajax: false
+      custom_class: ''
+      line_operations: false
+      form_format_table: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_family_cpu:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_family_hdd:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_family_hddcount:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_family_units:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_fc_base_configuration:
+    type: field_collection_list
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 10
+    region: ds_content
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: ds_content
+  field_metatag:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: ds_content
+  field_platform:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_server_by_params:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_server_configurator:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_server_type:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: ds_content
+  field_specification:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  field_test_platform:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_usage:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: ds_content
+  field_vendor:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: ds_content
+  field_webform_server_by_appointm:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_webform_server_configurato:
+    type: webform_entity_reference_entity_view
+    label: above
+    settings:
+      source_entity: true
+      lazy: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  langcode:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: ds_content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: ds_content
+  servers_entity_view_1:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  servers_entity_view_2:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  servers_entity_view_2_form:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+hidden:
+  addtoany: true

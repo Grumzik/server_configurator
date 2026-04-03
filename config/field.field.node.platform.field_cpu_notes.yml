@@ -1,0 +1,19 @@
+uuid: 4ca89de1-8865-4480-beb6-a042f256bcc3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_notes
+    - node.type.platform
+id: node.platform.field_cpu_notes
+field_name: field_cpu_notes
+entity_type: node
+bundle: platform
+label: 'CPU Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

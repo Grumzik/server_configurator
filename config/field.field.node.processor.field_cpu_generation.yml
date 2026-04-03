@@ -1,0 +1,29 @@
+uuid: ee6ae224-4030-4481-9a93-cd5a8b78b498
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_generation
+    - node.type.processor
+    - taxonomy.vocabulary.cpu_generation
+id: node.processor.field_cpu_generation
+field_name: field_cpu_generation
+entity_type: node
+bundle: processor
+label: 'Cpu Generation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      cpu_generation: cpu_generation
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

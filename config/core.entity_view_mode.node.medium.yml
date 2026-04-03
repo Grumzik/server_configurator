@@ -1,0 +1,11 @@
+uuid: fd911715-02d9-4234-8376-1acb3b0a0ea7
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.medium
+label: medium
+description: ''
+targetEntityType: node
+cache: true

@@ -1,0 +1,159 @@
+uuid: 53ed8fb5-289a-4bb6-a93a-51fec1bf92cc
+langcode: ru
+status: false
+dependencies: {  }
+id: myanimation
+label: 'tis animation'
+code: |
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  section {
+    height: 300px;
+    position: relative;
+  }
+
+  .tis-animation{
+      color: #ffffff;
+      font-size: 37px;
+      font-family: 'Montserrat', Arial, sans-serif;
+      line-height: 1.55;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+  }
+
+
+
+
+
+
+  .clouds div  {
+    position: absolute;
+    top: 0;
+  }
+  .clouds div.cloud1 {
+    top: 30px;
+    animation: cloud1 45s linear 1s infinite;
+    opacity: 0
+  }
+  @keyframes cloud1 {
+    0% {
+      opacity: 0;
+      right: 0
+    }
+    10% {
+      opacity: 1;
+      right: 70px
+    }
+    90% {
+      opacity: 1;
+      right: 1000px
+    }
+    100% {
+      opacity: 0;
+      right: 1088px
+    }
+  }
+  .clouds div.cloud2 {
+  	position: absolute;
+    top: 80px;
+    animation: cloud2 35s linear 6s infinite;
+    opacity: 0
+  }
+  @keyframes cloud2 {
+    0% {
+      opacity: 0;
+      right: 0
+    }
+    10% {
+      opacity: 1;
+      right: 70px
+    }
+    90% {
+      opacity: 1;
+      right: 1000px
+    }
+    100% {
+      opacity: 0;
+      right: 1088px
+    }
+  }
+  .clouds div.cloud3 {
+  	position: absolute;
+    top: 115px;
+    animation: cloud3 30s linear 11s infinite;
+    opacity: 0
+  }
+  @keyframes cloud3 {
+    0% {
+      opacity: 0;
+      right: 0
+    }
+    10% {
+      opacity: 1;
+      right: 70px
+    }
+    90% {
+      opacity: 1;
+      right: 1000px
+    }
+    100% {
+      opacity: 0;
+      right: 1088px
+    }
+  }
+  .clouds div.cloud4 {
+  	position: absolute;
+    top: 160px;
+    animation: cloud4 55s linear 16s infinite;
+    opacity: 0
+  }
+  @keyframes cloud4 {
+    0% {
+      opacity: 0;
+      right: 0
+    }
+    10% {
+      opacity: 1;
+      right: 70px
+    }
+    90% {
+      opacity: 1;
+      right: 1000px
+    }
+    100% {
+      opacity: 0;
+      right: 1088px
+    }
+  }
+  .clouds div.cloud5 {
+    top: 210px;
+    animation: cloud5 25s linear 20s infinite;
+    opacity: 0
+  }
+  @keyframes cloud5 {
+    0% {
+      opacity: 0;
+      right: 0
+    }
+    10% {
+      opacity: 1;
+      right: 70px
+    }
+    90% {
+      opacity: 1;
+      right: 1000px
+    }
+    100% {
+      opacity: 0;
+      right: 1088px
+    }
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

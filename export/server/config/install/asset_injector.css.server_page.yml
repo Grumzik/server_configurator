@@ -1,0 +1,249 @@
+langcode: ru
+status: true
+dependencies: {  }
+id: server_page
+label: 'server page'
+code: |-
+  .ds-2col-stacked-fluid {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 20px;
+  }
+
+
+
+  .ds-2col-stacked-fluid > * {
+    box-sizing: border-box;
+  }
+  .ds-2col-stacked-fluid > .group-header,
+  .ds-2col-stacked-fluid > .group-left,
+  .ds-2col-stacked-fluid > .group-right{
+   /* width: 100%; /* Занимают всю ширину по умолчанию */
+    margin-bottom: 10px; /* Отступ снизу */
+  }
+
+  .ds-2col-stacked-fluid > .group-footer {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) {
+  	
+  .media--image{
+  /*	padding-bottom: 50% !important;*/
+  } 
+
+  	.ds-2col-stacked-fluid .group-right
+   {
+  		  padding-left: 2rem;
+  	}
+  	
+  	
+    .ds-2col-stacked-fluid {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .ds-2col-stacked-fluid > .group-left,
+    .ds-2col-stacked-fluid > .group-right,
+    .software.ds-2col-stacked-fluid > .group-right:not,
+    .software.ds-2col-stacked-fluid > .group-left:not
+    {
+    /*  width: calc(50% - 10px); */
+
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+  	/*.ds-2col-stacked-fluid > .group-right{
+  	 	order:0;
+  	 }
+  	 .ds-2col-stacked-fluid > .group-left{
+  	 	order:1;
+  	 }
+  	 .ds-2col-stacked-fluid > .group-footer{
+  	 	order:2;
+  	 }*/
+  	 
+
+    .ds-2col-stacked-fluid > .group-left,
+    .ds-2col-stacked-fluid > .group-right {
+      float: none; /* Отменяем обтекание */
+      width: 100%; /* Занимаем всю доступную ширину */
+      /* Важно: если были padding/margin, возможно, их нужно скорректировать */
+      box-sizing: border-box; /* Это очень важно для адаптивных макетов, чтобы padding и border не увеличивали общую ширину */
+  }
+  	
+  	.ds-2col-stacked-fluid > .group-footer{
+  	/*	margin-top: 40px;*/
+  	}
+  }
+
+
+
+  .ds-2col-stacked-fluid > .group-header{
+  	width: 100%;
+  }
+
+
+  .ds-2col-stacked-fluid .group-footer table{
+  	width: 100% !important;
+  	/*border-collapse: separate; /* Двойная граница*/
+  	border-collapse: collapse;
+  }
+
+
+  .ds-2col-stacked-fluid .group-footer tr{
+  	/*border-color: */
+  	border-width: 0.3px;
+  		/*border-style: none;*/
+  }
+  .ds-2col-stacked-fluid .group-footer td{
+  	padding-left: 10px;
+  }
+  .ds-2col-stacked-fluid .group-footer thead,
+  .ds-2col-stacked-fluid .group-footer tbody,
+  .ds-2col-stacked-fluid .group-footer tfoot,
+  .ds-2col-stacked-fluid .group-footer tr,
+  .ds-2col-stacked-fluid .group-footer td,
+  .ds-2col-stacked-fluid .group-footer th {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  @media (max-width: 768px) {
+  	.ds-2col-stacked-fluid .group-footer td{
+  		padding-left: 5px;
+  	}
+  	
+  	.ds-2col-stacked-fluid .group-footer thead,
+  	.ds-2col-stacked-fluid .group-footer tbody,
+  	.ds-2col-stacked-fluid .group-footer tfoot,
+  	.ds-2col-stacked-fluid .group-footer tr,
+  	.ds-2col-stacked-fluid .group-footer td,
+  	.ds-2col-stacked-fluid .group-footer th {
+  		font-size: 0.8rem;
+  	}
+  	ul {
+  	  list-style: none;
+  	  padding: 5px;
+  	}
+  }
+
+
+  #slick-2305babd9f6, .server-img .slick--optionset--server-carousel .slick__slider{
+  	  width: auto;
+      overflow: hidden;
+  }
+
+
+  @media (max-width: 768px) {
+  	#slick-2305babd9f6,  .server-img .slick--optionset--server-carousel .slick__slider{
+  	/* max-height: 250px;*/
+  	}
+  }
+  #slick-2305babd9f6-nav img, .server-img .slick--optionset--server-thumbnail .slide__thumbnail img{
+  	max-height: 130px;
+    width: auto;
+    padding: 0;
+  }
+  #slick-2305babd9f6-nav .slick-track, .server-img .slick--optionset--server-thumbnail .slick-track{
+  	padding-top: 3px;
+  }
+
+  ul{
+  	list-style: none;
+  	padding-left: 0;
+  }
+
+  .field__item > a{
+  	color: #FF820E;
+  }
+
+
+
+   
+   
+  .paragraph--type--adds .file a{
+  	color: #FF820E;
+  	margin-top: 1.2 rem;
+  }
+
+  /* изменяем цвет ссылок в view */
+  .view-eva a, .view-servers a, .view-display-id-processor_for_server a, .view-display-id-entity_browser_processor_for_server a{
+  	color: #454545!important;
+  }
+   
+  /*
+  .media.media--blazy.b-lazy.b-bg.media--slick.media--switch.media--switch--elevatezoomplus.media--image.b-loaded.is-b-loaded{
+    background-position: center;
+    background-size: contain;
+    /* background-size: cover; /* Важно для заполнения контейнера */
+    /*  background-repeat: no-repeat; /* Важно, чтобы изображение не повторялось */
+     /*height: 300px; /* Установите высоту контейнера */
+     /*width: 400px; /* Установите ширину контейнера */
+     /*border: 3px solid pink;
+    padding-bottom: 0;
+  }
+  */
+
+   
+  /*
+  #slick-2305babd9f6 img{
+  	max-height: 360px;
+    width: auto; /* Ширина автоматически подстраивается под высоту */
+  /*  display: block;
+    margin: auto auto;
+     /*  display: inline-block; /* Измените на inline-block */
+     /* vertical-align: middle; /* Добавьте этот стиль */
+  /*}
+  #slick-2305babd9f6-nav .slick-list{
+  	padding-top: 0;
+  }
+
+  #slick-2305babd9f6-nav img{
+  	max-height: 110px;
+    width: auto;
+    padding: 0;
+  }
+
+  #slick-2305babd9f6-nav {
+  	transition: transform 0.3s ease; /* Плавный переход */
+  /*}  
+
+  #slick-2305babd9f6-nav .slick-current{
+  	border:  2px solid #5C6C81;
+  	transform: scale(1.1); /* Увеличение на 10% */
+  /*	transition: transform 0.3s ease; /* Плавный переход */
+
+  /*}  
+
+  #slick-2305babd9f6-nav .slick-slide[aria-hidden="true"] img{
+    /* display: none !important; /* или visibility: hidden !important; */
+  /* }
+  #slick-2305babd9f6-nav .slick-slide img {
+    /*  filter: brightness(0.5);Или другое значение яркости */
+  /*  opacity: 0.5;
+    margin: 0 auto;
+  }
+
+  #slick-2305babd9f6-nav  .slick-slide.slick-current.slick-active img {
+    /* filter: brightness(1); Полная яркость для активного слайда */
+    /*  transform: scale(1.1); /* Увеличение на 10% */
+     /* opacity: 1;
+  }
+
+  #slick-2305babd9f6-nav .slick-track{
+  	padding-top: 3px;
+  }
+  */
+     
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

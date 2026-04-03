@@ -1,0 +1,22 @@
+uuid: 94c539b0-9a9c-49b4-b6f1-3eca3da81aec
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.computer
+  module:
+    - text
+id: node.computer.field_specification
+field_name: field_specification
+entity_type: node
+bundle: computer
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

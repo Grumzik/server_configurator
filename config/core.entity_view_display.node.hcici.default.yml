@@ -1,0 +1,71 @@
+uuid: c0e46200-d4e9-4b39-b3ab-5b6db4724a4b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.hcici.body
+    - field.field.node.hcici.field_adds
+    - field.field.node.hcici.field_description
+    - field.field.node.hcici.field_image
+    - field.field.node.hcici.field_keys
+    - field.field.node.hcici.field_metatag
+    - field.field.node.hcici.field_vendor
+    - node.type.hcici
+  module:
+    - image
+    - metatag
+    - text
+    - user
+id: node.hcici.default
+targetEntityType: node
+bundle: hcici
+mode: default
+content:
+  addtoany:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_metatag:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_vendor:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+hidden:
+  body: true
+  field_adds: true
+  field_description: true
+  langcode: true

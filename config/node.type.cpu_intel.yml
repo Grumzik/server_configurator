@@ -1,0 +1,21 @@
+uuid: 6dd6ccdf-0945-4c03-9cb1-6fbf17ff4a4e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">Процессор</em> content'
+name: Процессор
+type: cpu_intel
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

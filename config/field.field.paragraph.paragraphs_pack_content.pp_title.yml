@@ -1,0 +1,19 @@
+uuid: 30860227-9879-4195-972a-3c2292d3256b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.pp_title
+    - paragraphs.paragraphs_type.paragraphs_pack_content
+id: paragraph.paragraphs_pack_content.pp_title
+field_name: pp_title
+entity_type: paragraph
+bundle: paragraphs_pack_content
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

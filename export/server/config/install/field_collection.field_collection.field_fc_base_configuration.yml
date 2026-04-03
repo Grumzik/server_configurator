@@ -1,0 +1,9 @@
+langcode: ru
+status: true
+dependencies: {  }
+id: field_fc_base_configuration
+label: field_fc_base_configuration
+enabled: null
+first_field: null
+second_field: null
+bundles: null

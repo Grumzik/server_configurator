@@ -1,0 +1,22 @@
+uuid: d16af270-944f-400b-891d-a2211ccffae1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.arcsystem
+  module:
+    - text
+id: node.arcsystem.field_keys
+field_name: field_keys
+entity_type: node
+bundle: arcsystem
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

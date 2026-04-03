@@ -1,0 +1,20 @@
+uuid: 645b5d14-5190-4ffe-af85-a259397e4f6a
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_card
+label: 'tis card'
+code: |-
+  /* Category cards on homepage */
+  .card-text{
+  	font-size: 1rem !important;
+  }
+  .card-body{
+  	padding-top: 0px;
+    padding-bottom: 0px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

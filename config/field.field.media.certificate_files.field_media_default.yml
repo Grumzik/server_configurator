@@ -1,0 +1,32 @@
+uuid: 4491183f-9fe2-41a7-902f-d294d0589f3e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_default
+    - media.type.certificate_files
+  module:
+    - file
+    - pdf_preview_image
+third_party_settings:
+  pdf_preview_image:
+    enable: 1
+    target_field: thumbnail
+id: media.certificate_files.field_media_default
+field_name: field_media_default
+entity_type: media
+bundle: certificate_files
+label: Файл
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf'
+  max_filesize: '50 MB'
+  description_field: false
+field_type: file

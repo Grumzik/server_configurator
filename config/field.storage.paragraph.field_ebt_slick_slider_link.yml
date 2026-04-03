@@ -1,0 +1,21 @@
+uuid: 89bdd2f1-a5b9-4905-acef-7a24d289f515
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+_core:
+  default_config_hash: 2sX2ALM8UbHO085MTpnVsKr65w2_hTSuR1OGRh9yhnc
+id: paragraph.field_ebt_slick_slider_link
+field_name: field_ebt_slick_slider_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

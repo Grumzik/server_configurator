@@ -1,0 +1,28 @@
+uuid: 53a45bea-9777-4f69-9ece-c6452e6fb70e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cerificate_type
+    - node.type.certificate
+    - taxonomy.vocabulary.certificate_type
+id: node.certificate.field_cerificate_type
+field_name: field_cerificate_type
+entity_type: node
+bundle: certificate
+label: cerificate_type
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    tid: '376'
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      certificate_type: certificate_type
+    sort:
+      field: _none
+field_type: entity_reference

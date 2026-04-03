@@ -1,0 +1,26 @@
+uuid: 745abf30-3997-4e88-8ef9-36a9398bffdf
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: 'View existing <em class="placeholder">datasystem</em> content'
+    type_weight: 0
+name: datasystem
+type: datasystem
+description: 'Системы хранения данных'
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

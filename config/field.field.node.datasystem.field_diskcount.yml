@@ -1,0 +1,23 @@
+uuid: e9a1595f-6fce-4801-b901-07c7198f5a50
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_diskcount
+    - node.type.datasystem
+id: node.datasystem.field_diskcount
+field_name: field_diskcount
+entity_type: node
+bundle: datasystem
+label: 'Количество дисков'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,11 @@
+uuid: 086f76d1-abf7-4191-a942-38c3cf189d56
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.psu_type
+id: taxonomy_term.psu_type
+target_entity_type_id: taxonomy_term
+target_bundle: psu_type
+default_langcode: site_default
+language_alterable: false

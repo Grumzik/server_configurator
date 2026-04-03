@@ -1,0 +1,77 @@
+uuid: ad7dd30c-3dbf-40f2-8525-a25856f86ca5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ebt_tab.field_ebt_tab_block
+    - field.field.paragraph.ebt_tab.field_ebt_tab_content
+    - field.field.paragraph.ebt_tab.field_ebt_tab_page
+    - field.field.paragraph.ebt_tab.field_ebt_tab_text
+    - field.field.paragraph.ebt_tab.field_ebt_tab_title
+    - field.field.paragraph.ebt_tab.field_ebt_tab_views
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - block_field
+    - text
+    - viewsreference
+_core:
+  default_config_hash: 3tkvVlJEyrGPBNqg-NmBgDBe7aW-ckCLKwsrbQPd28E
+id: paragraph.ebt_tab.default
+targetEntityType: paragraph
+bundle: ebt_tab
+mode: default
+content:
+  field_ebt_tab_block:
+    weight: 7
+    settings:
+      plugin_id: ''
+      settings: {  }
+      configuration_form: full
+    third_party_settings: {  }
+    type: block_field_default
+    region: content
+  field_ebt_tab_content:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ebt_tab_page:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_ebt_tab_text:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_ebt_tab_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_ebt_tab_views:
+    weight: 6
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: viewsreference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,18 @@
+_core:
+  default_config_hash: iMZ2YPACIFliibzg9FuCi2-KHSrJoeTPHhXeWuAm2y4
+langcode: ru
+protected_forms:
+  allowed_scripts:
+    - 'Currency Symbols'
+    - Cyrillic
+    - Latin
+    - 'Miscellaneous Symbols'
+  check_quantity: 0
+  reject_message: 'Похоже, что ваше сообщение содержит спам. Если это не так, свяжитесь с нами. Приносим извинения за причиненные неудобства.'
+  reject_patterns: "http://, https://, www, ftp://, mailto:, smb://, afp://, file://, gopher://, news://, ssl://, sslv2://, sslv3://, tls://, tcp://, udp://, url=, href=\r\ndating, sex, porn, fuck, free, win, buy, captcha, spam, hello. and bye., mail.ru, reading this message, reading my message, reading through my message, are whitelisted, great website, late client, ciao a tutti, viagra, cheap, casino, advertising, keyword, promotion, porntubered,     :,    :, ps: how are you?, beautiful models, privet, beautiful girls, best girls, dosug, trustable, look at the, v7bomdefex, what is it -, email marketing, read your site, , мебель, кракен"
+  log_rejected: true
+  allowed_patterns: ''
+  excluded_forms:
+    - user_login_form
+    - user_register_form
+    - user_pass

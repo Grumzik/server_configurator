@@ -1,0 +1,42 @@
+uuid: 908f9997-a389-4c03-9ef9-dfb9cca41ae5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.parts.body
+    - field.field.node.parts.field_metatag
+    - field.field.node.parts.field_mp_partsset
+    - field.field.node.parts.field_mp_partstype
+    - field.field.node.parts.field_price
+    - field.field.node.parts.field_set
+    - node.type.parts
+  module:
+    - text
+    - user
+id: node.parts.teaser
+targetEntityType: node
+bundle: parts
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_metatag: true
+  field_mp_partsset: true
+  field_mp_partstype: true
+  field_price: true
+  field_set: true
+  langcode: true

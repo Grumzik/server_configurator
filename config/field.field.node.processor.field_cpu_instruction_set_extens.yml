@@ -1,0 +1,29 @@
+uuid: 53ca2d38-2196-4f2d-bdbb-2ff1214b3b1f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_instruction_set_extens
+    - node.type.processor
+    - taxonomy.vocabulary.cpu_instruction_set_extens
+id: node.processor.field_cpu_instruction_set_extens
+field_name: field_cpu_instruction_set_extens
+entity_type: node
+bundle: processor
+label: 'CPU Instruction Set Extens'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      cpu_instruction_set_extens: cpu_instruction_set_extens
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

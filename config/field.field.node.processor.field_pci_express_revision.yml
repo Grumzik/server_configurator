@@ -1,0 +1,21 @@
+uuid: dd3b7c3e-034d-499e-b954-d3023d9e9409
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pci_express_revision
+    - node.type.processor
+  module:
+    - options
+id: node.processor.field_pci_express_revision
+field_name: field_pci_express_revision
+entity_type: node
+bundle: processor
+label: 'PCI Express Revision'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

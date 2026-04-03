@@ -1,0 +1,11 @@
+uuid: 88fd4ce0-c765-4b01-9439-85993f8ba0de
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iTEzwrEQ_4JIb-OYGiqzyF2TmMgWyWayresXcWgwGWM
+name: Tags
+vid: tags
+description: 'Используйте метки для группировки статей по темам.'
+weight: 0
+new_revision: false

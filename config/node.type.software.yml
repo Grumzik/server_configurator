@@ -1,0 +1,21 @@
+uuid: 3414cc77-0de6-4f7d-99d1-1e7b959e3bee
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">software</em> content'
+name: software
+type: software
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

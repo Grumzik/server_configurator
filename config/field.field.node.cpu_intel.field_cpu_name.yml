@@ -1,0 +1,19 @@
+uuid: 69013e82-0933-4a45-bf0e-7e6466fd754b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_name
+    - node.type.cpu_intel
+id: node.cpu_intel.field_cpu_name
+field_name: field_cpu_name
+entity_type: node
+bundle: cpu_intel
+label: Процессор
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

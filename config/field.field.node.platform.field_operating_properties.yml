@@ -1,0 +1,19 @@
+uuid: 894022c7-d18c-4e20-b6b9-3b8c8785acd6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_operating_properties
+    - node.type.platform
+id: node.platform.field_operating_properties
+field_name: field_operating_properties
+entity_type: node
+bundle: platform
+label: 'Operating Properties'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

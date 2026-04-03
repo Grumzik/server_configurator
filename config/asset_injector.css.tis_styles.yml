@@ -1,0 +1,127 @@
+uuid: 529a5078-78c7-4f30-a1ad-22ecbfecc5b2
+langcode: ru
+status: true
+dependencies:
+  module:
+    - language
+id: tis_styles
+label: 'tis styles'
+code: |
+  /*:root {*/
+  /*  --bs-body-color: #3c4858;*/
+  /*}*/
+
+  h1 {
+  		margin-top: 20px;
+  }
+  @media (min-width: 1200px) { 
+  	.page-title{
+  	font-size: 2.5rem;
+  }}
+
+
+  .layout-builder .layout-builder__section{
+  	color: #686868;
+  }
+
+  .pagination {
+  	margin-top: 20px;
+  }
+
+
+
+  /*значек редактирования настроек  - шестиренка */
+  input[type="image"][data-drupal-selector="edit-fields-field-image-settings-edit"] {
+  /*  appearance: auto !important; /* Или удалите это свойство совсем */
+  /*  width: 50px; */
+  }
+
+
+  /*Логотип */
+  .navbar-brand__logo img{
+  	  height: 50px;
+      width: auto;
+
+  }
+
+  /*Затемнение*/
+
+  .blackout, .blackout-dark {
+    position: relative; /* Необходимо для позиционирования псевдоэлемента */
+  }
+
+  .blackout::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right bottom, rgba(76, 85, 97, 0.2), rgba(0, 0, 0, 0.5)); /* от серого к Черному цвет с 50% прозрачностью */
+    z-index: 0; /* Размещаем псевдоэлемент под содержимым блока */
+  }
+
+  .blackout-dark::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); /* Черный цвет с 50% прозрачностью */
+    z-index: 0; /* Размещаем псевдоэлемент под содержимым блока */
+  }
+
+  body::-webkit-scrollbar {
+     display: none;
+  }
+
+  @media (min-width: 1600px) {
+      .tisColl {
+          max-width: 1320px !important;
+          margin-left:auto!important;
+          margin-right: auto!important;
+        }
+      .mOpen {
+        border-right: 1px solid rgba(197, 197, 197, .42) !important;
+      }
+      .lv{
+      	border-left: 0px !important;
+      }
+      .rv{
+      	border-right: 0px !important;
+      }
+  }
+  /*
+  @media (min-width: 1200px) {
+      .tisColl {
+          max-width: 1140px;
+      }
+  }
+  @media (min-width: 992px) {
+      .tisColl {
+          max-width: 960px;
+      }
+  }
+  @media (min-width: 768px) {
+      .tisColl {
+          max-width: 720px;
+      }
+  }
+  @media (min-width: 576px) {
+      .tisColl {
+          max-width: 540px;
+      }
+  }*/
+media: all
+preprocess: true
+conditions:
+  language:
+    id: language
+    negate: false
+    context_mapping:
+      language: '@language.current_language_context:language_interface'
+    langcodes:
+      ru: ru
+contexts: {  }
+conditions_require_all: true

@@ -1,0 +1,26 @@
+uuid: 2a7ae0a1-55d4-4502-85c4-b1afcb57ee35
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_component
+    - node.type.moduleserver_components
+    - taxonomy.vocabulary.modulserver_components
+id: node.moduleserver_components.field_component
+field_name: field_component
+entity_type: node
+bundle: moduleserver_components
+label: Компонент
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      modulserver_components: modulserver_components
+    sort:
+      field: _none
+field_type: entity_reference

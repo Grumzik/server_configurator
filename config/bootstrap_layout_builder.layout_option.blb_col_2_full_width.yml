@@ -1,0 +1,15 @@
+uuid: 9d3edd43-6ca4-4cd3-a026-f95aeb8c2ac9
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: lWz1Xh0CB4kXmid_VrEQspcEG0BMWA_FvZo0R6F2Gjw
+id: blb_col_2_full_width
+layout_id: blb_col_2
+label: 'На всю длину'
+structure: '12'
+breakpoints:
+  tablet: tablet
+  mobile: mobile
+default_breakpoints: null
+weight: 0

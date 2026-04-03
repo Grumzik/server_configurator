@@ -1,0 +1,27 @@
+uuid: f0586baf-92f3-4360-b11a-f0e6fd5beca7
+langcode: ru
+status: false
+dependencies: {  }
+id: livetex
+label: livetex
+code: |2-
+    window['li'+'veT'+'e'+'x'] = true,
+    window['li'+'veT'+'e'+'xID'] = 25810,
+    window['liveT'+'ex_obje'+'ct'] = true;
+    (function() {
+    var t = document['cr'+'ea'+'teE'+'l'+'eme'+'nt']('script');
+    t.type ='text/javascript';
+    t.async = true;
+    t.src = '//cs1'+'5.li'+'vet'+'ex'+'.ru'+'/js/client.js';
+    var c = document['getElement'+'sBy'+'TagNa'+'me']('script')[0];
+    if ( c ) c['par'+'entN'+'ode']['insert'+'Bef'+'ore'](t, c);
+    else document['docume'+'nt'+'Ele'+'m'+'ent']['first'+'Chi'+'ld']['a'+'ppend'+'C'+'hil'+'d'](t);
+    })();
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

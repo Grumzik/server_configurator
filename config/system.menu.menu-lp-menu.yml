@@ -1,0 +1,8 @@
+uuid: 461b5188-a823-48a3-af70-2d77be549726
+langcode: en
+status: true
+dependencies: {  }
+id: menu-lp-menu
+label: lp_menu
+description: ''
+locked: false

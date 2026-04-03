@@ -1,0 +1,9 @@
+uuid: 2f99d697-4f9f-4731-bafa-ba5de9a68d52
+langcode: ru
+status: true
+dependencies: {  }
+name: blade_server_parts
+vid: blade_server_parts
+description: 'блейд-серверы компоненты'
+weight: 0
+new_revision: false

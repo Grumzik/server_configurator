@@ -1,0 +1,25 @@
+uuid: 9155b961-719f-49ad-8e51-2ce71ff1a45d
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:82c1b25a-ffb0-4e97-bba3-be1c65ab0130'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: jollyness_block_5
+theme: olivero
+region: content
+weight: -10
+provider: null
+plugin: 'block_content:82c1b25a-ffb0-4e97-bba3-be1c65ab0130'
+settings:
+  id: 'block_content:82c1b25a-ffb0-4e97-bba3-be1c65ab0130'
+  label: 'Contact Call Us Information'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

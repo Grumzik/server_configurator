@@ -1,0 +1,89 @@
+uuid: 5268a6ec-7a9d-49fc-adac-4b5c4208571b
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_tabs
+label: 'tis tabs'
+code: |-
+  // Функция для плавной прокрутки по координатам
+  function scrollToElement(element, offset = 0) {
+  	console.log(element.offsetTop, '   ',offset);
+  	
+    window.scrollTo({
+      top: element.offsetTop - offset,
+      behavior: 'smooth' // Плавная прокрутка
+    });
+  }
+
+
+
+
+  // Функция для активации таба и прокрутки
+  function activateTabAndScroll(tabIndex, tabId) {
+  	
+  	
+  	  // 1. Активировать нужный таб
+  	  
+  	  // Динамически формируем селектор ID таба
+    const tabSelector = `${tabId}`; // id$="-${tabIndex}" выбирает элементы, id которых ЗАКАНЧИВАЕТСЯ на "-${tabIndex}"  
+
+  	const tab = document.querySelector(tabSelector);
+  	if (!tab) {
+      console.error("Tab not found:", tabSelector);
+      return; // Прерываем функцию, если таб не найден
+    }
+  	
+  	
+  	const	elTab = tab.closest('.ui-tabs');
+  	if (!elTab) {
+      console.error(".ui-tabs container not found");
+      return; // Прерываем, если контейнер табов не найден
+    }
+  	
+  	
+  	// Найти панель табов
+  	const tabsPanel = document.querySelector('.ui-tabs-nav'); // селектор панели табов
+
+
+
+   jQuery(elTab).tabs("option", "active", tabIndex );
+
+
+    
+   
+    // 3. Прокрутить к якорю внутри таба (после небольшой задержки)
+    setTimeout(() => {
+      if (tab) {
+        tabsPanel.scrollIntoView({ behavior: 'smooth' }); // Прокрутка с анимацией
+   
+
+   // 		scrollToElement( tabsPanel, -150);
+      }
+    }, 200); // Задержка 200 миллисекунд, чтобы таб успел открыться
+  }
+
+
+  // Найти все кнопки быстрого перехода
+  const quickLinks = document.querySelectorAll('.tis-btn-tabs');
+
+  // Добавить обработчик события для каждой кнопки
+  quickLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+
+
+      // Извлечь индекс таба из href ссылки
+      const href = link.getAttribute('href');
+      const tabIndex = href.substring(href.lastIndexOf('-') + 1);
+      const tabId = href.substring(href.indexOf('#'));
+      activateTabAndScroll(tabIndex, tabId);
+    });
+  });
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

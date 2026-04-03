@@ -1,0 +1,29 @@
+uuid: 4dd5605c-94a0-43db-85f7-305756f114a7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_motherboard
+    - node.type.platform
+    - taxonomy.vocabulary.motherboard
+id: node.platform.field_motherboard
+field_name: field_motherboard
+entity_type: node
+bundle: platform
+label: Motherboard
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      motherboard: motherboard
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

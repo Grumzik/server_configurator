@@ -1,0 +1,17 @@
+uuid: 13e4cf77-47a1-4436-a0a8-0893f211840b
+langcode: ru
+status: false
+dependencies:
+  enforced:
+    module:
+      - elevatezoomplus
+_core:
+  default_config_hash: ooJnPVUP6BHf0nOK7CNlRvPZtlp41Gqq0j_FPrTFBkI
+id: inner
+name: inner
+weight: -10
+label: Inner
+options:
+  settings:
+    zoomType: inner
+    lensShape: round

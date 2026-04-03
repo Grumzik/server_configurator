@@ -1,0 +1,20 @@
+uuid: 16749424-b0c0-46c0-bb8d-285675057aa7
+langcode: ru
+status: true
+dependencies: {  }
+id: certifiate
+label: Certifiate
+media_types:
+  certificate: certificate
+  certificate_files: certificate_files
+  default: 0
+  image: 0
+  slideshow: 0
+  video: 0
+  audio: 0
+  remote_video: 0
+  document: 0
+form_mode: default
+upload_location: 'public://certificate/competence'
+show_alt: null
+show_title: null

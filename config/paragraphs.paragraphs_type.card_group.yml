@@ -1,0 +1,10 @@
+uuid: 36e33422-4ab0-49b8-82a6-3237fd8b63d2
+langcode: ru
+status: true
+dependencies: {  }
+id: card_group
+label: 'Card group'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,133 @@
+uuid: 9c3c151e-a45f-4c72-98c7-320dc15898d0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.software.field_adds
+    - field.field.node.software.field_description
+    - field.field.node.software.field_image
+    - field.field.node.software.field_keys
+    - field.field.node.software.field_metatag
+    - field.field.node.software.field_softwarevendor
+    - field.field.node.software.field_specification
+    - image.style.large
+    - node.type.software
+  module:
+    - blazy
+    - ds
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class: {  }
+          header: {  }
+          left: {  }
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      header:
+        - node_title
+      left:
+        - field_image
+      right:
+        - field_keys
+        - node_link
+    fields:
+      node_link:
+        plugin_id: node_link
+        weight: 3
+        label: hidden
+        formatter: default
+        settings:
+          'link text': 'Read more'
+          'link class': 'tis-button-white-small bs-m-3'
+          wrapper: div
+          class: text-end
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: false
+          'link class': ''
+          link_target: ''
+          wrapper: h2
+          class: ''
+          exclude_node_title: '1'
+id: node.software.teaser
+targetEntityType: node
+bundle: software
+mode: teaser
+content:
+  field_image:
+    type: blazy
+    label: hidden
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: ''
+      cache: 0
+      admin_uri: '/admin/structure/types/manage/software/display/teaser?ajax_form=1&_wrapper_format=drupal_ajax&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: ''
+      image_style: large
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: flexbox
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 1
+    region: left
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: right
+hidden:
+  addtoany: true
+  field_adds: true
+  field_description: true
+  field_metatag: true
+  field_softwarevendor: true
+  field_specification: true
+  langcode: true
+  links: true

@@ -1,0 +1,269 @@
+uuid: 5ba093b9-6741-4b25-a926-04782c7242ce
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.arcsystem.body
+    - field.field.node.arcsystem.field_adds
+    - field.field.node.arcsystem.field_arc_type
+    - field.field.node.arcsystem.field_capacity
+    - field.field.node.arcsystem.field_description
+    - field.field.node.arcsystem.field_image
+    - field.field.node.arcsystem.field_interface_type
+    - field.field.node.arcsystem.field_keys
+    - field.field.node.arcsystem.field_model
+    - field.field.node.arcsystem.field_quantity
+    - field.field.node.arcsystem.field_specification
+    - field.field.node.arcsystem.field_vendor
+    - image.style.400x400_white_bg
+    - image.style.thumbnail
+    - image.style.wide
+    - node.type.arcsystem
+  module:
+    - blazy
+    - ds
+    - field_group
+    - options
+    - slick
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+          header: {  }
+          left:
+            server-img: server-img
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      footer:
+        - group_details_tabs
+        - field_specification
+        - group_details
+        - group_specifikaciya
+        - field_keys
+        - group_zapros_ceny
+      left:
+        - field_image
+      right:
+        - field_quantity
+        - field_model
+        - field_vendor
+        - field_interface_type
+        - field_arc_type
+        - field_capacity
+  field_group:
+    group_details:
+      children:
+        - group_details_tabs
+        - group_specifikaciya
+        - group_zapros_ceny
+      label: details
+      parent_name: ''
+      region: footer
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        label_as_html: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_details_tabs:
+      children:
+        - field_keys
+      label: 'Ключевые особенности'
+      parent_name: group_details
+      region: footer
+      weight: -1343121
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: detail-_tabs
+        label_as_html: false
+        formatter: open
+        description: ''
+    group_zapros_ceny:
+      children: {  }
+      label: 'Запрос цены'
+      parent_name: group_details
+      region: footer
+      weight: 12342
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_specifikaciya:
+      children:
+        - field_specification
+      label: Спецификация
+      parent_name: group_details
+      region: footer
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+id: node.arcsystem.default
+targetEntityType: node
+bundle: arcsystem
+mode: default
+content:
+  field_arc_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: right
+  field_capacity:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 8
+    region: right
+  field_image:
+    type: slick_image
+    label: hidden
+    settings:
+      caption:
+        alt: '0'
+        title: '0'
+      optionset: server_carousel
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: ''
+      cache: -1
+      admin_uri: '/admin/structure/types/manage/arcsystem/display?ajax_form=1&_wrapper_format=drupal_ajax'
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: entity_title
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: ''
+      preload: true
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: wide
+      image_style: 400x400_white_bg
+      media_switch: slick_lightbox
+      ratio: ''
+      thumbnail_style: thumbnail
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      skin: classic
+      overridables:
+        arrows: '0'
+        autoplay: '0'
+        dots: '0'
+        draggable: '0'
+        infinite: '0'
+        mouseWheel: '0'
+        randomize: '0'
+        variableWidth: '0'
+      optionset_thumbnail: server_thumbnail_carousel
+      skin_thumbnail: asnavfor
+      thumbnail_caption: ''
+      thumbnail_effect: ''
+      thumbnail_position: ''
+      override: false
+      skin_arrows: ''
+      skin_dots: ''
+      preserve_keys: false
+      visible_items: null
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_interface_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: right
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: footer
+  field_model:
+    type: blazy_title
+    label: inline
+    settings:
+      delimiter: '|'
+      tag: small
+      break: false
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: right
+  field_quantity:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: right
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+  field_vendor:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: right
+hidden:
+  addtoany: true
+  body: true
+  field_adds: true
+  field_description: true
+  langcode: true
+  links: true

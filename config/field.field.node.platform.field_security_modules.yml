@@ -1,0 +1,19 @@
+uuid: cc6feec8-4d3c-4e59-991e-b86e233d3132
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_security_modules
+    - node.type.platform
+id: node.platform.field_security_modules
+field_name: field_security_modules
+entity_type: node
+bundle: platform
+label: 'Security Modules'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

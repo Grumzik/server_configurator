@@ -1,0 +1,11 @@
+uuid: 6a2f7f3e-9d93-4da9-95b8-9f2758e38282
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.sh
+id: node.sh
+target_entity_type_id: node
+target_bundle: sh
+default_langcode: site_default
+language_alterable: false

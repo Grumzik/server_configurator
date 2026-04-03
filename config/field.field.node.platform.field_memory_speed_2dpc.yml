@@ -1,0 +1,23 @@
+uuid: b42a6e79-cf9a-40fb-bbb0-7ae562e5afab
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_memory_speed_2dpc
+    - node.type.platform
+id: node.platform.field_memory_speed_2dpc
+field_name: field_memory_speed_2dpc
+entity_type: node
+bundle: platform
+label: 'Memory Speed 2dpc'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: MT/s
+field_type: integer

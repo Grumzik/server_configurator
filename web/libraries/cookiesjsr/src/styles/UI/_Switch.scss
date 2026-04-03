@@ -1,0 +1,54 @@
+@use "../vars" as v;
+
+.cookiesjsr-switch {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: var(--switch-width, v.$switch-width);
+  height: var(--switch-height, v.$switch-height);
+  border-radius: var(--switch-height, v.$switch-height);
+  background-color: var(--switch-bg-off, v.$color-1);
+  cursor: pointer;
+  box-shadow: inset -1px 2px 1px rgba(#000, .25);
+  border: 0;
+  transition: background-color .1s ease-in-out;
+
+  &:focus-within:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: calc(#{v.$switch-height} / 2);
+    border: 1px dotted #eee;
+    transform: scale(1.4);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: var(--switch-height, v.$switch-height);
+    height: var(--switch-height, v.$switch-height);
+    border-radius: var(--switch-height, v.$switch-height);
+    transform: scale(1.2);
+    background-color: var(--switch-handle-color, v.$color-1);
+    border: 1px solid var(--switch-border-color, v.$color-2);
+    transition: left .1s ease-in-out;
+    box-shadow: -1px 2px 1px rgba(#000, .25);
+  }
+
+  &.active {
+    background-color: var(--switch-bg-on, v.$color-3);
+    &:after {
+      left: v.$switch-width - v.$switch-height;
+    }
+  }
+
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+  }
+}

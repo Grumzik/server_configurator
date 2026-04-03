@@ -1,0 +1,29 @@
+uuid: 1bd8e4ea-da4f-4232-863a-72b67f909585
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_psu_type
+    - node.type.platform
+    - taxonomy.vocabulary.psu_type
+id: node.platform.field_psu_type
+field_name: field_psu_type
+entity_type: node
+bundle: platform
+label: 'PSU Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      psu_type: psu_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

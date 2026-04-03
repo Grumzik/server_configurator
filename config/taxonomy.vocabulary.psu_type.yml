@@ -1,0 +1,9 @@
+uuid: 76261190-68ef-4605-8b9f-5dda12e98e24
+langcode: und
+status: true
+dependencies: {  }
+name: 'PSU Type'
+vid: psu_type
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,23 @@
+uuid: b75d7bd5-e294-4aed-95ed-fe5df7e75415
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lan_speed
+    - node.type.platform
+id: node.platform.field_lan_speed
+field_name: field_lan_speed
+entity_type: node
+bundle: platform
+label: 'LAN Speed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

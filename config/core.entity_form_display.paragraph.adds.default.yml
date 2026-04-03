@@ -1,0 +1,33 @@
+uuid: 58062ec0-f2f6-41c2-9c7d-d6b428cf9ded
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.adds.field_add_description
+    - field.field.paragraph.adds.field_adds_file
+    - paragraphs.paragraphs_type.adds
+  module:
+    - file
+id: paragraph.adds.default
+targetEntityType: paragraph
+bundle: adds
+mode: default
+content:
+  field_add_description:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_adds_file:
+    type: file_generic
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,159 @@
+uuid: 9fee318a-eac9-4b3d-afe6-8760d7106484
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_url_alias
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'URL aliases'
+source:
+  plugin: d7_url_alias
+  constants:
+    slash: /
+process:
+  id:
+    -
+      plugin: get
+      source: pid
+  _path:
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - source
+  alias:
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - alias
+  node_translation:
+    -
+      plugin: explode
+      source: source
+      delimiter: /
+    -
+      plugin: extract
+      default: INVALID_NID
+      index:
+        - 1
+    -
+      plugin: migration_lookup
+      migration:
+        - upgrade_d7_node_complete_adv
+        - upgrade_d7_node_complete_advertisment
+        - upgrade_d7_node_complete_arcsystem
+        - upgrade_d7_node_complete_article
+        - upgrade_d7_node_complete_blade_components
+        - upgrade_d7_node_complete_certificate
+        - upgrade_d7_node_complete_computer
+        - upgrade_d7_node_complete_cpu_intel
+        - upgrade_d7_node_complete_datasystem
+        - upgrade_d7_node_complete_dexp_portfolio
+        - upgrade_d7_node_complete_fpoint
+        - upgrade_d7_node_complete_gstation
+        - upgrade_d7_node_complete_hcici
+        - upgrade_d7_node_complete_intel
+        - upgrade_d7_node_complete_moduleserver_components
+        - upgrade_d7_node_complete_news
+        - upgrade_d7_node_complete_page
+        - upgrade_d7_node_complete_parts
+        - upgrade_d7_node_complete_rack
+        - upgrade_d7_node_complete_sale
+        - upgrade_d7_node_complete_san_adapter
+        - upgrade_d7_node_complete_san_controller
+        - upgrade_d7_node_complete_server
+        - upgrade_d7_node_complete_server2
+        - upgrade_d7_node_complete_sh
+        - upgrade_d7_node_complete_software
+        - upgrade_d7_node_complete_ssdsystem
+        - upgrade_d7_node_complete_superhero_portfolio
+        - upgrade_d7_node_complete_vendor_ss
+        - upgrade_d7_node_complete_webform
+        - upgrade_d7_node_complete_yandex_maps_example
+    -
+      plugin: node_complete_node_translation_lookup
+  langcode:
+    -
+      plugin: null_coalesce
+      source:
+        - '@node_translation/1'
+        - language
+  path:
+    -
+      plugin: path_set_translated
+      source:
+        - '@_path'
+        - '@node_translation'
+destination:
+  plugin: 'entity:path_alias'
+migration_dependencies:
+  required: {  }
+  optional:
+    - upgrade_d7_node_complete_adv
+    - upgrade_d7_node_complete_advertisment
+    - upgrade_d7_node_complete_arcsystem
+    - upgrade_d7_node_complete_article
+    - upgrade_d7_node_complete_blade_components
+    - upgrade_d7_node_complete_certificate
+    - upgrade_d7_node_complete_computer
+    - upgrade_d7_node_complete_cpu_intel
+    - upgrade_d7_node_complete_datasystem
+    - upgrade_d7_node_complete_dexp_portfolio
+    - upgrade_d7_node_complete_fpoint
+    - upgrade_d7_node_complete_gstation
+    - upgrade_d7_node_complete_hcici
+    - upgrade_d7_node_complete_intel
+    - upgrade_d7_node_complete_moduleserver_components
+    - upgrade_d7_node_complete_news
+    - upgrade_d7_node_complete_page
+    - upgrade_d7_node_complete_parts
+    - upgrade_d7_node_complete_rack
+    - upgrade_d7_node_complete_sale
+    - upgrade_d7_node_complete_san_adapter
+    - upgrade_d7_node_complete_san_controller
+    - upgrade_d7_node_complete_server
+    - upgrade_d7_node_complete_server2
+    - upgrade_d7_node_complete_sh
+    - upgrade_d7_node_complete_software
+    - upgrade_d7_node_complete_ssdsystem
+    - upgrade_d7_node_complete_superhero_portfolio
+    - upgrade_d7_node_complete_vendor_ss
+    - upgrade_d7_node_complete_webform
+    - upgrade_d7_node_complete_yandex_maps_example
+    - upgrade_d7_node_complete_adv
+    - upgrade_d7_node_complete_advertisment
+    - upgrade_d7_node_complete_arcsystem
+    - upgrade_d7_node_complete_article
+    - upgrade_d7_node_complete_blade_components
+    - upgrade_d7_node_complete_certificate
+    - upgrade_d7_node_complete_computer
+    - upgrade_d7_node_complete_cpu_intel
+    - upgrade_d7_node_complete_datasystem
+    - upgrade_d7_node_complete_dexp_portfolio
+    - upgrade_d7_node_complete_fpoint
+    - upgrade_d7_node_complete_gstation
+    - upgrade_d7_node_complete_hcici
+    - upgrade_d7_node_complete_intel
+    - upgrade_d7_node_complete_moduleserver_components
+    - upgrade_d7_node_complete_news
+    - upgrade_d7_node_complete_page
+    - upgrade_d7_node_complete_parts
+    - upgrade_d7_node_complete_rack
+    - upgrade_d7_node_complete_sale
+    - upgrade_d7_node_complete_san_adapter
+    - upgrade_d7_node_complete_san_controller
+    - upgrade_d7_node_complete_server
+    - upgrade_d7_node_complete_server2
+    - upgrade_d7_node_complete_sh
+    - upgrade_d7_node_complete_software
+    - upgrade_d7_node_complete_ssdsystem
+    - upgrade_d7_node_complete_superhero_portfolio
+    - upgrade_d7_node_complete_vendor_ss
+    - upgrade_d7_node_complete_webform
+    - upgrade_d7_node_complete_yandex_maps_example

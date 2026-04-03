@@ -1,0 +1,55 @@
+label: Comments
+display:
+  default:
+    display_title: Default
+    display_options:
+      title: Comments
+      fields:
+        comment_bulk_form:
+          action_title: Action
+        subject:
+          label: Subject
+        name:
+          label: Author
+        operations:
+          label: Operations
+      pager:
+        options:
+          tags:
+            next: 'next ›'
+            previous: '‹ previous'
+            first: '« first'
+            last: 'last »'
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+      filters:
+        subject:
+          expose:
+            label: Subject
+        langcode:
+          expose:
+            label: Language
+  page_published:
+    display_options:
+      menu:
+        title: Comments
+  page_unapproved:
+    display_options:
+      fields:
+        comment_bulk_form:
+          action_title: Action
+        subject:
+          label: Subject
+        name:
+          label: Author
+        operations:
+          label: Operations
+      filters:
+        subject:
+          expose:
+            label: Subject
+        langcode:
+          expose:
+            label: Language

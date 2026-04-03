@@ -1,0 +1,19 @@
+uuid: 7a28e07f-8b47-4666-b70f-d1473ad1a142
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_system_fans
+    - node.type.platform
+id: node.platform.field_system_fans
+field_name: field_system_fans
+entity_type: node
+bundle: platform
+label: 'System Fans'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,19 @@
+element.webform_nouislider:
+  version: VERSION
+  js:
+    js/webform_nouislider.js: {}
+  dependencies:
+    - core/jquery
+    - core/once
+    - core/drupal
+    - core/drupalSettings
+    - webform_nouislider/libraries.webform_nouislider
+
+libraries.webform_nouislider:
+  css:
+    component:
+      https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.css: { type: external }
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.0/nouislider.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery

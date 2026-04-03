@@ -1,0 +1,33 @@
+_core:
+  default_config_hash: PpB_t3-mnEd5Lckhxc9rfquSMa0CndPslGvJZlcg61E
+langcode: ru
+bannerText: "Мы используем файлы cookie и пользовательские данные (включая IP-адрес, тип операционной системы, тип браузера, сведения о местоположении, источнике перехода, посещённых страницах и действиях на сайте) для обеспечения корректной работы сайта, проведения статистических исследований и улучшения качества обслуживания.\r\nПродолжая использовать сайт, вы подтверждаете своё согласие на использование файлов cookie и обработку персональных данных в соответствии с\r\n<a href=\"/politika-v-otnoshenii-obrabotki-personalnykh-dannykh\" target=\"_blank\">Политикой в отношении обработки персональных данных</a>.\r\nЕсли вы не согласны с использованием файлов cookie, пожалуйста, покиньте сайт или измените настройки браузера.\r\n"
+privacyPolicy: 'Политика конфиденциальности'
+privacyUri: /node/7984
+imprint: Imprint
+imprintUri: ''
+cookieDocs: 'Cookie documentation'
+cookieDocsUri: /cookies/documentation
+officialWebsite: 'Official website'
+denyAll: 'Запретить все'
+alwaysActive: 'Всегда активно'
+settings: 'Согласие на обработку файлов cookie'
+acceptAll: 'Я согласен'
+requiredCookies: 'Required cookies'
+cookieSettings: 'Согласие на обработку файлов cookie'
+close: Закрыть
+readMore: Подробнее
+allowed: Разрешено
+denied: Запрещено
+settingsAllServices: ''
+saveSettings: Сохранить
+default_langcode: en
+disclaimerText: 'All cookie information is subject to change by the service providers. We update this information regularly.'
+disclaimerTextPosition: above
+processorDetailsLabel: 'Processor Company Details'
+processorLabel: Компания
+processorWebsiteUrlLabel: 'Company Website'
+processorPrivacyPolicyUrlLabel: 'Company Privacy Policy'
+processorCookiePolicyUrlLabel: 'Company Cookie Policy'
+processorContactLabel: 'Data Protection Contact Details'
+placeholderAcceptAllText: 'Accept All Cookies'

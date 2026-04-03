@@ -1,0 +1,20 @@
+uuid: f7f2f1ee-41b2-4eae-8566-52f06725b74b
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_memory_slots_total
+field_name: field_memory_slots_total
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

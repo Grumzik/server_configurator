@@ -1,0 +1,23 @@
+uuid: 345fc509-5ce6-4b3b-8857-8f1958361f33
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lan_ports
+    - node.type.platform
+id: node.platform.field_lan_ports
+field_name: field_lan_ports
+entity_type: node
+bundle: platform
+label: 'LAN Ports'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

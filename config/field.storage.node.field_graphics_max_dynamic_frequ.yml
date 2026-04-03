@@ -1,0 +1,21 @@
+uuid: 25dd1684-29c3-46d2-8a91-8a98e4a1bb33
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_graphics_max_dynamic_frequ
+field_name: field_graphics_max_dynamic_frequ
+entity_type: node
+type: string
+settings:
+  max_length: 20
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

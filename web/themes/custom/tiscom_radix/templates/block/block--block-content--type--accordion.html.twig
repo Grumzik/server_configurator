@@ -1,0 +1,45 @@
+{% embed 'radix:block' with{} %}
+
+  {% block block_content %}
+    {% if content %}
+
+
+{# Обращаемся к accordion_items можно в цикле #}
+{#      {%  for item in content['#block_content'].field_accordion_items %} #}
+{#        {{ dump(item.entity) }} #}
+{#                {{ item.entity|view }}#}
+{#      {% endfor %}#}
+
+{# Обращаемся к accordion_items или сразу к первому элементу #}
+{# рендерим шаблон paragraph--accordion.twig #}
+{#      {{ content['#block_content'].field_accordion_items[0].entity|view }}#}
+
+
+{# рендерим шаблон tiscom_radix:accordion.twig #}
+      {% set accordion_items = [] %}
+            {%  for item in content['#block_content'].field_accordion_items[0].entity.field_accordion_items %}
+                {% set node_title = item.entity.field_title.value %}
+              {% set node_body =  {
+                '#type':   'processed_text',
+                '#text':    item.entity.field_description.value,
+                '#format':  item.entity.field_description.format,
+              } %}
+              {% set accordion_item = {
+                title_tag: 'h3',
+                title: node_title,
+                content: node_body,
+               } %}
+              {% set accordion_items = accordion_items|merge([accordion_item]) %}
+            {% endfor %}
+
+      {%  include 'tiscom_radix:accordion' with{
+        title: '',
+        flush: true,
+        items: accordion_items
+      } %}
+
+
+    {% endif %}
+  {% endblock %}
+
+{% endembed %}

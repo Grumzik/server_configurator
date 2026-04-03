@@ -1,0 +1,23 @@
+uuid: caedc1af-870e-4c24-a4ef-e3f61f9a4e42
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_max_memory_size
+    - node.type.processor
+id: node.processor.field_cpu_max_memory_size
+field_name: field_cpu_max_memory_size
+entity_type: node
+bundle: processor
+label: 'CPU Max Memory Size '
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 100.0
+  prefix: ''
+  suffix: TB
+field_type: decimal

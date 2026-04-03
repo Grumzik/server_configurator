@@ -1,0 +1,13 @@
+uuid: b85e0604-4122-4a31-a4f6-97059d5d7065
+langcode: ru
+status: true
+dependencies: {  }
+id: certificate_files
+label: 'Certificate files'
+description: 'Используется для сертификатов в формате pdf'
+source: file
+queue_thumbnail_downloads: true
+new_revision: false
+source_configuration:
+  source_field: field_media_default
+field_map: {  }

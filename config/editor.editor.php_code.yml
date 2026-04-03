@@ -1,0 +1,30 @@
+uuid: 6e000115-703f-47c0-b2f3-6d64033f42c2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - filter.format.php_code
+  module:
+    - ckeditor5
+format: php_code
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - heading
+      - bold
+      - italic
+      - sourceEditing
+      - code
+  plugins:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
+image_upload:
+  status: false

@@ -1,0 +1,20 @@
+uuid: b2fb9f45-5502-436e-8a91-6ef7b70e4369
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_memory_speed_1dpc
+field_name: field_memory_speed_1dpc
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

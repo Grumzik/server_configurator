@@ -1,0 +1,38 @@
+uuid: 007e3edc-cafc-404a-8fae-cb2ef79daee6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_imagestory
+    - node.type.news
+  module:
+    - image
+id: node.news.field_imagestory
+field_name: field_imagestory
+entity_type: node
+bundle: news
+label: Imagestory
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: imagestory
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '5 MB'
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: true
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

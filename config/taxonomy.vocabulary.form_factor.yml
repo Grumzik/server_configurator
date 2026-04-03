@@ -1,0 +1,9 @@
+uuid: 71b52b66-c83c-436e-94d7-d1107ff30baf
+langcode: und
+status: true
+dependencies: {  }
+name: 'Form Factor'
+vid: form_factor
+description: 'Server Form Factor'
+weight: 0
+new_revision: false

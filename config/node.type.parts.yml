@@ -1,0 +1,19 @@
+uuid: ecc6bb79-fba7-49f8-b7e4-b924b655286c
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">parts</em> content'
+name: parts
+type: parts
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

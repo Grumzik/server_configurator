@@ -1,0 +1,42 @@
+uuid: c009eff9-6457-4d52-b65c-a6e8a5da4da1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.vendor_ss.body
+    - field.field.node.vendor_ss.field_image
+    - field.field.node.vendor_ss.field_metatag
+    - node.type.vendor_ss
+  module:
+    - text
+    - user
+id: node.vendor_ss.default
+targetEntityType: node
+bundle: vendor_ss
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_metatag: true
+  langcode: true

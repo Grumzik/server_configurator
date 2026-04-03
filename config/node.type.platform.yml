@@ -1,0 +1,26 @@
+uuid: 16473d39-eb1c-4586-b024-79b064c81092
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: ''
+    type_weight: 0
+name: platform
+type: platform
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

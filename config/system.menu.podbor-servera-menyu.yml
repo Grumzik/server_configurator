@@ -1,0 +1,8 @@
+uuid: e9e90e81-8583-4c58-8664-2806f22c1d74
+langcode: ru
+status: true
+dependencies: {  }
+id: podbor-servera-menyu
+label: 'Подбор сервера меню'
+description: ''
+locked: false

@@ -1,0 +1,60 @@
+uuid: 078b7c50-ea99-46da-b529-3867de1ac6b8
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_news
+label: 'tis news'
+code: |-
+  /*Блок новостей*/
+
+  .view-last-5-news h4 a{
+  	color: rgb(60, 72, 88) !important;
+  }
+
+  .tis-news .slick-slide{
+  		position: relative;
+  	  background-color: white;
+      border: var(--bs-border-width) solid var(--bs-border-color);
+      border-radius: var(--bs-border-radius);
+      padding: 20px;
+  }
+  .tis-news .slick-list{
+  	  display: flex;
+      overflow: hidden;
+      justify-content: space-around;
+      align-content: center;
+      flex-wrap: wrap;
+  		align-items: stretch;
+  }
+  .tis-news .slick-track{
+  		  display: flex;
+  }
+  .tis-news img{
+  	  display: block;
+      overflow: hidden;
+      margin: 20px auto !important;
+  }
+  .tis-news .slick-slide{
+  	font-size: 0.85rem;
+  }
+
+  .tis-news .views-field-created{
+  	position: absolute;
+  	bottom: 20px;
+  	left: 20px;
+  }
+
+  .tis-news .views-field-view-node{
+  	position: absolute;
+  	bottom: 20px;
+  	right: 20px;
+  }
+
+  .tis-news .slick__slide{
+  	position: static;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

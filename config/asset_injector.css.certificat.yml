@@ -1,0 +1,627 @@
+uuid: ab4d4f78-7b9a-45b0-b088-b4f400890009
+langcode: ru
+status: true
+dependencies: {  }
+id: certificat
+label: certificat
+code: |-
+  #slick-c6fda854437 .views-field-field-image .field-content ul li:first-of-type{
+  	
+  	width: 300%;
+  }
+
+  #slick-c6fda854437 .views-field-field-image .field-content ul li:not(:first-child){
+  		position: absolute;
+  		top: 10;
+  		left: 10;
+  		display: none;
+  }
+
+  #slick-b74f68d3443, #slick-ea7a11442a6{
+  	  max-height: 700px;
+  	  width: auto;
+      overflow: hidden;
+  }
+
+
+  @media (max-width: 768px) {
+  	#slick-b74f68d3443, #slick-ea7a11442a6{
+  	 max-height: 500px;
+  	 
+  	}
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel img
+  {
+  	max-height: 130px;
+    width: auto;
+    padding: 0;
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel  .slick-track,  .slick--optionset--vertical-thumbnail-carousel  .slick-track
+  {
+  	padding-top: 3px;
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel .slide__thumbnail, .slick--optionset--vertical-thumbnail-carousel .slide__slide, .slick--optionset--vertical-thumbnail-carousel .slick-slide
+  {
+  	background: #fff;
+  }
+  .group-right a{
+  	color: #FF820E;
+  }
+
+
+
+  .grid{
+  	font-size: 0.85rem;
+  }
+  .grid ul{
+  	padding: 0px;
+  }
+  .grid li{
+  	list-style-type: none;
+  }
+
+  li.grid{
+  		padding: 20px !important;
+  }
+  .grid p{
+  	margin-bottom: 0;
+  }
+
+
+  .grid li div:hover{
+  	transform: scale(1.05); /* Увеличение на 10% */
+
+  }
+
+  .grid img:hover {
+    transform: scale(1); /* Увеличение на 10% */
+    border: 1px solid rgba(104, 115, 255, 0.4);
+  }
+
+  .grid{
+  		padding: 20px;
+  		position: relative;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+  } 
+
+    
+  @media (min-width: 767px) {
+      .grid:hover {
+          z-index: 30;
+          -webkit-box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+          box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+    
+   }}
+   
+
+   .certificate-image ul li + li { /* выбираем все li кроме первого */
+    /* display: none;*/
+    }
+    
+  .certificate-image ul {
+    display: flex;
+    flex-direction: column-reverse; /* Обратный порядок, чтобы первая картинка была сверху */
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 400px; /* Фиксированная высота для контейнера */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;
+  }
+
+  .certificate-image li {
+    margin: 0;
+   
+  }
+
+  .certificate-image img {
+    display: block;
+    max-width: 100%;
+    height: auto; /* Или height: 350px;, если высота фиксирована */
+    border: 1px solid rgba(104, 115, 255, 0.4);
+  }
+
+  .certificate-image div{
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
+
+  .grid__content img{
+  	display: block; /* Или inline-block, в зависимости от вашей верстки */
+    overflow: hidden; /* Скрываем лишнее изображение при увеличении */
+  /*   margin: 20px auto !important;*/
+  /*  text-align: center;*/
+  }
+
+
+
+
+  .grid__content .views-field-title{
+  	font-size: 1.2rem !important;
+  }
+
+  /* Фиксированная высота для заголовка */
+  .view-certificate .views-field-title {
+    min-height: 60px; /* Фиксированная высота для 2-3 строк */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .view-certificate .views-field-title h4 {
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Ограничиваем 2 строками */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+
+  [id^="ebt-tabs-plugin-id-block-contentd"]{
+  	height: auto !important;
+  }
+  #slick-c6fda854437 .views-field-field-image .field-content ul li:first-of-type{
+  	
+  	width: 300%;
+  }
+
+  #slick-c6fda854437 .views-field-field-image .field-content ul li:not(:first-child){
+  		position: absolute;
+  		top: 10;
+  		left: 10;
+  		display: none;
+  }
+
+  #slick-b74f68d3443, #slick-ea7a11442a6{
+  	  max-height: 700px;
+  	  width: auto;
+      overflow: hidden;
+  }
+
+
+  @media (max-width: 768px) {
+  	#slick-b74f68d3443, #slick-ea7a11442a6{
+  	 max-height: 500px;
+  	 
+  	}
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel img
+  {
+  	max-height: 130px;
+    width: auto;
+    padding: 0;
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel  .slick-track,  .slick--optionset--vertical-thumbnail-carousel  .slick-track
+  {
+  	padding-top: 3px;
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel .slide__thumbnail, .slick--optionset--vertical-thumbnail-carousel .slide__slide, .slick--optionset--vertical-thumbnail-carousel .slick-slide
+  {
+  	background: #fff;
+  }
+  .group-right a{
+  	color: #FF820E;
+  }
+
+
+
+  .grid{
+  	font-size: 0.85rem;
+  }
+  .grid ul{
+  	padding: 0px;
+  }
+  .grid li{
+  	list-style-type: none;
+  }
+
+
+  .grid p{
+  	margin-bottom: 0;
+  }
+
+
+  .grid li div:hover{
+  	transform: scale(1.05); /* Увеличение на 10% */
+
+  }
+
+  .grid img:hover {
+    transform: scale(1); /* Увеличение на 10% */
+    border: 1px solid rgba(104, 115, 255, 0.4);
+  }
+
+  .grid{
+  		padding: 20px;
+  		position: relative;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+  } 
+
+    
+  @media (min-width: 767px) {
+      .grid:hover {
+          z-index: 30;
+          -webkit-box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+          box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+    
+   }}
+   
+
+   .certificate-image ul li + li { /* выбираем все li кроме первого */
+    /* display: none;*/
+    }
+    
+  .certificate-image ul {
+    display: flex;
+    flex-direction: column-reverse; /* Обратный порядок, чтобы первая картинка была сверху */
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 400px; /* Фиксированная высота для контейнера */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;
+  }
+
+  .certificate-image li {
+    margin: 0;
+   
+  }
+
+  .certificate-image img {
+    display: block;
+    max-width: 100%;
+    height: auto; /* Или height: 350px;, если высота фиксирована */
+    border: 1px solid rgba(104, 115, 255, 0.4);
+  }
+
+  .certificate-image div{
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
+
+
+
+
+  /* КАРТИНКИ */
+
+
+
+
+
+
+  .grid__content .views-field-title{
+  	font-size: 1.2rem !important;
+  }
+
+  [id^="ebt-tabs-plugin-id-block-contentd"]{
+  	height: auto !important;
+  }
+
+  #slick-c6fda854437 .views-field-field-image .field-content ul li:first-of-type{
+  	
+  	width: 300%;
+  }
+
+  #slick-c6fda854437 .views-field-field-image .field-content ul li:not(:first-child){
+  		position: absolute;
+  		top: 10;
+  		left: 10;
+  		display: none;
+  }
+
+  #slick-b74f68d3443, #slick-ea7a11442a6{
+  	  max-height: 700px;
+  	  width: auto;
+      overflow: hidden;
+  }
+
+
+  @media (max-width: 768px) {
+  	#slick-b74f68d3443, #slick-ea7a11442a6{
+  	 max-height: 500px;
+  	 
+  	}
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel img
+  {
+  	max-height: 130px;
+    width: auto;
+    padding: 0;
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel  .slick-track,  .slick--optionset--vertical-thumbnail-carousel  .slick-track
+  {
+  	padding-top: 3px;
+  }
+
+  .slick--optionset--vertical-thumbnail-carousel .slide__thumbnail, .slick--optionset--vertical-thumbnail-carousel .slide__slide, .slick--optionset--vertical-thumbnail-carousel .slick-slide
+  {
+  	background: #fff;
+  }
+  .group-right a{
+  	color: #FF820E;
+  }
+
+
+
+  .grid{
+  	font-size: 0.85rem;
+  }
+  .grid ul{
+  	padding: 0px;
+  }
+  .grid li{
+  	list-style-type: none;
+  }
+  .grid p{
+  	margin-bottom: 0;
+  }
+
+
+  .grid li div:hover{
+  	transform: scale(1.05); /* Увеличение на 10% */
+
+  }
+
+  .grid img:hover {
+    transform: scale(1); /* Увеличение на 10% */
+    border: 1px solid rgba(104, 115, 255, 0.4);
+  }
+
+  .grid{
+  		padding: 20px;
+  		position: relative;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+  } 
+
+    
+  @media (min-width: 767px) {
+      .grid:hover {
+          z-index: 30;
+          -webkit-box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+          box-shadow: 0 20px 40px rgba(104, 115, 255, 0.4);
+    
+   }}
+   
+
+
+
+  .grid__content .views-field-title{
+  	font-size: 1.2rem !important;
+  }
+
+  [id^="ebt-tabs-plugin-id-block-contentd"]{
+  	height: auto !important;
+  }
+
+  .ds-2col-stacked-fluid .group-right .field--item{
+  	 margin-bottom: 1rem;
+  }
+  .ds-2col-stacked-fluid .group-right .field__label{
+    font-weight: 600; 
+  }
+
+
+
+  /* КНОПКА ПЕЧАТЬ */
+
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf {
+    display: inline-block;
+    margin: 5px 0;
+  }
+
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px; /* Уменьшили ширину */
+    height: 36px; /* Уменьшили высоту */
+    padding: 0;
+    background-color: #FFF;
+    color: transparent !important;
+    text-decoration: none !important;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 2px solid #ff820e;
+    transition: all 0.3s ease; /* Плавные переходы для всех свойств */
+    box-sizing: border-box;
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Текст и иконка */
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a::before {
+    content: "";
+    color: #ff820e !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background: url("/sites/default/files/tis-icons/print-orange.svg") no-repeat left center;
+    background-size: 24px 24px; /* Размер иконки в обычном состоянии */
+    background-position: 12px center; /* Отступ иконки */
+    padding-left: 20px; /* Отступ текста */
+    justify-content: center;
+    transition: all 0.3s ease; /* Плавное изменение иконки */
+  }
+
+  /* Иконка загрузки (правая) */
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: url("/sites/default/files/tis-icons/download-orange.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  /* Эффекты при наведении */
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a:hover {
+    border-color: #e67300; /* Темнеет на 10% */
+  }
+
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a:hover::before {
+    color: #e67300 !important; /* Темнеет текст */
+    background-size: 26px 26px; /* Увеличиваем иконку */
+    background-image: url("/sites/default/files/tis-icons/print-orange-dark.svg"); /* Темная версия иконки */
+  }
+
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a:hover::after {
+    color: #e67300 !important; /* Темнеет текст */
+    background-size: 26px 26px; /* Увеличиваем иконку */
+    background-image: url("/sites/default/files/tis-icons/download-orange-dark.svg"); /* Темная версия иконки */
+  }
+
+  /* Эффект при нажатии */
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a:active {
+    border-color: #cc6600; /* Еще темнее */
+  }
+
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a:active::before ,
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf a:active::after {
+    color: #cc6600 !important;
+    background-size: 24px 24px; /* Возвращаем исходный размер */
+  }
+
+
+  /* Стиль для span с размером файла, который следует сразу после .file */
+  .view-certificate .file.file--mime-application-pdf.file--application-pdf + span {
+    margin-left: 10px; /* Отступ слева от кнопки */
+    font-size: 0.9em; /* Размер шрифта (опционально) */
+  }
+
+
+
+  /* Стили для кнопки и размера файла */
+  .view-certificate .file.file--mime-application-pdf {
+    margin-top: auto; /* Прижимаем к низу */
+    padding-top: 10px;
+  }
+
+
+  /* КАРТИНКИ */
+  /* Контейнер для картинок (оставляем ваш текущий) */
+
+
+  .grid__content img{
+  	display: block; /* Или inline-block, в зависимости от вашей верстки */
+    overflow: hidden; /* Скрываем лишнее изображение при увеличении */
+    margin: 20px auto !important;
+  /*  text-align: center;*/
+  }
+
+  .grid__content img {
+    transition: transform 0.3s ease; /* Плавный переход */
+    /*max-height: 350px;*/
+   /* width: auto; */
+  }
+
+  .certificate-image li:nth-child(1) { /* Первая картинка */
+   position: relative;
+    z-index: 20;
+  }
+
+
+   .certificate-image ul li + li { /* выбираем все li кроме первого */
+    /* display: none;*/
+    }
+    
+  .certificate-image ul {
+    display: flex;
+    flex-direction: column-reverse; /* Обратный порядок, чтобы первая картинка была сверху */
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 400px; /* Фиксированная высота для контейнера */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center;
+  }
+
+  .certificate-image li {
+    margin: 0;
+   
+  }
+
+  .certificate-image img {
+    display: block;
+  /*  max-width: 100%; */
+    height: auto; /* Или height: 350px;, если высота фиксирована */
+    border: 1px solid rgba(104, 115, 255, 0.4);
+  }
+
+  .certificate-image div{
+    transition: transform 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
+
+
+
+  /* Контейнер для картинок (оставляем ваш текущий) */
+  .certificate-image {
+    position: relative;
+    margin: 20px auto;
+  }
+
+  /* Общие стили для картинок (дополняем ваши) */
+  .certificate-image li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  /* Первая картинка (главная) */
+  .certificate-image li:nth-child(1) {
+    z-index: 20;
+    transform: translateY(0);
+  }
+
+  /* Вторая картинка */
+  .certificate-image li:nth-child(2) {
+    z-index: 15;
+    transform: translateY(10px) translateX(10px); /* Смещение на 10px вниз и вправо */
+  }
+
+  /* Третья картинка */
+  .certificate-image li:nth-child(3) {
+    z-index: 10;
+    transform: translateY(20px) translateX(20px); /* Смещение на 20px вниз и вправо */
+  }
+
+  /* Четвертая картинка */
+  .certificate-image li:nth-child(4) {
+    z-index: 5;
+    transform: translateY(30px) translateX(30px); /* Смещение на 30px вниз и вправо */
+  }
+
+  /* Эффект при наведении (по желанию) */
+  .certificate-image:hover li:nth-child(1) {
+    transform: translateY(-5px); /* Легкий подъем верхней картинки */
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

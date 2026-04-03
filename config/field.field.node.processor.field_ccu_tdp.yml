@@ -1,0 +1,23 @@
+uuid: 8409eb4d-df99-4355-afa1-3c86d7dba3c3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ccu_tdp
+    - node.type.processor
+id: node.processor.field_ccu_tdp
+field_name: field_ccu_tdp
+entity_type: node
+bundle: processor
+label: 'CPU TDP'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 1000
+  prefix: ''
+  suffix: W
+field_type: integer

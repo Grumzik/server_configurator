@@ -1,0 +1,10 @@
+uuid: a1dae677-06cb-4875-8228-786f7000b734
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: I6QslJrnaSjT6Wg4T1KRmtebhDJribTPkBE2bb9hS58
+id: mobile
+label: Мобильный
+base_class: col
+weight: -8

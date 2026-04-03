@@ -1,0 +1,21 @@
+uuid: 0f5b1716-0792-46a1-83c6-5119637d1a1d
+langcode: und
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_add_description
+field_name: field_add_description
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

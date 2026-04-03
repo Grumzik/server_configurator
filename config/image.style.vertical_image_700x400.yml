@@ -1,0 +1,15 @@
+uuid: ed9bb2ae-0f88-4ac3-b68e-64bad4f13f6f
+langcode: ru
+status: true
+dependencies: {  }
+name: vertical_image_700x400
+label: 'vertical image(450x650)'
+effects:
+  47118dff-5107-4afe-8c57-bb2efc87695e:
+    uuid: 47118dff-5107-4afe-8c57-bb2efc87695e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 450
+      height: 650
+      anchor: center-center

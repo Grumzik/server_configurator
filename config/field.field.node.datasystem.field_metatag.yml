@@ -1,0 +1,21 @@
+uuid: df2b699d-aea2-4167-a3cd-c9d8c2b1c108
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.datasystem
+  module:
+    - metatag
+id: node.datasystem.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: datasystem
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

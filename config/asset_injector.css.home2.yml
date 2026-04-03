@@ -1,0 +1,176 @@
+uuid: d9e91709-07a3-4753-8147-4fa47fed2e2d
+langcode: ru
+status: true
+dependencies: {  }
+id: home2
+label: home
+code: |
+  p{
+  	margin:0;
+  	padding:0;
+  }
+
+
+  .rv {
+      margin-right: 0 !important;
+  }
+
+  .lv {
+      margin-left: 0 !important;
+  }
+  .flex-grow-1 {
+      flex-grow: 1 !important;
+  }
+  .flex-column {
+      flex-direction: column !important;
+  }
+  .h-100 {
+      height: 100% !important;
+  }
+  .vh-100 {
+      height: calc(100vh - 123px) !important;
+  }
+  .d-flex {
+      display: flex !important
+  }
+
+  @media (min-width: 992px) {
+      .rv {
+          margin-right: 4.5vw !important;
+          border-right: 1px solid rgba(197, 197, 197, .42) !important;
+      }
+  }
+
+  @media (min-width: 992px) {
+      .lv {
+          margin-left: 4.5vw !important;
+          border-left: 1px solid rgba(197, 197, 197, .42) !important;
+      }
+  }
+  .ab{
+  	position: absolute;
+  	bottom: 15%;
+  }
+  .tisColl{
+  	position: relative;
+  }
+
+
+
+  .align-items-center {
+      align-items: center !important;
+  }
+
+  .flex-column {
+      flex-direction: column !important;
+  }
+  .d-flex {
+      display: flex !important
+  ;
+  }
+  .img-fluid {
+      max-width: 100%;
+      height: auto;
+  }
+  img, svg {
+      vertical-align: middle;
+  }
+
+
+
+
+  @media (min-width: 992px) {
+     .d-lg-flex {
+          display: flex !important;
+      } 
+  }
+
+   .d-lg-flex {
+          display: flex !important;
+      } 
+
+  .align-items-center {
+      align-items: center !important;
+  }
+  .justify-content-center {
+      justify-content: center !important;
+  }
+  .justify-content-space-between {
+     justify-content: space-between !important;
+  }
+
+  .flex-column {
+      flex-direction: column !important;
+  }
+  .position-fixed {
+      position: fixed !important;
+  }
+
+
+
+
+  .arrow-bottom-fall, .arrow-top-fall {
+      -webkit-transition: all .25s ease-in-out;
+      -moz-transition: all .25s ease-in-out;
+      -ms-transition: all .25s ease-in-out;
+      -o-transition: all .25s ease-in-out;
+      transition: all .25s ease-in-out;
+      
+  }
+
+
+  .color-white{
+  	color: #fff !important;
+  }
+
+  .color-tis-dark, .color-tis-dark a{
+  	color: rgba(20,32,48,1) !important;
+  }
+
+  .color-tis-orange, .color-tis-orange a{
+  	color: #FF820E !important;
+  }
+
+
+  .align-items-end{
+  	align-items: flex-end !important;
+  }
+
+
+
+
+
+  .tiscom-25 .tis-banner__block-content{
+  	margin-left: 200px;
+  	margin-bottom: 100px;
+  	background-color: rgba(0, 0, 0, 0.5);
+  }
+  .bg-video.background-local-video{
+  	margin-top: 4rem !important;
+  }
+
+
+
+  /*стили с сайта  https://decolife.pro/*/
+
+
+
+  hr {margin: 1rem 0;color: inherit;background-color: currentColor;border: 0;opacity: .25;}
+  hr:not([size]) {height: 1px;}
+  .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {margin-top: 0;margin-bottom: .5rem;font-weight: 500;line-height: 1.2;}
+  .h1, h1 {}
+  @media (min-width:1200px) {.h1, h1 {font-size: 2.5rem;}}
+  .h2, h2 {}
+  @media (min-width:1200px) {.h2, h2 {font-size: 2rem;}}
+  .h3, h3 {}
+  @media (min-width:1200px) {.h3, h3 {font-size: 1.75rem;}}
+  .h4, h4 {}
+  @media (min-width:1200px) {.h4, h4 {font-size: 1.5rem;}}
+  .h5, h5 {font-size: 1.25rem;}
+  .h6, h6 {font-size: 1rem;}
+  p {margin-top: 0;margin-bottom: 1rem;}
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

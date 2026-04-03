@@ -1,0 +1,26 @@
+uuid: 307c2d1a-cb82-44b9-b814-3d3cdb0d31e7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vendor
+    - node.type.hcici
+    - taxonomy.vocabulary.vendors
+id: node.hcici.field_vendor
+field_name: field_vendor
+entity_type: node
+bundle: hcici
+label: Производитель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vendors: vendors
+    sort:
+      field: _none
+field_type: entity_reference

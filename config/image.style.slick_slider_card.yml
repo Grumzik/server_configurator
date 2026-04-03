@@ -1,0 +1,17 @@
+uuid: fcef2431-5a16-4479-aba6-e853d52a9a69
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 2zkdfRMnFwX0N2JCd1N-mTn2NTGgTRwRkfqW4Uiit8c
+name: slick_slider_card
+label: 'Slick Slider card'
+effects:
+  c770ae08-739c-4196-a069-6d5becc97113:
+    uuid: c770ae08-739c-4196-a069-6d5becc97113
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 400
+      height: 300
+      anchor: center-center

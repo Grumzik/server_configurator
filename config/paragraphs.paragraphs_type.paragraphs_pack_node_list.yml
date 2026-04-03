@@ -1,0 +1,10 @@
+uuid: 96270098-7461-4658-85db-a082509d7d49
+langcode: ru
+status: true
+dependencies: {  }
+id: paragraphs_pack_node_list
+label: 'Content list'
+icon_uuid: null
+icon_default: null
+description: 'Migrated from paragraph bundle Content list'
+behavior_plugins: {  }

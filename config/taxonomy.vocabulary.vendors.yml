@@ -1,0 +1,9 @@
+uuid: 49c29f2f-07f4-48de-b46d-cd64cc23e9a0
+langcode: ru
+status: true
+dependencies: {  }
+name: Vendors
+vid: vendors
+description: null
+weight: 0
+new_revision: false

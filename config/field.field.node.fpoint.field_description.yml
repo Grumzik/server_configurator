@@ -1,0 +1,22 @@
+uuid: 2669f6bd-1c70-43c2-b7c9-a8b624ddd781
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.fpoint
+  module:
+    - text
+id: node.fpoint.field_description
+field_name: field_description
+entity_type: node
+bundle: fpoint
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

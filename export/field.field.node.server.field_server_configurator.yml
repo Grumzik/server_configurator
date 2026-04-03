@@ -1,0 +1,31 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_server_configurator
+    - node.type.server
+    - webform.webform.server_configurator
+  module:
+    - webform
+id: node.server.field_server_configurator
+field_name: field_server_configurator
+entity_type: node
+bundle: server
+label: 'server configurator'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 115d7ca2-3c25-4edc-8f4d-7b472d994d7d
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

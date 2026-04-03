@@ -1,0 +1,15 @@
+uuid: 50a2268d-dc3b-43c4-a78a-2f9c0c2b0198
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RH0rXCHQEaurB3o39MAaAIIUGtvgkVBCO7TnLJgVTPs
+id: eca_tg_default
+modeller: bpmn_io
+label: 'ECA TG Default Configuration'
+version: 1.0.0
+weight: 0
+events: {  }
+conditions: {  }
+gateways: {  }
+actions: {  }

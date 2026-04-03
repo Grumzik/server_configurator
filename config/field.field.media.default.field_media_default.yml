@@ -1,0 +1,27 @@
+uuid: 02cbc59a-8604-468f-957a-3dfb296f8e06
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_default
+    - media.type.default
+  module:
+    - file
+id: media.default.field_media_default
+field_name: field_media_default
+entity_type: media
+bundle: default
+label: Default
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt doc docx pdf csv xls zip'
+  max_filesize: ''
+  description_field: false
+field_type: file

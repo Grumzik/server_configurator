@@ -1,0 +1,22 @@
+uuid: a79a0ee4-b5d5-458b-b7bc-715e95d79ddd
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.gstation
+  module:
+    - text
+id: node.gstation.field_description
+field_name: field_description
+entity_type: node
+bundle: gstation
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

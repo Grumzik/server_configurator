@@ -1,0 +1,26 @@
+uuid: 93324a88-7b82-45b7-9762-16f1a2579c89
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vendor
+    - node.type.news
+    - taxonomy.vocabulary.vendors
+id: node.news.field_vendor
+field_name: field_vendor
+entity_type: node
+bundle: news
+label: Производитель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      vendors: vendors
+    sort:
+      field: _none
+field_type: entity_reference

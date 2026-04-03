@@ -1,0 +1,78 @@
+uuid: 1fe5996c-7247-4439-93d5-f7c1bc33d867
+langcode: ru
+status: false
+dependencies: {  }
+id: slick_tabs_init
+label: 'slick tabs init'
+code: |+
+  	(function ($) {
+    if (typeof jQuery == 'undefined') {
+      console.error('jQuery is not loaded!');
+      return;
+    }
+
+    if (typeof Drupal == 'undefined' || typeof Drupal.behaviors == 'undefined') {
+      console.error('Drupal behaviors are not loaded!');
+      return;
+    }
+  	
+  	console.log('!!!Drupal.behavior  ');
+  	
+    Drupal.behaviors.ebtTabsEventsDebugger = {
+      attach: function (context, settings) {
+      	
+      	
+      	 $('.ui-tabs-anchor', context).on('click', function(event) {
+           console.log("My custom click handler!");
+    		 });
+      	
+   
+
+      	
+
+
+
+
+      	 $('[id^="ebt-tabs-plugin-id-"]', context).each(function() {
+          $(this).on('all', function(event) {
+            console.log("Event triggered:", event.type, this); // добавлен this
+          });
+        });
+      
+      	
+      	
+      	
+      	
+      	
+      	setTimeout(function() { // !!! Добавляем setTimeout
+          $('[id^="ebt-tabs-plugin-id-"]', context).each(function() {
+            $(this).on('ebt-tabs:shown', function(event, tab) {
+              console.log("ebt-tabs:shown triggered!", tab);
+            });
+          });
+        }, 100); 
+      	
+      	
+      	
+        $('.ui-tabs-anchor', context).each(function() {
+        	console.log(this);
+        	
+          $(this).on('all', function(event) {
+            console.log("Event triggered:", event.type, this); // добавлен this
+          });
+        });
+      }
+    };
+  })(jQuery);
+
+
+
+
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

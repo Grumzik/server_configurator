@@ -1,0 +1,8 @@
+uuid: 2c1cff83-ba01-4db7-aa0d-f76e382703a0
+langcode: ru
+status: true
+dependencies: {  }
+id: support-menu
+label: 'Support menu'
+description: ''
+locked: false

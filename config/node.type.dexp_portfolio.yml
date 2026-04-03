@@ -1,0 +1,16 @@
+uuid: 0f083d3f-240b-4ac8-b94d-3f5a45701b24
+langcode: ru
+status: true
+dependencies:
+  module:
+    - type_tray
+third_party_settings:
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">Portfolio</em> content'
+name: Portfolio
+type: dexp_portfolio
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,22 @@
+uuid: 43d5d2bc-c77c-4a18-82bc-18ad4c7289a0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.arcsystem
+  module:
+    - text
+id: node.arcsystem.field_specification
+field_name: field_specification
+entity_type: node
+bundle: arcsystem
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

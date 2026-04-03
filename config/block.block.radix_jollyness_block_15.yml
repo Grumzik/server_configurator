@@ -1,0 +1,25 @@
+uuid: 4721d44a-db37-4a15-b62b-9644b81fbc30
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:eea5f716-50c1-4812-a76e-5038a9254685'
+  module:
+    - block_content
+  theme:
+    - radix
+id: radix_jollyness_block_15
+theme: radix
+region: navbar_branding
+weight: -20
+provider: null
+plugin: 'block_content:eea5f716-50c1-4812-a76e-5038a9254685'
+settings:
+  id: 'block_content:eea5f716-50c1-4812-a76e-5038a9254685'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

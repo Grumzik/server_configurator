@@ -1,0 +1,29 @@
+uuid: 76a8d8df-0695-4b81-9891-64318bd30ad1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blade_components_type
+    - node.type.blade_components
+    - taxonomy.vocabulary.blade_server_parts
+id: node.blade_components.field_blade_components_type
+field_name: field_blade_components_type
+entity_type: node
+bundle: blade_components
+label: 'Тип компонента'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      blade_server_parts: blade_server_parts
+    sort:
+      field: _none
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

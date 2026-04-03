@@ -1,0 +1,11 @@
+uuid: fe15798c-dd4e-4600-ab32-62fe24b99fab
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cpu_generation
+id: taxonomy_term.cpu_generation
+target_entity_type_id: taxonomy_term
+target_bundle: cpu_generation
+default_langcode: site_default
+language_alterable: false

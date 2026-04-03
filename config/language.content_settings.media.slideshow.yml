@@ -1,0 +1,11 @@
+uuid: 2e5d354d-db4d-4d1e-a47d-9291950dde30
+langcode: ru
+status: true
+dependencies:
+  config:
+    - media.type.slideshow
+id: media.slideshow
+target_entity_type_id: media
+target_bundle: slideshow
+default_langcode: site_default
+language_alterable: false

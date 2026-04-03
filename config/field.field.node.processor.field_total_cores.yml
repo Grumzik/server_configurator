@@ -1,0 +1,23 @@
+uuid: acd56b01-e608-41b7-afce-4e458ceeaa5b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_total_cores
+    - node.type.processor
+id: node.processor.field_total_cores
+field_name: field_total_cores
+entity_type: node
+bundle: processor
+label: 'Total Cores'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

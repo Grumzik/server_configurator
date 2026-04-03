@@ -1,0 +1,9 @@
+uuid: 06de1ff5-257f-47da-b4b4-41e8005fa2bf
+langcode: ru
+status: true
+dependencies: {  }
+name: 'CPU Instruction Set Extens'
+vid: cpu_instruction_set_extens
+description: null
+weight: 0
+new_revision: false

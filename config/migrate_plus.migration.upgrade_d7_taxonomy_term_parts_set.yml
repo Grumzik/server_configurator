@@ -1,0 +1,96 @@
+uuid: e4f046c3-5f5e-4a4f-ab82-2bdd1cf39343
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_parts_set
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (parts_set)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: parts_set
+process:
+  tid:
+    -
+      plugin: get
+      source: tid
+  revision_id:
+    -
+      plugin: get
+      source: tid
+  vid:
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_vocabulary
+      source: vid
+  name:
+    -
+      plugin: get
+      source: name
+  description/value:
+    -
+      plugin: get
+      source: description
+  description/format:
+    -
+      plugin: get
+      source: format
+  weight:
+    -
+      plugin: get
+      source: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration:
+        - upgrade_d7_taxonomy_term_tags
+        - upgrade_d7_taxonomy_term_portfolio_categories
+        - upgrade_d7_taxonomy_term_vendors
+        - upgrade_d7_taxonomy_term_blade_server_parts
+        - upgrade_d7_taxonomy_term_server_types
+        - upgrade_d7_taxonomy_term_interface
+        - upgrade_d7_taxonomy_term_software_vendors
+        - upgrade_d7_taxonomy_term_module_server_parts
+        - upgrade_d7_taxonomy_term_portfolio_category
+        - upgrade_d7_taxonomy_term_computer_line
+        - upgrade_d7_taxonomy_term_computer_type
+        - upgrade_d7_taxonomy_term_ssd_interface
+        - upgrade_d7_taxonomy_term_modulserver_components
+        - upgrade_d7_taxonomy_term_parts_type
+        - upgrade_d7_taxonomy_term_parts_set
+        - upgrade_d7_taxonomy_term_certificate_type
+  parent:
+    -
+      plugin: default_value
+      default_value: 0
+      source: '@parent_id'
+  changed:
+    -
+      plugin: get
+      source: timestamp
+  langcode:
+    -
+      plugin: get
+      source: language
+  field_metatag:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: parts_set
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_taxonomy_vocabulary

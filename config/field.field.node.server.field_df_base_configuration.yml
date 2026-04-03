@@ -1,0 +1,50 @@
+uuid: e31c0c71-f30c-48b0-80a4-68d1546a2585
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_df_base_configuration
+    - node.type.server
+  module:
+    - datafield
+id: node.server.field_df_base_configuration
+field_name: field_df_base_configuration
+entity_type: node
+bundle: server
+label: 'DF Base Configuration'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  field_settings:
+    cpu:
+      label: Cpu
+      required: false
+      entity_reference_type: node
+      target_bundles: cpu_intel
+    cpu_core_count:
+      label: Cpu_core_count
+      list: false
+      allowed_values: ''
+      max: 31
+      min: 2
+      required: false
+      prefix: ''
+      suffix: ''
+    ram_size:
+      label: Ram_size
+      list: false
+      allowed_values: ''
+      max: 127
+      min: 2
+      required: false
+      prefix: Gb
+      suffix: ''
+    ram:
+      label: Ram
+      required: false
+      entity_reference_type: node
+      target_bundles: parts
+field_type: data_field

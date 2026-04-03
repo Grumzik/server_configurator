@@ -1,0 +1,20 @@
+uuid: 44bbebca-aff0-4084-9635-489433c024a5
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_mp_partstype
+field_name: field_mp_partstype
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

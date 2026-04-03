@@ -1,0 +1,8 @@
+uuid: 864a4329-4a44-4d46-9b77-12212129f5c5
+langcode: und
+status: true
+dependencies: {  }
+id: menu-mainmain
+label: mainmain
+description: 'Боковое меню'
+locked: false

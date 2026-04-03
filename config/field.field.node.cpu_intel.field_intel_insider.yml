@@ -1,0 +1,23 @@
+uuid: 6b4d73e2-53cc-4730-8d63-580e4a5e3cd7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intel_insider
+    - node.type.cpu_intel
+id: node.cpu_intel.field_intel_insider
+field_name: field_intel_insider
+entity_type: node
+bundle: cpu_intel
+label: 'Intel® Insider'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

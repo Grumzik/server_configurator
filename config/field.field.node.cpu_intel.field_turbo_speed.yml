@@ -1,0 +1,19 @@
+uuid: 4a09cd7c-0baf-4e25-88cd-7944311be763
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_turbo_speed
+    - node.type.cpu_intel
+id: node.cpu_intel.field_turbo_speed
+field_name: field_turbo_speed
+entity_type: node
+bundle: cpu_intel
+label: 'частота турбо'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

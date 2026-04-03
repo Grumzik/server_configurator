@@ -1,0 +1,21 @@
+uuid: 6027d70e-7908-4a5e-81a5-989a26c7d6c5
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_processor_graphics
+field_name: field_processor_graphics
+entity_type: node
+type: string
+settings:
+  max_length: 40
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

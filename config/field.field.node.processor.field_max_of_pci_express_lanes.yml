@@ -1,0 +1,23 @@
+uuid: 6dca28cf-f76d-418a-80f3-445916f68e50
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_of_pci_express_lanes
+    - node.type.processor
+id: node.processor.field_max_of_pci_express_lanes
+field_name: field_max_of_pci_express_lanes
+entity_type: node
+bundle: processor
+label: 'Max of PCI Express Lanes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

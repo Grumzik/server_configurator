@@ -1,0 +1,25 @@
+uuid: 46f79aed-adb0-42a1-a64f-ccb98b56a792
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:42a1dfce-6b63-4870-a02f-b52d3e41ce35'
+  module:
+    - block_content
+  theme:
+    - tiscom_radix
+id: tiscom_radix_topkontakty
+theme: tiscom_radix
+region: navbar_right
+weight: 0
+provider: null
+plugin: 'block_content:42a1dfce-6b63-4870-a02f-b52d3e41ce35'
+settings:
+  id: 'block_content:42a1dfce-6b63-4870-a02f-b52d3e41ce35'
+  label: 'Top Контакты'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

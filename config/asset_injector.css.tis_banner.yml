@@ -1,0 +1,44 @@
+uuid: 188304b2-5a89-46ae-83da-a7bc9b116540
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_banner
+label: 'tis banner'
+code: |
+  /* First banner on homepage */
+  .tis-first-banner, .section-banner{
+  	height: 618px;
+  }
+  .tis-banner__block-content{
+  	margin-top: 30px;
+  	font-family: 'Montserrat';
+  	color: #fff;
+  }
+
+
+  .tis-banner__block-content h2{
+  	font-size: 32px;
+    /*line-height: 32px;*/
+    text-transform: uppercase;
+  }
+  .tis-banner__text{
+  	 width: 35%;
+    margin-left: 0;
+  }
+
+  @media (max-width: 991px) { /* Порог для среднего экрана (adjust as needed) */
+   .tis-banner__text {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 767px) { /* Порог для мобильного экрана (adjust as needed) */
+    .tis-banner__text {
+      width: 100%;
+    }
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

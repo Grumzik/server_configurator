@@ -1,0 +1,149 @@
+langcode: ru
+status: false
+dependencies:
+  config:
+    - field.field.node.server.field_platform
+    - field.field.node.server.field_test_platform
+    - field.storage.node.field_platform
+    - field.storage.node.field_test_platform
+    - node.type.server
+    - views.view.platform
+  module:
+    - eca_base
+    - eca_content
+    - eca_views
+id: process_ofuzamy
+modeller: bpmn_io
+label: 'Platform Server add'
+version: ''
+weight: -6
+events:
+  Event_0bebvfi:
+    plugin: 'content_entity:update'
+    label: 'Entity presave'
+    configuration:
+      type: 'node server'
+    successors:
+      -
+        id: Activity_1njkock
+        condition: ''
+conditions:
+  Flow_1b4x812:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[countTerms]'
+      right: '0'
+      operator: greaterthan
+      type: value
+  Flow_0uty2hv:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[countTerms]'
+      right: '0'
+      operator: equal
+      type: value
+gateways: {  }
+actions:
+  Activity_1njkock:
+    plugin: eca_get_field_value
+    label: 'Entity: get field value'
+    configuration:
+      field_name: field_test_platform
+      token_name: platformName
+      object: entity
+    successors:
+      -
+        id: Activity_10mre5m
+        condition: ''
+  Activity_0uezdbm:
+    plugin: eca_set_field_value
+    label: 'Entity: set field value'
+    configuration:
+      field_name: field_platform
+      field_value: '[foundTerms]'
+      method: 'set:empty'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: entity
+    successors:
+      -
+        id: Activity_169gi9m
+        condition: ''
+  Activity_15iuch3:
+    plugin: eca_new_entity
+    label: 'create new term'
+    configuration:
+      token_name: newPlatform
+      type: 'taxonomy_term platform'
+      langcode: ''
+      label: '[platformName]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_0zl99mu
+        condition: ''
+  Activity_10mre5m:
+    plugin: eca_views_query
+    label: 'view: execute quiery'
+    configuration:
+      token_name: foundTerms
+      view_id: platform
+      display_id: default
+      arguments: '[platformName]'
+    successors:
+      -
+        id: Activity_12149kl
+        condition: ''
+  Activity_12149kl:
+    plugin: eca_count
+    label: 'List: count items'
+    configuration:
+      token_name: countTerms
+      list_token: foundTerms
+    successors:
+      -
+        id: Activity_11cox89
+        condition: Flow_1b4x812
+      -
+        id: Activity_1pxagm0
+        condition: Flow_0uty2hv
+  Activity_169gi9m:
+    plugin: eca_warning_message
+    label: 'message '
+    configuration:
+      replace_tokens: false
+      message: '5. Платформа [platformName] добавлена к серверу'
+    successors: {  }
+  Activity_0zl99mu:
+    plugin: eca_warning_message
+    label: message
+    configuration:
+      replace_tokens: false
+      message: '4. создан новый термин [platformName]'
+    successors:
+      -
+        id: Activity_15iuch3
+        condition: ''
+  Activity_11cox89:
+    plugin: eca_warning_message
+    label: 'TRUE'
+    configuration:
+      replace_tokens: false
+      message: 'TRUE'
+    successors:
+      -
+        id: Activity_0uezdbm
+        condition: ''
+  Activity_1pxagm0:
+    plugin: eca_warning_message
+    label: 'FALSE'
+    configuration:
+      replace_tokens: false
+      message: 'FALSE'
+    successors: {  }

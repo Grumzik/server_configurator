@@ -1,0 +1,7 @@
+name: Smart Compatibility Engine
+type: module
+description: Domain-driven compatibility engine for server configurator
+core_version_requirement: ^10
+package: Tiscom
+
+

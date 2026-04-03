@@ -1,0 +1,22 @@
+uuid: 95825bac-9b23-4aac-aafd-4fc59e99d295
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.gstation
+  module:
+    - text
+id: node.gstation.field_specification
+field_name: field_specification
+entity_type: node
+bundle: gstation
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

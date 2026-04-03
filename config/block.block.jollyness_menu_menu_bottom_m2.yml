@@ -1,0 +1,25 @@
+uuid: de0c38a1-d99d-485b-9289-b914aab87d1e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.menu-bottom-m2
+  module:
+    - system
+  theme:
+    - olivero
+id: jollyness_menu_menu_bottom_m2
+theme: olivero
+region: footer_top
+weight: -18
+provider: null
+plugin: 'system_menu_block:menu-bottom-m2'
+settings:
+  id: broken
+  label: Справочники
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

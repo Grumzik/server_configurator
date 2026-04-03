@@ -1,0 +1,64 @@
+uuid: 4ec321ce-59e7-466a-a0a6-e67782bc6c40
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.ssdsystem.body
+    - field.field.node.ssdsystem.field_adds
+    - field.field.node.ssdsystem.field_description
+    - field.field.node.ssdsystem.field_image
+    - field.field.node.ssdsystem.field_keys
+    - field.field.node.ssdsystem.field_metatag
+    - field.field.node.ssdsystem.field_model
+    - field.field.node.ssdsystem.field_specification
+    - field.field.node.ssdsystem.field_ssd_interface
+    - field.field.node.ssdsystem.field_vendor
+    - node.type.ssdsystem
+  module:
+    - text
+    - user
+id: node.ssdsystem.teaser
+targetEntityType: node
+bundle: ssdsystem
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_adds: true
+  field_description: true
+  field_metatag: true
+  field_model: true
+  field_specification: true
+  field_ssd_interface: true
+  field_vendor: true
+  langcode: true

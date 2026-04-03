@@ -1,0 +1,36 @@
+uuid: 9c5ce46c-63d5-4f61-ab85-b976fbea1698
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.media.default.field_media_default
+    - media.type.default
+  module:
+    - file
+id: media.default.default
+targetEntityType: media
+bundle: default
+mode: default
+content:
+  field_media_default:
+    type: file_default
+    label: visually_hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  langcode: true
+  thumbnail: true
+  uid: true

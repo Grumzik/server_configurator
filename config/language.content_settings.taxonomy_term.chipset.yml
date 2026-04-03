@@ -1,0 +1,11 @@
+uuid: a86e3a96-9753-41bb-8c74-ba2e02437073
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.chipset
+id: taxonomy_term.chipset
+target_entity_type_id: taxonomy_term
+target_bundle: chipset
+default_langcode: site_default
+language_alterable: false

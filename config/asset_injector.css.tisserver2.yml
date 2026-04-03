@@ -1,0 +1,46 @@
+uuid: 898a1753-62ab-4751-b7a7-ff37bc127737
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+id: tisserver2
+label: tisserver2
+code: |-
+  .tis-banner__text h2{
+  	font-size: 28px !important;
+  	/*	width: 50% !important;*/
+  }
+  .tis-banner__text h3{
+  	font-size: 1.2rem !important;
+   text-transform: uppercase;
+   line-height: 1.9rem !important;
+  }
+
+  .ui-tabs-nav{
+  		position: absolute;
+  	top: -100px;
+  }
+
+  .slick-dots button::before{
+  	color: #FF820E !important;
+  	font-size: 10px !important;
+  }
+
+  /*
+
+  .ui-tabs-nav {
+    position: sticky;
+    top: 100px; 
+  }
+
+  */
+media: all
+preprocess: true
+conditions:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /tisserver2
+contexts: {  }
+conditions_require_all: true

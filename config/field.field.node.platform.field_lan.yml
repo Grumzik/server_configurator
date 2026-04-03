@@ -1,0 +1,19 @@
+uuid: 97db32b8-2cc5-4f57-ae6d-a561da78a324
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lan
+    - node.type.platform
+id: node.platform.field_lan
+field_name: field_lan
+entity_type: node
+bundle: platform
+label: LAN
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

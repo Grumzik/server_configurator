@@ -1,0 +1,22 @@
+uuid: d5678de5-42fb-40bd-8a55-bddb20b7043d
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_gstation
+label: 'Содержимое - gstation'
+type: 'canonical_entities:node'
+pattern: 'gstation/[node:title]'
+selection_criteria:
+  97a07bf5-bf97-4859-9a06-d23949074add:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 97a07bf5-bf97-4859-9a06-d23949074add
+    context_mapping:
+      node: node
+    bundles:
+      gstation: gstation
+selection_logic: and
+weight: 0
+relationships: {  }

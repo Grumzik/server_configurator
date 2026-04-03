@@ -1,0 +1,29 @@
+uuid: b384dcee-538b-4b1d-8384-95ba76457c22
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_psu_efficiency
+    - node.type.platform
+    - taxonomy.vocabulary.psu_efficiency
+id: node.platform.field_psu_efficiency
+field_name: field_psu_efficiency
+entity_type: node
+bundle: platform
+label: 'PSU Efficiency'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      psu_efficiency: psu_efficiency
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

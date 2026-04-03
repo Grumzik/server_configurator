@@ -1,0 +1,23 @@
+uuid: 8971e7c8-d2cb-4874-a36a-bccb941018df
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_memory_slots_total
+    - node.type.platform
+id: node.platform.field_memory_slots_total
+field_name: field_memory_slots_total
+entity_type: node
+bundle: platform
+label: 'Memory Slots Total'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

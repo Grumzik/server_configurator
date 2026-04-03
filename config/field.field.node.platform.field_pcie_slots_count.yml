@@ -1,0 +1,23 @@
+uuid: caa346a6-1f18-4398-9bd4-90f9609ca4a9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pcie_slots_count
+    - node.type.platform
+id: node.platform.field_pcie_slots_count
+field_name: field_pcie_slots_count
+entity_type: node
+bundle: platform
+label: 'PCIe Slots Count'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

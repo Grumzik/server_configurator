@@ -1,0 +1,23 @@
+uuid: ada714da-44e0-4391-8c5f-9a6f9a8c7aa1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field__iflexma
+    - node.type.cpu_intel
+id: node.cpu_intel.field__iflexma
+field_name: field__iflexma
+entity_type: node
+bundle: cpu_intel
+label: ' IFlexMA'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

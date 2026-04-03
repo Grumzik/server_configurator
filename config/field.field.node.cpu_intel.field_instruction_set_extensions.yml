@@ -1,0 +1,19 @@
+uuid: 931ccbdd-cd46-49e5-8b0d-4205597664ee
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_instruction_set_extensions
+    - node.type.cpu_intel
+id: node.cpu_intel.field_instruction_set_extensions
+field_name: field_instruction_set_extensions
+entity_type: node
+bundle: cpu_intel
+label: 'Instruction Set Extensions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

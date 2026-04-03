@@ -1,0 +1,19 @@
+uuid: 221439da-cb20-4317-893e-5faa3c55e9df
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.platform
+id: node.platform.field_weight
+field_name: field_weight
+entity_type: node
+bundle: platform
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

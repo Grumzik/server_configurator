@@ -1,0 +1,23 @@
+uuid: 7a09fcd7-2a70-4e9c-b751-da823098e86f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tbt
+    - node.type.cpu_intel
+id: node.cpu_intel.field_tbt
+field_name: field_tbt
+entity_type: node
+bundle: cpu_intel
+label: TBT
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

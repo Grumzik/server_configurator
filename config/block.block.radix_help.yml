@@ -1,0 +1,22 @@
+uuid: e496ac82-8e49-409b-98d4-201fb8e3a49b
+langcode: ru
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - radix
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: radix_help
+theme: radix
+region: navbar_branding
+weight: -21
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Справка
+  label_display: '0'
+  provider: help
+visibility: {  }

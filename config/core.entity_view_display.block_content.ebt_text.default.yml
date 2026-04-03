@@ -1,0 +1,34 @@
+uuid: 326f569c-5cf7-4c80-b556-2be230abf96b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_text
+    - field.field.block_content.ebt_text.body
+    - field.field.block_content.ebt_text.field_ebt_settings
+  module:
+    - ebt_core
+    - text
+_core:
+  default_config_hash: l_0JH2bJx47kWrf-7eYOBgwIV1dRWjVeLv68ugJKxso
+id: block_content.ebt_text.default
+targetEntityType: block_content
+bundle: ebt_text
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_ebt_settings:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: ebt_settings_default
+    region: content
+hidden:
+  langcode: true

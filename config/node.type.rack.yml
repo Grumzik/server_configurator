@@ -1,0 +1,26 @@
+uuid: 26642854-258d-4e2f-9a15-9dc4a03e064a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    type_category: _none
+    type_thumbnail: ''
+    type_icon: ''
+    type_description: ''
+    existing_nodes_link_text: 'View existing <em class="placeholder">rack</em> content'
+    type_weight: 0
+name: rack
+type: rack
+description: Стойки
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

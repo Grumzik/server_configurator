@@ -1,0 +1,22 @@
+uuid: 49ac72f8-eea8-4c2c-80ab-eaba709f8cdb
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_fpoint
+label: 'Содержимое - fpoint'
+type: 'canonical_entities:node'
+pattern: 'farpoint/[node:title]'
+selection_criteria:
+  69750219-9a4f-454d-b062-7efb3682159c:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 69750219-9a4f-454d-b062-7efb3682159c
+    context_mapping:
+      node: node
+    bundles:
+      fpoint: fpoint
+selection_logic: and
+weight: 0
+relationships: {  }

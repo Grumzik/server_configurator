@@ -1,0 +1,30 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fc_base_configuration
+    - field_collection.field_collection.field_fc_base_configuration
+    - node.type.server
+  module:
+    - field_collection
+id: node.server.field_fc_base_configuration
+field_name: field_fc_base_configuration
+entity_type: node
+bundle: server
+label: FC_base_configuration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:field_collection_item'
+  handler_settings:
+    target_bundles:
+      field_fc_base_configuration: field_fc_base_configuration
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: field_collection

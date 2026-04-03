@@ -1,0 +1,11 @@
+uuid: 02a2fa35-692a-4cc2-9404-46618183c2fa
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.ssdsystem
+id: node.ssdsystem
+target_entity_type_id: node
+target_bundle: ssdsystem
+default_langcode: site_default
+language_alterable: false

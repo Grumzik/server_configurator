@@ -1,0 +1,30 @@
+uuid: b9a3cb7a-38df-4ff3-a554-86ab99f5d545
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.yandex_maps_example.body
+    - node.type.yandex_maps_example
+  module:
+    - text
+    - user
+id: node.yandex_maps_example.default
+targetEntityType: node
+bundle: yandex_maps_example
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

@@ -1,0 +1,13 @@
+uuid: cd038cf9-9cbf-4c5b-990f-8f3981367828
+langcode: ru
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: IXsnV3TXq49eaMlltbjpSWIiseAysJRe042Revn8t1s
+id: media.ebt_video
+label: 'EBT Video'
+description: ''
+targetEntityType: media
+cache: true

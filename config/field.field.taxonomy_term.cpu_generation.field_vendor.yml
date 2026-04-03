@@ -1,0 +1,25 @@
+uuid: 0499fd7d-2995-4121-adaa-5ea14b7813ad
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_vendor
+    - taxonomy.vocabulary.cpu_generation
+id: taxonomy_term.cpu_generation.field_vendor
+field_name: field_vendor
+entity_type: taxonomy_term
+bundle: cpu_generation
+label: vendor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: vendor_by_partstype
+      display_name: entity_reference_2
+      arguments: {  }
+field_type: entity_reference

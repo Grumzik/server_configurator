@@ -1,0 +1,29 @@
+uuid: 96a384a2-e276-4ebf-81fc-4d8fe77304e4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mp_partstype
+    - node.type.parts
+    - taxonomy.vocabulary.parts_type
+id: node.parts.field_mp_partstype
+field_name: field_mp_partstype
+entity_type: node
+bundle: parts
+label: mp_partstype
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      parts_type: parts_type
+    sort:
+      field: _none
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,82 @@
+uuid: f913813f-a393-41db-bbb8-f81393de263d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.news.body
+    - field.field.node.news.feeds_item
+    - field.field.node.news.field_image
+    - field.field.node.news.field_imagestory
+    - field.field.node.news.field_metatag
+    - field.field.node.news.field_news_anons
+    - field.field.node.news.field_tags
+    - field.field.node.news.field_vendor
+    - node.type.news
+  module:
+    - blazy
+    - user
+id: node.news.teaser
+targetEntityType: node
+bundle: news
+mode: teaser
+content:
+  field_imagestory:
+    type: blazy_file
+    label: hidden
+    settings:
+      caption: {  }
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: default
+      cache: 0
+      admin_uri: ''
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: lazy
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      svg_inline: false
+      svg_fill: false
+      svg_sanitize: true
+      svg_sanitize_remote: false
+      svg_hide_caption: false
+      svg_attributes: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_news_anons:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  addtoany: true
+  body: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_image: true
+  field_metatag: true
+  field_tags: true
+  field_vendor: true
+  langcode: true
+  links: true

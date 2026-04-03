@@ -1,0 +1,9 @@
+uuid: c36816b4-791b-47f9-aa08-4f953f7d1f65
+langcode: und
+status: true
+dependencies: {  }
+name: 'Memory Module Type'
+vid: memory_module_type
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,21 @@
+uuid: 48f7913f-7d36-4eb9-9bcd-0782d66c491e
+langcode: ru
+status: true
+dependencies: {  }
+id: client_logo
+label: 'Client logo'
+media_types:
+  client_logo: client_logo
+  certificate: 0
+  certificate_files: 0
+  default: 0
+  image: 0
+  slideshow: 0
+  video: 0
+  audio: 0
+  remote_video: 0
+  document: 0
+form_mode: ''
+upload_location: 'public://logoimage/clients'
+show_alt: null
+show_title: null

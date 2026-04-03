@@ -1,0 +1,11 @@
+uuid: 2b9e35be-b778-49d9-9553-ca7b47575a9f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.rack
+id: node.rack
+target_entity_type_id: node
+target_bundle: rack
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,22 @@
+uuid: 09d4452b-9172-4094-a76f-3e01e5d3afb2
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_article
+label: 'Содержимое - Статья'
+type: 'canonical_entities:node'
+pattern: 'content/[node:title]'
+selection_criteria:
+  2fb8b905-0299-4823-873e-000e7171fdac:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 2fb8b905-0299-4823-873e-000e7171fdac
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,11 @@
+uuid: 2a6cb58e-f2c2-4ed6-b841-9cbccd4be714
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cpu_instruction_set_extens
+id: taxonomy_term.cpu_instruction_set_extens
+target_entity_type_id: taxonomy_term
+target_bundle: cpu_instruction_set_extens
+default_langcode: site_default
+language_alterable: false

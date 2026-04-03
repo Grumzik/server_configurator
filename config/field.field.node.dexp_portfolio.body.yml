@@ -1,0 +1,24 @@
+uuid: a1a22e12-a5ef-4ecf-ac2b-9654587151b2
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.dexp_portfolio
+  module:
+    - text
+id: node.dexp_portfolio.body
+field_name: body
+entity_type: node
+bundle: dexp_portfolio
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

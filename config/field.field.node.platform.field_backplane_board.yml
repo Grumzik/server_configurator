@@ -1,0 +1,19 @@
+uuid: 2550218f-77db-49eb-87a1-c9984538ffe4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_backplane_board
+    - node.type.platform
+id: node.platform.field_backplane_board
+field_name: field_backplane_board
+entity_type: node
+bundle: platform
+label: 'Backplane Board'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

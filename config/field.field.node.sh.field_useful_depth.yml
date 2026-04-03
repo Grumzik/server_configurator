@@ -1,0 +1,19 @@
+uuid: fc732172-206e-40a3-9fc3-e02a307f0d88
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_useful_depth
+    - node.type.sh
+id: node.sh.field_useful_depth
+field_name: field_useful_depth
+entity_type: node
+bundle: sh
+label: 'Полезная глубина'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

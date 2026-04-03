@@ -1,0 +1,141 @@
+uuid: a6cdda10-f465-4572-a183-eb63e9b215e2
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_connectioncount
+field_name: field_connectioncount
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: настраиваемый
+      label: настраиваемый
+    -
+      value: '1 x 8Gb FC'
+      label: '1 x 8Gb FC'
+    -
+      value: '2 x 8Gb FC'
+      label: '2 x 8Gb FC'
+    -
+      value: '1/2 x 8Gb FC'
+      label: '1/2 x 8Gb FC'
+    -
+      value: '2/4 x 8Gb FC'
+      label: '2/4 x 8Gb FC'
+    -
+      value: '4 x 8Gb FC'
+      label: '4 x 8Gb FC'
+    -
+      value: '4/8 x 8Gb FC'
+      label: '4/8 x 8Gb FC'
+    -
+      value: '2/4 x 8Gb FC + 2/4 x 1Gb iSCSI'
+      label: '2/4 x 8Gb FC + 2/4 x 1Gb iSCSI'
+    -
+      value: '8x8GB FC + 4x1GbE'
+      label: '8x8GB FC + 4x1GbE'
+    -
+      value: '1 x 4Gb FC'
+      label: '1 x 4Gb FC'
+    -
+      value: '2 x 4Gb FC'
+      label: '2 x 4Gb FC'
+    -
+      value: '1/2 x 4Gb FC'
+      label: '1/2 x 4Gb FC'
+    -
+      value: '2/4 x 4Gb FC'
+      label: '2/4 x 4Gb FC'
+    -
+      value: '4 x 4Gb FC'
+      label: '4 x 4Gb FC'
+    -
+      value: '4/8 x 4Gb FC'
+      label: '4/8 x 4Gb FC'
+    -
+      value: '1 x GbE (iSCSI)'
+      label: '1 x GbE (iSCSI)'
+    -
+      value: '2 x GbE (iSCSI)'
+      label: '2 x GbE (iSCSI)'
+    -
+      value: '3 x GbE (iSCSI)'
+      label: '3 x GbE (iSCSI)'
+    -
+      value: '4 x GbE (iSCSI)'
+      label: '4 x GbE (iSCSI)'
+    -
+      value: '2/4 GbE (iSCSI)'
+      label: '2/4 GbE (iSCSI)'
+    -
+      value: '1/2 GbE (iSCSI)'
+      label: '1/2 GbE (iSCSI)'
+    -
+      value: 'до 8 x GbE, 1 x SAS'
+      label: 'до 8 x GbE, 1 x SAS'
+    -
+      value: '1 x SAS, до 8 x GbE'
+      label: '1 x SAS, до 8 x GbE'
+    -
+      value: '2 x SAS'
+      label: '2 x SAS'
+    -
+      value: '2/4 x SAS'
+      label: '2/4 x SAS'
+    -
+      value: '2/6 x SAS'
+      label: '2/6 x SAS'
+    -
+      value: '4/8 x SAS'
+      label: '4/8 x SAS'
+    -
+      value: '4 x SAS'
+      label: '4 x SAS'
+    -
+      value: '1 x Ultra 320 SCSI'
+      label: '1 x Ultra 320 SCSI'
+    -
+      value: '2 x Ultra 320 SCSI'
+      label: '2 x Ultra 320 SCSI'
+    -
+      value: '4 x Ultra 320 SCSI'
+      label: '4 x Ultra 320 SCSI'
+    -
+      value: '1 x PCIe'
+      label: '1 x PCIe'
+    -
+      value: '2 x PCIe'
+      label: '2 x PCIe'
+    -
+      value: '2'
+      label: '2'
+    -
+      value: '2 x 1GbE'
+      label: '2 x 1GbE'
+    -
+      value: '4/8 GbE'
+      label: '4/8 GbE'
+    -
+      value: '1 x GbE'
+      label: '1 x GbE'
+    -
+      value: '1 x 10GbE'
+      label: '1 x 10GbE'
+    -
+      value: '2 x 10GbE'
+      label: '2 x 10GbE'
+    -
+      value: '4 x 10GbE'
+      label: '4 x 10GbE'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,111 @@
+uuid: 5af6eed0-d45e-4681-8725-64397b18ee3d
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_pathauto_patterns_node_news
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Configuration
+migration_group: migrate_drupal_7
+label: 'Pathauto patterns (node - news)'
+source:
+  plugin: pathauto_pattern
+  constants:
+    status: true
+    selection_logic: and
+    type_prefix: canonical_entities
+  entity_type: node
+  bundle: news
+process:
+  status:
+    -
+      plugin: get
+      source: constants/status
+  id:
+    -
+      plugin: get
+      source: id
+  entity_type:
+    0:
+      plugin: skip_on_empty
+      source: entity_type
+      method: row
+    1:
+      plugin: static_map
+      bypass: true
+      map:
+        file: media
+    profile:
+      plugin: static_map
+      map:
+        profile2: profile
+      bypass: true
+    2:
+      plugin: static_map
+      map:
+        field_collection_item: paragraph
+        paragraphs_item: paragraph
+      bypass: true
+  bundle:
+    -
+      plugin: skip_on_empty
+      source: bundle
+      method: process
+    -
+      plugin: pathauto_forum_vocabulary
+      machine_name: forums
+  label:
+    -
+      plugin: pathauto_pattern_label
+      source:
+        - '@entity_type'
+        - '@bundle'
+        - langcode
+  type:
+    -
+      plugin: concat
+      source:
+        - constants/type_prefix
+        - '@entity_type'
+      delimiter: ':'
+  pattern:
+    -
+      plugin: callback
+      source: value
+      callable: unserialize
+  selection_criteria:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: '@bundle'
+    -
+      plugin: pathauto_pattern_selection_criteria
+      source:
+        - '@entity_type'
+        - '@bundle'
+        - langcode
+  selection_logic:
+    -
+      plugin: get
+      source: constants/selection_logic
+  relationships:
+    -
+      plugin: pathauto_pattern_relationships
+      source:
+        - '@entity_type'
+        - langcode
+  weight:
+    -
+      plugin: get
+      source: weight
+destination:
+  plugin: 'entity:pathauto_pattern'
+migration_dependencies:
+  required: {  }
+  optional:
+    - upgrade_d7_node_type
+    - upgrade_d7_field_collection_type
+    - upgrade_d7_paragraphs_type

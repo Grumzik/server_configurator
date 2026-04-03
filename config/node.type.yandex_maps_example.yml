@@ -1,0 +1,16 @@
+uuid: 4f9d82e0-6586-4cd7-a9c3-2dadb5685cc7
+langcode: ru
+status: true
+dependencies:
+  module:
+    - type_tray
+third_party_settings:
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">Yandex Maps Page</em> content'
+name: 'Yandex Maps Page'
+type: yandex_maps_example
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: true

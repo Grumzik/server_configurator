@@ -1,0 +1,19 @@
+uuid: 55b79c0c-465f-4236-8053-0a93877ccf70
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_backplane_board
+field_name: field_backplane_board
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

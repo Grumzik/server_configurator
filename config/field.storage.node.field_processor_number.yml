@@ -1,0 +1,21 @@
+uuid: 9bafa29f-cb6f-4ee4-bec4-5d084f189c47
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_processor_number
+field_name: field_processor_number
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

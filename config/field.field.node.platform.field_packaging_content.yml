@@ -1,0 +1,19 @@
+uuid: 1aab7489-a04c-429e-ba4f-bb51a37e4449
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_packaging_content
+    - node.type.platform
+id: node.platform.field_packaging_content
+field_name: field_packaging_content
+entity_type: node
+bundle: platform
+label: 'Packaging Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

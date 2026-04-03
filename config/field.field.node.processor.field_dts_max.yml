@@ -1,0 +1,23 @@
+uuid: acd346b1-421e-423f-afce-27d1b2a3a57e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dts_max
+    - node.type.processor
+id: node.processor.field_dts_max
+field_name: field_dts_max
+entity_type: node
+bundle: processor
+label: 'DTS Max'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: °C
+field_type: integer

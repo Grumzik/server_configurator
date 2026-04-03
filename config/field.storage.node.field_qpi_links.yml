@@ -1,0 +1,20 @@
+uuid: 093cfe57-2c97-41d5-b6c1-782acbe057c6
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_qpi_links
+field_name: field_qpi_links
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

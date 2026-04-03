@@ -1,0 +1,39 @@
+uuid: 81e550cb-e9b2-46b7-8d23-4203f7764061
+langcode: ru
+status: true
+dependencies:
+  enforced:
+    module:
+      - elevatezoomplus
+_core:
+  default_config_hash: ErfnLbl9Jim7SP0OFzjTHE9lPW9NXOTpwppLkvkHjRc
+id: responsive
+name: responsive
+weight: 0
+label: Адаптивный
+options:
+  settings:
+    responsive: true
+    scrollZoom: false
+    showLens: true
+    lensShape: round
+    tint: true
+    tintColour: '#0F0'
+    tintOpacity: 0.5
+    respond:
+      -
+        showLens: false
+        range: 100-599
+        enabled: false
+      -
+        zoomWindowWidth: 100
+        zoomWindowHeight: 100
+        tintColour: '#F00'
+        range: 600-799
+        enabled: true
+      -
+        zoomWindowWidth: 200
+        zoomWindowHeight: 200
+        tintColour: '#00F'
+        range: 800-1199
+        enabled: true

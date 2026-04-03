@@ -1,0 +1,22 @@
+uuid: a6a185af-bc46-4a8d-9fde-b0e4ccfbee45
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_complectation
+    - node.type.gstation
+  module:
+    - text
+id: node.gstation.field_complectation
+field_name: field_complectation
+entity_type: node
+bundle: gstation
+label: Комплектация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

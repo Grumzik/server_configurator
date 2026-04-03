@@ -1,0 +1,23 @@
+uuid: ef5073a0-82de-44e0-8b42-4c5d16df4301
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_aesni
+    - node.type.cpu_intel
+id: node.cpu_intel.field_aesni
+field_name: field_aesni
+entity_type: node
+bundle: cpu_intel
+label: AESNI
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

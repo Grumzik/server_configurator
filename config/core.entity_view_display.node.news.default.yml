@@ -1,0 +1,129 @@
+uuid: a462ff1b-ce23-40ea-a497-686d68f1e73a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.news.body
+    - field.field.node.news.feeds_item
+    - field.field.node.news.field_image
+    - field.field.node.news.field_imagestory
+    - field.field.node.news.field_metatag
+    - field.field.node.news.field_news_anons
+    - field.field.node.news.field_tags
+    - field.field.node.news.field_vendor
+    - node.type.news
+  module:
+    - ds
+    - field_formatter
+    - image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+            lv: lv
+            rv: rv
+          header: {  }
+          left:
+            server-img: server-img
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: header
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: article
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      left:
+        - field_image
+      right:
+        - field_news_anons
+      footer:
+        - body
+        - field_vendor
+        - field_tags
+        - field_metatag
+        - node_post_date
+    fields:
+      node_post_date:
+        plugin_id: node_post_date
+        weight: 6
+        label: hidden
+        formatter: ds_post_date_olivero_medium
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: footer
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: left
+  field_metatag:
+    type: field_link
+    label: hidden
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: footer
+  field_news_anons:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: right
+  field_tags:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: footer
+  field_vendor:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: footer
+hidden:
+  addtoany: true
+  entity_print_view_epub: true
+  entity_print_view_pdf: true
+  entity_print_view_word_docx: true
+  feeds_item: true
+  field_imagestory: true
+  langcode: true
+  links: true

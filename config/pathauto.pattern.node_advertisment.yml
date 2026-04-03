@@ -1,0 +1,22 @@
+uuid: 7d2a9a43-7e3a-4adc-b380-54f09aa539c7
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_advertisment
+label: 'Содержимое - Спецпредложение'
+type: 'canonical_entities:node'
+pattern: 'specialoffer/[node:title]'
+selection_criteria:
+  27d4c2df-563a-46cc-b6ce-6278ea699e7e:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 27d4c2df-563a-46cc-b6ce-6278ea699e7e
+    context_mapping:
+      node: node
+    bundles:
+      advertisment: advertisment
+selection_logic: and
+weight: 0
+relationships: {  }

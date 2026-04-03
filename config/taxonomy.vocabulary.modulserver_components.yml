@@ -1,0 +1,9 @@
+uuid: 0b5bc615-bd13-4dec-80ec-7f8c2b082e37
+langcode: ru
+status: true
+dependencies: {  }
+name: 'Модульный сервер компоненты'
+vid: modulserver_components
+description: null
+weight: 0
+new_revision: false

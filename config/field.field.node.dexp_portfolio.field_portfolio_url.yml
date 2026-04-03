@@ -1,0 +1,19 @@
+uuid: 9683a379-75bd-4915-80d6-edf57b994e08
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_url
+    - node.type.dexp_portfolio
+id: node.dexp_portfolio.field_portfolio_url
+field_name: field_portfolio_url
+entity_type: node
+bundle: dexp_portfolio
+label: 'Project Url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

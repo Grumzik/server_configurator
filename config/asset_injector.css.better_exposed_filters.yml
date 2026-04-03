@@ -1,0 +1,407 @@
+uuid: f7226922-3edd-4bed-8212-903ff81dc44c
+langcode: ru
+status: true
+dependencies: {  }
+id: better_exposed_filters
+label: 'Better Exposed Filters'
+code: |-
+  .tiscom-better-exposed-filters .view-filters form.views-exposed-form{
+  	display: flex !important;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  	margin: 4rem 0;
+  }
+
+
+
+  .fieldset__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: relative;
+  }
+  .fieldset__wrapper .js-form-item .bef-slider, .fieldset__wrapper .bef-slider {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px; /* регулируй нужный отступ */
+    width: 100%;
+  }
+  .fieldset__wrapper {
+    padding-bottom: 10px; /* чтобы слайдер поместился */
+  }
+
+
+
+
+  /* СКРЫВАЕМ ИНПУТЫ В ФИЛЬТРАХ_СЛАЙДЕРАХ*/
+  /* ==== 1) Скрываем текстовые инпуты (минимально инвазивно) ==== */
+  /* Нацеливаемся на текстовые inputs внутри fieldset-обёрток BEF-скольжков */
+
+  .tiscom_better_exposed_filters_slider .form--views-exposed-form-cpu-cpu-catalog fieldset .js-form-item.js-form-type-textfield, 
+  .tiscom_better_exposed_filters_slider fieldset .js-form-item.js-form-type-textfield,
+  .tiscom_better_exposed_filters_slider fieldset .js-form-item.js-form-type-textfield input[type="text"],
+  .view-display-id-cpu_catalog .form--views-exposed-form-cpu-cpu-catalog fieldset .js-form-item.js-form-type-textfield, 
+  .view-display-id-cpu_catalog fieldset .js-form-item.js-form-type-textfield,
+  .view-display-id-cpu_catalog fieldset .js-form-item.js-form-type-textfield input[type="text"],
+  .view-display-id-platform_catalog .form--views-exposed-form-cpu-cpu-catalog fieldset .js-form-item.js-form-type-textfield, 
+  .view-display-id-platform_catalog fieldset .js-form-item.js-form-type-textfield,
+  .view-display-id-platform_catalog fieldset .js-form-item.js-form-type-textfield input[type="text"]{
+    /* Перемещаем в off-screen, чтобы не влияли на flow */
+    /*position: absolute !important;*/
+    /*left: -9999px !important;*/
+    /*top: auto !important;*/
+    /*width: 1px !important;*/
+    /*height: 1px !important;*/
+    /*padding: 0 !important;*/
+    /*margin: 0 !important;*/
+    /*border: 0 none !important;*/
+    /*opacity: 0 !important;*/
+    /*pointer-events: none !important;*/
+  }
+
+  /* ==== 2) Убедимся, что обёртка имеет контролируемую ширину ==== */
+  .view-display-id-cpu_catalog .fieldset .fieldset__wrapper{
+    /* Подстраиваем под макет: максимум 100% от контейнера, но не меньше 200px */
+    width: 100%;
+    max-width: 600px;   /* поменяй по желанию: 200px / 400px / 600px */
+    box-sizing: border-box;
+    padding-right: 0; /* на всякий случай */
+  }
+
+  /* ==== 3) Слайдеры NoUI / BEF занимают всю ширину контейнера ==== */
+  .tiscom_better_exposed_filters_slider .fieldset .bef-slider,
+  .tiscom_better_exposed_filters_slider .noUi-target,
+  .view-display-id-cpu_catalog .fieldset .bef-slider,
+  .view-display-id-cpu_catalog .fieldset .noUi-target,
+  .view-display-id-platform_catalog .fieldset .bef-slider,
+  .view-display-id-platform_catalog .fieldset .noUi-target{
+    width: 100% !important;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* ==== 4) Убедимся, что тултипы видимы и не зависят от input'ов ==== */
+  .tiscom_better_exposed_filters_slider  .fieldset .noUi-tooltip,
+  .view-display-id-cpu_catalog .fieldset .noUi-tooltip,
+  .view-display-id-platform_catalog .fieldset .noUi-tooltip{
+    display: inline-block;
+    pointer-events: auto;
+  }
+
+  /* ==== 5) Специфично для TDP ==== */
+  /* Замени селектор на точный ID/атрибут при необходимости */
+  #edit-field-ccu-tdp-value-wrapper--12 .fieldset__wrapper,
+  div[data-drupal-selector="edit-field-ccu-tdp-value-wrapper"] .fieldset__wrapper {
+    max-width: 80%; 
+  }
+  /* ==== 6) Задаем минимальную ширину Специфично для TDP  ==== */
+  .tiscom_better_exposed_filters_slider fieldset[data-drupal-selector="edit-field-cpu-tdp-id-wrapper"], 
+  .views-exposed-form fieldset[data-drupal-selector="edit-field-ccu-tdp-value-wrapper"],
+  .tiscom_better_exposed_filters_slider fieldset[data-drupal-selector="edit-field-psu-power-value-wrapper"]{
+      min-width: 300px;
+  }
+
+  /* Отступ сверху, чтобы слайдер не перекрывал legend */
+  .tiscom_better_exposed_filters_slider fieldset[data-drupal-selector="edit-field-ccu-tdp-value-wrapper"] .fieldset__wrapper,
+  .view-display-id-cpu_catalog fieldset[data-drupal-selector="edit-field-ccu-tdp-value-wrapper"] .fieldset__wrapper,
+  .view-display-id-platform_catalog fieldset[data-drupal-selector="edit-field-ccu-tdp-value-wrapper"] .fieldset__wrapper{
+      padding-top: 3.2rem; /* можно увеличить при необходимости */
+  }
+
+  .tiscom_better_exposed_filters_slider .noUi-connect,
+  .view-display-id-cpu_catalog .noUi-connect,
+  .view-display-id-platform_catalog .noUi-connect{
+      background: #ff820e;
+  }
+
+  /* Блок “Дополнительные настройки” в конец Фильтров*/
+  /* .views-exposed-form .bef--secondary {
+    order: 999;
+  }*/
+  /* .views-exposed-form .bef--secondary {
+  /* Делаем контейнер с кнопками Показать и Сбросить вертикальным */
+
+  .tiscom_better_exposed_filters .views-exposed-form .form-actions,
+  .view-display-id-cpu_catalog .views-exposed-form .form-actions,
+  .view-display-id-platform_catalog .views-exposed-form .form-actions{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px; /* Чтобы кнопки не склеивались */
+  }
+  .view-display-id-cpu_catalog .views-exposed-form .form-actions .button,
+  .view-display-id-platform_catalog .views-exposed-form .form-actions .button{
+    width: 100%;
+  }
+
+  /* Блок действий + блок дополнительных фильтров */
+  .tiscom_better_exposed_filters .views-exposed-form > #edit-actions,
+  .tiscom_better_exposed_filters .views-exposed-form > #edit-secondary,
+  .view-display-id-cpu_catalog .views-exposed-form > #edit-actions,
+  .view-display-id-cpu_catalog .views-exposed-form > #edit-secondary,
+  .view-display-id-platform_catalog .views-exposed-form > #edit-actions,
+  .view-display-id-platform_catalog .views-exposed-form > #edit-secondary {
+    flex: 0 0 100%; /* они займут всю строку */
+    order: 100; /* отправляем вниз формы */
+  }
+
+
+  @media (min-width: 1200px) {
+    /* стили для больших экранов */
+   .view-display-id-cpu_catalog  form.views-exposed-form.bef-exposed-form,
+   .view-display-id-platform_catalog  form.views-exposed-form.bef-exposed-form{
+  		justify-content: space-around
+  	}
+  }
+
+  .view-display-id-cpu_catalog summary.claro-details__summary,
+  .view-display-id-platform_catalog summary.claro-details__summary{
+      display: table;
+      margin-block: calc(var(--space-xs) / 2);
+      font-size: var(--font-size-s);
+      font-weight: bold;
+      line-height: var(--line-height-form-label);
+      border: rgb(118, 118, 118) solid 1px;
+  }
+
+  .tiscom_better_exposed_filters  details.bef--secondary,
+  .view-display-id-cpu_catalog details.bef--secondary,
+  .view-display-id-platform_catalog details.bef--secondary{
+  	border: none;
+  	box-shadow: none;
+  }
+
+
+  /* 1. Дополнительные настройки в конец */
+
+   .views-exposed-form .bef--secondary {
+    order: 10;
+  } 
+  details.bef--secondary{
+  	width: 100%;
+  }
+
+
+
+
+
+  .view-display-id-cpu_catalog .form--views-exposed-form-cpu-cpu-catalog,
+  .view-display-id-cpu_catalog details.bef--secondary .details-wrapper .details-children,
+  .view-display-id-platform_catalog .form--views-exposed-form-cpu-cpu-catalog,
+  .view-display-id-platform_catalog details.bef--secondary .details-wrapper .details-children,
+  details.bef--secondary .details-wrapper{
+  	display: flex !important;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  }
+
+  details.bef--secondary .details-wrapper .details-children{
+  	display: flex !important;
+  	justify-content: space-between;
+  	flex-wrap: wrap;
+  }
+
+
+  /*details.bef--secondary .details-wrapper div.js-form-wrapper{*/
+  /*	width: 48%;*/
+  /*}*/
+
+  details.bef--secondary .details-wrapper div.js-form-wrapper .fieldset .fieldset__wrapper {
+  	width: 92%;
+  }
+
+  .tiscom_better_exposed_filters_slider .noUi-horizontal .noUi-tooltip,
+  .view-display-id-cpu_catalog .form--views-exposed-form-cpu-cpu-catalog fieldset  .noUi-horizontal .noUi-tooltip,
+  details.bef--secondary .noUi-horizontal .noUi-tooltip {
+  	    bottom: -130%;
+  }
+
+  .view-display-id-cpu_catalog a
+  	{
+    text-decoration: none;
+    color: #000;
+  }
+
+
+  /*слайдеры в фильтрах*/
+
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .mb-3,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .mb-3{
+    display: flex;
+    flex-wrap: wrap;
+    Justify-content: space-between;
+    gap: 12px;
+  }
+
+
+
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .form-item-field-cpu-tdp-id-min,
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .form-item-field-cpu-tdp-id-max,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .form-item-field-psu-power-value-min,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .form-item-field-psu-power-value-max{
+    flex: 1 1 120px;
+    max-width: 160px;
+  }
+
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .form-item-field-cpu-tdp-id-min .form-label,
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .form-item-field-cpu-tdp-id-max .form-label,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .form-item-field-psu-power-value-min .form-label,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .form-item-field-psu-power-value-max .form-label{
+  	font-size: 1.2rem;
+  }
+
+
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .bef-slider,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .bef-slider{
+    flex: 0 0 100%;
+    margin-top: 10px;
+  }
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .form-item-field-cpu-tdp-id-max,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .form-item-field-psu-power-value-max{
+  	  display: flex;
+      text-align: right;
+      justify-content: end;
+      flex-direction: column;
+  }
+  [data-drupal-selector="edit-field-cpu-tdp-id-wrapper"] .form-item-field-cpu-tdp-id-max  .form-textfield,
+  [data-drupal-selector="edit-field-psu-power-value-wrapper"] .form-item-field-psu-power-value-max  .form-textfield{
+  	     text-align: right;
+  }
+
+
+
+
+
+  /* ===== Одиночный BEF slider → как fieldset ===== */
+
+  .form-item-field-storage-bays-value{
+    padding: 0rem 2rem 0rem 2rem;
+    position: relative;
+    min-width: 300px;
+    box-sizing: border-box;
+  }
+
+
+  /* label как legend */
+
+  .form-item-field-storage-bays-value > label{
+    display: block;
+    margin-bottom: 10px;
+  }
+
+
+  /* контейнер как .mb-3 */
+
+  .form-item-field-storage-bays-value{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  /* скрываем input как в других слайдерах */
+
+  .form-item-field-storage-bays-value input[type="text"]{
+    width: 120px;
+    margin-bottom: 30px;
+  }
+
+
+  /* слайдер на всю ширину */
+
+  .form-item-field-storage-bays-value .bef-slider{
+    width: 100%;
+    margin-top: 10px;
+  }
+
+
+  /* позиционирование как в fieldset__wrapper */
+
+  /*.form-item-field-storage-bays-value .bef-slider{*/
+  /*  position: absolute;*/
+  /*  left: 1rem;*/
+  /*  right: 1rem;*/
+  /*  bottom: 8px;*/
+  /*}*/
+
+
+  /* чтобы был отступ под слайдер */
+
+  .form-item-field-storage-bays-value{
+    padding-bottom: 3rem;
+  }
+
+
+
+  [data-drupal-selector="edit-field-cpu-generation-target-id"] option{
+  	font-size: 1rem;
+  }
+
+
+  /*Кнопки табов на мобильном устройстве*/
+
+  @media (max-width: 768px) {
+
+  /* список табов */
+
+  ul[class^="tabs-plugin-id-block-content"]{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+
+  /* каждый tab */
+
+  ul[class^="tabs-plugin-id-block-content"] > li{
+    width: 32%;
+    flex: 0 0 32%;
+    box-sizing: border-box;
+  }
+
+
+  /* ссылка внутри таба */
+
+  ul[class^="tabs-plugin-id-block-content"] .ui-tabs-anchor{
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 6px 4px;
+  }
+
+
+  /* уменьшаем текст */
+
+  ul[class^="tabs-plugin-id-block-content"] .ebt-tab-title{
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+
+  /* чтобы p внутри не ломал высоту */
+
+  ul[class^="tabs-plugin-id-block-content"] .ebt-tab-title p{
+    margin: 0;
+  }
+
+  .ui-tabs .ui-tabs-nav .ui-tabs-anchor{
+  	padding: 0.5em 0 !important;
+  }
+
+
+  .tis-btn__block, .tis-banner__buttons ul > li{
+    width: 100%;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+  }
+
+  .tis-btn__block, .tis-banner__buttons ul > li >a{
+  	width:100%;
+  }
+
+
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

@@ -1,0 +1,15 @@
+uuid: 16838251-834f-499a-826a-06f977995095
+langcode: ru
+status: true
+dependencies: {  }
+name: tiscom_servers_views
+label: 'tiscom servers views (390x170)'
+effects:
+  5d0bb783-3c1c-4946-912e-13230dd59abc:
+    uuid: 5d0bb783-3c1c-4946-912e-13230dd59abc
+    id: image_scale
+    weight: 2
+    data:
+      width: 390
+      height: 170
+      upscale: false

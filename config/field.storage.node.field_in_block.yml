@@ -1,0 +1,27 @@
+uuid: d9e8eb2a-8e2c-4cdf-8e95-f01037270795
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_in_block
+field_name: field_in_block
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'в блоке "Спецпредложения"'
+      label: 'в блоке "Спецпредложения"'
+    -
+      value: 'в блоке "Распродажа серверов"'
+      label: 'в блоке "Распродажа серверов"'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

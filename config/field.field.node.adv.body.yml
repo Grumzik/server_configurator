@@ -1,0 +1,24 @@
+uuid: e813706f-f271-46b8-b4d1-8b6e5b5b0a95
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.adv
+  module:
+    - text
+id: node.adv.body
+field_name: body
+entity_type: node
+bundle: adv
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

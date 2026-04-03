@@ -1,0 +1,19 @@
+uuid: 21e5d3a3-58e2-46cf-b05c-00b1a9c199a9
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_model
+    - node.type.gstation
+id: node.gstation.field_model
+field_name: field_model
+entity_type: node
+bundle: gstation
+label: Модель
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

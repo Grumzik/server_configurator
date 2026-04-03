@@ -1,0 +1,23 @@
+
+.dual-range-wrapper {
+  margin: 1em 0;
+}
+
+.dual-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.4em;
+  color: #666;
+}
+
+.dual-range-current {
+  text-align: center;
+  margin-top: 0.5em;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.dual-range-slider {
+  margin: 0.8em 0;
+}

@@ -1,0 +1,23 @@
+uuid: 2e2ef998-76ca-4ffb-9572-49f5fdaeee3e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intel_quick_sync_video
+    - node.type.cpu_intel
+id: node.cpu_intel.field_intel_quick_sync_video
+field_name: field_intel_quick_sync_video
+entity_type: node
+bundle: cpu_intel
+label: 'Intel® Quick Sync Video'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

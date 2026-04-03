@@ -1,0 +1,30 @@
+uuid: 0083dce7-b180-47b7-bc81-bcea80014167
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b7519732-2624-475a-9f85-4f828fda0a1a'
+  module:
+    - block_content
+    - system
+  theme:
+    - radix
+id: radix_jollyness_block_42
+theme: radix
+region: navbar_branding
+weight: -21
+provider: null
+plugin: 'block_content:b7519732-2624-475a-9f85-4f828fda0a1a'
+settings:
+  id: 'block_content:b7519732-2624-475a-9f85-4f828fda0a1a'
+  label: banner_xeon
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /scalable-xeon-processors

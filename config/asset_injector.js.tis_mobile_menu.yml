@@ -1,0 +1,39 @@
+uuid: c97f8bd3-5b7e-4f6d-8c3c-ef2bcbfec5f3
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_mobile_menu
+label: 'tis mobile menu'
+code: |+
+  document.addEventListener('DOMContentLoaded', () => {
+      const dropdowns = document.querySelectorAll('.dropdown.dropend > .dropdown-menu');
+      dropdowns.forEach(dropdown => {
+          const parentItem = dropdown.closest('.dropdown.dropend');
+          if (parentItem){
+             parentItem.addEventListener('mouseenter', () => {
+                  // Отсрочка для корректного расчета размеров
+                  setTimeout(() => {
+                       const dropdownRect = dropdown.getBoundingClientRect();
+                      const viewportWidth = window.innerWidth;
+
+                      if (dropdownRect.right > viewportWidth) {
+                         dropdown.classList.add('menu-shifted-left');
+                      } else {
+                        dropdown.classList.remove('menu-shifted-left');
+                      }
+                  }, 0)
+               });
+          }
+      });
+  });
+
+
+
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

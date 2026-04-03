@@ -1,0 +1,18 @@
+display:
+  default:
+    display_title: Default
+    display_options:
+      fields:
+        info:
+          label: 'Block description'
+        operations:
+          label: Operations
+      exposed_form:
+        options:
+          reset_button_label: Reset
+      filters:
+        info:
+          expose:
+            label: 'Block description'
+  page_1:
+    display_title: Page

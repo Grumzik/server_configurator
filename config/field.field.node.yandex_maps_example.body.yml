@@ -1,0 +1,24 @@
+uuid: e1f8ae98-51b8-47fd-bb16-83654cd8dc23
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.yandex_maps_example
+  module:
+    - text
+id: node.yandex_maps_example.body
+field_name: body
+entity_type: node
+bundle: yandex_maps_example
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

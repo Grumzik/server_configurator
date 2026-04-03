@@ -1,0 +1,21 @@
+uuid: 3d06b6a2-19be-45ed-b55c-5bacabc6833d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_max_of_memory_channels
+    - node.type.processor
+  module:
+    - options
+id: node.processor.field_max_of_memory_channels
+field_name: field_max_of_memory_channels
+entity_type: node
+bundle: processor
+label: 'Max of Memory Channels'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

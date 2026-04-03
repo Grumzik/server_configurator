@@ -1,0 +1,22 @@
+uuid: ee7d6b19-ff7a-49ca-b0fd-ca1a9017badd
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: chlF7z3GEcHoQnXo-49bdW3H_FSDPxAqWy0miEMc3AM
+id: paragraph.field_ebt_tab_title
+field_name: field_ebt_tab_title
+entity_type: paragraph
+type: text
+settings:
+  max_length: 1023
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

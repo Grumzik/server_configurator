@@ -1,0 +1,24 @@
+uuid: c02f946b-a927-49e3-8c1c-28d34cfeb7ef
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.fpoint
+  module:
+    - text
+id: node.fpoint.body
+field_name: body
+entity_type: node
+bundle: fpoint
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

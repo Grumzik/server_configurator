@@ -1,0 +1,21 @@
+uuid: 33e547a2-2ae2-4106-b387-c58161bc3ecc
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scalability
+    - node.type.processor
+  module:
+    - options
+id: node.processor.field_scalability
+field_name: field_scalability
+entity_type: node
+bundle: processor
+label: Scalability
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

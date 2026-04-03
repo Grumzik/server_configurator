@@ -1,0 +1,22 @@
+uuid: c128b221-2807-4f80-9657-e3b7ac701ffc
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.parts_type
+  module:
+    - text
+id: taxonomy_term.parts_type.default
+targetEntityType: taxonomy_term
+bundle: parts_type
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

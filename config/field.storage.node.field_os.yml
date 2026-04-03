@@ -1,0 +1,30 @@
+uuid: b2d9391a-32e6-4832-931b-5e7d1d335342
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_os
+field_name: field_os
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: GuardianOS™
+      label: GuardianOS™
+    -
+      value: Linux-based
+      label: Linux-based
+    -
+      value: 'WSS 2003'
+      label: 'WSS 2003'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

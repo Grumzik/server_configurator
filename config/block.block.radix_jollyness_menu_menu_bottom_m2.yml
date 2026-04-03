@@ -1,0 +1,25 @@
+uuid: a0d08931-9f1e-409a-b191-6c7158c0f795
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.menu-bottom-m2
+  module:
+    - system
+  theme:
+    - radix
+id: radix_jollyness_menu_menu_bottom_m2
+theme: radix
+region: navbar_branding
+weight: -21
+provider: null
+plugin: 'system_menu_block:menu-bottom-m2'
+settings:
+  id: broken
+  label: Справочники
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

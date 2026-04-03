@@ -1,0 +1,322 @@
+uuid: fce47daa-948f-4562-92b4-346a1a634db5
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_node_complete_cpu_intel
+class: Drupal\node\Plugin\migrate\D7NodeTranslation
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7
+label: 'Node complete (Процессор)'
+source:
+  plugin: d7_node_complete
+  node_type: cpu_intel
+process:
+  nid:
+    -
+      plugin: get
+      source: tnid
+  vid:
+    -
+      plugin: get
+      source: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title:
+    -
+      plugin: get
+      source: title
+  uid:
+    -
+      plugin: get
+      source: node_uid
+  status:
+    -
+      plugin: get
+      source: status
+  created:
+    -
+      plugin: get
+      source: created
+  changed:
+    -
+      plugin: get
+      source: timestamp
+  promote:
+    -
+      plugin: get
+      source: promote
+  sticky:
+    -
+      plugin: get
+      source: sticky
+  revision_uid:
+    -
+      plugin: get
+      source: revision_uid
+  revision_log:
+    -
+      plugin: get
+      source: log
+  revision_timestamp:
+    -
+      plugin: get
+      source: timestamp
+  content_translation_source:
+    -
+      plugin: get
+      source: source_langcode
+  comment_node_cpu_intel/0/status:
+    -
+      plugin: get
+      source: comment
+  field_ept:
+    -
+      plugin: get
+      source: field_ept
+  field_cpu_name:
+    -
+      plugin: get
+      source: field_cpu_name
+    -
+      plugin: media_wysiwyg_filter
+  field_cpu_number:
+    -
+      plugin: get
+      source: field_cpu_number
+    -
+      plugin: media_wysiwyg_filter
+  field_cpu_codename:
+    -
+      plugin: get
+      source: field_cpu_codename
+    -
+      plugin: media_wysiwyg_filter
+  field_clock_speed:
+    -
+      plugin: get
+      source: field_clock_speed
+    -
+      plugin: media_wysiwyg_filter
+  field_turbo_speed:
+    -
+      plugin: get
+      source: field_turbo_speed
+    -
+      plugin: media_wysiwyg_filter
+  field_cores:
+    -
+      plugin: get
+      source: field_cores
+  field_threads:
+    -
+      plugin: get
+      source: field_threads
+  field_cpu_cache:
+    -
+      plugin: get
+      source: field_cpu_cache
+    -
+      plugin: media_wysiwyg_filter
+  field_bus_speed:
+    -
+      plugin: get
+      source: field_bus_speed
+    -
+      plugin: media_wysiwyg_filter
+  field_bus_type:
+    -
+      plugin: get
+      source: field_bus_type
+    -
+      plugin: media_wysiwyg_filter
+  field_instruction_set:
+    -
+      plugin: get
+      source: field_instruction_set
+    -
+      plugin: media_wysiwyg_filter
+  field_vtx:
+    -
+      plugin: get
+      source: field_vtx
+  field_vtd:
+    -
+      plugin: get
+      source: field_vtd
+  field_tbt:
+    -
+      plugin: get
+      source: field_tbt
+  field_eist:
+    -
+      plugin: get
+      source: field_eist
+  field_aesni:
+    -
+      plugin: get
+      source: field_aesni
+  field_txt:
+    -
+      plugin: get
+      source: field_txt
+  field_tdp:
+    -
+      plugin: get
+      source: field_tdp
+    -
+      plugin: media_wysiwyg_filter
+  field_vpro:
+    -
+      plugin: get
+      source: field_vpro
+  field_ht:
+    -
+      plugin: get
+      source: field_ht
+  field_tm:
+    -
+      plugin: get
+      source: field_tm
+  field_edb:
+    -
+      plugin: get
+      source: field_edb
+  field_is:
+    -
+      plugin: get
+      source: field_is
+  field_idbs:
+    -
+      plugin: get
+      source: field_idbs
+  field_ifastma:
+    -
+      plugin: get
+      source: field_ifastma
+  field__iflexma:
+    -
+      plugin: get
+      source: field__iflexma
+  field_qpi_links:
+    -
+      plugin: get
+      source: field_qpi_links
+  field_instruction_set_extensions:
+    -
+      plugin: get
+      source: field_instruction_set_extensions
+    -
+      plugin: media_wysiwyg_filter
+  field_lithography:
+    -
+      plugin: get
+      source: field_lithography
+    -
+      plugin: media_wysiwyg_filter
+  field_max_memory_size:
+    -
+      plugin: get
+      source: field_max_memory_size
+    -
+      plugin: media_wysiwyg_filter
+  field_memory_types:
+    -
+      plugin: get
+      source: field_memory_types
+    -
+      plugin: media_wysiwyg_filter
+  field_memory_channels:
+    -
+      plugin: get
+      source: field_memory_channels
+    -
+      plugin: media_wysiwyg_filter
+  field_max_memory_bandwidth:
+    -
+      plugin: get
+      source: field_max_memory_bandwidth
+    -
+      plugin: media_wysiwyg_filter
+  field_ecc_memory_supported:
+    -
+      plugin: get
+      source: field_ecc_memory_supported
+  field_max_cpu_configuration:
+    -
+      plugin: get
+      source: field_max_cpu_configuration
+  field_sockets_supported:
+    -
+      plugin: get
+      source: field_sockets_supported
+    -
+      plugin: media_wysiwyg_filter
+  field_processor_graphics:
+    -
+      plugin: get
+      source: field_processor_graphics
+    -
+      plugin: media_wysiwyg_filter
+  field_graphics_base_frequency:
+    -
+      plugin: get
+      source: field_graphics_base_frequency
+    -
+      plugin: media_wysiwyg_filter
+  field_graphics_max_dynamic_frequ:
+    -
+      plugin: get
+      source: field_graphics_max_dynamic_frequ
+    -
+      plugin: media_wysiwyg_filter
+  field_intel_quick_sync_video:
+    -
+      plugin: get
+      source: field_intel_quick_sync_video
+  field_intel_intru_3d_technology:
+    -
+      plugin: get
+      source: field_intel_intru_3d_technology
+  field_intel_insider:
+    -
+      plugin: get
+      source: field_intel_insider
+  field_intel_flexible_display_int:
+    -
+      plugin: get
+      source: field_intel_flexible_display_int
+  field_intel_clear_video_hd_techn:
+    -
+      plugin: get
+      source: field_intel_clear_video_hd_techn
+  field_dual_display_capable:
+    -
+      plugin: get
+      source: field_dual_display_capable
+  field_displays_supported:
+    -
+      plugin: get
+      source: field_displays_supported
+  field_metatag:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+destination:
+  plugin: 'entity_complete:node'
+  translations: true
+  default_bundle: cpu_intel
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+    - upgrade_language
+    - upgrade_d7_file_entity_image_public
+  optional:
+    - upgrade_d7_field_instance

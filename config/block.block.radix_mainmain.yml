@@ -1,0 +1,25 @@
+uuid: c3d77918-209f-4482-be93-4725837b8b46
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.menu-mainmain
+  module:
+    - system
+  theme:
+    - radix
+id: radix_mainmain
+theme: radix
+region: navbar_branding
+weight: 0
+provider: null
+plugin: 'system_menu_block:menu-mainmain'
+settings:
+  id: 'system_menu_block:menu-mainmain'
+  label: mainmain
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

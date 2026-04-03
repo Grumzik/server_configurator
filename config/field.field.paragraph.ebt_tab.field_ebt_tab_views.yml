@@ -1,0 +1,33 @@
+uuid: 227cc906-7055-4a0b-846f-beb8dc27468d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebt_tab_views
+    - paragraphs.paragraphs_type.ebt_tab
+  module:
+    - viewsreference
+_core:
+  default_config_hash: Zc3r5Wx5CVuHBS5Fvv1jYRaHo4EnB7V2rhALuCxql_o
+id: paragraph.ebt_tab.field_ebt_tab_views
+field_name: field_ebt_tab_views
+entity_type: paragraph
+bundle: ebt_tab
+label: 'Tab views'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  plugin_types:
+    default: default
+    block: block
+    page: page
+  preselect_views: {  }
+  enabled_settings: {  }
+field_type: viewsreference

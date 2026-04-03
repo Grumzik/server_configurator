@@ -1,0 +1,11 @@
+uuid: 2a8476da-d8a9-49e5-8cda-89c310a0f4f3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sockettype
+id: taxonomy_term.sockettype
+target_entity_type_id: taxonomy_term
+target_bundle: sockettype
+default_langcode: site_default
+language_alterable: false

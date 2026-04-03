@@ -1,0 +1,84 @@
+uuid: fe544fe5-a0c9-4d51-a678-15e0a5729e14
+langcode: ru
+status: true
+dependencies: {  }
+id: qt_block_arc
+label: qt_arc
+renderer: quick_tabs
+hide_empty_tabs: false
+default_tab: 0
+options:
+  quick_tabs:
+    ajax: false
+    class: ''
+    style: ''
+configuration_data:
+  -
+    title: Описание
+    weight: 0
+    type: view_content
+    content:
+      block_content:
+        options:
+          bid: addtoany_follow_block
+          block_title: ''
+          display_title: false
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      view_content:
+        options:
+          vid: qt_specification
+          display: default
+          args: '%1'
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: Документы
+    weight: 0
+    type: view_content
+    content:
+      block_content:
+        options:
+          bid: addtoany_follow_block
+          block_title: ''
+          display_title: false
+      node_content:
+        options:
+          nid: ''
+          view_mode: full
+          hide_title: true
+      view_content:
+        options:
+          vid: qt_documents
+          display: default
+          args: '%1'
+      qtabs_content:
+        options:
+          machine_name: ''
+  -
+    title: 'Запрос цены'
+    weight: 0
+    type: node_content
+    content:
+      block_content:
+        options:
+          bid: addtoany_follow_block
+          block_title: ''
+          display_title: false
+      node_content:
+        options:
+          nid: '6545'
+          view_mode: full
+          hide_title: false
+      view_content:
+        options:
+          vid: adminnews
+          display: default
+          args: ''
+      qtabs_content:
+        options:
+          machine_name: ''

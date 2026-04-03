@@ -1,0 +1,29 @@
+uuid: 5285e8a9-1e1e-4ab7-b603-914d46a694d7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_platform
+    - node.type.platform
+    - node.type.server
+id: node.server.field_platform
+field_name: field_platform
+entity_type: node
+bundle: server
+label: platform
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      platform: platform
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

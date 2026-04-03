@@ -1,0 +1,30 @@
+uuid: 0ba2dd3a-29e1-488a-ae94-8f7d558b2464
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.intel.body
+    - node.type.intel
+  module:
+    - text
+    - user
+id: node.intel.default
+targetEntityType: node
+bundle: intel
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

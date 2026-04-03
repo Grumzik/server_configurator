@@ -1,0 +1,25 @@
+uuid: 9c336c3b-6c73-4b95-8b69-ab5e1b60c503
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cpu_vendor
+    - node.type.server
+id: node.server.field_cpu_vendor
+field_name: field_cpu_vendor
+entity_type: node
+bundle: server
+label: 'Cpu Vendor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: vendor_by_partstype
+      display_name: entity_reference_2
+      arguments: {  }
+field_type: entity_reference

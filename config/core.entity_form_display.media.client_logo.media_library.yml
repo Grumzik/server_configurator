@@ -1,0 +1,40 @@
+uuid: ddf911f6-51e3-483b-b067-d9adb5746aa1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.client_logo.field_industry
+    - field.field.media.client_logo.field_media_image
+    - image.style.thumbnail
+    - media.type.client_logo
+  module:
+    - image
+id: media.client_logo.media_library
+targetEntityType: media
+bundle: client_logo
+mode: media_library
+content:
+  field_media_image:
+    type: image_image
+    weight: 5
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_industry: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

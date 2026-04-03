@@ -1,0 +1,10 @@
+uuid: 35458af7-138d-48e2-9c09-0dde977d906f
+langcode: en-gb
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dHxKwXfScnz1cdiQPDzE2uUuw62lhpTtSqV5b2YZbrE
+id: ebt_slick_slider
+label: 'EBT Slick Slider'
+revision: false
+description: 'Extra Block Type (EBT): Slick Slider'

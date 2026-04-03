@@ -1,0 +1,25 @@
+uuid: 50718f6c-38f3-423e-8957-105284e95792
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.pp_items_node
+    - paragraphs.paragraphs_type.paragraphs_pack_node_list
+id: paragraph.paragraphs_pack_node_list.pp_items_node
+field_name: pp_items_node
+entity_type: paragraph
+bundle: paragraphs_pack_node_list
+label: Items
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+field_type: entity_reference

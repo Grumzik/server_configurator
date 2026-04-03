@@ -1,0 +1,22 @@
+uuid: 15209888-3ed1-4a70-8bb1-fea3f25093cb
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.san_adapter
+  module:
+    - text
+id: node.san_adapter.field_specification
+field_name: field_specification
+entity_type: node
+bundle: san_adapter
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

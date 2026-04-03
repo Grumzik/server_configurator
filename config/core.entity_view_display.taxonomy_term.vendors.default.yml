@@ -1,0 +1,72 @@
+uuid: e699f1a4-eb32-4e9c-84dd-bbebb491a196
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.vendors.field_logoimage
+    - field.field.taxonomy_term.vendors.field_vendor_of_part_type
+    - taxonomy.vocabulary.vendors
+  module:
+    - blazy
+    - text
+id: taxonomy_term.vendors.default
+targetEntityType: taxonomy_term
+bundle: vendors
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_logoimage:
+    type: blazy_file
+    label: above
+    settings:
+      caption: {  }
+      link: ''
+      by_delta: -1
+      layout: ''
+      view_mode: default
+      cache: 0
+      admin_uri: ''
+      use_lb: false
+      elevatezoomplus: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_media_style: ''
+      loading: lazy
+      preload: false
+      responsive_image_style: ''
+      use_theme_field: false
+      box_style: ''
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      thumbnail_style: ''
+      grid: ''
+      grid_medium: ''
+      grid_small: ''
+      style: ''
+      svg_inline: false
+      svg_fill: false
+      svg_sanitize: true
+      svg_sanitize_remote: false
+      svg_hide_caption: false
+      svg_attributes: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_vendor_of_part_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

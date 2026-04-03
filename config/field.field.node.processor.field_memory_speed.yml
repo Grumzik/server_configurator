@@ -1,0 +1,23 @@
+uuid: f2ca6ebd-daba-4361-970e-a91e3eed7392
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_memory_speed
+    - node.type.processor
+id: node.processor.field_memory_speed
+field_name: field_memory_speed
+entity_type: node
+bundle: processor
+label: 'Memory Speed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: MT/s
+field_type: integer

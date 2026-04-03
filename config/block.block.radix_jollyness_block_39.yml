@@ -1,0 +1,32 @@
+uuid: 57d437c0-e509-4ab9-b2e8-800d5db1dcbd
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b904b173-45a3-4019-84a7-a18e0cdf14fd'
+  module:
+    - block_content
+    - system
+  theme:
+    - radix
+id: radix_jollyness_block_39
+theme: radix
+region: navbar_branding
+weight: -18
+provider: null
+plugin: 'block_content:b904b173-45a3-4019-84a7-a18e0cdf14fd'
+settings:
+  id: 'block_content:b904b173-45a3-4019-84a7-a18e0cdf14fd'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: |-
+      <front>
+      /intel_server_platforms

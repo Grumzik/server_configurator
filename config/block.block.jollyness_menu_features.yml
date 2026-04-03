@@ -1,0 +1,25 @@
+uuid: cef6ef8a-3269-4546-9842-161678736326
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.features
+  module:
+    - system
+  theme:
+    - olivero
+id: jollyness_menu_features
+theme: olivero
+region: footer_top
+weight: -17
+provider: null
+plugin: 'system_menu_block:features'
+settings:
+  id: broken
+  label: ''
+  label_display: '0'
+  provider: core
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

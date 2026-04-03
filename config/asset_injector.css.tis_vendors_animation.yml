@@ -1,0 +1,297 @@
+uuid: 377bb05d-dd6b-467f-a769-d46926564c96
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_vendors_animation
+label: 'tis vendors animation'
+code: |2
+                      #rec483714200 .tisadv__artboard {
+                          height: 350px;
+                          background-color: #5c6c81;
+                      }
+                      #rec483714200 .tisadv__filter {
+                          height: 350px;
+                      }
+                      #rec483714200 .tisadv__carrier {
+                          height: 350px;
+                          background-position: center center;
+                          background-attachment: scroll;
+                          background-size: cover;
+                          background-repeat: no-repeat;
+                      }
+                      @media screen and (max-width: 1199px) {
+                          #rec483714200 .tisadv__artboard {}
+                          #rec483714200 .tisadv__filter {}
+                          #rec483714200 .tisadv__carrier {
+                              background-attachment: scroll;
+                          }
+                      }
+                      @media screen and (max-width: 959px) {}
+                      @media screen and (max-width: 639px) {}
+                      @media screen and (max-width: 479px) {}
+                      #rec483714200 .tn-elem[data-elem-id="1661455344617"] {
+                          color: #ffffff;
+                          text-align: center;
+                          z-index: 1;
+                          top: 55px;
+                          left: -100px;
+                          width: 1920px;
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1661455344617"] .tn-atom {
+                          color: #ffffff;
+                          font-size: 37px;
+                          font-family: 'Montserrat', Arial, sans-serif;
+                          line-height: 1.55;
+                          font-weight: 700;
+                          text-transform: uppercase;
+                          background-position: center center;
+                          border-color: transparent;
+                          border-style: solid;
+                      }
+                      @media screen and (max-width: 1199px) {
+                          #rec483714200 .tn-elem[data-elem-id="1661455344617"] {
+                              top: 55px;
+                              left: -448px;
+                          }
+                      }
+                      @media screen and (max-width: 959px) {
+                          #rec483714200 .tn-elem[data-elem-id="1661455344617"] {
+                              top: 55px;
+                              left: -640px;
+                          }
+                      }
+                      @media screen and (max-width: 639px) {
+                          #rec483714200 .tn-elem[data-elem-id="1661455344617"] {
+                              top: 55px;
+                              left: -720px;
+                          }
+                      }
+                      @media screen and (max-width: 479px) {
+                          #rec483714200 .tn-elem[data-elem-id="1661455344617"] {
+                              top: 55px;
+                              left: -800px;
+                          }
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558052850"] {
+                          color: #ffffff;
+                          text-align: center;
+                          z-index: 2;
+                          top: 251px;
+                          left: 505px;
+                          width: 390px;
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558052850"] .tn-atom {
+                          color: #ffffff;
+                          font-size: 37px;
+                          font-family: 'Montserrat', Arial, sans-serif;
+                          line-height: 1.55;
+                          font-weight: 700;
+                          text-transform: uppercase;
+                          background-position: center center;
+                          border-color: transparent;
+                          border-style: solid;
+                      }
+                      @media screen and (max-width: 1199px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558052850"] {
+                              top: 251px;
+                              left: 317px;
+                          }
+                      }
+                      @media screen and (max-width: 959px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558052850"] {
+                              top: 251px;
+                              left: 125px;
+                          }
+                      }
+                      @media screen and (max-width: 639px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558052850"] {
+                              top: 251px;
+                              left: 45px;
+                          }
+                      }
+                      @media screen and (max-width: 479px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558052850"] {
+                              top: 251px;
+                              left: -35px;
+                          }
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558071227"] {
+                          color: #ffffff;
+                          text-align: center;
+                          z-index: 7;
+                          top: 104px;
+                          left: -502px;
+                          width: 1920px;
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558071227"] .tn-atom {
+                          color: #ffffff;
+                          font-size: 37px;
+                          font-family: 'Montserrat', Arial, sans-serif;
+                          line-height: 1.55;
+                          font-weight: 700;
+                          text-transform: uppercase;
+                          background-position: center center;
+                          border-color: transparent;
+                          border-style: solid;
+                      }
+                      @media screen and (max-width: 1199px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558071227"] {
+                              top: 104px;
+                              left: -448px;
+                          }
+                      }
+                      @media screen and (max-width: 959px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558071227"] {
+                              top: 104px;
+                              left: -640px;
+                          }
+                      }
+                      @media screen and (max-width: 639px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558071227"] {
+                              top: 104px;
+                              left: -720px;
+                          }
+                      }
+                      @media screen and (max-width: 479px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558071227"] {
+                              top: 104px;
+                              left: -800px;
+                          }
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558083494"] {
+                          color: #ffffff;
+                          text-align: center;
+                          z-index: 5;
+                          top: 153px;
+                          left: -70px;
+                          width: 1920px;
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558083494"] .tn-atom {
+                          color: #ffffff;
+                          font-size: 37px;
+                          font-family: 'Montserrat', Arial, sans-serif;
+                          line-height: 1.55;
+                          font-weight: 700;
+                          text-transform: uppercase;
+                          background-position: center center;
+                          border-color: transparent;
+                          border-style: solid;
+                      }
+                      @media screen and (max-width: 1199px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558083494"] {
+                              top: 153px;
+                              left: -448px;
+                          }
+                      }
+                      @media screen and (max-width: 959px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558083494"] {
+                              top: 153px;
+                              left: -640px;
+                          }
+                      }
+                      @media screen and (max-width: 639px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558083494"] {
+                              top: 153px;
+                              left: -720px;
+                          }
+                      }
+                      @media screen and (max-width: 479px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558083494"] {
+                              top: 153px;
+                              left: -800px;
+                          }
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558095246"] {
+                          color: #ffffff;
+                          text-align: center;
+                          z-index: 3;
+                          top: 200px;
+                          left: -420px;
+                          width: 1920px;
+                      }
+                      #rec483714200 .tn-elem[data-elem-id="1664558095246"] .tn-atom {
+                          color: #ffffff;
+                          font-size: 37px;
+                          font-family: 'Montserrat', Arial, sans-serif;
+                          line-height: 1.55;
+                          font-weight: 700;
+                          text-transform: uppercase;
+                          background-position: center center;
+                          border-color: transparent;
+                          border-style: solid;
+                      }
+                      @media screen and (max-width: 1199px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558095246"] {
+                              top: 200px;
+                              left: -448px;
+                          }
+                      }
+                      @media screen and (max-width: 959px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558095246"] {
+                              top: 200px;
+                              left: -640px;
+                          }
+                      }
+                      @media screen and (max-width: 639px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558095246"] {
+                              top: 200px;
+                              left: -720px;
+                          }
+                      }
+                      @media screen and (max-width: 479px) {
+                          #rec483714200 .tn-elem[data-elem-id="1664558095246"] {
+                              top: 200px;
+                              left: -800px;
+                          }
+                      }
+                      
+                      
+       
+
+                      
+  @keyframes left-right-movement {
+    from {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(5%);
+    }
+    to {
+      transform: translateX(-15%);
+    }
+  }
+
+  @keyframes right-left-movement {
+    from {
+      transform: translateX(20%);
+    }
+    50% {
+      transform: translateX(-5%);
+    }
+    to {
+      transform: translateX(10%);
+    }
+  }
+                      
+  .tis-animation-1{
+  	 animation-name: left-right-movement;
+  	 animation-duration: 10s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-in-out;
+     animation-delay: -2.5s;
+  }
+     
+  .tis-animation-2{
+  	 animation-name: right-left-movement;
+  	 animation-duration: 13s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+     animation-timing-function: ease-in-out;
+     animation-delay: 2.5s;
+  }                    
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

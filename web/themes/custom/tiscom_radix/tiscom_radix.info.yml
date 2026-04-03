@@ -1,0 +1,47 @@
+name: Tiscom Radix
+description: ''
+screenshot: screenshot.png
+'alt text': 'tiscom_radix theme screenshot'
+core_version_requirement: ^10
+engine: twig
+type: theme
+'base theme': radix
+starterkit: true
+dependencies:
+  - 'drupal:serialization'
+'interface translation project': tiscom_radix
+'interface translation server pattern': themes/custom/tiscom_radix/translations/%language.po
+regions:
+  navbar_branding: 'Navbar branding'
+  navbar_left: 'Navbar left'
+  navbar_right: 'Navbar right'
+  side_menu: 'Side menu'
+  header: Header
+  content: Content
+  page_bottom: 'Page bottom'
+  footer: Footer
+  footer1: Footer1
+  footer2: Footer2
+  footer3: Footer3
+  footer4: Footer4
+  footer_animation: Footer-animation
+libraries:
+  - tiscom_radix/style
+  - core/normalize
+ckeditor5-stylesheets:
+  - build/css/main.style.css
+libraries-extend:
+  core/drupal.ajax:
+    - tiscom_radix/drupal.ajax
+  core/drupal.checkbox:
+    - tiscom_radix/drupal.checkbox
+  core/drupal.message:
+    - tiscom_radix/drupal.message
+  core/drupal.progress:
+    - tiscom_radix/drupal.progress
+  clientside_validation_jquery/cv.jquery.validate:
+    - tiscom_radix/jquery.validate
+version: 1.0.0
+project: radix
+datestamp: 1729163927
+generator: 'radix_starterkit:6.0.0-rc6'

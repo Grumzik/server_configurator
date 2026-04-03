@@ -1,0 +1,18 @@
+uuid: f00aa141-a67a-4645-ba42-0a6f2735870c
+langcode: ru
+status: true
+dependencies: {  }
+id: smtp
+label: SMTP
+plugin: smtp
+configuration:
+  user: main@ts0.ru
+  pass: sX8kG2zN0c
+  host: mail.ts0.ru
+  port: 465
+  query:
+    verify_peer: true
+    local_domain: ''
+    restart_threshold: null
+    restart_threshold_sleep: null
+    ping_threshold: null

@@ -1,0 +1,19 @@
+uuid: bfb597a5-8b9a-410b-b890-f9396b6a7094
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_serial
+    - node.type.certificate
+id: node.certificate.field_serial
+field_name: field_serial
+entity_type: node
+bundle: certificate
+label: 'Серийный выпуск'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

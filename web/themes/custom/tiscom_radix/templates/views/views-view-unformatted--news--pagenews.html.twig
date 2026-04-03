@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Implements a template to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. Can be empty.
+ * - rows: An array of the view's row items. Each row contains:
+ *   - attributes: The HTML attributes for the row.
+ *   - content: The actual content of the row.
+ * - view: The view object.
+ * - default_row_class: A boolean indicating whether default row classes should be used.
+ * - row_utility_classes: An array of optional utility classes to be used.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+{% block views_unformatted_title %}
+  {% if title %}
+    {%
+      include 'radix:heading' with {
+      heading_html_tag: 'h3',
+      content: title
+    }
+    %}
+  {% endif %}
+{% endblock %}
+
+<div  class="border-bottom"  >
+{% block views_unformatted_rows %}
+  {% for row in rows %}
+    {%
+      set row_classes = [
+      default_row_class ? 'views-row  row border-bottom pt-4 pb-4 ',
+    ]|merge(row_utility_classes ?: [])
+    %}
+
+    <div{{row.attributes.addClass(row_classes)}} >
+      <div class="col-12 col-md-3">
+      {#  {{ dump(row.content['#row']._entity) }}
+          {{ dump(row.content['#row']._entity.id)}}       #}
+
+        {% for image_item in row.content['#row']._entity.field_image %}
+
+          {#    {{ dump(image_item) }}
+          {{ dump(image_item.entity) }}  #}
+          {% if image_item.entity %}
+            <img src="{{ image_item.entity.uri.value | image_style('news_300x150') }}"
+                 class="img-fluid img-responsive img-thumbnail bs-mt-2"
+                 alt="{{ image_item.alt }}"
+                 title="{{ image_item.title }}"
+                 width="{{ image_item.width }}"
+                 height="{{ image_item.height }}"
+            />
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="col-12 col-md-9">
+        {% if row.content['#row']._entity.title|length %}
+          <h4 class="news-title bs-mt-2">{{ row.content['#row']._entity.title.value }}</h4>
+        {% endif %}
+
+        {# Получаем анонс новости #}
+        {% if row.content['#row']._entity.field_news_anons|length %}
+          <p class="news-anons">{{ row.content['#row']._entity.field_news_anons.value }}</p>
+        {% endif %}
+
+        <div class="d-flex justify-content-space-between">
+        <p class="news-date">{{ row.content['#row']._entity.created.value|format_date('olivero_medium') }}</p>
+
+        {% if row.content['#row']._entity and row.content['#row']._entity.id %}
+          {% set nid = row.content['#row']._entity.id %}
+          <a href="{{ url('entity.node.canonical', {'node' : nid}) }}" class="color-tis-orange">Читать далее...</a>
+        {% else %}
+          <p>Ошибка: Не удалось получить ID статьи.</p>
+        {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+
+  {% endfor %}
+{% endblock %}

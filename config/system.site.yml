@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: ijfbzDTN4CbE7Sr-6ubWzy_t1vH4OtU1doNCLssVz-4
+langcode: ru
+uuid: 503936d3-a7e4-48f2-85fb-98018d38d423
+name: 'Серверы, графические и рабочие станции. Системы хранения и архивации данных'
+mail: main@tiscom.ru
+slogan: 'ТИСКОМ - производитель серверного оборудования с 1998г.'
+page:
+  403: ''
+  404: /node/7867
+  front: /node/7876
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: ru
+mail_notification: null

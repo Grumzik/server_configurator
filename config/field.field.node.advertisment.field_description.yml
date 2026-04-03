@@ -1,0 +1,22 @@
+uuid: ed919621-e14f-48df-85fc-82350aa2e686
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.advertisment
+  module:
+    - text
+id: node.advertisment.field_description
+field_name: field_description
+entity_type: node
+bundle: advertisment
+label: 'Условия предложения'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

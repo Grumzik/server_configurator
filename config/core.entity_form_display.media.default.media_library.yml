@@ -1,0 +1,28 @@
+uuid: 746ab4f2-24f9-4039-b662-fa9e8b733b1c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.default.field_media_default
+    - media.type.default
+id: media.default.media_library
+targetEntityType: media
+bundle: default
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_default: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

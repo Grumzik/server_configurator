@@ -1,0 +1,22 @@
+uuid: 0409a75f-a521-4ac4-9f73-13a572bf64d1
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.sh
+  module:
+    - text
+id: node.sh.field_description
+field_name: field_description
+entity_type: node
+bundle: sh
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

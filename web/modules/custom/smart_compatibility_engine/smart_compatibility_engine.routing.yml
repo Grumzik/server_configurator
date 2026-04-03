@@ -1,0 +1,6 @@
+smart_compatibility_engine.check_cpu:
+  path: '/smart-compatibility/check-cpu'
+  defaults:
+    _controller: 'Drupal\smart_compatibility_engine\Infrastructure\Controller\CpuCompatibilityController::check'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,25 @@
+uuid: b71488c4-b541-40f1-abaa-b75442f6e149
+langcode: ru
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:7cfedd8f-bc8a-4ede-b18a-a7172340c510'
+  module:
+    - block_content
+  theme:
+    - olivero
+id: jollyness_block_9
+theme: olivero
+region: footer_bottom
+weight: -18
+provider: null
+plugin: 'block_content:7cfedd8f-bc8a-4ede-b18a-a7172340c510'
+settings:
+  id: 'block_content:7cfedd8f-bc8a-4ede-b18a-a7172340c510'
+  label: ''
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

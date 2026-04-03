@@ -1,0 +1,24 @@
+{#
+Custom template for paragraph type "adds"
+Combines document link and title in one line.
+#}
+<div class="paragraph paragraph--type--adds">
+  {% set file = content.field_adds_file %}
+  {% set title = content.field_add_description %}
+  {% set file_link = content.field_adds_file|render|replace({'<a ': '<a target="_blank" rel="noopener noreferrer" '}) %}
+
+
+  {% if file and title %}
+    <div class="document-item d-flex align-items-center" >
+      <span class="document-link file file--mime-application-pdf file--application-pdf">{{ file_link|raw }}</span>
+      <span class="document-separator">   &nbsp; </span>
+      <span class="document-title">{{ title }}</span>
+
+
+    </div>
+  {% elseif file %}
+    <div class="document-item">{{ file }}</div>
+  {% elseif title %}
+    <div class="document-item">{{ title }}</div>
+  {% endif %}
+</div>

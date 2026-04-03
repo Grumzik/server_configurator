@@ -1,0 +1,35 @@
+uuid: f3efa977-ae82-4ff0-be33-0e770df0674e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - image_effects
+name: logo_200x100
+label: 'logo 200x100'
+effects:
+  2c2a3c95-6aff-4f3b-8df2-39619961f152:
+    uuid: 2c2a3c95-6aff-4f3b-8df2-39619961f152
+    id: image_scale
+    weight: 1
+    data:
+      width: 200
+      height: 100
+      upscale: true
+  9a85643b-fc80-449b-94f0-16b8dc918a55:
+    uuid: 9a85643b-fc80-449b-94f0-16b8dc918a55
+    id: image_effects_set_canvas
+    weight: 2
+    data:
+      canvas_size: exact
+      canvas_color: ''
+      exact:
+        width: '200'
+        height: '100'
+        placement: center-center
+        x_offset: 0
+        y_offset: 0
+      relative:
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0

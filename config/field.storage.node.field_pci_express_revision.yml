@@ -1,0 +1,33 @@
+uuid: ca234345-b924-4cb6-895f-9df73370c4b6
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_pci_express_revision
+field_name: field_pci_express_revision
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 3
+      label: 'PCIe 3.0'
+    -
+      value: 4
+      label: 'PCIe 4.0'
+    -
+      value: 5
+      label: 'PCIe 5.0'
+    -
+      value: 6
+      label: 'PCIe 6.0'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

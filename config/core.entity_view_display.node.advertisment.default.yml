@@ -1,0 +1,71 @@
+uuid: 5b15420f-bcfb-46b5-b680-20802d9db0ac
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.advertisment.body
+    - field.field.node.advertisment.field_closedate
+    - field.field.node.advertisment.field_complectation
+    - field.field.node.advertisment.field_description
+    - field.field.node.advertisment.field_image
+    - field.field.node.advertisment.field_in_block
+    - field.field.node.advertisment.field_metatag
+    - node.type.advertisment
+  module:
+    - datetime
+    - text
+    - user
+id: node.advertisment.default
+targetEntityType: node
+bundle: advertisment
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_closedate:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: dmy
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_complectation:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_in_block: true
+  field_metatag: true
+  langcode: true

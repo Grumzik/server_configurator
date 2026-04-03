@@ -1,0 +1,23 @@
+uuid: b071d169-da5b-4f4b-a87f-7e18f7313a73
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_configurator_id
+    - node.type.server2
+id: node.server2.field_configurator_id
+field_name: field_configurator_id
+entity_type: node
+bundle: server2
+label: configurator_id
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

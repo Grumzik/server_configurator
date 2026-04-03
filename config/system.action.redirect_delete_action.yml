@@ -1,0 +1,16 @@
+uuid: 1323a606-3498-4145-bd80-56997d3bc3a5
+langcode: ru
+status: true
+dependencies:
+  module:
+    - redirect
+  enforced:
+    module:
+      - redirect
+_core:
+  default_config_hash: vcnRZRvBqTbK3nZ2M4_lKPlEGc8GjPzgaqapYUfyX8M
+id: redirect_delete_action
+label: 'Удалить перенаправление'
+type: redirect
+plugin: redirect_delete_action
+configuration: {  }

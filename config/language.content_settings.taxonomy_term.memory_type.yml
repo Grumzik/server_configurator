@@ -1,0 +1,11 @@
+uuid: d05ef2c8-f8f7-41f2-96f5-ba5eafb3bf90
+langcode: ru
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.memory_type
+id: taxonomy_term.memory_type
+target_entity_type_id: taxonomy_term
+target_bundle: memory_type
+default_langcode: site_default
+language_alterable: false

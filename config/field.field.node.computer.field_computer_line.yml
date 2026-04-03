@@ -1,0 +1,26 @@
+uuid: 006befb5-268d-44fd-ac40-d188e43a2f18
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_computer_line
+    - node.type.computer
+    - taxonomy.vocabulary.computer_line
+id: node.computer.field_computer_line
+field_name: field_computer_line
+entity_type: node
+bundle: computer
+label: 'Серия компьютеров'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      computer_line: computer_line
+    sort:
+      field: _none
+field_type: entity_reference

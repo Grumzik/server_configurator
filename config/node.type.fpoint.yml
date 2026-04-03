@@ -1,0 +1,21 @@
+uuid: 92c37f7e-3a71-4994-9338-964ca223f647
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">fpoint</em> content'
+name: fpoint
+type: fpoint
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

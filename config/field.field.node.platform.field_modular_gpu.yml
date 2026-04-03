@@ -1,0 +1,19 @@
+uuid: 316c9e45-e0b3-4682-8930-f6295e73013f
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_modular_gpu
+    - node.type.platform
+id: node.platform.field_modular_gpu
+field_name: field_modular_gpu
+entity_type: node
+bundle: platform
+label: 'Modular GPU'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

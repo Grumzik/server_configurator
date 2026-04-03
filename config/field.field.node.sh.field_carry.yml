@@ -1,0 +1,19 @@
+uuid: 63c32d46-83f1-4360-b79a-55699b7fe72c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carry
+    - node.type.sh
+id: node.sh.field_carry
+field_name: field_carry
+entity_type: node
+bundle: sh
+label: Грузоподъемность
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

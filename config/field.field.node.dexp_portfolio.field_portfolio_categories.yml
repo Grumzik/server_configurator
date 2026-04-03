@@ -1,0 +1,26 @@
+uuid: f1871574-3fd5-4e62-8cde-25858dbf4117
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_portfolio_categories
+    - node.type.dexp_portfolio
+    - taxonomy.vocabulary.portfolio_category
+id: node.dexp_portfolio.field_portfolio_categories
+field_name: field_portfolio_categories
+entity_type: node
+bundle: dexp_portfolio
+label: Categories
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      portfolio_category: portfolio_category
+    sort:
+      field: _none
+field_type: entity_reference

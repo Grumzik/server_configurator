@@ -1,0 +1,23 @@
+uuid: dce671ca-5ef2-4d75-975c-dbbdbf5c8948
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cores
+    - node.type.cpu_intel
+id: node.cpu_intel.field_cores
+field_name: field_cores
+entity_type: node
+bundle: cpu_intel
+label: 'количество ядер'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

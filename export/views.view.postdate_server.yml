@@ -1,0 +1,151 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.server
+  module:
+    - node
+id: postdate_server
+label: postdate_server
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Defaults
+    display_plugin: default
+    position: 1
+    display_options:
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          plugin_id: field
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            external: false
+            replace_spaces: false
+            trim_whitespace: false
+            nl2br: false
+            word_boundary: true
+            ellipsis: true
+            strip_tags: false
+            trim: false
+            html: false
+          element_label_colon: true
+          element_default_classes: true
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          settings:
+            link_to_entity: 1
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          plugin_id: field
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            external: false
+            replace_spaces: false
+            trim_whitespace: false
+            nl2br: false
+            word_boundary: true
+            ellipsis: true
+            strip_tags: false
+            trim: false
+            html: false
+          element_label_colon: true
+          element_default_classes: true
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          settings:
+            date_format: medium
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+        options:
+          reset_button_label: Сбросить
+      access:
+        type: none
+      cache:
+        type: none
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          plugin_id: date
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            server: server
+      style:
+        type: table
+        options:
+          columns:
+            title: title
+            created: created
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+            created:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+          override: true
+          sticky: false
+          empty_table: false
+      query:
+        type: views_query
+        options: {  }
+      display_extenders: {  }
+      style_plugin: table
+      style_options:
+        columns:
+          title: title
+          created: created
+        default: '-1'
+        info:
+          title:
+            sortable: 0
+            default_sort_order: asc
+            align: ''
+            separator: ''
+          created:
+            sortable: 0
+            default_sort_order: asc
+            align: ''
+            separator: ''
+        override: 1
+        sticky: 0
+        empty_table: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+      tags: {  }

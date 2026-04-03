@@ -1,0 +1,57 @@
+uuid: 291800be-74f4-4e30-b5a4-edc6464a7812
+langcode: ru
+status: true
+dependencies: {  }
+id: footer
+label: footer
+code: |-
+  .page__footer{
+  	color: #fff;
+  }
+  .page__footer h2{
+  	font-size: 1.25rem;
+  }
+  .page__footer a{
+  	text-decoration: none;
+  }
+  .page__footer a:hover{
+  	color: #ff820e;
+  }  
+  .page__footer .nav .nav-link{
+  	padding: 0;
+  }
+  .page__footer ul {
+    list-style-type:  none;
+    padding-left: 0px;
+  }
+  .page__footer hr{
+  	background-color: #ff820e;
+  	color: #ff820e;
+  	opacity: 1;
+  	height: 1px;
+  } 
+
+  .page__foote p {
+    animation-duration: 3s;
+    animation-name: slidein;
+  }
+
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  .block-system-menu-blockmenu-bottom-m2, .block-block-content2994843c-dd23-4862-98ca-0447e957d621{
+  	width: 320px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

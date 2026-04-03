@@ -1,0 +1,31 @@
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_server_by_params
+    - node.type.server
+    - webform.webform.podbor_servera
+  module:
+    - webform
+id: node.server.field_server_by_params
+field_name: field_server_by_params
+entity_type: node
+bundle: server
+label: server_by_params
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: f10da0b3-c9ab-4068-b5ef-49c0a655d0c6
+    default_data: ''
+    status: open
+    open: ''
+    close: ''
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: webform

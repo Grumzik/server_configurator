@@ -1,0 +1,22 @@
+uuid: 20ebe96f-1163-403c-8db6-4b7b5db7fb26
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.san_controller
+  module:
+    - text
+id: node.san_controller.field_specification
+field_name: field_specification
+entity_type: node
+bundle: san_controller
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

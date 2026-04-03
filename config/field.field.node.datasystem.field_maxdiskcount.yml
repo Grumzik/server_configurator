@@ -1,0 +1,23 @@
+uuid: ad06cc76-362c-4e61-9fef-7ce4d0c97f36
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_maxdiskcount
+    - node.type.datasystem
+id: node.datasystem.field_maxdiskcount
+field_name: field_maxdiskcount
+entity_type: node
+bundle: datasystem
+label: 'Максимально дисков'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

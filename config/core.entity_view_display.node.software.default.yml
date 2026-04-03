@@ -1,0 +1,196 @@
+uuid: 6fda8478-24b2-44c3-b6c5-9bc499b7d259
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.software.field_adds
+    - field.field.node.software.field_description
+    - field.field.node.software.field_image
+    - field.field.node.software.field_keys
+    - field.field.node.software.field_metatag
+    - field.field.node.software.field_softwarevendor
+    - field.field.node.software.field_specification
+    - image.style.medium
+    - node.type.software
+  module:
+    - ds
+    - entity_reference_revisions
+    - field_group
+    - image
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked_fluid
+      library: ds/ds_2col_stacked_fluid
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        label: ''
+        classes:
+          layout_class:
+            container: container
+            software: software
+          header: {  }
+          left:
+            server-img: server-img
+          right: {  }
+          footer: {  }
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+    regions:
+      left:
+        - field_image
+      footer:
+        - field_specification
+        - field_adds
+        - field_description
+        - group_details_tabs
+        - group_opisanie
+        - group_specifikaciya
+        - group_dokumenty
+        - group_zapros_ceny
+      right:
+        - field_keys
+  field_group:
+    group_details_tabs:
+      children:
+        - group_opisanie
+        - group_specifikaciya
+        - group_dokumenty
+        - group_zapros_ceny
+      label: details_tabs
+      parent_name: ''
+      region: footer
+      weight: 20
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        direction: horizontal
+        width_breakpoint: 640
+    group_opisanie:
+      children:
+        - field_description
+      label: Описание
+      parent_name: group_details_tabs
+      region: footer
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_dokumenty:
+      children:
+        - field_adds
+      label: Документы
+      parent_name: group_details_tabs
+      region: footer
+      weight: 30
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_zapros_ceny:
+      children: {  }
+      label: 'Запрос цены'
+      parent_name: group_details_tabs
+      region: footer
+      weight: 40
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+    group_specifikaciya:
+      children:
+        - field_specification
+      label: Спецификация
+      parent_name: group_details_tabs
+      region: footer
+      weight: 25
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: true
+        formatter: open
+        description: ''
+id: node.software.default
+targetEntityType: node
+bundle: software
+mode: default
+content:
+  field_adds:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: footer
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: footer
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      ds:
+        ds_limit: ''
+    weight: 0
+    region: left
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: right
+  field_specification:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: footer
+hidden:
+  addtoany: true
+  field_metatag: true
+  field_softwarevendor: true
+  langcode: true
+  links: true

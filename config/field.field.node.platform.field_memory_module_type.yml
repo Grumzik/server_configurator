@@ -1,0 +1,29 @@
+uuid: 44959cea-acb3-4e3d-a553-71eb0662be0d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_memory_module_type
+    - node.type.platform
+    - taxonomy.vocabulary.memory_module_type
+id: node.platform.field_memory_module_type
+field_name: field_memory_module_type
+entity_type: node
+bundle: platform
+label: 'Memory Module Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      memory_module_type: memory_module_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

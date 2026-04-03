@@ -1,0 +1,67 @@
+uuid: 99637a0f-4e45-456e-9638-28b5eed782b5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.datasystem.field_adds
+    - field.field.node.datasystem.field_connectioncount
+    - field.field.node.datasystem.field_controllercount
+    - field.field.node.datasystem.field_description
+    - field.field.node.datasystem.field_diskcount
+    - field.field.node.datasystem.field_disktypes
+    - field.field.node.datasystem.field_image
+    - field.field.node.datasystem.field_interface
+    - field.field.node.datasystem.field_keys
+    - field.field.node.datasystem.field_maxdiskcount
+    - field.field.node.datasystem.field_metatag
+    - field.field.node.datasystem.field_model
+    - field.field.node.datasystem.field_os
+    - field.field.node.datasystem.field_specification
+    - field.field.node.datasystem.field_vendor
+    - node.type.datasystem
+  module:
+    - text
+    - user
+id: node.datasystem.teaser
+targetEntityType: node
+bundle: datasystem
+mode: teaser
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_keys:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_adds: true
+  field_connectioncount: true
+  field_controllercount: true
+  field_description: true
+  field_diskcount: true
+  field_disktypes: true
+  field_interface: true
+  field_maxdiskcount: true
+  field_metatag: true
+  field_model: true
+  field_os: true
+  field_specification: true
+  field_vendor: true
+  langcode: true

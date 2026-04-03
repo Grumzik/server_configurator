@@ -1,0 +1,23 @@
+uuid: 1a4e6972-d39a-42fd-aad3-83081b730826
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vtd
+    - node.type.cpu_intel
+id: node.cpu_intel.field_vtd
+field_name: field_vtd
+entity_type: node
+bundle: cpu_intel
+label: VTD
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

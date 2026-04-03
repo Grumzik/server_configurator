@@ -1,0 +1,19 @@
+uuid: 0740b02f-9606-4592-9c3a-dd9957a4b8a4
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_power_supply
+field_name: field_power_supply
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

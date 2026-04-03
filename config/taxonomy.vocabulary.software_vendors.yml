@@ -1,0 +1,9 @@
+uuid: 2a75e39a-7871-4ef0-9af6-1258e0fe8afd
+langcode: ru
+status: true
+dependencies: {  }
+name: software_vendors
+vid: software_vendors
+description: null
+weight: 0
+new_revision: false

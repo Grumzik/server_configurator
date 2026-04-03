@@ -1,0 +1,69 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link URL, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+
+
+
+<div  class="mOpen menu-wrapper special-con position-fixed d-none d-lg-flex flex-column align-items-center justify-content-center" style="bottom:0;padding-bottom:6.8vw;padding-top:6.8vw;top:0;width:5vw;">
+
+
+    <div id="tissidemenu"   class="hamburger d-flex flex-column align-items-center justify-content" >
+      <div class="navbar-offcanvas navbar-offcanvas-touch" id="js-bootstrap-offcanvas"  >
+
+        {%
+          include 'tiscom_radix:offcanvas' with {
+          offcanvas_title_tag: "h4",
+          offcanvas_title: "",
+          offcanvas_id: "tismenu1",
+          offcanvas_content: "Боковое меню",
+          offcanvas_button_content: "МЕНЮ",
+          offcanvas_button_utility_classes: [
+             'color-white'
+          ],
+          close_button: true,
+          body_scrolling: false,
+          offcanvas_utility_classes: [
+          ],
+          offcanvas_content_utility_classes: [
+          'offcanvas-xxl'
+          ]
+        }
+        %}
+      </div>
+      <div style="width:27px;">
+        <div class="me-3 w-100" style="transform:scale(0.5) rotate(90deg);">
+
+          <div class="bar arrow-top-fall" style="width:30px;">
+            &nbsp
+          </div>
+          <div class="bar arrow-middle-fall" style="width:30px;">
+            &nbsp;
+          </div>
+          <div class="bar arrow-bottom-fall" style="width:30px;">
+            &nbsp;
+          </div>
+
+        </div>
+      </div>
+      <a data-bs-toggle="offcanvas" href="#tismenu1" role="button" aria-controls="tismenu1"  style="position:absolute;  top: 0; left: 0; width: 100%; height: 100%;"></a>
+
+  </div>
+
+</div>

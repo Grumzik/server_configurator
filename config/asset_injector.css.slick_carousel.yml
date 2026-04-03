@@ -1,0 +1,121 @@
+uuid: 9bcdcdba-9051-4b9f-be79-d5e90df00efb
+langcode: ru
+status: true
+dependencies: {  }
+id: slick_carousel
+label: 'slick carousel'
+code: |-
+  .slide__grid .grid__content{
+  	padding: 20px;
+  }
+
+
+  .block--tiscom-radix-slider{
+  	height: 700px;
+  	width: auto;
+  }
+
+  .block--tiscom-radix-slider .carousel-caption{
+      position: absolute;
+      height:100%; 
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+  }   
+  .block--tiscom-radix-slider .carousel-caption h3, .block--tiscom-radix-slider .carousel-caption h4{
+  	  display: inline-block;
+  		margin: 0 !important;
+  		padding: 0 !important;
+  }
+  #carousel--56 img{
+  		filter: brightness(40%);
+  		width: 100% !important;
+  }
+
+
+  #carousel--79 img,   #carousel--86 img, #carousel--88 img{
+  	width: auto; 
+    height: 600px;   
+    display: block;   
+  }
+
+
+
+  @media (min-width: 576px) { 
+   	#carousel--84 {
+  		width: 350px; 
+  		height: 200px;
+  		overflow: hidden;
+  	}
+  }
+
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) { 
+  	 	#carousel--84 {
+  		width: 550px; 
+  		height: 400px;
+  		overflow: hidden;
+  	}
+  }
+
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) {  	 
+  	#carousel--84 {
+  		width: 750px; 
+  		height: 600px;
+  		overflow: hidden;
+  	}}
+   
+  .slick-slide{
+  	border: 1px solid #ccc !important;
+  	border-radius: 10px !important;
+  	padding: 5px;
+  }
+      
+  .slide__thumbnail img{
+  	margin: auto auto;
+  }
+
+  .slick--thumbnail.slick--skin--asnavfor .slick-list,
+  .slick-list.draggable,
+  .slick--thumbnail.slick--skin--asnavfor .slick-track{
+  	padding: 5px !important;
+  }
+
+  .slick--optionset--server-thumbnail-carousel .slick-slide{
+  	margin: 5px;
+  }
+
+  .slick--optionset--server-thumbnail-carousel .slick-slide.slick-current{
+  	border: 1px solid #5C6C81 !important;
+  }
+
+  .slick--optionset--server-thumbnail-carousel .slick__slide img,
+  .slick--optionset--server-thumbnail-carousel .slick-slide img{
+      max-height: 100px !important;
+      max-width: 100px !important;
+  }    
+
+  .slick-slide img {
+        max-width: 100%; /* Изображение не будет выходить за пределы родителя */
+        height: auto;    /* Сохраняет пропорции при масштабировании */
+        display: block; /* Важно для некоторых методов центрирования и удаления нижнего отступа */
+    }
+    
+   .slick--optionset--server-carousel .slick-slide {
+          display: flex !important;           /* Превращаем слайд в flex-контейнер */
+          justify-content: center; /* Центрируем содержимое по горизонтали */
+          align-items: center;     /* Центрируем содержимое по вертикали */
+   }  
+
+  	
+      
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

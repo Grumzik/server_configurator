@@ -1,0 +1,44 @@
+uuid: b7d2c2d6-7075-413b-9cf6-38e3a48e642d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.hcici.body
+    - field.field.node.hcici.field_adds
+    - field.field.node.hcici.field_description
+    - field.field.node.hcici.field_image
+    - field.field.node.hcici.field_keys
+    - field.field.node.hcici.field_metatag
+    - field.field.node.hcici.field_vendor
+    - node.type.hcici
+  module:
+    - text
+    - user
+id: node.hcici.teaser
+targetEntityType: node
+bundle: hcici
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_adds: true
+  field_description: true
+  field_image: true
+  field_keys: true
+  field_metatag: true
+  field_vendor: true
+  langcode: true

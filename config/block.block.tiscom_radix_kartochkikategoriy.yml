@@ -1,0 +1,25 @@
+uuid: d5678768-4a29-4040-ab82-d23e16352f28
+langcode: ru
+status: false
+dependencies:
+  content:
+    - 'block_content:cards:e14b286f-baea-4b17-8295-139898aa99a7'
+  module:
+    - block_content
+  theme:
+    - tiscom_radix
+id: tiscom_radix_kartochkikategoriy
+theme: tiscom_radix
+region: content
+weight: -7
+provider: null
+plugin: 'block_content:e14b286f-baea-4b17-8295-139898aa99a7'
+settings:
+  id: 'block_content:e14b286f-baea-4b17-8295-139898aa99a7'
+  label: 'Карточки категорий'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

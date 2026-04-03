@@ -1,0 +1,25 @@
+uuid: dc6a3cc8-f8c5-4e94-9f39-9492a3d8b619
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.features
+  module:
+    - system
+  theme:
+    - claro
+id: seven_menu_features
+theme: claro
+region: content
+weight: 32
+provider: null
+plugin: 'system_menu_block:features'
+settings:
+  id: broken
+  label: ''
+  label_display: '0'
+  provider: core
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

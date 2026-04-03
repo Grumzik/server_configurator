@@ -1,0 +1,306 @@
+uuid: d492d381-6951-488a-8b2c-559c979bc19d
+langcode: ru
+status: true
+dependencies: {  }
+id: about
+label: about
+code: |+
+  @media (min-width: 992px) {
+      .grid-line {
+          display: block;
+          position: fixed;
+          z-index: 6;
+          min-height: 100%;
+          margin: 0;
+          background-color: rgba(197, 197, 197, .42);
+          width: 1px;
+          height: 100%;
+          border: 0;
+          opacity: 1;
+      }
+  }
+  @media (min-width: 992px) {
+      .grid-line--right {
+          right: 10vw;
+      }
+  }
+  @media (min-width: 992px) {
+      .grid-line--center {
+          z-index: 1;
+          left: 50%;
+          margin-top: 6.8vw !important;
+      }
+  }
+  @media (min-width: 992px) {
+      .grid-line--left {
+          left: 10vw;
+      }
+  }
+  .h___line {
+      width: 180px;
+      height: 5px;
+      background: #FF820E;
+      margin-bottom: .6rem;
+      max-width: 100%;
+  }
+  .w-6 {
+      width: 6rem !important;
+  }
+  @media (min-width: 992px) {
+      .mb-lg-5 {
+          margin-bottom: 3rem !important;
+      }
+  }
+  @media (min-width: 992px) {
+      .mt-lg-5 {
+          margin-top: 3rem !important;
+      }
+  }
+  .mb-4 {
+      margin-bottom: 1.5rem !important;
+  }
+
+
+
+  @media (min-width: 1400px) {
+      .nys {
+          width: 120vw;
+      }
+  }
+
+  @media (min-width: 1200px) {
+      .nys {
+          width: 136vw;
+      }
+  }
+  @media (min-width: 992px) {
+      .nys {
+          width: 122vw;
+          margin-top: -34px;
+      }
+  }
+  @media (min-width: 768px) {
+      .nys {
+          width: 164vw;
+      }
+  }
+  @media (min-width: 576px) {
+      .nys {
+          width: 240vw;
+      }
+  }
+  .nys {
+      width: 317vw;
+  }
+
+
+  .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+      bottom: 10px;
+      left: 0;
+      width: 100%;
+  }
+
+  .swiper-pagination {
+      display: flex
+  ;
+      justify-content: space-between !important;
+  }
+  .w-100 {
+      width: 100% !important;
+  }
+  .position-relative {
+      position: relative !important;
+  }
+  .swiper-pagination {
+      position: absolute;
+      text-align: center;
+      transition: .3s opacity;
+      transform: translate3d(0, 0, 0);
+      z-index: 10;
+  }
+
+  .swiper-container-android .swiper-slide, .swiper-wrapper {
+      transform: translate3d(0px, 0, 0);
+  }
+
+  .swiper-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: flex
+  ;
+      transition-property: transform;
+      box-sizing: content-box;
+  }
+
+
+
+
+  .fs-085 {
+      font-size: .85rem !important
+  }
+
+  .font-weight-100 {
+      font-weight: 100 !important
+  }
+
+  .font-weight-200 {
+      font-weight: 200 !important
+  }
+
+  .font-weight-300 {
+      font-weight: 300 !important
+  }
+
+  .font-weight-400 {
+      font-weight: 400 !important
+  }
+
+  .font-weight-500 {
+      font-weight: 500 !important
+  }
+
+  .font-weight-600 {
+      font-weight: 600 !important
+  }
+
+  .font-weight-700 {
+      font-weight: 700 !important
+  }
+
+  .font-weight-800 {
+      font-weight: 800 !important
+  }
+
+  .font-weight-900 {
+      font-weight: 900 !important
+  }
+
+  .bgg {
+      background-color: #f9f9f9 !important;
+  }
+
+  .border-bottom, .border-left, .border-right, .border-top, .border {
+      border-color: rgba(197, 197, 197, .42) !important;
+  }
+  .border-bottom {
+      border-bottom: 1px solid rgba(197, 197, 197, .42) !important;
+  }
+
+  .border-left {
+      border-left: 1px solid rgba(197,197,197,.42) !important
+  }
+
+  .border-right {
+      border-right: 1px solid rgba(197,197,197,.42) !important
+  }
+  .border-between>* {
+      position: relative;
+  }
+
+  .border-between>*:before {
+      background: rgba(197,197,197,.42) !important;
+      bottom: 0;
+      content: " ";
+      left: 0;
+      position: absolute;
+      width: 1px;
+      top: 0;
+      z-index: 1
+  }
+
+  .border-between.notxs>*:before {
+      width: 0
+  }
+
+  .border-between>*:first-child:before {
+      display: none
+  }
+
+  .about ul {
+      list-style-type: inherit;
+  }
+  .about ul li::marker {
+      color: #FF820E;
+  }
+
+  .client-logo h3{
+  	margin-top: 3rem;
+  }
+
+
+
+
+
+
+
+  /* тест стилей*/
+
+  /* 1. Делаем контейнер гибким (Flexbox) */
+  .industry-section .icon-box-content {
+      display: flex; /* Активируем Flexbox */
+      align-items: center; /* Выравниваем элементы по центру по вертикали */
+      gap: 20px; /* Добавляем отступ между иконкой и текстом */
+      /* Можно добавить min-height, если содержимое может быть очень маленьким,
+         чтобы блок не схлопывался, или чтобы все блоки были одинаковой высоты */
+      /* min-height: 120px; */
+  }
+
+  /* 2. Стилизация контейнера для иконки (левая треть) */
+  .industry-section .icon-box-content .highlight-icon {
+      flex-basis: 10%; /* Занимает 20% ширины родителя */
+      flex-shrink: 0; /* Запрещаем элементу сжиматься, если не хватает места */
+      display: flex; /* Снова Flexbox, чтобы центрировать кружок внутри */
+      justify-content: center; /* Центрируем по горизонтали */
+      align-items: center; /* Центрируем по вертикали */
+  }
+
+  /* 3. Стилизация круга и его фона */
+  .industry-section .icon-box-content .highlight-icon .icon-inner {
+      background-color: white !important; /* Белый фон для круга. !important может понадобиться,
+                                            если есть более специфичные стили темы. */
+      border-radius: 50%; /* Делаем элемент круглым */
+      overflow: hidden; /* Обрезаем все, что выходит за границы круга */
+      display: flex; /* И снова Flexbox, чтобы центрировать само изображение внутри круга */
+      justify-content: center;
+      align-items: center;
+      /* Определяем фиксированный размер для круга, чтобы он был квадратным перед закруглением. */
+      /* Можно настроить этот размер под ваш дизайн. */
+      width: 70px; /* Например, 100px */
+      height: 70px; /* И 100px */
+      padding: 15px; /* Небольшой отступ внутри круга, чтобы иконка не прилипала к краю */
+      border: 1px solid #eee; /* Опционально: легкая серая рамка, если не устраивает i-border-theme */
+
+      /* Могут быть конфликты с классами fa-stack, bg-theme, color-white, icon,
+         если они имеют сильные стили для фона или размера.
+         Если круг не получается или фон не меняется, возможно,
+         придется переопределить стили этих классов или удалить их из HTML,
+         если они не используются для Font Awesome и только мешают. */
+  }
+
+  /* 4. Стилизация изображения внутри круга */
+  .industry-section .icon-box-content .highlight-icon .icon-inner img {
+      display: block; /* Убираем возможный лишний пробел под изображением */
+      max-width: 100%; /* Гарантируем, что изображение не выйдет за пределы своего родителя */
+      max-height: 100%; /* Гарантируем, что изображение не выйдет за пределы своего родителя */
+      object-fit: contain; /* Масштабирует изображение, чтобы оно поместилось в контейнер,
+                               сохраняя пропорции и не обрезая. Если нужно заполнить круг,
+                               обрезая части изображения, используйте 'cover'. */
+      margin: 15px;                         
+  }
+
+  /* 5. Стилизация заголовка (правые две трети) */
+  .industry-section .icon-box-content h2 {
+      flex-basis: 80%; /* Занимает 70% ширины родителя */
+      flex-grow: 1; /* Разрешаем элементу растягиваться, заполняя оставшееся пространство */
+      margin: 0; /* Удаляем стандартные отступы у h2 для лучшего выравнивания */
+      text-align: left; /* Убеждаемся, что текст выравнивается по левому краю внутри своей части */
+  }
+
+
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

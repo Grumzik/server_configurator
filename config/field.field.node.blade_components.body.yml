@@ -1,0 +1,24 @@
+uuid: a59c7ad1-e6ac-4749-8584-23db26b6dae7
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.blade_components
+  module:
+    - text
+id: node.blade_components.body
+field_name: body
+entity_type: node
+bundle: blade_components
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

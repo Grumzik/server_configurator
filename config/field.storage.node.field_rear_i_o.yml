@@ -1,0 +1,19 @@
+uuid: 4bfa0901-7e6f-48db-88b0-b702f657b5e0
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_rear_i_o
+field_name: field_rear_i_o
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

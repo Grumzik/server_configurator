@@ -1,0 +1,10 @@
+uuid: 87f9275d-0458-4cb8-bc3c-576ee3db7a41
+langcode: ru
+status: true
+dependencies: {  }
+id: node__certificate
+label: 'Содержимое: certificate'
+tags:
+  description: 'Сертификат [node:title]'
+  keywords: '[node:title], сертификат'
+  title: '[node:title] | [current-page:pager][site:name]'

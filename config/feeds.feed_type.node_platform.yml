@@ -1,0 +1,714 @@
+uuid: 1318834e-1b06-4192-b482-5e29b99e6531
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.platform.field_architecture
+    - field.field.node.platform.field_backplane_board
+    - field.field.node.platform.field_ccu_tdp
+    - field.field.node.platform.field_chipset
+    - field.field.node.platform.field_cpu_generation
+    - field.field.node.platform.field_cpu_notes
+    - field.field.node.platform.field_cpu_socket_count
+    - field.field.node.platform.field_form_factor
+    - field.field.node.platform.field_front_i_o
+    - field.field.node.platform.field_lan
+    - field.field.node.platform.field_lan_ports
+    - field.field.node.platform.field_lan_ports_speed
+    - field.field.node.platform.field_memory_module_type
+    - field.field.node.platform.field_memory_notes
+    - field.field.node.platform.field_memory_slots_total
+    - field.field.node.platform.field_memory_speed_1dpc
+    - field.field.node.platform.field_memory_speed_2dpc
+    - field.field.node.platform.field_memory_type
+    - field.field.node.platform.field_modular_gpu
+    - field.field.node.platform.field_motherboard
+    - field.field.node.platform.field_operating_properties
+    - field.field.node.platform.field_os_certifications
+    - field.field.node.platform.field_os_compatibility
+    - field.field.node.platform.field_packaging_content
+    - field.field.node.platform.field_packaging_dimensions
+    - field.field.node.platform.field_part_numbers
+    - field.field.node.platform.field_pcie_expansion_slots
+    - field.field.node.platform.field_pcie_slots_count
+    - field.field.node.platform.field_pcie_slots_type
+    - field.field.node.platform.field_platform_storage
+    - field.field.node.platform.field_platform_video
+    - field.field.node.platform.field_power_supply
+    - field.field.node.platform.field_psu_efficiency
+    - field.field.node.platform.field_psu_power
+    - field.field.node.platform.field_psu_type
+    - field.field.node.platform.field_raid
+    - field.field.node.platform.field_rear_i_o
+    - field.field.node.platform.field_sas
+    - field.field.node.platform.field_security_modules
+    - field.field.node.platform.field_sockettype
+    - field.field.node.platform.field_storage_bays
+    - field.field.node.platform.field_storage_drive_types
+    - field.field.node.platform.field_storage_form_factor
+    - field.field.node.platform.field_system_fans
+    - field.field.node.platform.field_system_management
+    - field.field.node.platform.field_weight
+    - node.type.platform
+  module:
+    - feeds_log
+    - feeds_tamper
+    - node
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+  feeds_tamper:
+    tampers:
+      e973a3ec-e028-4002-9103-286fdadc118c:
+        separator: '|'
+        limit: null
+        uuid: e973a3ec-e028-4002-9103-286fdadc118c
+        plugin: explode
+        source: cpu_generations
+        weight: 0
+        label: Explode
+      6b0daa02-2193-4022-940c-68461e9832bc:
+        separator: '|'
+        limit: null
+        uuid: 6b0daa02-2193-4022-940c-68461e9832bc
+        plugin: explode
+        source: memory_module_type
+        weight: 0
+        label: Explode
+      85d064af-cb07-4ce1-aa7f-87f33b672c5b:
+        separator: '|'
+        limit: null
+        uuid: 85d064af-cb07-4ce1-aa7f-87f33b672c5b
+        plugin: explode
+        source: storage_drive_types
+        weight: 0
+        label: Explode
+      759ec714-4ad4-4359-83f7-6fc30b1b54f8:
+        separator: '|'
+        limit: null
+        uuid: 759ec714-4ad4-4359-83f7-6fc30b1b54f8
+        plugin: explode
+        source: pcie_slots_type
+        weight: 0
+        label: Explode
+label: 'NODE Platform'
+id: node_platform
+description: ''
+help: ''
+import_period: -1
+import_period_per_feed: false
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: platform
+  langcode: ru
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  platform:
+    value: Platform
+    label: Platform
+    machine_name: platform
+    type: csv
+  form_factor:
+    value: Form_Factor
+    label: Form_Factor
+    machine_name: form_factor
+    type: csv
+  motherboard:
+    value: Motherboard
+    label: Motherboard
+    machine_name: motherboard
+    type: csv
+  cpu_generations:
+    value: CPU_Generations
+    label: CPU_Generations
+    machine_name: cpu_generations
+    type: csv
+  architecture:
+    value: Architecture
+    label: Architecture
+    machine_name: architecture
+    type: csv
+  cpu_sockets:
+    value: CPU_Sockets
+    label: CPU_Sockets
+    machine_name: cpu_sockets
+    type: csv
+  cpu_notes:
+    value: CPU_Notes
+    label: CPU_Notes
+    machine_name: cpu_notes
+    type: csv
+  socketscount:
+    value: socketsCount
+    label: socketsCount
+    machine_name: socketscount
+    type: csv
+  sockettype:
+    value: socketType
+    label: socketType
+    machine_name: sockettype
+    type: csv
+  chipset:
+    value: Chipset
+    label: Chipset
+    machine_name: chipset
+    type: csv
+  memory_raw:
+    value: Memory_Raw
+    label: Memory_Raw
+    machine_name: memory_raw
+    type: csv
+  memory_slots_total:
+    value: Memory_Slots_Total
+    label: Memory_Slots_Total
+    machine_name: memory_slots_total
+    type: csv
+  memory_type:
+    value: Memory_Type
+    label: Memory_Type
+    machine_name: memory_type
+    type: csv
+  memory_module_type:
+    value: Memory_Module_Type
+    label: Memory_Module_Type
+    machine_name: memory_module_type
+    type: csv
+  memory_max_speed_1dpc:
+    value: Memory_Max_Speed_1DPC
+    label: Memory_Max_Speed_1DPC
+    machine_name: memory_max_speed_1dpc
+    type: csv
+  memory_max_speed_2dpc:
+    value: Memory_Max_Speed_2DPC
+    label: Memory_Max_Speed_2DPC
+    machine_name: memory_max_speed_2dpc
+    type: csv
+  lan:
+    value: LAN
+    label: LAN
+    machine_name: lan
+    type: csv
+  lan_ports:
+    value: LAN_Ports
+    label: LAN_Ports
+    machine_name: lan_ports
+    type: csv
+  video:
+    value: Video
+    label: Video
+    machine_name: video
+    type: csv
+  storage:
+    value: Storage
+    label: Storage
+    machine_name: storage
+    type: csv
+  storage_bays:
+    value: Storage_Bays
+    label: Storage_Bays
+    machine_name: storage_bays
+    type: csv
+  storage_form_factor:
+    value: Storage_Form_Factor
+    label: Storage_Form_Factor
+    machine_name: storage_form_factor
+    type: csv
+  storage_drive_types:
+    value: Storage_Drive_Types
+    label: Storage_Drive_Types
+    machine_name: storage_drive_types
+    type: csv
+  sas:
+    value: SAS
+    label: SAS
+    machine_name: sas
+    type: csv
+  raid:
+    value: RAID
+    label: RAID
+    machine_name: raid
+    type: csv
+  modular_gpu:
+    value: 'Modular GPU'
+    label: 'Modular GPU'
+    machine_name: modular_gpu
+    type: csv
+  pcie_expansion_slots:
+    value: 'PCIe Expansion Slots'
+    label: 'PCIe Expansion Slots'
+    machine_name: pcie_expansion_slots
+    type: csv
+  pcie_slots_count:
+    value: PCIe_Slots_Count
+    label: PCIe_Slots_Count
+    machine_name: pcie_slots_count
+    type: csv
+  pcie_slots_type:
+    value: PCIe_Slots_Type
+    label: PCIe_Slots_Type
+    machine_name: pcie_slots_type
+    type: csv
+  front_i_o:
+    value: 'Front I/O'
+    label: 'Front I/O'
+    machine_name: front_i_o
+    type: csv
+  rear_i_o:
+    value: 'Rear I/O'
+    label: 'Rear I/O'
+    machine_name: rear_i_o
+    type: csv
+  backplane_board:
+    value: 'Backplane Board'
+    label: 'Backplane Board'
+    machine_name: backplane_board
+    type: csv
+  security_modules:
+    value: 'Security Modules'
+    label: 'Security Modules'
+    machine_name: security_modules
+    type: csv
+  power_supply:
+    value: 'Power Supply'
+    label: 'Power Supply'
+    machine_name: power_supply
+    type: csv
+  psu_type:
+    value: PSU_Type
+    label: PSU_Type
+    machine_name: psu_type
+    type: csv
+  psu_power_w:
+    value: PSU_Power_W
+    label: PSU_Power_W
+    machine_name: psu_power_w
+    type: csv
+  psu_efficiency:
+    value: PSU_Efficiency
+    label: PSU_Efficiency
+    machine_name: psu_efficiency
+    type: csv
+  system_management:
+    value: 'System Management'
+    label: 'System Management'
+    machine_name: system_management
+    type: csv
+  os_compatibility:
+    value: 'OS Compatibility'
+    label: 'OS Compatibility'
+    machine_name: os_compatibility
+    type: csv
+  system_fans:
+    value: 'System Fans'
+    label: 'System Fans'
+    machine_name: system_fans
+    type: csv
+  operating_properties:
+    value: 'Operating Properties'
+    label: 'Operating Properties'
+    machine_name: operating_properties
+    type: csv
+  packaging_dimensions:
+    value: 'Packaging Dimensions'
+    label: 'Packaging Dimensions'
+    machine_name: packaging_dimensions
+    type: csv
+  packaging_content:
+    value: 'Packaging Content'
+    label: 'Packaging Content'
+    machine_name: packaging_content
+    type: csv
+  part_numbers:
+    value: 'Part Numbers'
+    label: 'Part Numbers'
+    machine_name: part_numbers
+    type: csv
+  os_certifications:
+    value: 'OS Certifications'
+    label: 'OS Certifications'
+    machine_name: os_certifications
+    type: csv
+  weight:
+    value: Weight
+    label: Weight
+    machine_name: weight
+    type: csv
+  cpu_max_tdp_w:
+    value: CPU_Max_TDP_W
+    label: CPU_Max_TDP_W
+    machine_name: cpu_max_tdp_w
+    type: csv
+  lan_info:
+    value: LAN_Info
+    label: LAN_Info
+    machine_name: lan_info
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: platform
+    settings:
+      language: null
+    unique:
+      value: 1
+  -
+    target: field_form_factor
+    map:
+      target_id: form_factor
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: form_factor
+  -
+    target: field_architecture
+    map:
+      target_id: architecture
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: architecture
+  -
+    target: field_motherboard
+    map:
+      target_id: motherboard
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: motherboard
+  -
+    target: field_cpu_generation
+    map:
+      target_id: cpu_generations
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: cpu_generation
+  -
+    target: field_cpu_notes
+    map:
+      value: cpu_notes
+    settings:
+      language: null
+  -
+    target: field_cpu_socket_count
+    map:
+      value: socketscount
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_sockettype
+    map:
+      target_id: sockettype
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: sockettype
+  -
+    target: field_chipset
+    map:
+      target_id: chipset
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: chipset
+  -
+    target: field_memory_notes
+    map:
+      value: memory_raw
+    settings:
+      language: null
+  -
+    target: field_memory_slots_total
+    map:
+      value: memory_slots_total
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_memory_type
+    map:
+      target_id: memory_type
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      autocreate_bundle: memory_type
+  -
+    target: field_memory_module_type
+    map:
+      target_id: memory_module_type
+    settings:
+      language: null
+      reference_by: name
+      autocreate: false
+      autocreate_bundle: memory_module_type
+  -
+    target: field_memory_speed_1dpc
+    map:
+      value: memory_max_speed_1dpc
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_memory_speed_2dpc
+    map:
+      value: memory_max_speed_2dpc
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lan
+    map:
+      value: lan
+    settings:
+      language: null
+  -
+    target: field_lan_ports
+    map:
+      value: lan_ports
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_platform_video
+    map:
+      value: video
+    settings:
+      language: null
+  -
+    target: field_platform_storage
+    map:
+      value: storage
+    settings:
+      language: null
+  -
+    target: field_storage_bays
+    map:
+      value: storage_bays
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_storage_form_factor
+    map:
+      value: storage_form_factor
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_storage_drive_types
+    map:
+      target_id: storage_drive_types
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: storage_drive_types
+  -
+    target: field_sas
+    map:
+      value: sas
+    settings:
+      language: null
+  -
+    target: field_raid
+    map:
+      value: raid
+    settings:
+      language: null
+  -
+    target: field_modular_gpu
+    map:
+      value: modular_gpu
+    settings:
+      language: null
+  -
+    target: field_pcie_expansion_slots
+    map:
+      value: pcie_expansion_slots
+    settings:
+      language: null
+  -
+    target: field_pcie_slots_count
+    map:
+      value: pcie_slots_count
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_pcie_slots_type
+    map:
+      target_id: pcie_slots_type
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: pcie_slots_type
+  -
+    target: field_front_i_o
+    map:
+      value: front_i_o
+    settings:
+      language: null
+  -
+    target: field_rear_i_o
+    map:
+      value: rear_i_o
+    settings:
+      language: null
+  -
+    target: field_backplane_board
+    map:
+      value: backplane_board
+    settings:
+      language: null
+  -
+    target: field_security_modules
+    map:
+      value: security_modules
+    settings:
+      language: null
+  -
+    target: field_power_supply
+    map:
+      value: power_supply
+    settings:
+      language: null
+  -
+    target: field_psu_type
+    map:
+      target_id: psu_type
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: psu_type
+  -
+    target: field_psu_power
+    map:
+      value: psu_power_w
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_psu_efficiency
+    map:
+      target_id: psu_efficiency
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: psu_efficiency
+  -
+    target: field_system_management
+    map:
+      value: system_management
+    settings:
+      language: null
+  -
+    target: field_os_compatibility
+    map:
+      value: os_compatibility
+    settings:
+      language: null
+  -
+    target: field_system_fans
+    map:
+      value: system_fans
+    settings:
+      language: null
+  -
+    target: field_operating_properties
+    map:
+      value: operating_properties
+    settings:
+      language: null
+  -
+    target: field_packaging_dimensions
+    map:
+      target_id: packaging_dimensions
+    settings:
+      language: ''
+      reference_by: name
+      autocreate: 1
+      autocreate_bundle: packaging_dimensions
+  -
+    target: field_packaging_content
+    map:
+      value: packaging_content
+    settings:
+      language: null
+  -
+    target: field_part_numbers
+    map:
+      value: part_numbers
+    settings:
+      language: null
+  -
+    target: field_os_certifications
+    map:
+      value: os_certifications
+    settings:
+      language: null
+  -
+    target: field_weight
+    map:
+      value: weight
+    settings:
+      language: null
+  -
+    target: field_ccu_tdp
+    map:
+      value: cpu_max_tdp_w
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lan_ports_speed
+    map:
+      value: lan_info
+    settings:
+      language: null
+    unique: {  }

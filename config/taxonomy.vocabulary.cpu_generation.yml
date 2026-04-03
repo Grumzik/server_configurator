@@ -1,0 +1,9 @@
+uuid: 575fc599-08e3-4882-be00-145824c395fa
+langcode: und
+status: true
+dependencies: {  }
+name: cpu_generation
+vid: cpu_generation
+description: null
+weight: 0
+new_revision: false

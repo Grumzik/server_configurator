@@ -1,0 +1,31 @@
+uuid: 2634e0a4-05f0-449c-938f-e1c71afbf82b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.cpu_generation.field_vendor
+    - taxonomy.vocabulary.cpu_generation
+  module:
+    - text
+id: taxonomy_term.cpu_generation.default
+targetEntityType: taxonomy_term
+bundle: cpu_generation
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_vendor:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

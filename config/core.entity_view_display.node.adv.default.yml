@@ -1,0 +1,43 @@
+uuid: 45d9f488-2956-4783-b712-e16454252ae0
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.adv.body
+    - field.field.node.adv.field_image
+    - node.type.adv
+  module:
+    - image
+    - text
+    - user
+id: node.adv.default
+targetEntityType: node
+bundle: adv
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

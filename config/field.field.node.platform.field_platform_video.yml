@@ -1,0 +1,19 @@
+uuid: 005dd5a7-c17f-4b3d-a2aa-77491e6b98d5
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_platform_video
+    - node.type.platform
+id: node.platform.field_platform_video
+field_name: field_platform_video
+entity_type: node
+bundle: platform
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

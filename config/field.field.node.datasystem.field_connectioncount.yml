@@ -1,0 +1,21 @@
+uuid: 00ebb767-d485-40ff-947f-39f5d959c301
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_connectioncount
+    - node.type.datasystem
+  module:
+    - options
+id: node.datasystem.field_connectioncount
+field_name: field_connectioncount
+entity_type: node
+bundle: datasystem
+label: 'Количество соединений'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

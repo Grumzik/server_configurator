@@ -1,0 +1,20 @@
+uuid: a86ce7d0-55d6-46b1-9e02-a412f39a297c
+langcode: ru
+status: true
+dependencies:
+  theme:
+    - tiscom_radix
+_core:
+  default_config_hash: j-3ilgfN766WVwtPzQfwlhHkslzpYP03G7ZMFC6HGKE
+id: tiscom_radix_local_actions
+theme: tiscom_radix
+region: header
+weight: -9
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Основные действия администратора'
+  label_display: '0'
+  provider: core
+visibility: {  }

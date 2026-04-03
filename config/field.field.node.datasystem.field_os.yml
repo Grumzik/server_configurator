@@ -1,0 +1,21 @@
+uuid: a63f814f-535f-44e2-b9b8-272fe841591b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_os
+    - node.type.datasystem
+  module:
+    - options
+id: node.datasystem.field_os
+field_name: field_os
+entity_type: node
+bundle: datasystem
+label: ОС
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

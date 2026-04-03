@@ -1,0 +1,32 @@
+uuid: cceb1c33-e40f-49d0-9f0f-b18d335e97d6
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_history
+label: 'tis history'
+code: |
+  // Получаем ссылки на элементы
+  const tisHistoryBtn = document.querySelector("#tis_history_btn");
+  const tisHistoryBlock = document.querySelector(".tishistory");
+
+  // Проверяем, существует ли кнопка, прежде чем добавлять слушатель события.
+  // Если tisHistoryBtn равен null (то есть элемент не найден),
+  // то попытка вызова tisHistoryBtn.addEventListener() вызовет ошибку TypeError.
+  if (tisHistoryBtn) {
+    tisHistoryBtn.addEventListener("click", (e) => {
+      // Также проверяем, существует ли блок, прежде чем пытаться изменить его классы.
+      if (tisHistoryBlock) {
+        tisHistoryBlock.classList.add("show");
+      }
+      // e.target - это сам элемент, на который был произведен клик (в данном случае tisHistoryBtn)
+      e.target.classList.add("hidden");
+    });
+  }
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

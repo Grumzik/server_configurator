@@ -1,0 +1,24 @@
+uuid: 06e93c47-e439-46da-8f72-04559c73314f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - block
+    - exclude_node_title
+    - system
+id: alex
+label: Alex
+weight: 2
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access site in maintenance mode'
+  - 'access user profiles'
+  - 'administer actions'
+  - 'administer blocks'
+  - 'administer modules'
+  - 'administer permissions'
+  - 'administer site configuration'
+  - 'administer themes'
+  - 'administer users'
+  - 'use exclude node title'

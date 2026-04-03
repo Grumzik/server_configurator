@@ -1,0 +1,22 @@
+uuid: b61e2b28-efcf-4aea-8a18-688fc2d85b96
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_software
+label: 'Содержимое - software'
+type: 'canonical_entities:node'
+pattern: 'software/[node:title]'
+selection_criteria:
+  a16f2d8e-8ac7-4b41-8a1d-4773cfebd0f2:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: a16f2d8e-8ac7-4b41-8a1d-4773cfebd0f2
+    context_mapping:
+      node: node
+    bundles:
+      software: software
+selection_logic: and
+weight: 0
+relationships: {  }

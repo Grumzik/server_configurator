@@ -1,0 +1,7 @@
+{
+    "name": "levmyshkin/slick",
+    "description": "Fork from kenwheeler/slick with drupal-library type. The last carousel you'll ever need.",
+    "type": "drupal-library",
+    "license": "MIT",
+    "require": {}
+}

@@ -1,0 +1,19 @@
+uuid: 56eb318d-dd0c-44fb-857b-9940b70ddbc8
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_front_i_o
+    - node.type.platform
+id: node.platform.field_front_i_o
+field_name: field_front_i_o
+entity_type: node
+bundle: platform
+label: 'Front I/O'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

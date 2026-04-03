@@ -1,0 +1,26 @@
+uuid: 8c5bbfd3-3792-410d-8fb1-804453f183a6
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_softwarevendor
+    - node.type.software
+    - taxonomy.vocabulary.software_vendors
+id: node.software.field_softwarevendor
+field_name: field_softwarevendor
+entity_type: node
+bundle: software
+label: Вендор
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      software_vendors: software_vendors
+    sort:
+      field: _none
+field_type: entity_reference

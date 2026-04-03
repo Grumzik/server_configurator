@@ -1,0 +1,20 @@
+uuid: 5d3a766f-708e-4240-abdf-616a46cc7914
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_cpu_instruction_set_extens
+field_name: field_cpu_instruction_set_extens
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

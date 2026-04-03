@@ -1,0 +1,19 @@
+uuid: 5dff6054-85b7-4e0c-a584-f3f3e5768dc3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pcie_expansion_slots
+    - node.type.platform
+id: node.platform.field_pcie_expansion_slots
+field_name: field_pcie_expansion_slots
+entity_type: node
+bundle: platform
+label: 'PCIe Expansion Slots'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

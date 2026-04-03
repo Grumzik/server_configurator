@@ -1,0 +1,45 @@
+// Bootstrap
+// -----------------------------------------------------------------------------
+@import 'init';
+
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+
+$tis-theme-colors: (
+  "tis-orange": #FF5300,
+  "tis-primary": #5C6C81,
+  "tis-gray": #D9E3F1
+);
+
+$theme-colors: map-merge($tis-theme-colors, $theme-colors);
+
+@import 'bootstrap';
+@import 'bootswatch';
+@import 'tis';
+
+
+// Include any custom stylesheets here
+// -----------------------------------------------------------------------------
+@import "base/elements";
+@import "base/functions";
+@import "base/helpers";
+//@import "base/typography";
+
+// Components
+//@import "components/button";
+//@import "components/navbar";
+//@import "components/page-hero";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+
+
+
+
+
+
+
+
+

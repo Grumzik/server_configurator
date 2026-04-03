@@ -1,0 +1,19 @@
+uuid: e26d14cf-10f6-44aa-8d0d-b3148e2bd602
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_operating_properties
+field_name: field_operating_properties
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

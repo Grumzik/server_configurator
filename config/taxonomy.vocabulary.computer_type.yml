@@ -1,0 +1,9 @@
+uuid: 1e0f273a-17c3-4d08-a0fe-3988affa0c22
+langcode: ru
+status: true
+dependencies: {  }
+name: 'Тип компьютера'
+vid: computer_type
+description: null
+weight: 0
+new_revision: false

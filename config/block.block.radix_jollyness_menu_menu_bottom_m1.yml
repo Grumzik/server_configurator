@@ -1,0 +1,25 @@
+uuid: 3fc718d5-4b74-4c53-a67b-ed69b9568d4c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.menu-bottom-m1
+  module:
+    - system
+  theme:
+    - radix
+id: radix_jollyness_menu_menu_bottom_m1
+theme: radix
+region: footer
+weight: -21
+provider: null
+plugin: 'system_menu_block:menu-bottom-m1'
+settings:
+  id: broken
+  label: Поддержка
+  label_display: visible
+  provider: core
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

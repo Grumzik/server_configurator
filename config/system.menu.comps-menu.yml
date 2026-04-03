@@ -1,0 +1,8 @@
+uuid: 04282362-55a5-4178-9139-5c6c869fc09c
+langcode: und
+status: true
+dependencies: {  }
+id: comps-menu
+label: 'Comps menu'
+description: ''
+locked: false

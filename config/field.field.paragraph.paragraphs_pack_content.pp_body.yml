@@ -1,0 +1,19 @@
+uuid: 930cace2-8867-4be1-923f-ed79ec846e94
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.pp_body
+    - paragraphs.paragraphs_type.paragraphs_pack_content
+id: paragraph.paragraphs_pack_content.pp_body
+field_name: pp_body
+entity_type: paragraph
+bundle: paragraphs_pack_content
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

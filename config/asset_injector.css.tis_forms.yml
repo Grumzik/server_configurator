@@ -1,0 +1,87 @@
+uuid: 46b45359-140d-413d-8bae-872fd5e23360
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_forms
+label: 'tis forms'
+code: |-
+  /*++  Тестовое размщение формы в блоке*/
+  .block--tiscom-radix-webform{
+  	width: 50%;
+  	margin: 100px;
+  }
+  /*--  Тестовое размщение формы в блоке*/
+
+  .form-check-input:checked {
+      background-color: rgb(255, 130, 14);
+      border-color: rgb(255, 130, 14);
+  }
+  .form-label{
+  	font-size: calc(1.275rem + 0.3vw);;
+  }
+  .progress-step.is-active .progress-marker::before {
+      background-color:  rgb(255, 130, 14);
+  }
+  .webform-progress-tracker .progress-step.is-active:hover .progress-maker::before,
+  .webform-progress-tracker .progress-step.is-complete:hover .progress-marker[role="link"]:before
+  {
+  	    background-color:  rgb(255, 130, 14);
+  }
+  .webform-progress-tracker .progress-title[role="link"] {
+      color:  rgb(255, 130, 14);
+  }
+  .webform-progress-tracker .progress-title[role="link"]:hover, .webform-progress-tracker .progress-title[role="link"]:focus {
+      text-decoration: underline;
+      color: rgb(255, 130, 14);
+  }
+
+  /*Заголовки веб форм*/
+  /*.block-webform .block__title{*/
+  /*	margin-top: 3rem;*/
+  /*	font-size: 2.5rem;*/
+  /*}*/
+
+
+  @media (min-width: 768px) {
+      .block-webform .form-select, .block-webform .form-textfield, .block-webform .form-email, .block-webform .form-tel,.webform-flex .form-type-email, .webform-flex .form-type-tel {
+  	width: 50%;
+  }
+  }
+
+
+  .webform-button--next, .webform-button--previous, .webform-button--preview, .webform-button--submit,  .webform-button--reset, .webform-button--draft{
+  	margin-top: 2rem;
+  }
+  .webform-button--next:hover, .webform-button--previous:hover, .webform-button--preview:hover, .webform-button--submit:hover{
+  	background-color:  rgb(255, 130, 14);
+  }
+
+  .webform-submission-podbor-servera-po-zadacham-form  .webform-flexbox{
+    flex-direction: column;
+  }
+
+
+
+
+
+
+  .webform-button--next, .webform-button--previous, .webform-button--preview, .webform-button--submit,  .webform-button--reset{
+  	margin-top: 2rem;
+  }
+  .webform-button--next:hover, .webform-button--previous:hover, .webform-button--preview:hover, .webform-button--submit:hover,  .webform-button--reset:hover{
+  	background-color:  rgb(255, 130, 14);
+  }
+
+  .webform-submission-podbor-servera-po-zadacham-form  .webform-flexbox{
+    flex-direction: column;
+  }
+
+  .form-actions.webform-actions.form-wrapper{
+  	    display: flex;
+      justify-content: space-around;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

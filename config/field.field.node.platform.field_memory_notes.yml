@@ -1,0 +1,19 @@
+uuid: ff0a2932-6247-4ecd-8dce-5319e49a8269
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_memory_notes
+    - node.type.platform
+id: node.platform.field_memory_notes
+field_name: field_memory_notes
+entity_type: node
+bundle: platform
+label: 'Memory Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

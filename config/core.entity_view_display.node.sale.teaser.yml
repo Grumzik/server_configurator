@@ -1,0 +1,34 @@
+uuid: 938519d4-fc4a-4aa8-9824-d41f293cc634
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.sale.body
+    - field.field.node.sale.field_image
+    - node.type.sale
+  module:
+    - text
+    - user
+id: node.sale.teaser
+targetEntityType: node
+bundle: sale
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_image: true
+  langcode: true

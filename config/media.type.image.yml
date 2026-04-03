@@ -1,0 +1,16 @@
+uuid: e8b4f952-b3eb-4eaf-a073-cf6dbf9ad88b
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6Qope5wG7HUpV0tPOBMtDI_GZkHFcF1Xj4hgD9Cu_hM
+id: image
+label: Image
+description: 'Используйте локальные изображения для используемых повторно медиа.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name

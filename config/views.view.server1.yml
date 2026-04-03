@@ -1,0 +1,162 @@
+uuid: 60ed24c1-21b1-4102-a6f3-18b24a049c84
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.ssdsystem
+  module:
+    - node
+    - taxonomy
+id: server1
+label: server1
+module: views
+description: ''
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Defaults
+    display_plugin: default
+    position: 1
+    display_options:
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          group_type: count
+          plugin_id: field
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            external: false
+            replace_spaces: false
+            trim_whitespace: false
+            nl2br: false
+            word_boundary: true
+            ellipsis: true
+            strip_tags: false
+            trim: false
+            html: false
+          element_label_colon: true
+          element_default_classes: true
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          settings:
+            link_to_entity: 1
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+        options:
+          reset_button_label: Сбросить
+      access:
+        type: none
+      cache:
+        type: none
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          plugin_id: bundle
+          operator: in
+          value:
+            ssdsystem: ssdsystem
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+            operator_label: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          ui_name: ''
+      style:
+        type: table
+        options:
+          columns:
+            title: title
+            name: name
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+          override: true
+          sticky: false
+          empty_table: false
+      query:
+        type: views_query
+        options: {  }
+      relationships:
+        term_node_tid:
+          id: term_node_tid
+          table: node_field_data
+          field: term_node_tid
+          entity_type: node
+          plugin_id: node_term_data
+          vids: {  }
+      group_by: true
+      display_extenders: {  }
+      style_plugin: table
+      style_options:
+        columns:
+          title: title
+          name: name
+        default: '-1'
+        info:
+          title:
+            sortable: 0
+            default_sort_order: asc
+            align: ''
+            separator: ''
+          name:
+            sortable: 0
+            default_sort_order: asc
+            align: ''
+            separator: ''
+        override: 1
+        sticky: 0
+        empty_table: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+      tags: {  }

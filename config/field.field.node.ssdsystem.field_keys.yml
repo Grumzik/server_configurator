@@ -1,0 +1,22 @@
+uuid: 58a5fb1c-e1f6-4bf1-a59f-5ee236c04f86
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.ssdsystem
+  module:
+    - text
+id: node.ssdsystem.field_keys
+field_name: field_keys
+entity_type: node
+bundle: ssdsystem
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

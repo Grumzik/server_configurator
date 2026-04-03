@@ -1,0 +1,23 @@
+uuid: 161ee14d-5a8e-440e-bf72-1dc0437236be
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dual_display_capable
+    - node.type.cpu_intel
+id: node.cpu_intel.field_dual_display_capable
+field_name: field_dual_display_capable
+entity_type: node
+bundle: cpu_intel
+label: 'Dual Display Capable'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

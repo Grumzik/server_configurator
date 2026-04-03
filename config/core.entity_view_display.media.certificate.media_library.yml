@@ -1,0 +1,36 @@
+uuid: e9bf73fb-3e04-4b0a-8306-53a088e28b0e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.certificate.field_certificate_year
+    - field.field.media.certificate.field_media_image
+    - image.style.medium
+    - media.type.certificate
+  module:
+    - image
+id: media.certificate.media_library
+targetEntityType: media
+bundle: certificate
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  created: true
+  field_certificate_year: true
+  field_media_image: true
+  langcode: true
+  name: true
+  uid: true

@@ -1,0 +1,23 @@
+uuid: f2d38b1c-1f83-4283-9b58-8462f9c17c9a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vpro
+    - node.type.cpu_intel
+id: node.cpu_intel.field_vpro
+field_name: field_vpro
+entity_type: node
+bundle: cpu_intel
+label: vPro
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: поддерживается
+  off_label: нет
+field_type: boolean

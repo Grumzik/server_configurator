@@ -1,0 +1,32 @@
+uuid: 0cf07aa6-f858-4c2e-85d4-edc3c8db9bb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ebt_accordion.field_ebt_accordion_text
+    - field.field.paragraph.ebt_accordion.field_ebt_accordion_title
+    - paragraphs.paragraphs_type.ebt_accordion
+  module:
+    - text
+_core:
+  default_config_hash: yn5RBnnmFE_Y5sCchtXzAOZg0joBlJrWIBEaYAnP9Ps
+id: paragraph.ebt_accordion.default
+targetEntityType: paragraph
+bundle: ebt_accordion
+mode: default
+content:
+  field_ebt_accordion_text:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_ebt_accordion_title:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

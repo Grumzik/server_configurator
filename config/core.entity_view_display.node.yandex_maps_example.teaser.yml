@@ -1,0 +1,32 @@
+uuid: 315400f0-b755-45d4-b2e5-1a0967de7230
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.yandex_maps_example.body
+    - node.type.yandex_maps_example
+  module:
+    - text
+    - user
+id: node.yandex_maps_example.teaser
+targetEntityType: node
+bundle: yandex_maps_example
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true

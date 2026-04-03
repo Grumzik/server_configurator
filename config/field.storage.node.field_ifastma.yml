@@ -1,0 +1,18 @@
+uuid: 537f5e8e-f718-4b67-9484-ca15e6ac70d9
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_ifastma
+field_name: field_ifastma
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,42 @@
+uuid: 03a907d1-473a-4c41-826b-2ebe1921d64d
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_disktypes
+field_name: field_disktypes
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'SAS/SATA II'
+      label: 'SAS/SATA II'
+    -
+      value: 'SAS/SATA II/SSD'
+      label: 'SAS/SATA II/SSD'
+    -
+      value: 'SATA II'
+      label: 'SATA II'
+    -
+      value: 'SAS (базовые) -SAS/SATA II'
+      label: 'SAS (базовые) -SAS/SATA II'
+    -
+      value: 'SATA II (базовые) - SAS/SATA II'
+      label: 'SATA II (базовые) - SAS/SATA II'
+    -
+      value: 'SAS - SAS/SATA II'
+      label: 'SAS - SAS/SATA II'
+    -
+      value: SAS
+      label: SAS
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

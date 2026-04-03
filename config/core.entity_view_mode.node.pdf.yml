@@ -1,0 +1,11 @@
+uuid: 7b98c7db-b444-4c90-b0b6-926b595b9ffd
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.pdf
+label: PDF
+description: ''
+targetEntityType: node
+cache: true

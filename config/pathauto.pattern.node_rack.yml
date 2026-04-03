@@ -1,0 +1,22 @@
+uuid: 63e6447a-f62b-49b7-9b7f-706a36aaccba
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_rack
+label: 'Содержимое - rack'
+type: 'canonical_entities:node'
+pattern: 'racks/[node:title]'
+selection_criteria:
+  244c6449-a673-40c4-9113-c1b156a53a43:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 244c6449-a673-40c4-9113-c1b156a53a43
+    context_mapping:
+      node: node
+    bundles:
+      rack: rack
+selection_logic: and
+weight: 0
+relationships: {  }

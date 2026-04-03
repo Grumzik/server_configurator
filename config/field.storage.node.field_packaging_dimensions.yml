@@ -1,0 +1,20 @@
+uuid: 5b1dd048-f816-486a-8621-3610558164ae
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_packaging_dimensions
+field_name: field_packaging_dimensions
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

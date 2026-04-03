@@ -1,0 +1,22 @@
+uuid: e38cda9f-476d-4130-b1f3-c66afdde8c30
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.rack
+  module:
+    - text
+id: node.rack.field_description
+field_name: field_description
+entity_type: node
+bundle: rack
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

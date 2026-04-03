@@ -1,0 +1,33 @@
+uuid: eeb3597a-9ad7-4a9b-9849-baeb33882126
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - block_content.type.ebt_accordion
+    - field.storage.block_content.field_ebt_accordion
+    - paragraphs.paragraphs_type.ebt_accordion
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: KleL2jMUTWlOv_XwXvSfbaLHvZFC4TO3ZGrHClNa8Jk
+id: block_content.ebt_accordion.field_ebt_accordion
+field_name: field_ebt_accordion
+entity_type: block_content
+bundle: ebt_accordion
+label: Accordion
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      ebt_accordion: ebt_accordion
+    negate: 0
+    target_bundles_drag_drop:
+      ebt_accordion:
+        weight: 3
+        enabled: true
+field_type: entity_reference_revisions

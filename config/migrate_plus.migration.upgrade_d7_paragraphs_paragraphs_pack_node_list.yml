@@ -1,0 +1,46 @@
+uuid: 239e3f07-7ce1-460d-ab9a-ee3b8ce5ab6f
+langcode: ru
+status: true
+dependencies: {  }
+id: upgrade_d7_paragraphs_paragraphs_pack_node_list
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - 'Paragraphs Content'
+migration_group: migrate_drupal_7
+label: 'Paragraphs (Content list)'
+source:
+  plugin: d7_paragraphs_item
+  bundle: paragraphs_pack_node_list
+process:
+  type:
+    -
+      plugin: get
+      source: bundle
+  pp_title:
+    -
+      plugin: get
+      source: pp_title
+  pp_view_mode:
+    -
+      plugin: get
+      source: pp_view_mode
+  pp_items_node:
+    -
+      plugin: get
+      source: pp_items_node
+  field_metatag:
+    -
+      plugin: d7_metatag_entities
+      source: pseudo_metatag_entities
+destination:
+  plugin: 'entity_reference_revisions:paragraph'
+  default_bundle: paragraphs_pack_node_list
+migration_dependencies:
+  required:
+    - upgrade_d7_paragraphs_type
+  optional:
+    - upgrade_d7_field_instance

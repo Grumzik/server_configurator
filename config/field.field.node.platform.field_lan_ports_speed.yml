@@ -1,0 +1,19 @@
+uuid: 4f62add2-c7fc-4845-9b70-244241f153da
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lan_ports_speed
+    - node.type.platform
+id: node.platform.field_lan_ports_speed
+field_name: field_lan_ports_speed
+entity_type: node
+bundle: platform
+label: 'LAN Ports Speed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

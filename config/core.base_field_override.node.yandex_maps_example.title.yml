@@ -1,0 +1,18 @@
+uuid: 75d0ff84-08cf-4f2d-ae31-afb7b1a5eb5a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.yandex_maps_example
+id: node.yandex_maps_example.title
+field_name: title
+entity_type: node
+bundle: yandex_maps_example
+label: Заголовок
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

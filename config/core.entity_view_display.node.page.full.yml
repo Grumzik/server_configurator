@@ -1,0 +1,87 @@
+uuid: 080cfdce-a03c-4ed1-9e59-5d6fd3f46761
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.page.body
+    - field.field.node.page.field_metatag
+    - field.field.node.page.layout_builder__layout
+    - node.type.page
+  module:
+    - field_formatter
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          23ff2b54-5ce0-41d7-8acf-15fef8470d0b:
+            uuid: 23ff2b54-5ce0-41d7-8acf-15fef8470d0b
+            region: content
+            configuration:
+              id: 'field_block:node:page:body'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          f4b70530-0fac-496a-8de8-30602c7065d0:
+            uuid: f4b70530-0fac-496a-8de8-30602c7065d0
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_metatag'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: field_link
+                label: above
+                settings:
+                  type: ''
+                  settings: {  }
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: M_Y8L5tfmhx7DR143E05YyZSpvgil6VFvqcfBWykalg
+id: node.page.full
+targetEntityType: node
+bundle: page
+mode: full
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_metatag:
+    type: field_link
+    label: above
+    settings:
+      type: ''
+      settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  layout_builder__layout: true
+  links: true

@@ -1,0 +1,40 @@
+uuid: 5748b544-9cbf-4f5f-8892-703284385f8e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.superhero_portfolio_image
+    - node.type.superhero_portfolio
+  module:
+    - image
+id: node.superhero_portfolio.superhero_portfolio_image
+field_name: superhero_portfolio_image
+entity_type: node
+bundle: superhero_portfolio
+label: Images
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings:
+    target_bundles:
+      image: image
+  file_directory: portfolio
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

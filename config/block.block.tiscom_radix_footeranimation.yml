@@ -1,0 +1,30 @@
+uuid: c9a6ed5d-3c56-4c05-b97e-adc7e09dae67
+langcode: ru
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:334fe28c-c31e-4139-b3d8-802a47612dd0'
+  module:
+    - block_content
+    - system
+  theme:
+    - tiscom_radix
+id: tiscom_radix_footeranimation
+theme: tiscom_radix
+region: footer_animation
+weight: 0
+provider: null
+plugin: 'block_content:334fe28c-c31e-4139-b3d8-802a47612dd0'
+settings:
+  id: 'block_content:334fe28c-c31e-4139-b3d8-802a47612dd0'
+  label: 'Footer animation'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

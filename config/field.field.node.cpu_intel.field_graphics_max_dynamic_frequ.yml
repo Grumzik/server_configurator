@@ -1,0 +1,19 @@
+uuid: 7af136e8-2a50-45b2-a499-663f00d2eadf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_graphics_max_dynamic_frequ
+    - node.type.cpu_intel
+id: node.cpu_intel.field_graphics_max_dynamic_frequ
+field_name: field_graphics_max_dynamic_frequ
+entity_type: node
+bundle: cpu_intel
+label: 'Graphics Max Dynamic Frequency'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

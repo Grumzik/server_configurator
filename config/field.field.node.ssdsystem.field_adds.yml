@@ -1,0 +1,43 @@
+uuid: c3f61442-fe1a-4a20-85e4-609b4f16213a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_adds
+    - node.type.ssdsystem
+    - paragraphs.paragraphs_type.adds
+  module:
+    - entity_reference_revisions
+id: node.ssdsystem.field_adds
+field_name: field_adds
+entity_type: node
+bundle: ssdsystem
+label: adds
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      adds: adds
+    negate: 0
+    target_bundles_drag_drop:
+      adds:
+        weight: 1
+        enabled: true
+      i1:
+        weight: 2
+        enabled: false
+      paragraphs_pack_content:
+        weight: 3
+        enabled: false
+      paragraphs_pack_node_list:
+        weight: 4
+        enabled: false
+      xeone5:
+        weight: 5
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,19 @@
+uuid: 7bf09cff-cd1f-4512-88cc-55a796ec3e7d
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_processor_graphics
+    - node.type.cpu_intel
+id: node.cpu_intel.field_processor_graphics
+field_name: field_processor_graphics
+entity_type: node
+bundle: cpu_intel
+label: 'Processor Graphics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

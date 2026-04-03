@@ -1,0 +1,10 @@
+uuid: 02942447-314b-499a-bec6-0850674c62f5
+langcode: ru
+status: true
+dependencies: {  }
+id: node__server
+label: 'Содержимое: сервер'
+tags:
+  description: 'Купить сервер [node:title], технические характеристики, фото, информация для заказа '
+  keywords: 'сервер, [node:title] '
+  title: 'Купить сервер [node:title] - Москва и регионы'

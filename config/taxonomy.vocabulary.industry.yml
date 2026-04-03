@@ -1,0 +1,9 @@
+uuid: 69fe079f-8b77-48ba-b697-343cbf1c07f6
+langcode: ru
+status: true
+dependencies: {  }
+name: Industry
+vid: industry
+description: 'Решения для типов отраслей'
+weight: 0
+new_revision: false

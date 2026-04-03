@@ -1,0 +1,11 @@
+uuid: f481e8d6-eaa0-4ea1-a4ca-f6649340f49f
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.dexp_portfolio
+label: dexp_portfolio
+description: ''
+targetEntityType: node
+cache: true

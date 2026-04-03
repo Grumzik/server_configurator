@@ -1,0 +1,25 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Filter
+          reset_button_label: Reset
+      fields:
+        path:
+          label: Path
+        count:
+          label: Count
+        langcode:
+          label: Language
+        redirect_404_operations:
+          label: Operations
+      filters:
+        path:
+          expose:
+            label: Path
+        langcode:
+          expose:
+            label: Language
+  page_1:
+    display_title: Page

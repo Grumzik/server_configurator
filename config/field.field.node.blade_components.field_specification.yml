@@ -1,0 +1,22 @@
+uuid: 4723571a-a89a-415c-9926-54364531f679
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_specification
+    - node.type.blade_components
+  module:
+    - text
+id: node.blade_components.field_specification
+field_name: field_specification
+entity_type: node
+bundle: blade_components
+label: Спецификация
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

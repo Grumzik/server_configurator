@@ -1,0 +1,26 @@
+uuid: 08c9b048-9497-4868-87ba-370dc714a9d3
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interface
+    - node.type.datasystem
+    - taxonomy.vocabulary.interface
+id: node.datasystem.field_interface
+field_name: field_interface
+entity_type: node
+bundle: datasystem
+label: interface
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      interface: interface
+    sort:
+      field: _none
+field_type: entity_reference

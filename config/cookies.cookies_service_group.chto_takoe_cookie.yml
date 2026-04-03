@@ -1,0 +1,9 @@
+uuid: 70eb9ab9-666b-496a-bfe5-6094412b8729
+langcode: ru
+status: true
+dependencies: {  }
+id: chto_takoe_cookie
+label: 'Что такое cookie?'
+weight: 50
+title: 'Что такое cookie?'
+details: 'Cookie это'

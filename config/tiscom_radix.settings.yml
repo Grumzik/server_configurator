@@ -1,0 +1,12 @@
+favicon:
+  mimetype: image/jpeg
+  path: 'public://logo_favicon.jpg'
+  use_default: false
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: true
+logo:
+  path: 'public://logo_tiscom_w_wg_0.png'
+  use_default: false

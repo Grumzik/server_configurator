@@ -1,0 +1,9 @@
+uuid: 8689761a-ab52-4c4f-997f-0b7404249ab0
+langcode: und
+status: true
+dependencies: {  }
+name: Chipset
+vid: chipset
+description: null
+weight: 0
+new_revision: false

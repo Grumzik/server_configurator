@@ -1,0 +1,34 @@
+uuid: 314dc213-a1df-4771-945a-26b04188132c
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.adv.body
+    - field.field.node.adv.field_image
+    - node.type.adv
+  module:
+    - text
+    - user
+id: node.adv.teaser
+targetEntityType: node
+bundle: adv
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  field_image: true
+  langcode: true

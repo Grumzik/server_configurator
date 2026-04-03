@@ -1,0 +1,9 @@
+uuid: f69103fd-ab3a-4dce-a5e6-7b7b25427d77
+langcode: ru
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: bN0uiGHyvIH9vi-0WZ8qI_SYExbwkfSJ-b31BPwaZ_4
+id: blb_col_1
+label: '1 столбец Bootstrap'
+number_of_columns: 1

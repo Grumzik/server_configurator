@@ -1,0 +1,9 @@
+uuid: c47b6a6e-8778-44ee-a0ab-fe6c4948cf6f
+langcode: und
+status: true
+dependencies: {  }
+name: 'PCIe Slots Type'
+vid: pcie_slots_type
+description: null
+weight: 0
+new_revision: false

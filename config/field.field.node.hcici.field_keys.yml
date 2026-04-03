@@ -1,0 +1,22 @@
+uuid: da94dfda-c0c3-4849-89c3-4cd74db7e26b
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keys
+    - node.type.hcici
+  module:
+    - text
+id: node.hcici.field_keys
+field_name: field_keys
+entity_type: node
+bundle: hcici
+label: 'Ключевые особенности'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

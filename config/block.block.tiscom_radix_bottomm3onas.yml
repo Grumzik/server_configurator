@@ -1,0 +1,25 @@
+uuid: 5bb8da59-bd65-4953-b8e2-68c6ab6aec3e
+langcode: ru
+status: true
+dependencies:
+  config:
+    - system.menu.menu-bottom-m2
+  module:
+    - system
+  theme:
+    - tiscom_radix
+id: tiscom_radix_bottomm3onas
+theme: tiscom_radix
+region: footer1
+weight: 0
+provider: null
+plugin: 'system_menu_block:menu-bottom-m2'
+settings:
+  id: 'system_menu_block:menu-bottom-m2'
+  label: 'О нас'
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

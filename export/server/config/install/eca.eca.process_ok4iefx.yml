@@ -1,0 +1,46 @@
+langcode: ru
+status: false
+dependencies:
+  config:
+    - views.view.servers
+  module:
+    - eca_base
+    - eca_views
+id: process_ok4iefx
+modeller: bpmn_io
+label: 'Server Platform View to Taxonomy Term'
+version: ''
+weight: 0
+events:
+  Event_0l3p398:
+    plugin: 'eca_views:post_execute'
+    label: 'View: post execute'
+    configuration:
+      view_id: servers
+      display_id: server_platform
+    successors:
+      -
+        id: Activity_1vod9ij
+        condition: ''
+conditions: {  }
+gateways: {  }
+actions:
+  Activity_1vod9ij:
+    plugin: eca_views_query
+    label: 'view: execution query'
+    configuration:
+      token_name: platform_list
+      view_id: servers
+      display_id: server_platform
+      arguments: ''
+    successors:
+      -
+        id: Activity_0k121k5
+        condition: ''
+  Activity_0k121k5:
+    plugin: eca_warning_message
+    label: Activity_0k121k5
+    configuration:
+      replace_tokens: false
+      message: 'platform_list: [platform_list]'
+    successors: {  }

@@ -1,0 +1,34 @@
+uuid: 1d6d6e20-8190-452f-b7f1-692717ab7e0b
+langcode: und
+status: true
+dependencies:
+  config:
+    - views.view.nodes_entity_browser
+  module:
+    - views
+  enforced:
+    module:
+      - entity_browser_example
+name: processor_for_server
+label: processor_for_server
+display: iframe
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  8dcc81c7-e24c-4d0b-85a1-bbd03a56dbe3:
+    id: view
+    uuid: 8dcc81c7-e24c-4d0b-85a1-bbd03a56dbe3
+    label: 'Node listing'
+    weight: 0
+    settings:
+      submit_text: 'Select entities'
+      auto_select: false
+      view: nodes_entity_browser
+      view_display: entity_browser_1

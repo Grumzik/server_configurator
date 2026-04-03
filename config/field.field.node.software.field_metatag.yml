@@ -1,0 +1,21 @@
+uuid: 78537431-5197-48c8-8916-c00ed5ca6182
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_metatag
+    - node.type.software
+  module:
+    - metatag
+id: node.software.field_metatag
+field_name: field_metatag
+entity_type: node
+bundle: software
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

@@ -1,0 +1,11 @@
+uuid: 3c4a7dce-5e03-49a7-8244-e8049039f5d4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - node.type.datasystem
+id: node.datasystem
+target_entity_type_id: node
+target_bundle: datasystem
+default_langcode: site_default
+language_alterable: false

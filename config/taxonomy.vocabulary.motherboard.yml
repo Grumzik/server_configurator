@@ -1,0 +1,9 @@
+uuid: 855f8545-eb61-4d81-a182-4033cf57d87f
+langcode: ru
+status: true
+dependencies: {  }
+name: Motherboard
+vid: motherboard
+description: null
+weight: 0
+new_revision: false

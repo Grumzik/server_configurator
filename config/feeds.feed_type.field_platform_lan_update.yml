@@ -1,0 +1,111 @@
+uuid: a65a1be6-e91d-452e-a853-06f15f95efc4
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.field.node.platform.field_lan_management
+    - field.field.node.platform.field_lan_ports
+    - field.field.node.platform.field_lan_ports_speed
+    - node.type.platform
+  module:
+    - feeds_log
+    - node
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+label: 'FIELD Platform LAN Update'
+id: field_platform_lan_update
+description: 'Обновляет только поля LAN в node PLATFORM'
+help: ''
+import_period: 3600
+import_period_per_feed: false
+fetcher: upload
+fetcher_configuration:
+  allowed_extensions: 'txt csv tsv xml opml'
+  directory: 'public://feeds'
+parser: csv
+parser_configuration:
+  delimiter: ;
+  no_headers: false
+  line_limit: 100
+processor: 'entity:node'
+processor_configuration:
+  values:
+    type: platform
+  langcode: ru
+  insert_new: 0
+  update_existing: 2
+  update_non_existent: _keep
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: true
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  platform:
+    value: Platform
+    label: Platform
+    machine_name: platform
+    type: csv
+  lan_ports:
+    value: LAN_Ports
+    label: LAN_Ports
+    machine_name: lan_ports
+    type: csv
+  lan_info:
+    value: LAN_Info
+    label: LAN_Info
+    machine_name: lan_info
+    type: csv
+  lan_management:
+    value: LAN_Management
+    label: LAN_Management
+    machine_name: lan_management
+    type: csv
+mappings:
+  -
+    target: title
+    map:
+      value: platform
+    settings:
+      language: null
+    unique:
+      value: 1
+  -
+    target: field_lan_ports
+    map:
+      value: lan_ports
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lan_ports_speed
+    map:
+      value: lan_info
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_lan_management
+    map:
+      value: lan_management
+    settings:
+      language: null
+    unique: {  }

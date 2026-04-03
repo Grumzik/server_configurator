@@ -1,0 +1,20 @@
+uuid: 48d85f04-784f-4d9f-898f-51b9e489ff7a
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_storage_bays
+field_name: field_storage_bays
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,183 @@
+uuid: 97e95557-935d-4c7d-999a-eea0dfee6167
+langcode: ru
+status: true
+dependencies: {  }
+id: tis_buttons
+label: 'tis buttons'
+code: |-
+  .tis-menu-button {
+    display: inline-block; /* или block, в зависимости от расположения кнопки */
+    background-color: transparent; /* Цвет фона кнопки прозрачный */
+    color: #ff820e;       /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    border: 2.8px solid #ff820e;        /*  рамка*/
+    border-radius: 30px; /* Закругленные углы */
+    cursor: pointer;     /* Изменяем курсор на указатель */
+    /* background-image: radial-gradient(circle, #fff, #ff820e); /* Начальный белый градиент */
+    transition: background-image 2s ease-in-out; /* Плавный переход */
+    transition: border-color 0.3s ease; /* Плавный переход цвета рамки при наведении */
+    white-space: nowrap; /* Текст не переносится на новую строку */
+  }
+  .tis-menu-button:hover {
+    background-color: #ff820e !important; /* Цвет фона при наведении */
+    color: #fff !important;
+  }
+
+
+  .tis-button-orange{
+  	display: inline-block; /* или block, в зависимости от расположения кнопки */
+    background-color: #ff820e;
+    color: #fff;       /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    border: 2.8px solid #ff820e;        /*  рамка*/
+    border-radius: 30px; /* Закругленные углы */
+    cursor: pointer;     /* Изменяем курсор на указатель */
+    transition: background-image 2s ease-in-out; /* Плавный переход */
+    transition: border-color 0.3s ease; /* Плавный переход цвета рамки при наведении */
+    white-space: nowrap; /* Текст не переносится на новую строку */
+    box-sizing: border-box;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0;
+    outline: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .tis-button-orange:hover {
+    background-color: #000 !important; /* Цвет фона при наведении */
+    color: #fff !important;
+  }
+
+
+
+
+  .tis-button-white{
+  	display: inline-block; /* или block, в зависимости от расположения кнопки */
+    background-color: #fff;
+    color: #ff820e;       /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    border: 2.8px solid #ff820e;        /*  рамка*/
+    border-radius: 30px; /* Закругленные углы */
+    cursor: pointer;     /* Изменяем курсор на указатель */
+    transition: background-image 2s ease-in-out; /* Плавный переход */
+    transition: border-color 0.3s ease; /* Плавный переход цвета рамки при наведении */
+    white-space: nowrap; /* Текст не переносится на новую строку */
+    box-sizing: border-box;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0;
+    outline: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .tis-button-white:hover {
+    background-color: #000 !important; /* Цвет фона при наведении */
+    color: #fff !important;
+  }
+
+
+  .tis-button-white-small{
+  	display: inline-block; /* или block, в зависимости от расположения кнопки */
+    background-color: #fff;
+    color: #ff820e;       /* Цвет текста */
+    text-decoration: none; /* Убираем подчеркивание ссылки */
+    border: 2.8px solid #ff820e;        /*  рамка*/
+    border-radius: 30px; /* Закругленные углы */
+    cursor: pointer;     /* Изменяем курсор на указатель */
+    transition: background-image 2s ease-in-out; /* Плавный переход */
+    transition: border-color 0.3s ease; /* Плавный переход цвета рамки при наведении */
+    white-space: nowrap; /* Текст не переносится на новую строку */
+    box-sizing: border-box;
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0;
+    outline: none;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .tis-button-white-small:hover {
+    background-color: #000 !important; /* Цвет фона при наведении */
+    color: #fff !important;
+  }
+
+
+  /* кнопки быстрой навигации*/
+  .tis-btn{
+  	font-size: 1.1rem;
+  }
+
+
+  .tis-btn__block, .tis-banner__buttons ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px calc(1rem - 10px);
+    align-items: stretch; /* Выравнивание кнопок по высоте */
+
+  }
+
+  /* использовать для кнопок меню с сылками на табы!!!!*/
+  .tis-btn-tabs{
+    display: inline-flex; /* Flex контейнер для выравнивания текста по вертикали */
+    align-items: center; /* Вертикальное выравнивание текста */
+    flex-direction: column; /* Разрешить перенос текста */
+    justify-content: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Добавлена тень в transition */
+    white-space: normal; /* Разрешить перенос текста */
+    background-color: rgba(92,108,129,0.8);
+    color: white; /* Белый текст */
+    /*border: none; /* Убираем стандартную рамку */
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3); /* Светлая тень */
+  }
+
+  .tis-btn-tabs:hover {
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5); /* Увеличиваем тень при наведении */
+  }
+  /* использовать для кнопок меню с сылками на другие страницы*/
+  .tis-button{
+    display: inline-flex; /* Flex контейнер для выравнивания текста по вертикали */
+    align-items: center; /* Вертикальное выравнивание текста */
+    flex-direction: column; /* Разрешить перенос текста */
+    justify-content: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Добавлена тень в transition */
+    white-space: normal; /* Разрешить перенос текста */
+    background-color: rgba(92,108,129,0.8);
+    color: white; /* Белый текст */
+    box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.3); /* Светлая тень */
+  }
+
+  .tis-button:hover {
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.5); /* Увеличиваем тень при наведении */
+  }
+
+  .news-buttons a{
+      color: #3c4858 !important;
+      text-decoration: none;
+      font-size: 1rem;
+  }
+
+  .border-radius-10{
+  	border-radius: 10px;
+  }
+media: all
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

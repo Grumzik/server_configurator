@@ -1,0 +1,43 @@
+langcode: ru
+status: true
+dependencies:
+  module:
+    - datafield
+    - node
+id: node.field_df_base_configuration
+field_name: field_df_base_configuration
+entity_type: node
+type: data_field
+settings:
+  columns:
+    cpu:
+      name: cpu
+      type: entity_reference
+      max_length: 255
+      size: normal
+      unsigned: false
+    cpu_core_count:
+      name: cpu_core_count
+      type: integer
+      max_length: 255
+      size: small
+      unsigned: true
+    ram_size:
+      name: ram_size
+      type: integer
+      max_length: 255
+      size: normal
+      unsigned: false
+    ram:
+      name: ram
+      type: entity_reference
+      max_length: 255
+      size: normal
+      unsigned: false
+module: datafield
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

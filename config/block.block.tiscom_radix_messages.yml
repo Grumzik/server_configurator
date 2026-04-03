@@ -1,0 +1,22 @@
+uuid: 2de54fe1-c224-4b5a-9f30-3f50822d82d6
+langcode: ru
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - tiscom_radix
+_core:
+  default_config_hash: RApNSXllRlvQmyFbKKkN0POsZapitVnFKXFVUNdFCx4
+id: tiscom_radix_messages
+theme: tiscom_radix
+region: header
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Системные сообщения'
+  label_display: '0'
+  provider: system
+visibility: {  }

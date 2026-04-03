@@ -1,0 +1,21 @@
+uuid: 01e0eaf7-4065-4b76-8c77-b44daa41601e
+langcode: ru
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - type_tray
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  type_tray:
+    existing_nodes_link_text: 'View existing <em class="placeholder">sale</em> content'
+name: sale
+type: sale
+description: null
+help: null
+new_revision: false
+preview_mode: 1
+display_submitted: false

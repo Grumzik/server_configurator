@@ -1,0 +1,30 @@
+uuid: 3b0520c6-3df7-4515-a4c1-cfb771b4664a
+langcode: ru
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.paragraphs_editor_preview
+    - field.field.paragraph.paragraphs_pack_content.pp_body
+    - field.field.paragraph.paragraphs_pack_content.pp_title
+    - paragraphs.paragraphs_type.paragraphs_pack_content
+id: paragraph.paragraphs_pack_content.paragraphs_editor_preview
+targetEntityType: paragraph
+bundle: paragraphs_pack_content
+mode: paragraphs_editor_preview
+content:
+  pp_body:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  pp_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

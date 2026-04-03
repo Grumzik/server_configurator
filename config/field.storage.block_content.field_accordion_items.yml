@@ -1,0 +1,21 @@
+uuid: ac0f321d-24ab-4607-ba18-a0eab18f5613
+langcode: ru
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_reference_revisions
+    - paragraphs
+id: block_content.field_accordion_items
+field_name: field_accordion_items
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

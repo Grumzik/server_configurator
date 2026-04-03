@@ -1,0 +1,19 @@
+uuid: 72d22239-e97a-4a8a-bb4c-6b8b784b6e30
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_platform_storage
+    - node.type.platform
+id: node.platform.field_platform_storage
+field_name: field_platform_storage
+entity_type: node
+bundle: platform
+label: Storage
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,22 @@
+uuid: 71d702c6-08b0-4ad7-a3ce-b67a79d2bcca
+langcode: ru
+status: true
+dependencies:
+  module:
+    - node
+id: node_vendor_ss
+label: 'Содержимое - vendor_ss'
+type: 'canonical_entities:node'
+pattern: 'ss/[node:title]'
+selection_criteria:
+  04995ab7-538a-4674-863c-63dc01c7ac06:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 04995ab7-538a-4674-863c-63dc01c7ac06
+    context_mapping:
+      node: node
+    bundles:
+      vendor_ss: vendor_ss
+selection_logic: and
+weight: 0
+relationships: {  }

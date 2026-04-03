@@ -1,0 +1,22 @@
+uuid: 117f9d17-50f9-41bf-b329-ca244a292576
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.ssdsystem
+  module:
+    - text
+id: node.ssdsystem.field_description
+field_name: field_description
+entity_type: node
+bundle: ssdsystem
+label: Описание
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

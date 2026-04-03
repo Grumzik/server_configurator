@@ -1,0 +1,380 @@
+uuid: e49f9e90-793a-4aac-8358-67216d9487c3
+langcode: ru
+status: true
+dependencies: {  }
+id: yandex_maps
+label: 'yandex maps'
+code: |-
+  ymaps.ready(init);
+
+  function init() {
+      // Проверяем поддержку панорам
+      if (!ymaps.panorama.isSupported()) {
+          console.log("Ваш браузер не поддерживает панорамы");
+          return;
+      }
+
+      // Координаты
+      const TISCOM_COORDS = [55.685141, 37.736059];
+      const TISCOM_AVTO_COORDS = [55.685748, 37.736233];
+      const LYUBLINO_MCD_COORDS = [55.685073, 37.733528];
+      const TEKSTILSCHIKI_COORDS = [55.708866, 37.732615];
+      const PECHATNIKI_COORDS = [55.692944, 37.728379];
+      const VOLZHSKAYA_COORDS = [55.690875, 37.753140];
+      const AUTO_CENTER = [55.688739, 37.736344];
+      const AUTO_REGION = [55.683991, 37.737763];
+
+      // Создаем карту
+      const tisMap = new ymaps.Map("map", {
+          center: TISCOM_COORDS,
+          zoom: 16,
+          controls: ['smallMapDefaultSet'],
+          behaviors: ['drag', 'multiTouch']
+      });
+
+      // Создаем контейнер для кнопок
+      const buttonsContainer = document.createElement('div');
+      buttonsContainer.className = 'map-buttons-container';
+      document.getElementById('map').appendChild(buttonsContainer);
+
+      // Добавляем стили
+      const style = document.createElement('style');
+      style.textContent = `
+          .map-buttons-container {
+              position: absolute;
+              top: 10px;
+              left: 10px;
+              right: 10px;
+              display: flex;
+              gap: 10px;
+              z-index: 1000;
+              flex-wrap: wrap;
+          }
+          .dropdown {
+              position: relative;
+              flex: 1;
+              min-width: 150px;
+          }
+          .dropdown-menu {
+              position: absolute;
+              width: 100%;
+              background: white;
+              border-radius: 4px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+              z-index: 1001;
+              display: none;
+              list-style: none;
+              padding: 0;
+              margin: 5px 0 0 0;
+          }
+          .dropdown-menu li a {
+              display: block;
+              padding: 10px 15px;
+              color: #333;
+              text-decoration: none;
+          }
+          .dropdown-menu li a:hover {
+              background-color: #f5f5f5;
+          }
+          @media (max-width: 600px) {
+              .map-buttons-container {
+                  flex-direction: column;
+              }
+          }
+      `;
+      document.head.appendChild(style);
+
+      // Функция для закрытия панели маршрутизации
+      function closeRoutePanel() {
+          const control = tisMap.controls.get('routePanelControl');
+          if (control) {
+              tisMap.controls.remove(control);
+          }
+      }
+
+      // Функция для проверки, открыта ли панель маршрутизации
+      function isRoutePanelOpen() {
+          return !!tisMap.controls.get('routePanelControl');
+      }
+
+      // Функция для создания макета балуна с панорамой
+      function setBalloonContentLayout(placemark, panorama, rotationAngle = 0) {
+          const BalloonContentLayout = ymaps.templateLayoutFactory.createClass(
+              '<div id="panorama" style="width:300px;height:200px"></div>', {
+                  build: function() {
+                      BalloonContentLayout.superclass.build.call(this);
+                      
+                      const el = this.getParentElement().querySelector('#panorama');
+                      this._panoramaPlayer = new ymaps.panorama.Player(el, panorama, {
+                          controls: ['panoramaName', 'zoomControl']
+                      });
+                      
+                      // Применяем поворот после создания плеера
+                      if (rotationAngle !== 0) {
+                          setTimeout(() => {
+                              const currentDirection = this._panoramaPlayer.getDirection();
+                              this._panoramaPlayer.setDirection(
+                                  [currentDirection[0] + rotationAngle, currentDirection[1]],
+                                  { duration: 0 }
+                              );
+                          }, 100);
+                      }
+                  },
+                  clear: function() {
+                      if (this._panoramaPlayer) {
+                          this._panoramaPlayer.destroy();
+                      }
+                      BalloonContentLayout.superclass.clear.call(this);
+                  }
+              });
+          placemark.options.set('balloonContentLayout', BalloonContentLayout);
+      }
+
+      // Функция запроса панорамы для метки
+      function requestForPanorama(e) {
+          const placemark = e.get('target');
+          const coords = placemark.geometry.getCoordinates();
+          const panoLayer = placemark.properties.get('panoLayer');
+          const rotationAngle = placemark.properties.get('panoramaRotation') || 0;
+
+          placemark.properties.set('balloonContent', "Идет проверка на наличие панорамы...");
+
+          ymaps.panorama.locate(coords, {
+              layer: panoLayer
+          }).then(
+              function(panoramas) {
+                  if (panoramas.length) {
+                      setBalloonContentLayout(placemark, panoramas[0], rotationAngle);
+                  } else {
+                      placemark.properties.set('balloonContent', "Панорама для этой точки недоступна");
+                  }
+              },
+              function(err) {
+                  placemark.properties.set('balloonContent', 
+                      "Ошибка при загрузке панорамы: " + err.toString());
+              }
+          );
+      }
+
+      // МЕТКИ
+      // Создаем метку офиса (без поворота панорамы)
+      const tisOfficePlacemark = new ymaps.GeoObject({
+          geometry: {
+              type: "Point",
+              coordinates: TISCOM_COORDS
+          },
+          properties: {
+              iconContent: 'ТИСКОМ',
+              hintContent: 'Москва, ул.Люблинская, д.42, офис Л-108. По будням с 10 до 18',
+              balloonContent: 'По будням с 10 до 18',
+              panoLayer: 'yandex#panorama'
+          }
+      }, {
+          preset: 'islands#darkBlueStretchyIcon',
+          iconContentLayout: ymaps.templateLayoutFactory.createClass(
+              '<div style="color: #3c4858; font-weight: 500; font-size: 14px; margin: 0 4px;">$[properties.iconContent]</div>'
+          ),
+          openEmptyBalloon: true,
+          balloonPanelMaxMapArea: 0
+      });
+
+      // Создаем метку парковки (с поворотом панорамы на 180 градусов)
+      const parkingPlacemark = new ymaps.Placemark(TISCOM_AVTO_COORDS, {
+          hintContent: 'Парковка для грузового транспорта',
+          balloonContent: 'Место для разгрузки/погрузки',
+          panoLayer: 'yandex#panorama',
+          panoramaRotation: 180 // Поворот на 180 градусов
+      }, {
+          preset: 'islands#redDeliveryIcon',
+          openEmptyBalloon: true,
+          balloonPanelMaxMapArea: 0
+      });
+
+      // Добавляем обработчики
+      tisOfficePlacemark.events.once('balloonopen', requestForPanorama);
+      parkingPlacemark.events.once('balloonopen', requestForPanorama);
+      
+      // Добавляем метки на карту
+      tisMap.geoObjects.add(tisOfficePlacemark);
+      tisMap.geoObjects.add(parkingPlacemark);
+
+      // Остальной код (маршруты, кнопки и т.д.)
+      const routeData = {
+          walk: {
+              points: [LYUBLINO_MCD_COORDS, TISCOM_COORDS],
+              type: 'pedestrian',
+              buttonLabel: 'Пешком от МЦД Люблино'
+          },
+          auto_CENTER: {
+              points: [AUTO_CENTER, TISCOM_AVTO_COORDS],
+              type: 'auto',
+              buttonLabel: 'Из центра'
+          },
+          auto_REGION: {
+              points: [AUTO_REGION, TISCOM_AVTO_COORDS],
+              type: 'auto',
+              buttonLabel: 'Из области'
+          },
+          transit_TEKSTILSCHIKI: {
+              points: [TEKSTILSCHIKI_COORDS, TISCOM_COORDS],
+              type: 'masstransit',
+              buttonLabel: 'От м.Текстильщики'
+          },
+          transit_PECHATNIKI: {
+              points: [PECHATNIKI_COORDS, TISCOM_COORDS],
+              type: 'masstransit',
+              buttonLabel: 'От м.Печатники'
+          },
+          transit_VOLZHSKAYA: {
+              points: [VOLZHSKAYA_COORDS, TISCOM_COORDS],
+              type: 'masstransit',
+              buttonLabel: 'От м.Волжская'
+          }
+      };
+
+      let currentRoute;
+
+      function showRoute(routeType) {
+  console.log('Building route:', routeType, 'with points:', routeData[routeType].points);
+          closeRoutePanel();
+          
+          if (currentRoute) {
+              tisMap.geoObjects.remove(currentRoute);
+          }
+
+          const route = new ymaps.multiRouter.MultiRoute({
+              referencePoints: routeData[routeType].points,
+              params: { routingMode: routeData[routeType].type }
+          }, {
+              wayPointStartIconColor: "#333",
+              wayPointStartIconFillColor: "#B3B3B3",
+              wayPointFinishIconLayout: "default#image",
+              wayPointFinishIconImageHref: "default#image",
+              wayPointFinishIconImageSize: [30, 30],
+              wayPointFinishIconImageOffset: [-15, -15],
+              routeStrokeWidth: 2,
+              routeStrokeColor: "#000088",
+              routeActiveStrokeWidth: 6,
+              routeActiveStrokeColor: "#E63E92",
+              routeActivePedestrianSegmentStrokeStyle: "solid",
+              routeActivePedestrianSegmentStrokeColor: "#00CDCD",
+              boundsAutoApply: true
+          });
+
+          tisMap.geoObjects.add(route);
+          currentRoute = route;
+      }
+
+      // Функция для создания выпадающего списка
+      function createDropdown(title, items) {
+          const dropdown = document.createElement('div');
+          dropdown.className = 'dropdown';
+          
+          const button = document.createElement('button');
+          button.className = 'btn btn-light tis-button';
+          button.textContent = title;
+          dropdown.appendChild(button);
+          
+          const menu = document.createElement('ul');
+          menu.className = 'dropdown-menu';
+          
+          items.forEach(item => {
+              const li = document.createElement('li');
+              const a = document.createElement('a');
+              a.href = '#';
+              a.textContent = item.buttonLabel;
+              a.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  closeRoutePanel();
+                  showRoute(item.routeType);
+                  menu.style.display = 'none';
+              });
+              li.appendChild(a);
+              menu.appendChild(li);
+          });
+          
+          dropdown.appendChild(menu);
+          
+          button.addEventListener('click', (e) => {
+              e.stopPropagation();
+              closeRoutePanel();
+              menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+          });
+          
+          buttonsContainer.appendChild(dropdown);
+          
+          document.addEventListener('click', () => {
+              menu.style.display = 'none';
+          });
+      }
+
+      // Создаем выпадающие списки
+      createDropdown('На автомобиле', [
+          { buttonLabel: routeData.auto_CENTER.buttonLabel, routeType: 'auto_CENTER' },
+          { buttonLabel: routeData.auto_REGION.buttonLabel, routeType: 'auto_REGION' }
+      ]);
+
+      createDropdown('Другие маршруты', [
+          { buttonLabel: routeData.walk.buttonLabel, routeType: 'walk' },
+          { buttonLabel: routeData.transit_TEKSTILSCHIKI.buttonLabel, routeType: 'transit_TEKSTILSCHIKI' },
+          { buttonLabel: routeData.transit_PECHATNIKI.buttonLabel, routeType: 'transit_PECHATNIKI' },
+          { buttonLabel: routeData.transit_VOLZHSKAYA.buttonLabel, routeType: 'transit_VOLZHSKAYA' }
+      ]);
+
+      // Кнопка "Построить маршрут"
+      const routeButton = document.createElement('button');
+      routeButton.className = 'btn btn-light tis-button';
+      routeButton.textContent = 'Построить маршрут';
+      buttonsContainer.appendChild(routeButton);
+
+      routeButton.addEventListener('click', function() {
+          if (isRoutePanelOpen()) {
+              closeRoutePanel();
+              return;
+          }
+          
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              menu.style.display = 'none';
+          });
+          
+          if (currentRoute) {
+              tisMap.geoObjects.remove(currentRoute);
+              currentRoute = null;
+          }
+          
+          tisMap.controls.add('routePanelControl');
+          
+          const control = tisMap.controls.get('routePanelControl');
+          
+          control.routePanel.state.set({
+              type: 'masstransit',
+              fromEnabled: true,
+              toEnabled: false,
+              to: TISCOM_COORDS,
+              from: ''
+          });
+
+          control.routePanel.options.set({
+              allowSwitch: false,
+              reverseGeocoding: true,
+              types: { 
+                  auto: true, 
+                  masstransit: true, 
+                  pedestrian: true 
+              }
+          });
+
+          setTimeout(function() {
+              const input = document.querySelector('.ymaps-2-1-79-route-panel-input__input_from');
+              if (input) input.focus();
+          }, 300);
+      });
+  }
+noscript: ''
+noscriptRegion: {  }
+jquery: false
+header: false
+preprocess: true
+conditions: {  }
+contexts: {  }
+conditions_require_all: true

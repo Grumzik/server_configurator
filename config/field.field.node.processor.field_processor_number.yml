@@ -1,0 +1,19 @@
+uuid: c9ac2a11-ed31-49c9-bbe2-1a6e52ba40cf
+langcode: ru
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_processor_number
+    - node.type.processor
+id: node.processor.field_processor_number
+field_name: field_processor_number
+entity_type: node
+bundle: processor
+label: 'Processor Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
