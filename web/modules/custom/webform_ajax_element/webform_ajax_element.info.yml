@@ -1,7 +1,0 @@
-name: webform_ajax_element
-type: module
-description: AJAX logic for dependent webform fields
-core_version_requirement: ^10
-package: Tiscom
-dependencies:
-  - webform:webform

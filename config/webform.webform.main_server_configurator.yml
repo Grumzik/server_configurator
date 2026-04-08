@@ -13,7 +13,7 @@ title: 'Main Server Configurator'
 description: ''
 categories: {  }
 elements: |-
-  rlayout_container:
+  layout_container:
     '#type': container
     '#attributes':
       class:
@@ -33,19 +33,22 @@ elements: |-
         '#options_display': side_by_side
         '#default_value': 'Стойка (Rack)'
         '#js_select': false
-      vysota_v_yunitah:
-        '#type': select
+      form_factor_units:
+        '#type': webform_entity_select
         '#title': 'Высота в юнитах'
-        '#options':
-          1U: 1U
-          2U: 2U
-          3U: 3U
-          4U: 4U
+        '#empty_option': '- Не указано -'
         '#states':
           invisible:
             ':input[name="form_faktor"]':
               value: ' Башня (Tower)'
-        '#default_value': 1U
+        '#target_type': taxonomy_term
+        '#selection_handler': views
+        '#selection_settings':
+          view:
+            view_name: form_factor
+            display_name: entity_reference_form_factor
+            arguments:
+              - '-1'
       form_faktor_nakopiteley_v_dyuymah:
         '#type': radios
         '#title': 'Форм-фактор накопителей в дюймах'
@@ -66,14 +69,6 @@ elements: |-
         '#options_display': side_by_side
         '#default_value': Да
         '#js_select': false
-      platform_entity_selection:
-        '#type': webform_entity_select
-        '#title': 'Platform Entity Selection'
-        '#target_type': node
-        '#selection_handler': 'default:node'
-        '#selection_settings':
-          target_bundles:
-            platform: platform
       server:
         '#type': label
         '#title': 'Сервер:  [current-page:title]'
@@ -103,6 +98,8 @@ elements: |-
         cpu_generation_entity_selection:
           '#type': webform_entity_select
           '#title': 'Поколение процессора'
+          '#empty_option': '- Сначала выберите производителя -'
+          '#default_value': 'Intel Xeon 6 Processors'
           '#target_type': taxonomy_term
           '#selection_handler': views
           '#selection_settings':
@@ -111,8 +108,6 @@ elements: |-
               display_name: entity_reference_cpu_generation
               arguments:
                 - '-1'
-          '#empty_option': '- Сначала выберите производителя -'
-          '#empty_value': ''
         kolichestvo_processorov:
           '#type': radios
           '#title': 'Количество процессоров'
@@ -183,6 +178,17 @@ elements: |-
           '#wrapper_attributes':
             class:
               - hidden
+        platform_entity_selection:
+          '#type': webform_entity_select
+          '#title': Платформа
+          '#target_type': node
+          '#selection_handler': views
+          '#selection_settings':
+            view:
+              view_name: platform
+              display_name: entity_reference_platform
+              arguments:
+                - '-1'
         cpu_container:
           '#type': container
           '#attributes':
@@ -199,23 +205,12 @@ elements: |-
           cpu_show_reset_buttons_flexbox:
             '#type': webform_flexbox
             '#align_items': flex-end
-            actions_01:
-              '#type': webform_actions
-              '#title': 'Показать  совместимые процессоры'
-              '#submit_hide': true
-              '#reset_hide': true
-              '#draft__label': Показать
-              '#update__label': Обновить
-              '#wizard_prev_hide': true
-              '#wizard_prev__label': 'test button  Wizard previus'
-              '#wizard_next_hide': true
-              '#wizard_next__label': 'test button Wizard next'
-              '#preview_prev_hide': true
-              '#preview_prev__label': 'test button Preview label'
-              '#preview_next_hide': true
-              '#preview_next__label': 'test button Nex label'
-              '#submit_attributes':
-                data-show-processors: 1
+            show_processors_button:
+              '#type': button
+              '#value': 'Показать совместимые процессоры'
+              '#attributes':
+                class:
+                  - show-processors-button
             my_reset:
               '#type': button
               '#value': 'Сбросить фильтр'
@@ -227,38 +222,37 @@ elements: |-
             '#title': cpu_generation_twig
             '#wrapper_attributes':
               class:
-                - hidden
+                - visible
             '#display_on': form
             '#template': |-
-              {% set node = webform_submission.getSourceEntity()%}
-              {% if  (node.field_cpu_generation is not empty) %}
-              {{ node.field_cpu_generation.target_id }}
-              {% else %}539
+              {% set platform_id = data.platform_entity_selection %}
+              {% if platform_id %}
+                {% set platform = drupal_entity('node', platform_id) %}
+                {% if platform and platform.field_cpu_generation is not empty %}
+                  {{ platform.field_cpu_generation.target_id }}
+                {% endif %}
               {% endif %}
             '#whitespace': trim
-          processor_for_server:
-            '#type': view
-            '#states':
-              visible:
-                ':input[name="show_processors"]':
-                  checked: true
-            '#wrapper_attributes':
-              class:
-                - mt-5
-            '#display_on': form
-            '#name': cpu
-            '#display_id': entity_browser_processor_for_server
-            '#arguments':
-              - '[webform_submission:values:cpu_generation_twig]'
-              - '[webform_submission:values:frequency_min]--[webform_submission:values:frequency_max]'
-              - '[webform_submission:values:cores_min]--[webform_submission:values:cores_max]'
-              - '[webform_submission:values:kolichestvo_processorov]'
+          processors_ajax_wrapper:
+            '#type': container
+            '#attributes':
+              id: processors-ajax-wrapper
+            processor_for_server:
+              '#type': view
+              '#wrapper_attributes':
+                class:
+                  - mt-5
+              '#display_on': form
+              '#name': cpu
+              '#display_id': entity_browser_processor_for_server
+              '#arguments':
+                - '[webform_submission:values:cpu_generation_entity_selection]'
+                - '[webform_submission:values:frequency_min]--[webform_submission:values:frequency_max]'
+                - '[webform_submission:values:cores_min]--[webform_submission:values:cores_max]'
+                - '[webform_submission:values:kolichestvo_processorov]'
         show_processors:
           '#type': checkbox
           '#title': show_processor
-          '#wrapper_attributes':
-            class:
-              - hidden
         selected_processors_text:
           '#type': textarea
           '#title': 'Выбранные процессоры'
@@ -455,31 +449,17 @@ elements: |-
                 - border-primary
                 - border-5
                 - hidden
-            '#template': |+
-              {# Получаем ноду из source entity вебформы #}
-              {% set node = webform_submission.getSourceEntity() %}
-
-
-              {% if node and node.bundle() == 'server' %}
-                {# Проверяем, что есть поле платформы #}
-                {% if node.hasField('field_platform') and not node.field_platform.isEmpty() %}
-                  {% set platform = node.field_platform.entity %}
-
-                  {# Получаем LAN характеристики #}
-                  {% if platform and platform.hasField('field_lan_ports_speed') %}
-                {% set attributes = create_attribute() %}
-
-                <label{{ attributes.setAttribute('class',  'lan-preset') }}>    {{ platform.field_lan_ports_speed.value }}   </label>
-                  {% else %}
-                    Поле field_lan не найдено
-                  {% endif %}
-                {% else %}
-                  Поле field_platform не найдено или пустое
+            '#template': |-
+              {% set platform_id = data.platform_entity_selection %}
+              {% if platform_id %}
+                {% set platform = drupal_entity('node', platform_id) %}
+                {% if platform and platform.field_lan_ports_speed is not empty %}
+                  {% set attributes = create_attribute() %}
+                  <label{{ attributes.setAttribute('class', 'lan-preset') }}>
+                    {{ platform.field_lan_ports_speed.value }}
+                  </label>
                 {% endif %}
-              {% else %}
-                Вебформа не привязана к ноде Server
               {% endif %}
-
           add_setevoy_interfeys:
             '#type': checkbox
             '#title': 'Добавить опциональный сетевой адаптер?'

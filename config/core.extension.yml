@@ -172,7 +172,6 @@ module:
   redirect_404: 0
   rest: 0
   restui: 0
-  scanner: 0
   schema_metatag: 0
   sdc: 0
   search: 0

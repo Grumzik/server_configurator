@@ -2,8 +2,6 @@
 // считает лимиты
 // обновляет UI
 // вызывает render
-
-
 (function (Drupal) {
   let isUpdating = false;
   let state;
@@ -17,24 +15,24 @@
       this.recalculate();
     },
 
-
     recalculate() {
-      if (isUpdating || !state || !render) return;
+      if (isUpdating || !state || !render) {
+        return;
+      }
+
       isUpdating = true;
 
-      const platform = state.getPlatform();
-      const storage = state.getStorage();
+      try {
+        const platform = state.getPlatform() || {};
+        const maxStorage = Number(platform.storage_bays || 0);
 
-      if (!platform) return;
-
-      const maxStorage = Number(platform.storage_bays || 0);
-
-      Drupal.serverConfiguratorStorage.recalcLimits(maxStorage);
-      Drupal.serverConfiguratorStorage.updateAddButtons(maxStorage);
-      render.render(state);
-
-      isUpdating = false;
-
+        Drupal.serverConfiguratorStorage.recalcLimits(maxStorage);
+        Drupal.serverConfiguratorStorage.updateAddButtons(maxStorage);
+        render.render(state);
+      }
+      finally {
+        isUpdating = false;
+      }
     }
   };
 

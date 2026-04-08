@@ -1,19 +1,19 @@
-//Это аналог Domain / State Store
+// Это аналог Domain / State Store
 (function (Drupal) {
 
+  if (Drupal.serverConfiguratorState) {
+    return;
+  }
 
-    if (Drupal.serverConfiguratorState) {
-      return; // если state уже существует — не создаём заново
-    }
-
-    const state = {
-      platform: {},
-      server: {},
-      cpu: [],
-      storage: {},
-      form: {},
-      showProcessors: ''
-    };
+  const state = {
+    mode: '',
+    platform: {},
+    server: {},
+    cpu: [],
+    storage: {},
+    form: {},
+    showProcessors: false,
+  };
 
   function recalc() {
     if (Drupal.serverConfiguratorEngine) {
@@ -21,14 +21,9 @@
     }
   }
 
-
   Drupal.serverConfiguratorState = function () {
-
-    const instanceId = Math.random().toString(36).slice(2, 8);
-
-
     return {
-      stateInit(){
+      stateInit() {
         state.form = {};
         state.cpu = [];
         state.storage = {};
@@ -36,7 +31,14 @@
         recalc();
       },
 
-      /* PLATFORM */
+      setMode(mode) {
+        state.mode = mode || '';
+      },
+
+      getMode() {
+        return state.mode || '';
+      },
+
       setPlatform(data) {
         state.platform = data || {};
         recalc();
@@ -46,7 +48,6 @@
         return state.platform;
       },
 
-      /* CPU */
       setCpu(list) {
         state.cpu = Array.isArray(list) ? list : [];
         recalc();
@@ -56,7 +57,6 @@
         return state.cpu;
       },
 
-      /* SERVER */
       setServer(data) {
         state.server = data || {};
         recalc();
@@ -66,11 +66,10 @@
         return state.server;
       },
 
-      /* STORAGE (хранилище для элемента component накопители) */
       setStorageItem(id, data) {
         state.storage[id] = {
           ...(state.storage[id] || {}),
-          ...data
+          ...data,
         };
         recalc();
       },
@@ -89,7 +88,9 @@
 
       getAvailableStorageSlots() {
         const total = Number(state.platform?.storage_bays || 0);
-        const used = Object.keys(state.storage || {}).length;
+        const used = Object.values(state.storage || {}).reduce((sum, item) => {
+          return sum + Number(item?.count || 0);
+        }, 0);
         return Math.max(total - used, 0);
       },
 
@@ -97,7 +98,6 @@
         return state.storage;
       },
 
-      /* FORM */
       setForm(data) {
         state.form = { ...state.form, ...(data || {}) };
         recalc();
@@ -107,24 +107,18 @@
         return state.form;
       },
 
-      /* ShowProcessors */
       setShowProcessors(value) {
-        state.showProcessors = value;
-         recalc();
+        state.showProcessors = !!value;
+        recalc();
       },
 
-      getShowProcessors(){
-        return state.showProcessors || false;
-
+      getShowProcessors() {
+        return !!state.showProcessors;
       },
 
-      /* FULL STATE */
       getState() {
         return state;
-      }
-
-
-
+      },
     };
   };
 

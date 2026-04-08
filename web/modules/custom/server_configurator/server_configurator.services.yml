@@ -13,6 +13,7 @@ services:
     class: Drupal\server_configurator\Data\PlatformDataProvider
     arguments:
       - '@current_route_match'
+      - '@entity_type.manager'
 
   server_configurator.attachments_builder:
     class: Drupal\server_configurator\Presentation\ConfiguratorAttachmentBuilder
@@ -20,4 +21,3 @@ services:
       - '@server_configurator.page_context'
       - '@server_configurator.server_data'
       - '@server_configurator.platform_data'
-

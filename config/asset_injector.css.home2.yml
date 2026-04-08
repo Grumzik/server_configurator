@@ -51,6 +51,12 @@ code: |
   	position: absolute;
   	bottom: 15%;
   }
+  .ab-30{
+  	position: absolute;
+  	bottom: 30%;
+  }
+
+
   .tisColl{
   	position: relative;
   }
