@@ -351,7 +351,7 @@ ${cpuList.map(c => c.pretty).join('\n----------------\n')}
     return {
       render(state) {
         const webform =
-          document.querySelector('.webform-submission-server-configurator-form');
+          document.querySelector('.webform-submission-server-configurator-form,.webform-submission-main-server-configurator-form');
 
         if (!webform) {
           console.log('Это не вебформа конфигуратора! не выполянем events');
