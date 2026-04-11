@@ -3,6 +3,14 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * @file
+ * Thin procedural wrappers for Drupal Form API callbacks.
+ *
+ * These wrappers are kept outside server_configurator.module so the module file
+ * remains a thin hook entrypoint. Real logic lives in services/features.
+ */
+
+/**
  * AJAX callback wrapper for cpu_vendor.
  */
 function server_configurator_cpu_vendor_ajax_callback(array &$form, FormStateInterface $form_state) {
