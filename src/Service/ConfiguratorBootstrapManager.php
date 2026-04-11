@@ -38,20 +38,7 @@ class ConfiguratorBootstrapManager {
    * Attach frontend assets and settings to Main Configurator form.
    */
   public function attachToMainForm(array &$form, ?ConfiguratorContext $context = NULL): void {
-    if ($context === NULL) {
-      $webform_id = $form['#webform_id'] ?? NULL;
-
-      if (
-        !$webform_id &&
-        isset($form['#webform']) &&
-        is_object($form['#webform']) &&
-        method_exists($form['#webform'], 'id')
-      ) {
-        $webform_id = $form['#webform']->id();
-      }
-
-      $context = $this->contextResolver->resolveFromWebformId($webform_id);
-    }
+    $context = $context ?: $this->contextResolver->resolveFromWebformId($this->extractWebformId($form));
 
     if (!$context->shouldAttachFrontend()) {
       return;
@@ -59,6 +46,19 @@ class ConfiguratorBootstrapManager {
 
     $form['#attached']['library'][] = 'server_configurator/configurator';
     $form['#attached']['drupalSettings']['serverConfigurator'] = $this->settingsBuilder->buildForMainConfiguratorForm();
+  }
+
+  /**
+   * Extract stable Webform ID from a built form.
+   */
+  protected function extractWebformId(array $form): ?string {
+    $webform_id = $form['#webform_id'] ?? NULL;
+
+    if (!$webform_id && isset($form['#webform']) && is_object($form['#webform']) && method_exists($form['#webform'], 'id')) {
+      $webform_id = $form['#webform']->id();
+    }
+
+    return $webform_id ?: NULL;
   }
 
 }
