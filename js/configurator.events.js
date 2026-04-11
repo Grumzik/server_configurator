@@ -2,11 +2,6 @@
 (function (Drupal, once, drupalSettings) {
 
   Drupal.serverConfiguratorEvents = function (context, state) {
-    const summary = document.querySelector('#server-config-summary');
-    if (!summary) {
-      return;
-    }
-
     const settings = drupalSettings.serverConfigurator || {};
     const platformMap = settings.platformMap || {};
     const mode = state.getMode();
@@ -136,42 +131,6 @@
       });
     }
 
-    function bindStorageComposite(localContext) {
-      const selector = 'tr[data-drupal-selector^="edit-kompozitnyy-elemen-storage-items-"]';
-
-      once('server-configurator-storage', selector, localContext).forEach((row) => {
-        row.addEventListener('change', collectAllRows);
-      });
-
-      function collectAllRows() {
-        const rows = document.querySelectorAll(selector);
-        const storage = {};
-
-        rows.forEach((row) => {
-          const typeInput = row.querySelector('.storage_types:checked');
-          const type = typeInput ? typeInput.value.trim() : null;
-
-          const countInput = row.querySelector('.storage_count');
-          const count = countInput ? parseInt(countInput.value, 10) : 0;
-
-          const volumeInput = row.querySelector('.storage-volume input:checked');
-          const volume = volumeInput ? volumeInput.value : null;
-
-          const idItem = Drupal.serverConfiguratorUtils.getRowId(row);
-
-          if (type && count > 0) {
-            storage[idItem] = {
-              type,
-              count,
-              volume,
-            };
-          }
-        });
-
-        state.setStorage(storage);
-      }
-    }
-
     bindRadioElements('kolichestvo_processorov');
     bindRadioElements('obem_operativnoy_pamyati_v_gb');
     bindRadioElements('tip_ustanovlennyh_nakopiteley');
@@ -188,7 +147,7 @@
     bindRadioElements('skorost_setevyh_portov_gbit_sek_med');
     bindRadioElements('skorost_setevyh_portov_gbit_sek_optika');
     bindPlatformSelection();
-    bindStorageComposite(context);
+    Drupal.serverConfiguratorStorage.init(context, state);
 
     recalc();
   };

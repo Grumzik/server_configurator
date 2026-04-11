@@ -2,22 +2,19 @@
 
 use Drupal\Core\Form\FormStateInterface;
 
+require_once __DIR__ . '/includes/server_configurator.callbacks.inc';
+
 /**
  * @file
  * Main module file for Server Configurator module.
  */
 
-require_once __DIR__ . '/server_configurator.helpers.inc';
-require_once __DIR__ . '/server_configurator.dependencies.inc';
-require_once __DIR__ . '/server_configurator.processors.inc';
-require_once __DIR__ . '/server_configurator.debug.inc';
-
 /**
  * Implements hook_page_attachments().
  */
 function server_configurator_page_attachments(array &$attachments) {
-   \Drupal::service('server_configurator.attachments_builder')
-    ->build($attachments);
+  \Drupal::service('server_configurator.bootstrap_manager')
+    ->attachToPage($attachments);
 }
 
 /**
@@ -38,129 +35,10 @@ function server_configurator_hook_info() {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter() for the main configurator webform.
+ * Implements hook_form_alter().
  */
-function server_configurator_form_webform_submission_main_server_configurator_node_7905_add_form_alter(
-  array &$form,
-  FormStateInterface $form_state,
-  $form_id
-) {
-  $cpu_vendor_element = &server_configurator_find_element($form, 'cpu_vendor');
-  $cpu_generation_element = &server_configurator_find_element($form, 'cpu_generation_entity_selection');
-  $platform_element = &server_configurator_find_element($form, 'platform_entity_selection');
-  $form_factor_element = &server_configurator_find_element($form, 'form_factor_units');
-  $show_processors_button = &server_configurator_find_element($form, 'show_processors_button');
-  $reset_button = &server_configurator_find_element($form, 'my_reset');
-  $show_processors_element = &server_configurator_find_element($form, 'show_processors');
-  $processor_wrapper = &server_configurator_get_processors_wrapper($form);
-  $processor_view = &server_configurator_get_processor_view($form);
-
-  if (
-    $cpu_vendor_element === NULL ||
-    $cpu_generation_element === NULL ||
-    $platform_element === NULL ||
-    $form_factor_element === NULL
-  ) {
-    return;
-  }
-
-
-
-    // Гарантированно подключаем frontend-конфигуратор к Большому конфигуратору.
-    $form['#attached']['library'][] = 'server_configurator/configurator';
-
-    $platform_data = \Drupal::service('server_configurator.platform_data');
-
-    $form['#attached']['drupalSettings']['serverConfigurator'] = [
-        'mode' => 'main_configurator',
-        'server' => [],
-        'platform' => [],
-        'platformMap' => $platform_data->getPlatformMap(),
-    ];
-
-
-
-  server_configurator_add_wrapper($cpu_generation_element, 'cpu-generation-wrapper');
-  server_configurator_add_wrapper($platform_element, 'platform-wrapper');
-
-  if ($processor_wrapper !== NULL) {
-    $processor_wrapper['#attributes']['id'] = 'processors-ajax-wrapper';
-  }
-
-  $cpu_vendor_element['#ajax'] = [
-    'callback' => 'server_configurator_cpu_vendor_ajax_callback',
-    'wrapper' => 'cpu-generation-wrapper',
-    'event' => 'change',
-  ];
-
-  $cpu_generation_element['#ajax'] = [
-    'callback' => 'server_configurator_cpu_generation_ajax_callback',
-    'wrapper' => 'platform-wrapper',
-    'event' => 'change',
-  ];
-
-  $form_factor_element['#ajax'] = [
-    'callback' => 'server_configurator_form_factor_ajax_callback',
-    'wrapper' => 'platform-wrapper',
-    'event' => 'change',
-  ];
-
-  if ($show_processors_button !== NULL) {
-    $show_processors_button['#type'] = 'submit';
-    $show_processors_button['#ajax'] = [
-      'callback' => 'server_configurator_show_processors_ajax_callback',
-      'wrapper' => 'processors-ajax-wrapper',
-      'event' => 'click',
-      'progress' => [
-        'type' => 'throbber',
-        'message' => t('Загружаем совместимые процессоры...'),
-      ],
-    ];
-    $show_processors_button['#submit'][] = 'server_configurator_show_processors_submit';
-    $show_processors_button['#limit_validation_errors'] = [];
-  }
-
-  if ($reset_button !== NULL) {
-    $reset_button['#type'] = 'submit';
-    $reset_button['#ajax'] = [
-      'callback' => 'server_configurator_reset_processors_ajax_callback',
-      'wrapper' => 'processors-ajax-wrapper',
-      'event' => 'click',
-    ];
-    $reset_button['#submit'][] = 'server_configurator_reset_processors_submit';
-    $reset_button['#limit_validation_errors'] = [];
-  }
-
-  $trigger_key = server_configurator_get_trigger_key($form_state);
-  $vendor_value = server_configurator_get_submitted_value($form_state, 'cpu_vendor');
-  $cpu_generation_value = server_configurator_get_submitted_value($form_state, 'cpu_generation_entity_selection');
-  $form_factor_value = server_configurator_get_submitted_value($form_state, 'form_factor_units');
-
-  server_configurator_apply_cpu_generation_dependency($cpu_generation_element, $vendor_value);
-
-  if ($trigger_key === 'cpu_vendor') {
-    server_configurator_reset_select($cpu_generation_element);
-    $cpu_generation_value = NULL;
-  }
-
-  if (in_array($trigger_key, ['cpu_generation_entity_selection', 'form_factor_units', 'cpu_vendor'], TRUE)) {
-    server_configurator_reset_select($platform_element);
-  }
-
-  server_configurator_apply_platform_dependency(
-    $platform_element,
-    $cpu_generation_value,
-    $form_factor_value
-  );
-
-  if ($processor_view !== NULL && !server_configurator_can_build_processor_view($form_state)) {
-    $processor_view['#access'] = FALSE;
-  }
-
-  if ($show_processors_element !== NULL) {
-    $show_value = server_configurator_get_submitted_value($form_state, 'show_processors');
-    $show_processors_element['#default_value'] = server_configurator_has_value($show_value) ? (int) $show_value : 0;
-  }
-
-  $form_state->setRebuild(TRUE);
+function server_configurator_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  \Drupal::service('server_configurator.form_alter_router')
+    ->alter($form, $form_state, $form_id);
 }
+
