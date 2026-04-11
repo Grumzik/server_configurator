@@ -6,7 +6,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
 use Drupal\webform\WebformInterface;
 
-class PageContext {
+class PageContextFetcher {
 
   public function __construct(
     protected RouteMatchInterface $routeMatch,
