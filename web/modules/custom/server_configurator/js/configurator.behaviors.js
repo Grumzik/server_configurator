@@ -274,149 +274,210 @@
          CHECKBOX
       ========================= */
 
-      once(
-        'showProcessorsCheckbox',
-        context.querySelectorAll('[name="show_processors"]')
-      ).forEach(checkbox => {
-
-        const saved = state.getShowProcessors();
-
-        checkbox.checked = !!saved;
-
-        checkbox.addEventListener('change', () => {
-
-          state.setShowProcessors(
-            !!checkbox.checked
-          );
-
-        });
-
-      });
+      // once(
+      //   'showProcessorsCheckbox',
+      //   context.querySelectorAll('[name="show_processors"]')
+      // ).forEach(checkbox => {
+      //
+      //   const saved = state.getShowProcessors();
+      //
+      //   checkbox.checked = !!saved;
+      //
+      //   checkbox.addEventListener('change', () => {
+      //
+      //     state.setShowProcessors(
+      //       !!checkbox.checked
+      //     );
+      //
+      //   });
+      //
+      // });
 
 
       /* =========================
          BUTTON SHOW
       ========================= */
 
-      once(
-        'showProcessorsBtn',
-        context.querySelectorAll(
-          '[data-drupal-selector^="edit-actions-01-draft"]'
-        )
-      ).forEach(showBtn => {
-
-        showBtn.addEventListener('click', () => {
-
-          const checkbox =
-            document.querySelector('[name="show_processors"]');
-
-          if (!checkbox) return;
-            checkbox.checked = true;
-
-          state.setShowProcessors(true);
-
-        });
-
-      });
+      // once(
+      //   'showProcessorsBtn',
+      //   context.querySelectorAll(
+      //     '[data-drupal-selector^="edit-actions-01-draft"]'
+      //   )
+      // ).forEach(showBtn => {
+      //
+      //   showBtn.addEventListener('click', () => {
+      //
+      //     const checkbox =
+      //       document.querySelector('[name="show_processors"]');
+      //
+      //     if (!checkbox) return;
+      //       checkbox.checked = true;
+      //
+      //     state.setShowProcessors(true);
+      //
+      //   });
+      //
+      // });
 
 
       /* =========================
          BUTTON RESET
       ========================= */
 
+      // once(
+      //   'showProcessorsReset',
+      //   context.querySelectorAll('.configurator-reset')
+      // ).forEach(resetBtn => {
+      //
+      //   resetBtn.addEventListener('click', (e) => {
+      //
+      //     e.preventDefault();
+      //
+      //     const checkbox =
+      //       document.querySelector('[name="show_processors"]');
+      //
+      //     const showBtn =
+      //       document.querySelector(
+      //         '[data-drupal-selector^="edit-actions-01-draft"]'
+      //       );
+      //
+      //
+      //     /* ---------- CORES ---------- */
+      //
+      //     const coresWrapper =
+      //       document.querySelector('[data-fields="cores"]');
+      //
+      //     const coresMin =
+      //       document.querySelector('[name="cores_min"]');
+      //
+      //     const coresMax =
+      //       document.querySelector('[name="cores_max"]');
+      //
+      //     if (coresMin) coresMin.value = 2;
+      //     if (coresMax) coresMax.value = 144;
+      //
+      //     if (coresWrapper) {
+      //
+      //       const current =
+      //         coresWrapper.querySelector(
+      //           '.dual-range-current-values'
+      //         );
+      //
+      //       if (current) {
+      //         current.textContent = '2 — 144';
+      //       }
+      //
+      //     }
+      //
+      //
+      //     /* ---------- FREQUENCY ---------- */
+      //
+      //     const freqWrapper =
+      //       document.querySelector('[data-fields="frequency"]');
+      //
+      //     const freqMin =
+      //       document.querySelector('[name="frequency_min"]');
+      //
+      //     const freqMax =
+      //       document.querySelector('[name="frequency_max"]');
+      //
+      //     if (freqMin) freqMin.value = 1;
+      //     if (freqMax) freqMax.value = 4;
+      //
+      //     if (freqWrapper) {
+      //
+      //       const current =
+      //         freqWrapper.querySelector(
+      //           '.dual-range-current-values'
+      //         );
+      //
+      //       if (current) {
+      //         current.textContent = '1.0 — 4.0';
+      //       }
+      //
+      //     }
+      //
+      //
+      //     /* ---------- checkbox ---------- */
+      //
+      //     if (checkbox) {
+      //       checkbox.checked = false;
+      //     }
+      //
+      //     state.setShowProcessors(false);
+      //
+      //
+      //     /* ---------- submit draft ---------- */
+      //
+      //     if (showBtn) {
+      //       showBtn.click();
+      //
+      //     }
+      //
+      //   });
+      //
+      // });
+      /* =========================
+   BUTTON RESET (MAIN CONFIGURATOR)
+========================= */
+
       once(
-        'showProcessorsReset',
-        context.querySelectorAll('.configurator-reset')
+        'showProcessorsResetMain',
+        context.querySelectorAll('input[name="my_reset"], button[name="my_reset"], [data-drupal-selector*="my-reset"]')
       ).forEach(resetBtn => {
 
-        resetBtn.addEventListener('click', (e) => {
+        resetBtn.addEventListener('click', () => {
 
-          e.preventDefault();
-
-          const checkbox =
-            document.querySelector('[name="show_processors"]');
-
-          const showBtn =
-            document.querySelector(
-              '[data-drupal-selector^="edit-actions-01-draft"]'
-            );
-
-
-          /* ---------- CORES ---------- */
-
-          const coresWrapper =
-            document.querySelector('[data-fields="cores"]');
-
-          const coresMin =
-            document.querySelector('[name="cores_min"]');
-
-          const coresMax =
-            document.querySelector('[name="cores_max"]');
-
-          if (coresMin) coresMin.value = 2;
-          if (coresMax) coresMax.value = 144;
-
-          if (coresWrapper) {
-
-            const current =
-              coresWrapper.querySelector(
-                '.dual-range-current-values'
-              );
-
-            if (current) {
-              current.textContent = '2 — 144';
-            }
-
-          }
-
-
-          /* ---------- FREQUENCY ---------- */
-
-          const freqWrapper =
-            document.querySelector('[data-fields="frequency"]');
-
-          const freqMin =
-            document.querySelector('[name="frequency_min"]');
-
-          const freqMax =
-            document.querySelector('[name="frequency_max"]');
-
-          if (freqMin) freqMin.value = 1;
-          if (freqMax) freqMax.value = 4;
-
-          if (freqWrapper) {
-
-            const current =
-              freqWrapper.querySelector(
-                '.dual-range-current-values'
-              );
-
-            if (current) {
-              current.textContent = '1.0 — 4.0';
-            }
-
-          }
-
-
-          /* ---------- checkbox ---------- */
-
+          // Сбрасываем checkbox processsors.
+          const checkbox = document.querySelector('[name="show_processors"]');
           if (checkbox) {
-            checkbox.checked = false;
+             checkbox.checked = false;
           }
 
+          // Сбрасываем input values, чтобы backend получил defaults.
+          const coresMin = document.querySelector('[name="cores_min"]');
+          const coresMax = document.querySelector('[name="cores_max"]');
+          const freqMin = document.querySelector('[name="frequency_min"]');
+          const freqMax = document.querySelector('[name="frequency_max"]');
+
+          if (coresMin) coresMin.value = '2';
+          if (coresMax) coresMax.value = '144';
+          if (freqMin) freqMin.value = '1.0';
+          if (freqMax) freqMax.value = '4.0';
+
+          // Сбрасываем сами dual-range / noUiSlider виджеты.
+          document.querySelectorAll('.dual-range-wrapper').forEach((wrapper) => {
+            const sliderElement = wrapper.querySelector('.dual-range-slider');
+            if (!sliderElement || !sliderElement.noUiSlider) {
+              return;
+            }
+
+            const fields = wrapper.dataset.fields || '';
+
+            if (fields === 'cores') {
+              sliderElement.noUiSlider.set([2, 144]);
+            }
+
+            if (fields === 'frequency') {
+              sliderElement.noUiSlider.set([1.0, 4.0]);
+            }
+          });
+
+          // Чистим frontend state, чтобы restore не возвращал старый выбор CPU.
+          const state = Drupal.serverConfiguratorState();
           state.setShowProcessors(false);
+          state.setCpu([]);
 
-
-          /* ---------- submit draft ---------- */
-
-          if (showBtn) {
-            showBtn.click();
-
+          const selectedText = document.querySelector('[name="selected_processors_text"]');
+          if (selectedText) {
+            selectedText.value = '';
           }
 
         });
 
       });
+
+
 
     }
   };
