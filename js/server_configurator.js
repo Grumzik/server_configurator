@@ -19,9 +19,20 @@
       const platformData = settings.platform || {};
 
       const state = Drupal.serverConfiguratorState();
-      state.setMode(mode);
-      state.setServer(serverData);
-      state.setPlatform(platformData);
+      if (mode) {
+        state.setMode(mode);
+      }
+
+      if (serverData && Object.keys(serverData).length) {
+        state.setServer(serverData);
+      }
+
+      // Важно: не затираем выбранную пользователем платформу пустым объектом
+      // на частичных AJAX attach большого конфигуратора.
+      if (platformData && Object.keys(platformData).length) {
+        state.setPlatform(platformData);
+      }
+
 
       if (!Drupal.serverConfiguratorRenderer) {
         Drupal.serverConfiguratorRenderer = Drupal.serverConfiguratorRender();
@@ -35,8 +46,8 @@
       Drupal.serverConfiguratorEvents(context, state);
 
       setTimeout(() => {
-        Drupal.serverConfiguratorStorage.restoreRowsFromState(state);
-        Drupal.serverConfiguratorStorage.refresh(state);
+        // Drupal.serverConfiguratorStorage.restoreRowsFromState(state);
+        // Drupal.serverConfiguratorStorage.refresh(state);
         Drupal.serverConfiguratorEngine.recalculate();
       }, 50);
     }

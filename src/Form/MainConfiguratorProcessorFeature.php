@@ -66,7 +66,6 @@ class MainConfiguratorProcessorFeature {
     $user_input = $form_state->getUserInput();
     $user_input['show_processors'] = 1;
     $form_state->setUserInput($user_input);
-
     $form_state->setRebuild(TRUE);
   }
 
@@ -78,7 +77,7 @@ class MainConfiguratorProcessorFeature {
     $user_input['show_processors'] = 0;
     $user_input['selected_processors_text'] = '';
     $form_state->setUserInput($user_input);
-
+    \Drupal::logger('resetProcessorsSubmit')->notice( $form_state->getValue('show_processors'));
     $form_state->setRebuild(TRUE);
   }
 
@@ -91,11 +90,23 @@ class MainConfiguratorProcessorFeature {
   }
 
   public function canBuildProcessorView(FormStateInterface $form_state): bool {
+    $show_processors = $this->locator->getSubmittedValue($form_state, 'show_processors');
     $cpu_generation = $this->locator->getSubmittedValue($form_state, 'cpu_generation_entity_selection');
     $processors_count = $this->locator->getSubmittedValue($form_state, 'kolichestvo_processorov');
 
-    return $this->locator->hasValue($cpu_generation)
-      && $this->locator->hasValue($processors_count);
+    if ((string) $show_processors !== '1') {
+      return FALSE;
+    }
+
+    if (!$this->locator->hasValue($cpu_generation)) {
+      return FALSE;
+    }
+
+    if (!$this->locator->hasValue($processors_count)) {
+      return FALSE;
+    }
+
+    return TRUE;
   }
 
   protected function renderAjaxCallbackWrapperResponse(array &$form): AjaxResponse {
