@@ -38,6 +38,6 @@ function server_configurator_hook_info() {
  * Implements hook_form_alter().
  */
 function server_configurator_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
-  \Drupal::service('server_configurator.form_alter_router')
+  \Drupal::service('server_configurator.form_alter')
     ->alter($form, $form_state, $form_id);
 }
