@@ -3,29 +3,37 @@
 namespace Drupal\server_configurator\Context;
 
 use Drupal\server_configurator\Config\ConfiguratorDefinitions;
+use Drupal\server_configurator\DTO\ConfiguratorDefinition;
 
 final class ConfiguratorContext {
 
   public function __construct(
-    protected string $mode,
     protected bool $isConfigurator,
-    protected array $features = [],
+    protected ?ConfiguratorDefinition $definition = NULL,
   ) {}
-
-  public function getMode(): string {
-    return $this->mode;
-  }
 
   public function isConfigurator(): bool {
     return $this->isConfigurator;
   }
 
-  public function isServerPage(): bool {
-    return $this->mode === ConfiguratorDefinitions::SERVER_PAGE;
+  public function getDefinition(): ?ConfiguratorDefinition {
+    return $this->definition;
+  }
+
+  public function getMode(): string {
+    return $this->definition?->getName() ?? ConfiguratorDefinitions::UNKNOWN;
+  }
+
+  public function getWebformId(): ?string {
+    return $this->definition?->getWebformId();
+  }
+
+  public function isServerConfigurator(): bool {
+    return $this->getMode() === ConfiguratorDefinitions::SERVER_CONFIGURATOR;
   }
 
   public function isMainConfigurator(): bool {
-    return $this->mode === ConfiguratorDefinitions::MAIN_CONFIGURATOR;
+    return $this->getMode() === ConfiguratorDefinitions::MAIN_CONFIGURATOR;
   }
 
   public function shouldAttachFrontend(): bool {
@@ -33,11 +41,11 @@ final class ConfiguratorContext {
   }
 
   public function hasFeature(string $feature): bool {
-    return !empty($this->features[$feature]);
+    return $this->definition?->hasFeature($feature) ?? FALSE;
   }
 
   public function getFeatures(): array {
-    return $this->features;
+    return $this->definition?->getFeatures() ?? [];
   }
 
 }

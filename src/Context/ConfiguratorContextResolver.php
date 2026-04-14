@@ -4,63 +4,46 @@ namespace Drupal\server_configurator\Context;
 
 use Drupal\server_configurator\Config\ConfiguratorDefinitions;
 
-//Определяет какой  конфигуратор сейчас работает и его режим работы  -
-// Возвращает объект ConfiguratorContext
+/**
+ * Resolves the active configurator context from page or form.
+ */
 class ConfiguratorContextResolver {
 
   public function __construct(
     protected PageContextFetcher $pageContext,
   ) {}
 
-
   public function resolveFromPage(): ConfiguratorContext {
     if ($this->pageContext->isServerPage()) {
-      return new ConfiguratorContext(
-        ConfiguratorDefinitions::SERVER_PAGE,
-        TRUE,
-        ConfiguratorDefinitions::featureMap()[ConfiguratorDefinitions::SERVER_PAGE]
-      );
+      return new ConfiguratorContext(TRUE, ConfiguratorDefinitions::get(ConfiguratorDefinitions::SERVER_CONFIGURATOR));
     }
 
     if ($this->pageContext->isMainConfiguratorPage()) {
-      return new ConfiguratorContext(
-        ConfiguratorDefinitions::MAIN_CONFIGURATOR,
-        TRUE,
-        ConfiguratorDefinitions::featureMap()[ConfiguratorDefinitions::MAIN_CONFIGURATOR]
-      );
+      return new ConfiguratorContext(TRUE, ConfiguratorDefinitions::get(ConfiguratorDefinitions::MAIN_CONFIGURATOR));
     }
 
-    return new ConfiguratorContext(
-      ConfiguratorDefinitions::UNKNOWN,
-      FALSE,
-      ConfiguratorDefinitions::featureMap()[ConfiguratorDefinitions::UNKNOWN]
-    );
+    return new ConfiguratorContext(FALSE, NULL);
   }
 
-  public function resolveFromWebformId(?string $webform_id): ConfiguratorContext {
-    if (!$webform_id) {
-      return new ConfiguratorContext(
-        ConfiguratorDefinitions::UNKNOWN,
-        FALSE,
-        ConfiguratorDefinitions::featureMap()[ConfiguratorDefinitions::UNKNOWN]
-      );
+  public function resolveFromForm(array $form, string $form_id = ''): ConfiguratorContext {
+    $webform_id = $this->extractWebformId($form);
+    $definition = ConfiguratorDefinitions::getByWebformId($webform_id);
+
+    if ($definition !== NULL) {
+      return new ConfiguratorContext(TRUE, $definition);
     }
 
-    foreach (ConfiguratorDefinitions::webformIds() as $mode => $webform_ids) {
-      if (in_array($webform_id, $webform_ids, TRUE)) {
-        return new ConfiguratorContext(
-          $mode,
-          TRUE,
-          ConfiguratorDefinitions::featureMap()[$mode] ?? []
-        );
-      }
+    return new ConfiguratorContext(FALSE, NULL);
+  }
+
+  protected function extractWebformId(array $form): ?string {
+    $webform_id = $form['#webform_id'] ?? NULL;
+
+    if (!$webform_id && isset($form['#webform']) && is_object($form['#webform']) && method_exists($form['#webform'], 'id')) {
+      $webform_id = $form['#webform']->id();
     }
 
-    return new ConfiguratorContext(
-      ConfiguratorDefinitions::UNKNOWN,
-      FALSE,
-      ConfiguratorDefinitions::featureMap()[ConfiguratorDefinitions::UNKNOWN]
-    );
+    return $webform_id ?: NULL;
   }
 
 }

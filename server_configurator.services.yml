@@ -21,14 +21,14 @@ services:
       - '@entity_type.manager'
 
   server_configurator.drupal_settings_builder:
-    class: Drupal\server_configurator\Service\ConfiguratorDrupalSettingsBuilder
+    class: Drupal\server_configurator\Application\ConfiguratorDrupalSettingsBuilder
     arguments:
       - '@server_configurator.page_context'
       - '@server_configurator.server_data'
       - '@server_configurator.platform_data'
 
   server_configurator.bootstrap_manager:
-    class: Drupal\server_configurator\Service\ConfiguratorBootstrapManager
+    class: Drupal\server_configurator\Application\ConfiguratorBootstrapManager
     arguments:
       - '@server_configurator.configurator_context_resolver'
       - '@server_configurator.drupal_settings_builder'
@@ -36,27 +36,29 @@ services:
   server_configurator.field_locator:
     class: Drupal\server_configurator\Service\ConfiguratorFieldLocator
 
-  server_configurator.main_dependencies:
-    class: Drupal\server_configurator\Form\MainConfiguratorDependencyFeature
+  server_configurator.dependencies_feature:
+    class: Drupal\server_configurator\Feature\DependenciesFeature
     arguments:
       - '@server_configurator.field_locator'
 
-  server_configurator.main_processors:
-    class: Drupal\server_configurator\Form\MainConfiguratorProcessorFeature
+  server_configurator.processors_feature:
+    class: Drupal\server_configurator\Feature\ProcessorsFeature
     arguments:
       - '@server_configurator.field_locator'
       - '@renderer'
+      - '@server_configurator.configurator_context_resolver'
 
-  server_configurator.main_form_alter:
-    class: Drupal\server_configurator\Form\MainConfiguratorFormAlter
-    arguments:
-      - '@server_configurator.bootstrap_manager'
-      - '@server_configurator.field_locator'
-      - '@server_configurator.main_dependencies'
-      - '@server_configurator.main_processors'
+  server_configurator.storage_feature:
+    class: Drupal\server_configurator\Feature\StorageFeature
 
-  server_configurator.form_alter_router:
-    class: Drupal\server_configurator\Service\FormAlterRouter
+  server_configurator.summary_feature:
+    class: Drupal\server_configurator\Feature\SummaryFeature
+
+  server_configurator.form_alter:
+    class: Drupal\server_configurator\Application\ConfiguratorFormAlter
     arguments:
       - '@server_configurator.configurator_context_resolver'
-      - '@server_configurator.main_form_alter'
+      - '@server_configurator.bootstrap_manager'
+      - '@server_configurator.dependencies_feature'
+      - '@server_configurator.processors_feature'
+      - '@server_configurator.storage_feature'
