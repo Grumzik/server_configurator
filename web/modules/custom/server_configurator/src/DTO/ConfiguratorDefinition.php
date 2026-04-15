@@ -3,15 +3,7 @@
 namespace Drupal\server_configurator\DTO;
 
 /**
- * DTO: declarative description of one configurator.
- *
- * Stores stable configuration for one configurator instance:
- * - identity
- * - enabled features
- * - canonical field mapping
- * - dependencies configuration
- * - summary fields
- * - processors configuration (filters/defaults)
+ * DTO: description of one configurator.
  */
 final class ConfiguratorDefinition {
 
@@ -60,6 +52,49 @@ final class ConfiguratorDefinition {
 
   public function getDependencies(): array {
     return $this->dependencies;
+  }
+
+  public function hasDependencies(): bool {
+    return !empty($this->dependencies);
+  }
+
+  public function getDependencyByType(string $type): ?array {
+    foreach ($this->dependencies as $dependency) {
+      if (($dependency['type'] ?? NULL) === $type) {
+        return $dependency;
+      }
+    }
+
+    return NULL;
+  }
+
+  public function getDependenciesBySource(string $sourceAlias): array {
+    $matched = [];
+
+    foreach ($this->dependencies as $dependency) {
+      $sources = (array) ($dependency['source'] ?? []);
+      if (in_array($sourceAlias, $sources, TRUE)) {
+        $matched[] = $dependency;
+      }
+    }
+
+    return $matched;
+  }
+
+  public function getDependencySource(string $type): string|array|null {
+    return $this->getDependencyByType($type)['source'] ?? NULL;
+  }
+
+  public function getDependencyTarget(string $type): ?string {
+    return $this->getDependencyByType($type)['target'] ?? NULL;
+  }
+
+  public function getDependencyWrapperId(array $dependency, ?string $default = NULL): ?string {
+    return $dependency['wrapper_id'] ?? $default;
+  }
+
+  public function getDependencyAjaxCallback(array $dependency, ?string $default = NULL): ?string {
+    return $dependency['ajax_callback'] ?? $default;
   }
 
   public function getSummaryFields(): array {
