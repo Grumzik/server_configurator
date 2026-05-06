@@ -47,7 +47,7 @@ class ConfiguratorFormAlter {
       $this->storageFeature->alter($form, $form_state, $definition);
     }
 
-//    $form_state->setRebuild(TRUE);
+    $form_state->setRebuild(TRUE);
   }
 
 }

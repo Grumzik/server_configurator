@@ -1,9 +1,3 @@
-// bootstrap Drupal behavior - точка входа:
-// создаёт summary DOM
-// инициализирует state
-// создаёт renderer
-// запускает engine
-// подключает events
 (function (Drupal, once, drupalSettings) {
 
   Drupal.behaviors.serverConfigurator = {
@@ -17,8 +11,11 @@
       const mode = settings.mode || '';
       const serverData = settings.server || {};
       const platformData = settings.platform || {};
+      const config = settings.config || {};
 
       const state = Drupal.serverConfiguratorState();
+      state.setConfig(config);
+
       if (mode) {
         state.setMode(mode);
       }
@@ -27,12 +24,9 @@
         state.setServer(serverData);
       }
 
-      // Важно: не затираем выбранную пользователем платформу пустым объектом
-      // на частичных AJAX attach большого конфигуратора.
       if (platformData && Object.keys(platformData).length) {
         state.setPlatform(platformData);
       }
-
 
       if (!Drupal.serverConfiguratorRenderer) {
         Drupal.serverConfiguratorRenderer = Drupal.serverConfiguratorRender();
@@ -46,8 +40,6 @@
       Drupal.serverConfiguratorEvents(context, state);
 
       setTimeout(() => {
-        // Drupal.serverConfiguratorStorage.restoreRowsFromState(state);
-        // Drupal.serverConfiguratorStorage.refresh(state);
         Drupal.serverConfiguratorEngine.recalculate();
       }, 50);
     }

@@ -40,7 +40,6 @@ services:
     class: Drupal\server_configurator\Feature\DependenciesFeature
     arguments:
       - '@server_configurator.field_locator'
-      - '@server_configurator.configurator_context_resolver'
 
   server_configurator.processors_feature:
     class: Drupal\server_configurator\Feature\ProcessorsFeature

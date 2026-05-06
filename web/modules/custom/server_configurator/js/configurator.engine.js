@@ -27,6 +27,7 @@
         const maxStorage = Number(platform.storage_bays || 0);
 
         Drupal.serverConfiguratorStorage.recalcLimits(maxStorage);
+        Drupal.serverConfiguratorStorage.renderSliderMarks();
         Drupal.serverConfiguratorStorage.updateAddButtons(maxStorage);
         render.render(state);
       }

@@ -1,487 +1,250 @@
 (function (Drupal, once) {
 
+    Drupal.behaviors.serverConfiguratorReload = {
+        attach(context) {
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    location.reload();
+                }
+            });
+        }
+    };
 
-  Drupal.behaviors.serverConfiguratorReload = {
+    /**
+     * Раньше здесь state сбрасывался на mousedown у submit/reset.
+     * Это ломало сохранение выбранных CPU и другие части state.
+     * Оставляем behavior пустым, чтобы не ломать текущую логику.
+     */
+    Drupal.behaviors.serverConfiguratorResetFix = {
+        attach(context) {
+            once('server-reset-fix', context).forEach(() => {
+                // intentionally empty
+            });
+        }
+    };
 
-    attach(context) {
-        window.addEventListener("pageshow", function (e) {
+    Drupal.behaviors.serverConfiguratorRestore = {
+        attach(context) {
+            const state = Drupal.serverConfiguratorState();
 
-          if (e.persisted) {
-            location.reload();
-          }
+            once('restoreCpuAfterView', context.querySelectorAll('[data-drupal-selector="edit-processor-for-server"]'))
+                .forEach(() => {
+                    Drupal.serverConfiguratorRestore.restoreCpu(state);
+                    Drupal.serverConfiguratorEngine.recalculate();
+                });
+        }
+    };
 
-        });
+    Drupal.behaviors.serverConfiguratorMarks = {
+        attach(context) {
+            once('server-configurator-marks', document.body).forEach(() => {
+                document.body.addEventListener('click', function (e) {
+                    let mark = e.target.closest('.range-mark, .range-tick');
 
-    }
-  };
-  Drupal.behaviors.serverConfiguratorResetFix = {
+                    if (!mark) return;
 
-    attach(context) {
-        once('server-reset-fix', context)
-        .forEach(() => {
+                    const value = Number(mark.dataset.value);
+                    if (isNaN(value)) return;
 
-          document
-            .querySelectorAll( '.webform-button--reset, .webform-button--submit' )
-            .forEach(btn => {
-              btn.addEventListener('mousedown', () => {
-                const state = Drupal.serverConfiguratorState();
-                const formBefore = state.getForm();
-                state.stateInit();
-                const formAfter = state.getForm();
-              });
+                    const rangeWrapper = mark.closest('.form-type-range, .js-form-type-range');
+                    const rangeInput = rangeWrapper?.querySelector('input[type="range"]');
 
+                    if (rangeInput) {
+                        rangeInput.value = value;
+                        rangeInput.dispatchEvent(new Event('input', { bubbles: true }));
+                        rangeInput.dispatchEvent(new Event('change', { bubbles: true }));
+                        rangeInput.focus();
+                        return;
+                    }
+
+                    const dualWrapper = mark.closest('.dual-range-wrapper');
+                    if (!dualWrapper) return;
+
+                    const sliderElement = dualWrapper.querySelector('.dual-range-slider');
+                    if (!sliderElement || !sliderElement.noUiSlider) return;
+
+                    const slider = sliderElement.noUiSlider;
+                    const currentValues = slider.get().map(Number);
+
+                    const distanceToFirst = Math.abs(currentValues[0] - value);
+                    const distanceToSecond = Math.abs(currentValues[1] - value);
+
+                    const handleIndex = distanceToFirst <= distanceToSecond ? 0 : 1;
+                    slider.setHandle(handleIndex, value);
+
+                    const handle = sliderElement.querySelectorAll('.noUi-handle')[handleIndex];
+                    if (handle) handle.focus();
+                });
+            });
+        }
+    };
+
+    Drupal.behaviors.storageStates = {
+        attach(context) {
+            once('storageStatesRow', 'tr[data-drupal-selector^="edit-kompozitnyy-elemen-storage-items-"]', context).forEach(function (row) {
+                const radios = row.querySelectorAll(
+                    'input[type="radio"][name*="[tip_ustanovlennyh_nakopiteley]"]'
+                );
+
+                const sata = row.querySelector('.storage-volume--sata');
+                const nvme = row.querySelector('.storage-volume--nvme');
+                const hdd  = row.querySelector('.storage-volume--hdd');
+
+                if (!radios.length || !sata) return;
+
+                function updateVisibility() {
+                    const checked = row.querySelector(
+                        'input[type="radio"][name*="[tip_ustanovlennyh_nakopiteley]"]:checked'
+                    );
+
+                    [sata, nvme, hdd].forEach((el) => {
+                        if (el) el.style.display = 'none';
+                    });
+
+                    if (!checked) return;
+
+                    if (checked.value.trim() === 'SSD SATA' && sata) {
+                        sata.style.display = 'block';
+                    }
+
+                    if (checked.value.trim() === 'SSD NVMe' && nvme) {
+                        nvme.style.display = 'block';
+                    }
+
+                    if (checked.value.trim() === 'HDD' && hdd) {
+                        hdd.style.display = 'block';
+                    }
+                }
+
+                radios.forEach(function (radio) {
+                    radio.addEventListener('change', updateVisibility);
+                });
+
+                updateVisibility();
             });
 
-        });
+            once(
+                'storageRemoveHandler',
+                context.querySelectorAll('input[name^="kompozitnyy_elemen_storage_table_remove_"]')
+            ).forEach((button) => {
+                button.addEventListener('mousedown', function () {
+                    const row = this.closest('tr');
+                    if (!row) return;
 
-    }
-
-  };
-
-  Drupal.behaviors.serverConfiguratorRestore = {
-     attach(context) {
-
-
-       const state =   Drupal.serverConfiguratorState();
-      const summary =   document.querySelector('#server-config-summary');
-
-      // мы не на странице конфигуратора
-      // if (!summary) return;
-      // if (!state.getShowProcessors()) return;
-
-      once('restoreCpuAfterView', context
-        .querySelectorAll('[data-drupal-selector="edit-processor-for-server"]'  ))
-        .forEach((view) => {
-
-            Drupal.serverConfiguratorRestore.restoreCpu(state);
-            Drupal.serverConfiguratorEngine.recalculate();
-        });
-      }
-  };
-
-  Drupal.behaviors.serverConfiguratorMarks = {
-
-    attach(context) {
-
-      // Инициализируем только один раз на весь документ
-      once('server-configurator-marks', document.body).forEach(() => {
-          document.body.addEventListener('click', function (e) {
-          let mark = e.target.closest('.range-mark, .range-tick');
-
-          if (!mark) return;
-
-          const value = Number(mark.dataset.value);
-          if (isNaN(value)) return;
-
-          /* ===============================
-             NORMAL RANGE
-          =============================== */
-
-          const rangeWrapper = mark.closest('.form-type-range');
-          const rangeInput = rangeWrapper?.querySelector('input[type="range"]');
-
-          if (rangeInput) {
-
-            rangeInput.value = value;
-
-            rangeInput.dispatchEvent(new Event('input', { bubbles: true }));
-            rangeInput.dispatchEvent(new Event('change', { bubbles: true }));
-
-            rangeInput.focus();
-            return;
-          }
-
-          /* ===============================
-             DUAL RANGE (noUiSlider)
-          =============================== */
-
-          const dualWrapper = mark.closest('.dual-range-wrapper');
-          if (!dualWrapper) return;
-
-          const sliderElement = dualWrapper.querySelector('.dual-range-slider');
-          if (!sliderElement || !sliderElement.noUiSlider) return;
-
-          const slider = sliderElement.noUiSlider;
-
-          const currentValues = slider.get().map(Number);
-
-          const distanceToFirst = Math.abs(currentValues[0] - value);
-          const distanceToSecond = Math.abs(currentValues[1] - value);
-
-          const handleIndex =
-            distanceToFirst <= distanceToSecond ? 0 : 1;
-
-          slider.setHandle(handleIndex, value);
-
-          const handle =
-            sliderElement.querySelectorAll('.noUi-handle')[handleIndex];
-
-          if (handle) handle.focus();
-          // }
-
-        });
-
-      });
-
-    }
-  };
-
-
-
-  Drupal.behaviors.storageStates = {
-    attach(context) {
-
-
-
-      // Ищем каждую строку composite (каждый delta)
-      once('storageStatesRow', 'tr[data-drupal-selector^="edit-kompozitnyy-elemen-storage-items-"]', context).forEach(function (row) {
-
-        // Все radio внутри текущей строки
-        const radios = row.querySelectorAll(
-          'input[type="radio"][name*="[tip_ustanovlennyh_nakopiteley]"]'
-        );
-
-        const sata = row.querySelector('.storage-volume--sata');
-        const nvme = row.querySelector('.storage-volume--nvme');
-        const hdd  = row.querySelector('.storage-volume--hdd');
-
-
-
-        if (!radios.length || !sata ) return;
-
-
-        // Функция обновления отображения
-        function updateVisibility() {
-
-          const checked = row.querySelector(
-            'input[type="radio"][name*="[tip_ustanovlennyh_nakopiteley]"]:checked'
-          );
-
-          [sata, nvme, hdd].forEach(el => {
-            if (el) el.style.display = 'none';
-          });
-
-          if (!checked) return;
-
-
-          if (checked.value.trim() === 'SSD SATA' && sata) {
-            sata.style.display = 'block';
-          }
-
-          if (checked.value.trim() === 'SSD NVMe' && nvme) {
-            nvme.style.display = 'block';
-          }
-
-          if (checked.value.trim() === 'HDD' && hdd) {
-            hdd.style.display = 'block';
-          }
+                    const id = Drupal.serverConfiguratorUtils.getRowId(row);
+                    if (id) {
+                        const state = Drupal.serverConfiguratorState();
+                        state.removeStorageItem(id);
+                    }
+                });
+            });
         }
+    };
 
+    Drupal.behaviors.serverConfiguratorStorage = {
+        attach(context) {
+            once('storage-slider', context.querySelectorAll('.storage_count'))
+                .forEach((slider) => {
+                    slider.addEventListener('change', function () {
+                        // Reserved for future storage-specific hooks.
+                    });
+                });
+        }
+    };
 
-        // Вешаем change на КАЖДЫЙ radio
-        radios.forEach(function (radio) {
-          radio.addEventListener('change', updateVisibility);
-        });
-
-        // Запускаем при инициализации (чтобы отработал default)
-        updateVisibility();
-
-      });
-
-
-
-      once('storageRemoveHandler',
-        context.querySelectorAll('input[name^="kompozitnyy_elemen_storage_table_remove_"]')
-      ).forEach(button => {
-
-        button.addEventListener('mousedown', function () {
-
-          const row = this.closest('tr');
-
-          if (!row) return;
-
-          const id = Drupal.serverConfiguratorUtils.getRowId(row);
-
-          if (id) {
+    Drupal.behaviors.showProcessors = {
+        attach(context) {
             const state = Drupal.serverConfiguratorState();
-            state.removeStorageItem(id);
-            }
 
-        });
+            const showProcessorsField = state.getField
+                ? state.getField('show_processors', 'show_processors')
+                : 'show_processors';
 
-      });
+            const selectedProcessorsField = state.getField
+                ? state.getField('selected_processors_text', 'selected_processors_text')
+                : 'selected_processors_text';
 
+            const coresMinField = state.getProcessorsFilterField
+                ? state.getProcessorsFilterField('cores_min', 'cores_min')
+                : 'cores_min';
 
-    }
-  };
+            const coresMaxField = state.getProcessorsFilterField
+                ? state.getProcessorsFilterField('cores_max', 'cores_max')
+                : 'cores_max';
 
-  // Drupal.behaviors.storageRecalc = {
-  //   attach(context) {
-  //
-  //     once('storage-recalc', context.querySelectorAll('.storage_count'))
-  //       .forEach(slider => {
-  //
-  //         slider.addEventListener('change', () => {
-  //
-  //           const state = Drupal.serverConfiguratorState();
-  //           const bays = state.getPlatform()?.storage_bays || 0;
-  //
-  //           recalcStorageLimits(bays);
-  //
-  //         });
-  //
-  //       });
-  //
-  //   }
-  // };
+            const freqMinField = state.getProcessorsFilterField
+                ? state.getProcessorsFilterField('frequency_min', 'frequency_min')
+                : 'frequency_min';
 
-  Drupal.behaviors.serverConfiguratorStorage = {
+            const freqMaxField = state.getProcessorsFilterField
+                ? state.getProcessorsFilterField('frequency_max', 'frequency_max')
+                : 'frequency_max';
 
-    attach(context) {
+            const coresMinDefault = state.getProcessorsDefault
+                ? state.getProcessorsDefault('cores_min', '2')
+                : '2';
 
-      once('storage-slider', context.querySelectorAll('.storage_count'))
-        .forEach(slider => {
+            const coresMaxDefault = state.getProcessorsDefault
+                ? state.getProcessorsDefault('cores_max', '144')
+                : '144';
 
-          slider.addEventListener('change', function () {
+            const freqMinDefault = state.getProcessorsDefault
+                ? state.getProcessorsDefault('frequency_min', '1.0')
+                : '1.0';
 
-             // Drupal.serverConfiguratorEvents.collectAllRows();
+            const freqMaxDefault = state.getProcessorsDefault
+                ? state.getProcessorsDefault('frequency_max', '4.0')
+                : '4.0';
 
-            // const row = this.closest('tr');
-            // const id = row.dataset.webformKey || row.rowIndex;
-            //
-            // const state = Drupal.serverConfiguratorState();
-            //
-            // state.setStorageItem(id, {
-            //   count: Number(this.value)
-            // });
-            //
-            // Drupal.serverConfiguratorEngine.recalculate();
+            once(
+                'showProcessorsResetMain',
+                context.querySelectorAll('input[name="my_reset"], button[name="my_reset"], [data-drupal-selector*="my-reset"]')
+            ).forEach((resetBtn) => {
+                resetBtn.addEventListener('click', () => {
+                    const checkbox = document.querySelector(`[name="${showProcessorsField}"]`);
+                    if (checkbox) {
+                        checkbox.checked = false;
+                    }
 
-          });
+                    const coresMin = document.querySelector(`[name="${coresMinField}"]`);
+                    const coresMax = document.querySelector(`[name="${coresMaxField}"]`);
+                    const freqMin = document.querySelector(`[name="${freqMinField}"]`);
+                    const freqMax = document.querySelector(`[name="${freqMaxField}"]`);
 
-        });
+                    if (coresMin) coresMin.value = String(coresMinDefault);
+                    if (coresMax) coresMax.value = String(coresMaxDefault);
+                    if (freqMin) freqMin.value = String(freqMinDefault);
+                    if (freqMax) freqMax.value = String(freqMaxDefault);
 
-    }
+                    document.querySelectorAll('.dual-range-wrapper').forEach((wrapper) => {
+                        const sliderElement = wrapper.querySelector('.dual-range-slider');
+                        if (!sliderElement || !sliderElement.noUiSlider) {
+                            return;
+                        }
 
-  };
+                        const fields = wrapper.dataset.fields || '';
 
-  Drupal.behaviors.showProcessors = {
-    attach(context) {
+                        if (fields === 'cores') {
+                            sliderElement.noUiSlider.set([Number(coresMinDefault), Number(coresMaxDefault)]);
+                        }
 
-      const state = Drupal.serverConfiguratorState();
+                        if (fields === 'frequency') {
+                            sliderElement.noUiSlider.set([Number(freqMinDefault), Number(freqMaxDefault)]);
+                        }
+                    });
 
-      /* =========================
-         CHECKBOX
-      ========================= */
+                    // Таблицу скрываем, но выбранные CPU в state НЕ удаляем.
+                    state.setShowProcessors(false);
 
-      // once(
-      //   'showProcessorsCheckbox',
-      //   context.querySelectorAll('[name="show_processors"]')
-      // ).forEach(checkbox => {
-      //
-      //   const saved = state.getShowProcessors();
-      //
-      //   checkbox.checked = !!saved;
-      //
-      //   checkbox.addEventListener('change', () => {
-      //
-      //     state.setShowProcessors(
-      //       !!checkbox.checked
-      //     );
-      //
-      //   });
-      //
-      // });
-
-
-      /* =========================
-         BUTTON SHOW
-      ========================= */
-
-      // once(
-      //   'showProcessorsBtn',
-      //   context.querySelectorAll(
-      //     '[data-drupal-selector^="edit-actions-01-draft"]'
-      //   )
-      // ).forEach(showBtn => {
-      //
-      //   showBtn.addEventListener('click', () => {
-      //
-      //     const checkbox =
-      //       document.querySelector('[name="show_processors"]');
-      //
-      //     if (!checkbox) return;
-      //       checkbox.checked = true;
-      //
-      //     state.setShowProcessors(true);
-      //
-      //   });
-      //
-      // });
-
-
-      /* =========================
-         BUTTON RESET
-      ========================= */
-
-      // once(
-      //   'showProcessorsReset',
-      //   context.querySelectorAll('.configurator-reset')
-      // ).forEach(resetBtn => {
-      //
-      //   resetBtn.addEventListener('click', (e) => {
-      //
-      //     e.preventDefault();
-      //
-      //     const checkbox =
-      //       document.querySelector('[name="show_processors"]');
-      //
-      //     const showBtn =
-      //       document.querySelector(
-      //         '[data-drupal-selector^="edit-actions-01-draft"]'
-      //       );
-      //
-      //
-      //     /* ---------- CORES ---------- */
-      //
-      //     const coresWrapper =
-      //       document.querySelector('[data-fields="cores"]');
-      //
-      //     const coresMin =
-      //       document.querySelector('[name="cores_min"]');
-      //
-      //     const coresMax =
-      //       document.querySelector('[name="cores_max"]');
-      //
-      //     if (coresMin) coresMin.value = 2;
-      //     if (coresMax) coresMax.value = 144;
-      //
-      //     if (coresWrapper) {
-      //
-      //       const current =
-      //         coresWrapper.querySelector(
-      //           '.dual-range-current-values'
-      //         );
-      //
-      //       if (current) {
-      //         current.textContent = '2 — 144';
-      //       }
-      //
-      //     }
-      //
-      //
-      //     /* ---------- FREQUENCY ---------- */
-      //
-      //     const freqWrapper =
-      //       document.querySelector('[data-fields="frequency"]');
-      //
-      //     const freqMin =
-      //       document.querySelector('[name="frequency_min"]');
-      //
-      //     const freqMax =
-      //       document.querySelector('[name="frequency_max"]');
-      //
-      //     if (freqMin) freqMin.value = 1;
-      //     if (freqMax) freqMax.value = 4;
-      //
-      //     if (freqWrapper) {
-      //
-      //       const current =
-      //         freqWrapper.querySelector(
-      //           '.dual-range-current-values'
-      //         );
-      //
-      //       if (current) {
-      //         current.textContent = '1.0 — 4.0';
-      //       }
-      //
-      //     }
-      //
-      //
-      //     /* ---------- checkbox ---------- */
-      //
-      //     if (checkbox) {
-      //       checkbox.checked = false;
-      //     }
-      //
-      //     state.setShowProcessors(false);
-      //
-      //
-      //     /* ---------- submit draft ---------- */
-      //
-      //     if (showBtn) {
-      //       showBtn.click();
-      //
-      //     }
-      //
-      //   });
-      //
-      // });
-      /* =========================
-   BUTTON RESET (MAIN CONFIGURATOR)
-========================= */
-
-      once(
-        'showProcessorsResetMain',
-        context.querySelectorAll('input[name="my_reset"], button[name="my_reset"], [data-drupal-selector*="my-reset"]')
-      ).forEach(resetBtn => {
-
-        resetBtn.addEventListener('click', () => {
-
-          // Сбрасываем checkbox processsors.
-          const checkbox = document.querySelector('[name="show_processors"]');
-          if (checkbox) {
-             checkbox.checked = false;
-          }
-
-          // Сбрасываем input values, чтобы backend получил defaults.
-          const coresMin = document.querySelector('[name="cores_min"]');
-          const coresMax = document.querySelector('[name="cores_max"]');
-          const freqMin = document.querySelector('[name="frequency_min"]');
-          const freqMax = document.querySelector('[name="frequency_max"]');
-
-          if (coresMin) coresMin.value = '2';
-          if (coresMax) coresMax.value = '144';
-          if (freqMin) freqMin.value = '1.0';
-          if (freqMax) freqMax.value = '4.0';
-
-          // Сбрасываем сами dual-range / noUiSlider виджеты.
-          document.querySelectorAll('.dual-range-wrapper').forEach((wrapper) => {
-            const sliderElement = wrapper.querySelector('.dual-range-slider');
-            if (!sliderElement || !sliderElement.noUiSlider) {
-              return;
-            }
-
-            const fields = wrapper.dataset.fields || '';
-
-            if (fields === 'cores') {
-              sliderElement.noUiSlider.set([2, 144]);
-            }
-
-            if (fields === 'frequency') {
-              sliderElement.noUiSlider.set([1.0, 4.0]);
-            }
-          });
-
-          // Чистим frontend state, чтобы restore не возвращал старый выбор CPU.
-          const state = Drupal.serverConfiguratorState();
-          state.setShowProcessors(false);
-          state.setCpu([]);
-
-          const selectedText = document.querySelector('[name="selected_processors_text"]');
-          if (selectedText) {
-            selectedText.value = '';
-          }
-
-        });
-
-      });
-
-
-
-    }
-  };
-
-
+                    // hidden field с выбранными CPU тоже не очищаем — он нужен для восстановления.
+                    const selectedText = document.querySelector(`[name="${selectedProcessorsField}"]`);
+                    if (selectedText && !selectedText.value) {
+                        const selected = state.getCpu ? state.getCpu() : [];
+                        selectedText.value = selected.map((cpu, i) => `CPU #${i + 1} ${cpu.pretty}`).join('\n');
+                    }
+                });
+            });
+        }
+    };
 
 })(Drupal, once);

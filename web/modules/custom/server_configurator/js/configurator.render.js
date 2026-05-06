@@ -1,60 +1,96 @@
-// Отвечает ТОЛЬКО за DOM
-//
-(function (Drupal) {
+// Отвечает только за DOM-рендер summary.
+(function (Drupal, drupalSettings) {
 
   Drupal.serverConfiguratorRender = function () {
 
-    /* ============================================================
-            HELPERS
-============================================================ */
+    function getSummaryContainer(name) {
+      return document.querySelector(`#server-config-summary .${name}`);
+    }
 
-    function getSummaryContainer(name){
-      const container =  document.querySelector(`#server-config-summary .${name}`);
-      if (!container) {
-          return null;
+    function row(label, value) {
+      if (!value) {
+        return '';
       }
-      return container;
+      return `<div>${label}: <span style="color: #ff820e">${value}</span></div>`;
     }
 
-    function row (label, value){
-      if (!value) return '';
-      return `<div>${label}:  <span style="color: #ff820e">${value}<span></div>`;
+    function getSummaryFieldDefinitions(state) {
+      return state.getConfig?.().summary_fields || [];
     }
 
-    /* ============================================================
-            SUMMARY
-============================================================ */
+    function getSummarySections(state) {
+      return state.getConfig?.().summary || {};
+    }
 
-    function renderServer(server){
+    function isSectionEnabled(state, sectionName) {
+      const sections = getSummarySections(state);
+      return !!sections?.[sectionName]?.enabled;
+    }
 
+    function formatSummaryValue(rawValue, format) {
+      if (format === 'yes_if_true') {
+        return rawValue ? 'да' : '';
+      }
+      return rawValue;
+    }
+
+    function getDomSelectLabel(fieldName) {
+      const select = document.querySelector(`select[name="${fieldName}"]`);
+      if (!select || select.selectedIndex < 0) {
+        return '';
+      }
+
+      const option = select.options[select.selectedIndex];
+      if (!option) {
+        return '';
+      }
+
+      const text = (option.text || '').trim();
+
+      // Placeholder-ы в summary не показываем.
+      if (!text || text.startsWith('-')) {
+        return '';
+      }
+
+      return text;
+    }
+
+    function renderServer(server, state) {
       const serverContainer = getSummaryContainer('summary-server');
-      if (!serverContainer){
-        console.log("ServerContainer container not found:  ", name);
+      if (!serverContainer) {
         return;
       }
+
+      if (!isSectionEnabled(state, 'server')) {
+        serverContainer.innerHTML = '';
+        return;
+      }
+
       let html = '';
       if (!server || Object.keys(server).length === 0) {
-         html += `
-          <div>Данные сервера не определены</div>
-        `;
+        serverContainer.innerHTML = '';
         return;
       }
-      html += ` ${server.title ? `<h4>Сервер: ${server.title} </h4>` : ''} `;
+
+      html += `${server.title ? `<h4>Сервер: ${server.title}</h4>` : ''}`;
       html += row('Тип сервера', server.server_types);
       serverContainer.innerHTML = html;
     }
 
-    function renderPlatform(platform) {
-
+    function renderPlatform(platform, state) {
       const platformContainer = getSummaryContainer('summary-platform');
       if (!platformContainer) {
         return;
       }
+
+      if (!isSectionEnabled(state, 'platform')) {
+        platformContainer.innerHTML = '';
+        return;
+      }
+
       let html = `<h4>Параметры платформы</h4>`;
       if (!platform || Object.keys(platform).length === 0) {
-        html += `
-          <div>Данные платформы не определены</div>
-        `;
+        platformContainer.innerHTML = '';
         return;
       }
 
@@ -64,312 +100,186 @@
       html += row('Форм-фактор накопителей в дюймах', platform.storage_form_factor);
       html += row('Количество отсеков для накопителей', platform.storage_bays);
       html += row('Наличие отказоустойчивого блока питания', platform.psu_type);
-      html += row('LAN (установлено) ', platform.lan);
-      html += row('LAN manager (установлено) ', platform.lan_manager);
+      html += row('LAN (установлено)', platform.lan);
+      html += row('LAN manager (установлено)', platform.lan_manager);
 
       platformContainer.innerHTML = html;
     }
 
-    function renderCpu(cpuList) {
-
+    function renderCpu(cpuList, state) {
       const cpuContainer = getSummaryContainer('summary-cpu');
       if (!cpuContainer) {
         return;
       }
-      let html = `<h4>Выбранные процессоры</h4>`;
 
-      if (!cpuList.length) {
-        cpuContainer.innerHTML = `
-          <div>Процессоры не выбраны</div>
-        `;
+      if (!isSectionEnabled(state, 'cpu')) {
+        cpuContainer.innerHTML = '';
         return;
       }
 
-      html += `<pre>
-${cpuList.map(c => c.pretty).join('\n----------------\n')}
-        </pre> `;
+      if (!cpuList.length) {
+        cpuContainer.innerHTML = '';
+        return;
+      }
+
+      let html = `<h4>Выбранные процессоры</h4>`;
+      html += `<pre>${cpuList.map(c => c.pretty).join('\n----------------\n')}</pre>`;
       cpuContainer.innerHTML = html;
     }
 
+    function renderStorageSummary(storage) {
+      const items = Object.values(storage || {});
+      if (!items.length) {
+        return '';
+      }
 
+      return `
+        <strong>Накопители:</strong>
+        <div>
+          ${items.map(item => `
+            <div>${item.count} × ${item.type} ${item.volume ?? ''}</div>
+          `).join('')}
+        </div>
+      `;
+    }
 
-    function renderFormParams(form, storage){
+    function renderConfiguredFormRows(form, state) {
+      const definitions = getSummaryFieldDefinitions(state);
+      let html = '';
+      const mode = state.getMode ? state.getMode() : '';
 
+      definitions.forEach((definition) => {
+        if (!definition || !definition.field || !definition.label) {
+          return;
+        }
 
+        const isTouched = state.isFieldTouched ? state.isFieldTouched(definition.field) : true;
+
+        // В большом конфигураторе показываем только реально выбранные пользователем поля.
+        if (mode === 'main_configurator' && !isTouched) {
+          return;
+        }
+
+        const rawValue =
+            form?.[`${definition.field}_label`] ||
+            getDomSelectLabel(definition.field) ||
+            form?.[definition.field];
+
+        const value = formatSummaryValue(rawValue, definition.format || '');
+        html += row(definition.label, value);
+      });
+
+      return html;
+    }
+
+    function renderFormParams(form, storage, state) {
       const formContainer = getSummaryContainer('summary-form');
       if (!formContainer) {
         return;
       }
-      let html = '<h4>Выбранные параметры</h4>';
 
-      if (!form || Object.keys(form).length === 0) {
-        html += `
-          <div>Параметры не выбраны</div>
-        `;
-        // return;
+      if (!isSectionEnabled(state, 'form')) {
+        formContainer.innerHTML = '';
+        return;
       }
 
-      const items = Object.values(storage);
-      html += row('Количество процессоров', form.kolichestvo_processorov);
-      html += row('Объем оперативной памяти в Gb', form.obem_operativnoy_pamyati_v_gb );
-      if (items.length){
-        html += `
-          <strong>Накопители:</strong>
-        <div>
-           ${items.map(item => `
-            <div>
-              ${item.count} × ${item.type} ${item.volume ?? ''}
-            </div>
-          `).join(' ')}
-        </div>
-        `;
+      let html = '';
+      const storageHtml = renderStorageSummary(storage);
+      const formRowsHtml = renderConfiguredFormRows(form, state);
+
+      if (!storageHtml && !formRowsHtml) {
+        formContainer.innerHTML = '';
+        return;
       }
-      html += row('Желаемый общий объем дисковой подсистемы', form.ili_ukazhite_zhelaemyy_obshchiy_obem_diskovoy_podsistemy);
-      html += row('Наличие отдельного накопителя для установки ОС',  form.nalichie_otdelnogo_nakopitelya_dlya_ustanovki_os );
-      html += row('Наличие аппратного дискового контроллера', form.nalichie_appratnogo_diskovogo_kontrollera);
-      html += row('Наличие адаптера Fibre Channel', form.nalichie_adaptera_fibre_channel_dual_port);
-      html += row('Добавить дополнительный сетевой адаптер', form.add_setevoy_interfeys? 'да' : '');
-      html += row('Тип сетевых интерфейсов', form.tip_setevyh_interfeysov);
-      html += row('Количество сетевых портов', form.kolichestvo_setevyh_portov );
-      html += row('Скорость сетевых портов Гбит/сек', form.skorost_setevyh_portov_gbit_sek_med);
-      html += row('Скорость сетевых портов Гбит/сек', form.skorost_setevyh_portov_gbit_sek_optika);
+
+      html += '<h4>Выбранные параметры</h4>';
+      html += storageHtml;
+      html += formRowsHtml;
 
       formContainer.innerHTML = html;
     }
 
-
-// // Отображение max-максимальное значение  радиокнопок Количество  отсеков для накопителей в зависимоти от field_storage_bays
-//     function filterStorageCountOptions(maxBays) {
-//       document
-//         .querySelectorAll('.storage_count')
-//         .forEach((radio) => {
-//           const value = Number(radio.value);
-//
-//           const wrapper = radio.closest('.form-item');
-//           if (!wrapper) return;
-//
-//           if (value > maxBays) {
-//             wrapper.style.display = 'none';
-//             radio.disabled = true;
-//           } else {
-//             wrapper.style.display = '';
-//             radio.disabled = false;
-//           }
-//         });
-//     }
-
-
-
-
-    // Ограничение range-слайдера по количеству отсеков для элемента формы range
-    function filterStorageCountOptions(maxBays) {
-      const slider = document.querySelector('.storage_count');
-      if (!slider) return;
-      const max = Number(maxBays);
-      if (!max || max <= 0) return;
-
-      // Устанавливаем максимальное значение
-      slider.max = max;
-
-      // Если текущее значение больше допустимого — обрезаем
-      if (Number(slider.value) > max) {
-        slider.value = max;
-
-        // Если используешь state — обязательно обновить
-        slider.dispatchEvent(new Event('change', { bubbles: false }));
-      }
-
-    }
-
-
-    /* ============================================================
-   Шкала слайдера FIXED SCALE SYSTEM (MAJOR + MINOR TICKS)
-============================================================ */
-
     function ensureMarksContainer(element) {
-
       let container = element.querySelector('.range-marks');
-
       if (!container) {
         container = document.createElement('div');
         container.className = 'range-marks';
         element.appendChild(container);
       }
-
       return container;
     }
 
-
-    /* Определяем major шаг */
     function getMajorStep(max) {
-
       if (max <= 5) return 1;
       if (max <= 15) return 2;
       if (max <= 35) return 5;
       if (max <= 80) return 10;
-
       return 20;
     }
 
-
-    /* Определяем minor шаг */
     function getMinorStep(max) {
-
       if (max <= 5) return null;
       if (max <= 15) return 1;
       if (max <= 35) return 1;
       if (max <= 80) return 5;
-
       return 10;
     }
 
-
-    /* Проверка "слишком близко к max" */
     function isTooCloseToMax(value, max) {
-      return (max - value) < (max * 0.05); // 5% от диапазона
+      return (max - value) < (max * 0.05);
     }
 
-    /* Отрисовка шкалы */
     function renderMarksFor(min, max, containerElement) {
-
       if (!max || max <= min) return;
 
       const container = ensureMarksContainer(containerElement);
       container.innerHTML = '';
 
-      const totalRange = max - min;
       const majorStep = getMajorStep(max);
-      const minorStep = getMinorStep(max);
-
       const majorValues = new Set();
-
-      // всегда min
       majorValues.add(min);
 
-      // генерируем major по фиксированному шагу
       for (let v = majorStep; v < max; v += majorStep) {
-
         if (v > min && !isTooCloseToMax(v, max)) {
           majorValues.add(v);
         }
       }
-
-      // всегда max
       majorValues.add(max);
 
-      // === Отрисовка ===
+      const minorStep = getMinorStep(max);
+      const ticks = [];
 
-      for (let value = min; value <= max; value++) {
-
-        const percent = ((value - min) / totalRange) * 100;
-
-        // Major
-        if (majorValues.has(value)) {
-
-          const mark = document.createElement('span');
-          mark.className = 'range-mark';
-          mark.style.left = percent + '%';
-          mark.textContent = value;
-          mark.dataset.value = value;
-          container.appendChild(mark);
-
-          continue;
-        }
-
-        // Minor
-        if (minorStep && (value % minorStep === 0)) {
-
-          const tick = document.createElement('span');
-          tick.className = 'range-tick';
-          tick.style.left = percent + '%';
-          container.appendChild(tick);
+      if (minorStep) {
+        for (let v = min; v <= max; v += minorStep) {
+          ticks.push(v);
         }
       }
-    }
+      else {
+        ticks.push(...majorValues);
+      }
 
-
-    /* Отрисовка подписей шкалы  элементов слайдеров. */
-    function renderMarks() {
-
-      // Обычные range
-      document.querySelectorAll('input[type="range"]').forEach((slider) => {
-
-        const min = Number(slider.min) || 0;
-        const max = Number(slider.max);
-
-        if (!max || max <= min) return;
-
-        renderMarksFor(min, max, slider.parentElement);
-      });
-
-
-      /* ============================================================
-     СЛАЙДЕР С ДВУМЯ ПОЛЗУНКАМИ  DUAL RANGE
-============================================================ */
-
-      // Dual range
-      document.querySelectorAll('.dual-range-wrapper').forEach((wrapper) => {
-
-        const min = Number(wrapper.dataset.min);
-        const max = Number(wrapper.dataset.max);
-
-        if (!max || max <= min) return;
-
-        renderMarksFor(min, max, wrapper);
+      ticks.forEach((value) => {
+        const isMajor = majorValues.has(value);
+        const mark = document.createElement('span');
+        mark.className = isMajor ? 'range-mark' : 'range-tick';
+        mark.dataset.value = value;
+        mark.style.left = `${((value - min) / (max - min)) * 100}%`;
+        if (isMajor) {
+          mark.textContent = value;
+        }
+        container.appendChild(mark);
       });
     }
-
-
-    /* ============================================================
-   Отображение  типов накопителей в зависимости от форм-фактора накопителей
-============================================================ */
-
-    function filterStorageTypes(storageFormFactor) {
-
-      document
-        .querySelectorAll('.storage_types')
-        .forEach((radio) => {
-          let value = radio.value;
-          if(value){
-            value = value.trim();
-          }
-
-          const wrapper = radio.closest('.form-item');
-          if (!wrapper) return;
-          if (storageFormFactor === 2.5 &&  value === 'HDD') {
-            wrapper.style.display = 'none';
-            radio.disabled = true;
-          } else {
-            wrapper.style.display = '';
-            radio.disabled = false;
-          }
-        });
-    }
-
-
 
     return {
       render(state) {
-        const webform =
-          document.querySelector('.webform-submission-server-configurator-form,.webform-submission-main-server-configurator-form');
-
-        if (!webform) {
-          console.log('Это не вебформа конфигуратора! не выполянем events');
-          return;
-        }
-        const server  = state.getServer();
-        if (server){renderServer(server)}
-        const platform = state.getPlatform();
-        if (platform){renderPlatform(platform)}
-        renderCpu(state.getCpu());
-        renderFormParams(state.getForm() || {}, state.getStorage() || {});
-        renderMarks();
-        if (state.getPlatform().storage_form_factor) {
-          filterStorageTypes(state.getPlatform().storage_form_factor);
-        }
-      }
+        renderServer(state.getServer(), state);
+        renderPlatform(state.getPlatform(), state);
+        renderCpu(state.getCpu(), state);
+        renderFormParams(state.getForm(), state.getStorage(), state);
+      },
+      renderMarksFor,
     };
-
   };
 
-})(Drupal);
+})(Drupal, drupalSettings);

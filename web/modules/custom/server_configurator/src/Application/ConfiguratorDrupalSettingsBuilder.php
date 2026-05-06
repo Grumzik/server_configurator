@@ -21,27 +21,30 @@ class ConfiguratorDrupalSettingsBuilder {
       'server' => $this->serverData->getServerData(),
       'platform' => $this->platformData->getCurrentPlatformData(),
       'platformMap' => $this->platformData->getPlatformMap(),
+      'config' => [
+        'features' => [],
+        'fields' => [],
+        'summary_fields' => [],
+        'processors' => [],
+      ],
     ];
   }
 
   public function buildForConfigurator(ConfiguratorContext $context): array {
-    if ($context->isServerConfigurator()) {
-      return $this->buildForCurrentServerPage();
-    }
+    $definition = $context->getDefinition();
 
-    if ($context->isMainConfigurator()) {
-      return [
-        'mode' => $context->getMode(),
-        'server' => [],
-        'platform' => [],
-        'platformMap' => $this->platformData->getPlatformMap(),
-        'config' => [
-          'summary_fields' => $context->getDefinition()?->getSummaryFields() ?? [],
-        ],
-      ];
-    }
-
-    return [];
+    return [
+      'mode' => $context->getMode(),
+      'server' => $context->isServerConfigurator() ? $this->serverData->getServerData() : [],
+      'platform' => $context->isServerConfigurator() ? $this->platformData->getCurrentPlatformData() : [],
+      'platformMap' => $this->platformData->getPlatformMap(),
+      'config' => $definition ? $definition->toFrontendConfig() : [
+        'features' => [],
+        'fields' => [],
+        'summary_fields' => [],
+        'processors' => [],
+      ],
+    ];
   }
 
 }

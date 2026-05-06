@@ -3,7 +3,15 @@
 namespace Drupal\server_configurator\DTO;
 
 /**
- * DTO: description of one configurator.
+ * DTO: declarative description of one configurator.
+ *
+ * Stores stable configuration for one configurator instance:
+ * - identity
+ * - enabled features
+ * - canonical field mapping
+ * - dependencies configuration
+ * - summary field definitions
+ * - processors configuration (filters/defaults)
  */
 final class ConfiguratorDefinition {
 
@@ -16,6 +24,7 @@ final class ConfiguratorDefinition {
     protected array $dependencies = [],
     protected array $summaryFields = [],
     protected array $processors = [],
+    protected array $summary = [],
   ) {}
 
   public function getName(): string {
@@ -54,51 +63,65 @@ final class ConfiguratorDefinition {
     return $this->dependencies;
   }
 
-  public function hasDependencies(): bool {
-    return !empty($this->dependencies);
-  }
-
-  public function getDependencyByType(string $type): ?array {
-    foreach ($this->dependencies as $dependency) {
-      if (($dependency['type'] ?? NULL) === $type) {
-        return $dependency;
-      }
-    }
-
-    return NULL;
-  }
-
-  public function getDependenciesBySource(string $sourceAlias): array {
-    $matched = [];
-
-    foreach ($this->dependencies as $dependency) {
-      $sources = (array) ($dependency['source'] ?? []);
-      if (in_array($sourceAlias, $sources, TRUE)) {
-        $matched[] = $dependency;
-      }
-    }
-
-    return $matched;
-  }
-
-  public function getDependencySource(string $type): string|array|null {
-    return $this->getDependencyByType($type)['source'] ?? NULL;
-  }
-
-  public function getDependencyTarget(string $type): ?string {
-    return $this->getDependencyByType($type)['target'] ?? NULL;
-  }
-
-  public function getDependencyWrapperId(array $dependency, ?string $default = NULL): ?string {
-    return $dependency['wrapper_id'] ?? $default;
-  }
-
-  public function getDependencyAjaxCallback(array $dependency, ?string $default = NULL): ?string {
-    return $dependency['ajax_callback'] ?? $default;
-  }
-
+  /**
+   * @return array<int, array{field:string,label:string,format?:string}>
+   */
   public function getSummaryFields(): array {
-    return $this->summaryFields;
+    $normalized = [];
+
+    foreach ($this->summaryFields as $item) {
+      if (is_string($item)) {
+        $normalized[] = [
+          'field' => $item,
+          'label' => $item,
+        ];
+        continue;
+      }
+
+      if (is_array($item) && !empty($item['field']) && !empty($item['label'])) {
+        $normalized[] = [
+          'field' => $item['field'],
+          'label' => $item['label'],
+          'format' => $item['format'] ?? '',
+        ];
+      }
+    }
+
+    return $normalized;
+  }
+
+
+  public function getSummaryConfig(): array {
+    $default = [
+      'server' => [
+        'enabled' => TRUE,
+        'title' => 'Сервер',
+      ],
+      'platform' => [
+        'enabled' => TRUE,
+        'title' => 'Параметры платформы',
+      ],
+      'cpu' => [
+        'enabled' => TRUE,
+        'title' => 'Выбранные процессоры',
+      ],
+      'form' => [
+        'enabled' => TRUE,
+        'title' => 'Выбранные параметры',
+        'fields' => $this->getSummaryFields(),
+      ],
+    ];
+
+    $summary = $this->summary ?: [];
+
+    return [
+      'server' => array_replace($default['server'], $summary['server'] ?? []),
+      'platform' => array_replace($default['platform'], $summary['platform'] ?? []),
+      'cpu' => array_replace($default['cpu'], $summary['cpu'] ?? []),
+      'form' => array_replace($default['form'], [
+        'fields' => $default['form']['fields'],
+      ], $summary['form'] ?? []),
+    ];
   }
 
   public function getProcessorsConfig(): array {
@@ -111,6 +134,19 @@ final class ConfiguratorDefinition {
 
   public function getProcessorsDefault(string $key, mixed $default = NULL): mixed {
     return $this->processors['defaults'][$key] ?? $default;
+  }
+
+  public function toFrontendConfig(): array {
+    return [
+      'name' => $this->getName(),
+      'label' => $this->getLabel(),
+      'webform_id' => $this->getWebformId(),
+      'features' => $this->getFeatures(),
+      'fields' => $this->getFields(),
+      'summary_fields' => $this->getSummaryFields(),
+      'summary' => $this->getSummaryConfig(),
+      'processors' => $this->getProcessorsConfig(),
+    ];
   }
 
 }

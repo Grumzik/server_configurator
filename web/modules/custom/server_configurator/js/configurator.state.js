@@ -1,17 +1,23 @@
-// Это аналог Domain / State Store
 (function (Drupal) {
-
   if (Drupal.serverConfiguratorState) {
     return;
   }
 
   const state = {
     mode: '',
+    config: {
+      features: {},
+      fields: {},
+      summary_fields: [],
+      processors: {},
+      summary: {},
+    },
     platform: {},
     server: {},
     cpu: [],
     storage: {},
     form: {},
+    touchedFields: {},
     showProcessors: false,
   };
 
@@ -27,6 +33,7 @@
         state.form = {};
         state.cpu = [];
         state.storage = {};
+        state.touchedFields = {};
         state.showProcessors = false;
         recalc();
       },
@@ -37,6 +44,49 @@
 
       getMode() {
         return state.mode || '';
+      },
+
+      setConfig(config) {
+        state.config = {
+          features: {},
+          fields: {},
+          summary_fields: [],
+          processors: {},
+          summary: {},
+          ...(config || {}),
+        };
+      },
+
+      getConfig() {
+        return state.config || {};
+      },
+
+      getFeatures() {
+        return state.config?.features || {};
+      },
+
+      hasFeature(name) {
+        return !!(state.config?.features && state.config.features[name]);
+      },
+
+      getFields() {
+        return state.config?.fields || {};
+      },
+
+      getField(key, fallback = '') {
+        return state.config?.fields?.[key] || fallback;
+      },
+
+      getProcessorsConfig() {
+        return state.config?.processors || {};
+      },
+
+      getProcessorsDefault(key, fallback = '') {
+        return state.config?.processors?.defaults?.[key] ?? fallback;
+      },
+
+      getProcessorsFilterField(key, fallback = '') {
+        return state.config?.processors?.filters?.[key] ?? fallback;
       },
 
       setPlatform(data) {
@@ -105,6 +155,28 @@
 
       getForm() {
         return state.form;
+      },
+
+      touchField(fieldName) {
+        if (!fieldName) {
+          return;
+        }
+        state.touchedFields[fieldName] = true;
+      },
+
+      untouchField(fieldName) {
+        if (!fieldName) {
+          return;
+        }
+        delete state.touchedFields[fieldName];
+      },
+
+      isFieldTouched(fieldName) {
+        return !!state.touchedFields[fieldName];
+      },
+
+      getTouchedFields() {
+        return state.touchedFields || {};
       },
 
       setShowProcessors(value) {
