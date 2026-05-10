@@ -47,7 +47,12 @@ final class ConfiguratorDefinitions {
           'processors_wrapper' => 'processors_ajax_wrapper',
           'cpu_vendor' => 'cpu_vendor',
           'cpu_generation_select' => 'cpu_generation_entity_selection',
+          'platform_select' => 'platform_select',
+          'server_select' => 'server_select',
+          // Legacy fields can still exist in the webform YAML, but are no longer used
+          // by the main configurator dependency logic.
           'platform' => 'platform_entity_selection',
+          'server' => 'server',
           'form_factor' => 'form_factor_units',
         ],
         dependencies: [
@@ -58,8 +63,13 @@ final class ConfiguratorDefinitions {
           ],
           [
             'type' => 'platform_by_generation_and_form_factor',
-            'source' => ['cpu_generation_select', 'form_factor', '$form_faktor_nakopiteley_v_dyuymah'],
-            'target' => 'platform',
+            'source' => ['cpu_generation_select', 'form_factor', 'form_faktor_nakopiteley_v_dyuymah'],
+            'target' => 'platform_select',
+          ],
+          [
+            'type' => 'server_by_platform',
+            'source' => ['platform_select'],
+            'target' => 'server_select',
           ],
         ],
         summaryFields: [
@@ -69,7 +79,8 @@ final class ConfiguratorDefinitions {
           ['field' => 'nalichie_otkazoustoychivogo_bloka_pitaniya', 'label' => 'Наличие отказоустойчивого блока питания'],
           ['field' => 'cpu_vendor', 'label' => 'Производитель процессора'],
           ['field' => 'cpu_generation_entity_selection', 'label' => 'Поколение процессора'],
-          ['field' => 'platform_entity_selection', 'label' => 'Платформа'],
+          ['field' => 'platform_select', 'label' => 'Платформа'],
+          ['field' => 'server_select', 'label' => 'Сервер'],
           ['field' => 'form_factor_units', 'label' => 'Форм-фактор'],
           ['field' => 'kolichestvo_processorov', 'label' => 'Количество процессоров'],
           ['field' => 'obem_operativnoy_pamyati_v_gb', 'label' => 'Объем оперативной памяти в Gb'],
@@ -118,7 +129,8 @@ final class ConfiguratorDefinitions {
               ['field' => 'nalichie_otkazoustoychivogo_bloka_pitaniya', 'label' => 'Наличие отказоустойчивого блока питания'],
               ['field' => 'cpu_vendor', 'label' => 'Производитель процессора'],
               ['field' => 'cpu_generation_entity_selection', 'label' => 'Поколение процессора'],
-              ['field' => 'platform_entity_selection', 'label' => 'Платформа'],
+              ['field' => 'platform_select', 'label' => 'Платформа'],
+              ['field' => 'server_select', 'label' => 'Сервер'],
               ['field' => 'kolichestvo_processorov', 'label' => 'Количество процессоров'],
               ['field' => 'obem_operativnoy_pamyati_v_gb', 'label' => 'Объем оперативной памяти в Gb'],
               ['field' => 'ili_ukazhite_zhelaemyy_obshchiy_obem_diskovoy_podsistemy', 'label' => 'Желаемый общий объем дисковой подсистемы'],
@@ -153,6 +165,7 @@ final class ConfiguratorDefinitions {
           'reset_processors_button' => 'my_reset',
           'processors_view' => 'processor_for_server',
           'processors_wrapper' => 'processors_ajax_wrapper',
+          'servers_wrapper' => 'servers_ajax_wrapper',
         ],
         dependencies: [],
         summaryFields: [

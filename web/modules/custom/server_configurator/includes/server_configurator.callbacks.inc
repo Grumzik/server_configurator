@@ -26,6 +26,17 @@ function server_configurator_storage_form_factor_ajax_callback(array &$form, For
     ->storageFormFactorAjaxCallback($form, $form_state);
 }
 
+
+function server_configurator_filters_ajax_callback(array &$form, FormStateInterface $form_state) {
+  return \Drupal::service('server_configurator.dependencies_feature')
+    ->filtersAjaxCallback($form, $form_state);
+}
+
+function server_configurator_platform_ajax_callback(array &$form, FormStateInterface $form_state) {
+  return \Drupal::service('server_configurator.dependencies_feature')
+    ->platformAjaxCallback($form, $form_state);
+}
+
 function server_configurator_show_processors_submit(array &$form, FormStateInterface $form_state): void {
   \Drupal::service('server_configurator.processors_feature')
     ->showProcessorsSubmit($form, $form_state);

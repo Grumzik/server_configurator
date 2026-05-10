@@ -4,22 +4,24 @@
   Drupal.serverConfiguratorEvents = function (context, state) {
     const settings = drupalSettings.serverConfigurator || {};
     const platformMap = settings.platformMap || {};
+    const serverPlatformMap = settings.serverPlatformMap || {};
     const mode = state.getMode();
     const fields = state.getFields ? state.getFields() : {};
 
-    const platformField = fields.platform || 'platform_entity_selection';
+    const platformField = fields.platform_select || fields.platform || 'platform_entity_selection';
     const selectedProcessorsField = fields.selected_processors_text || 'selected_processors_text';
     const processorsCountField = fields.processors_count || 'kolichestvo_processorov';
     const formFactorField = fields.form_factor || 'form_factor_units';
     const cpuVendorField = fields.cpu_vendor || 'cpu_vendor';
     const cpuGenerationField = fields.cpu_generation_select || 'cpu_generation_entity_selection';
+    const serverField = fields.server_select || 'server_select';
     const storageFormFactorField = 'form_faktor_nakopiteley_v_dyuymah';
 
     function recalc() {
       Drupal.serverConfiguratorEngine.recalculate();
     }
 
-    function syncPlatformToState(platformId, touch = false) {
+    function syncPlatformToState(platformId, touch = false, labelOverride = '') {
       const normalizedId = platformId ? String(platformId) : '';
       const currentPlatformId = String(state.getForm()?.[platformField] || '');
       const platformData = normalizedId && platformMap[normalizedId]
@@ -27,9 +29,9 @@
           : null;
 
       const select = document.querySelector(`select[name="${platformField}"]`);
-      const label = select && select.selectedIndex >= 0
+      const label = labelOverride || (platformData?.title || (select && select.selectedIndex >= 0
           ? (select.options[select.selectedIndex]?.text || '')
-          : '';
+          : ''));
 
       state.setForm({
         [platformField]: normalizedId,
@@ -42,19 +44,47 @@
 
       state.setPlatform(platformData || {});
 
-      // Если платформа изменилась или очистилась,
-      // storage нужно полностью сбросить.
+      // Если платформа изменилась или очистилась, storage нужно полностью сбросить,
+      // потому что лимит накопителей теперь относится к другой платформе.
       if (currentPlatformId && currentPlatformId !== normalizedId) {
         if (Drupal.serverConfiguratorStorage && Drupal.serverConfiguratorStorage.resetAll) {
           Drupal.serverConfiguratorStorage.resetAll(state);
-          Drupal.serverConfiguratorStorage.applyStorageTypeRules(state);
-          Drupal.serverConfiguratorStorage.refresh(state);
         }
+      }
+
+      if (Drupal.serverConfiguratorStorage) {
+        Drupal.serverConfiguratorStorage.applyStorageTypeRules(state);
+        Drupal.serverConfiguratorStorage.refresh(state);
       }
 
       // Если платформа очищена, в большом конфигураторе она должна исчезнуть из summary.
       if (!normalizedId) {
         state.untouchField(platformField);
+      }
+    }
+
+    function syncServerToState(serverId, touch = false) {
+      const normalizedId = serverId ? String(serverId) : '';
+      const serverData = normalizedId && serverPlatformMap[normalizedId]
+          ? serverPlatformMap[normalizedId]
+          : null;
+
+      state.setForm({
+        [serverField]: normalizedId,
+        [`${serverField}_label`]: serverData?.title || '',
+      });
+
+      if (touch) {
+        state.touchField(serverField);
+      }
+
+      state.setServer(serverData || {});
+
+      if (serverData?.platform_id) {
+        syncPlatformToState(serverData.platform_id, true, serverData.platform || '');
+      }
+      else {
+        syncPlatformToState('', false);
       }
     }
 
@@ -131,9 +161,13 @@
           });
           state.touchField(elementname);
 
-          if (elementname === storageFormFactorField && Drupal.serverConfiguratorStorage) {
-            Drupal.serverConfiguratorStorage.applyStorageTypeRules(state);
-            Drupal.serverConfiguratorStorage.refresh(state);
+          if (elementname === storageFormFactorField) {
+            syncServerToState('', false);
+
+            if (Drupal.serverConfiguratorStorage) {
+              Drupal.serverConfiguratorStorage.applyStorageTypeRules(state);
+              Drupal.serverConfiguratorStorage.refresh(state);
+            }
           }
         });
 
@@ -163,6 +197,10 @@
             [`${elementname}_label`]: option ? option.text : '',
           });
           state.touchField(elementname);
+
+          if ([formFactorField, cpuVendorField, cpuGenerationField].includes(elementname)) {
+            syncServerToState('', false);
+          }
         });
 
         // Инициализация значения для логики, но НЕ как пользовательский выбор.
@@ -184,6 +222,36 @@
           state.touchField(elementname);
         });
       });
+    }
+
+    function bindServerTableselect() {
+      const selector = `input[name="${serverField}"], select[name="${serverField}"]`;
+      const elements = Array.from(context.querySelectorAll ? context.querySelectorAll(selector) : []);
+      let hasInitialSelection = false;
+
+      once('server-configurator-server-selection', selector, context).forEach((element) => {
+        element.addEventListener('change', (e) => {
+          const target = e.target;
+
+          if (target.type === 'radio' && !target.checked) {
+            return;
+          }
+
+          syncServerToState(target.value || '', true);
+        });
+
+        // Инициализация после AJAX: если сервер уже выбран, восстанавливаем state.
+        if ((element.type === 'radio' && element.checked) || (element.tagName === 'SELECT' && element.value)) {
+          hasInitialSelection = true;
+          syncServerToState(element.value || '', false);
+        }
+      });
+
+      // Если таблица серверов перерисовалась после изменения фильтров и выбранной
+      // строки больше нет, очищаем сервер/платформу в runtime-state.
+      if (elements.length && !hasInitialSelection) {
+        syncServerToState('', false);
+      }
     }
 
     function bindPlatformSelection() {
@@ -220,6 +288,7 @@
     bindSelectElement(cpuGenerationField);
     bindSelectElement(platformField);
     bindPlatformSelection();
+    bindServerTableselect();
 
     Drupal.serverConfiguratorStorage.init(context, state);
 

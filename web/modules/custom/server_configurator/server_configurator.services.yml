@@ -36,10 +36,27 @@ services:
   server_configurator.field_locator:
     class: Drupal\server_configurator\Service\ConfiguratorFieldLocator
 
+  server_configurator.platform_repository:
+    class: Drupal\server_configurator\Repository\PlatformRepository
+    arguments:
+      - '@entity_type.manager'
+
+  server_configurator.server_repository:
+    class: Drupal\server_configurator\Repository\ServerRepository
+    arguments:
+      - '@entity_type.manager'
+
+  server_configurator.options_builder:
+    class: Drupal\server_configurator\Service\ConfiguratorOptionsBuilder
+    arguments:
+      - '@server_configurator.platform_repository'
+      - '@server_configurator.server_repository'
+
   server_configurator.dependencies_feature:
     class: Drupal\server_configurator\Feature\DependenciesFeature
     arguments:
       - '@server_configurator.field_locator'
+      - '@server_configurator.options_builder'
 
   server_configurator.processors_feature:
     class: Drupal\server_configurator\Feature\ProcessorsFeature
