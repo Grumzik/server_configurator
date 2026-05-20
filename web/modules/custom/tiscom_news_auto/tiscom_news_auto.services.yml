@@ -1,0 +1,24 @@
+services:
+  tiscom_news_auto.techspot_source:
+    class: Drupal\tiscom_news_auto\Service\TechspotSource
+    arguments: ['@http_client', '@logger.channel.tiscom_news_auto']
+
+  tiscom_news_auto.openai_client:
+    class: Drupal\tiscom_news_auto\Service\OpenAiClient
+    arguments: ['@http_client', '@config.factory', '@logger.channel.tiscom_news_auto']
+
+  tiscom_news_auto.news_creator:
+    class: Drupal\tiscom_news_auto\Service\NewsCreator
+    arguments: ['@entity_type.manager', '@database', '@http_client', '@file_system', '@config.factory', '@logger.channel.tiscom_news_auto']
+
+  tiscom_news_auto.telegram_notifier:
+    class: Drupal\tiscom_news_auto\Service\TelegramNotifier
+    arguments: ['@http_client', '@config.factory', '@url_generator', '@logger.channel.tiscom_news_auto']
+
+  tiscom_news_auto.importer:
+    class: Drupal\tiscom_news_auto\Service\NewsImporter
+    arguments: ['@config.factory', '@state', '@tiscom_news_auto.techspot_source', '@tiscom_news_auto.openai_client', '@tiscom_news_auto.news_creator', '@tiscom_news_auto.telegram_notifier', '@logger.channel.tiscom_news_auto']
+
+  logger.channel.tiscom_news_auto:
+    parent: logger.channel_base
+    arguments: ['tiscom_news_auto']

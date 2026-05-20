@@ -1,0 +1,15 @@
+enabled: false
+techspot_url: 'https://www.techspot.com/category/hardware/'
+count: 5
+days_back: 7
+content_type: 'news'
+anons_field: 'field_news_anons'
+image_field: 'field_image'
+image_directory: 'public://news-auto/'
+import_images: true
+openai_api_key: ''
+openai_model: 'gpt-4.1-mini'
+telegram_bot_token: ''
+telegram_chat_id: ''
+telegram_webhook_secret: ''
+cron_interval: 604800

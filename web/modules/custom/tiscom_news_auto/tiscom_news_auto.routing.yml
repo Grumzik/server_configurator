@@ -1,0 +1,23 @@
+tiscom_news_auto.settings:
+  path: '/admin/config/tiscom/news-auto'
+  defaults:
+    _form: '\Drupal\tiscom_news_auto\Form\SettingsForm'
+    _title: 'Tiscom News Auto'
+  requirements:
+    _permission: 'administer tiscom news auto'
+
+tiscom_news_auto.manual_run:
+  path: '/admin/config/tiscom/news-auto/run'
+  defaults:
+    _controller: '\Drupal\tiscom_news_auto\Controller\ManualRunController::run'
+    _title: 'Run news import'
+  requirements:
+    _permission: 'administer tiscom news auto'
+
+tiscom_news_auto.telegram_webhook:
+  path: '/tiscom-news-auto/telegram/webhook/{secret}'
+  defaults:
+    _controller: '\Drupal\tiscom_news_auto\Controller\TelegramWebhookController::handle'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST]

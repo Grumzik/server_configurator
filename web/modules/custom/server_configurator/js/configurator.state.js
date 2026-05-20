@@ -7,8 +7,6 @@
     mode: '',
     config: {
       features: {},
-      fields: {},
-      summary_fields: [],
       processors: {},
       summary: {},
     },
@@ -49,8 +47,6 @@
       setConfig(config) {
         state.config = {
           features: {},
-          fields: {},
-          summary_fields: [],
           processors: {},
           summary: {},
           ...(config || {}),
@@ -69,13 +65,6 @@
         return !!(state.config?.features && state.config.features[name]);
       },
 
-      getFields() {
-        return state.config?.fields || {};
-      },
-
-      getField(key, fallback = '') {
-        return state.config?.fields?.[key] || fallback;
-      },
 
       getProcessorsConfig() {
         return state.config?.processors || {};

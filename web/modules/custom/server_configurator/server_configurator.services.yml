@@ -1,21 +1,21 @@
 services:
   server_configurator.page_context:
-    class: Drupal\server_configurator\Context\PageContextFetcher
+    class: Drupal\server_configurator\Application\Context\PageContextFetcher
     arguments:
       - '@current_route_match'
 
   server_configurator.configurator_context_resolver:
-    class: Drupal\server_configurator\Context\ConfiguratorContextResolver
+    class: Drupal\server_configurator\Application\Context\ConfiguratorContextResolver
     arguments:
       - '@server_configurator.page_context'
 
   server_configurator.server_data:
-    class: Drupal\server_configurator\Data\ServerDataProvider
+    class: Drupal\server_configurator\Infrastructure\DataProvider\ServerDataProvider
     arguments:
       - '@current_route_match'
 
   server_configurator.platform_data:
-    class: Drupal\server_configurator\Data\PlatformDataProvider
+    class: Drupal\server_configurator\Infrastructure\DataProvider\PlatformDataProvider
     arguments:
       - '@current_route_match'
       - '@entity_type.manager'
@@ -33,49 +33,61 @@ services:
       - '@server_configurator.configurator_context_resolver'
       - '@server_configurator.drupal_settings_builder'
 
-  server_configurator.field_locator:
-    class: Drupal\server_configurator\Service\ConfiguratorFieldLocator
+  server_configurator.form_element_locator:
+    class: Drupal\server_configurator\Helpers\Form\FormElementLocator
 
   server_configurator.platform_repository:
-    class: Drupal\server_configurator\Repository\PlatformRepository
+    class: Drupal\server_configurator\Infrastructure\Repository\PlatformRepository
     arguments:
       - '@entity_type.manager'
 
   server_configurator.server_repository:
-    class: Drupal\server_configurator\Repository\ServerRepository
+    class: Drupal\server_configurator\Infrastructure\Repository\ServerRepository
     arguments:
       - '@entity_type.manager'
 
   server_configurator.options_builder:
-    class: Drupal\server_configurator\Service\ConfiguratorOptionsBuilder
+    class: Drupal\server_configurator\Presentation\Builder\ConfiguratorOptionsBuilder
     arguments:
       - '@server_configurator.platform_repository'
       - '@server_configurator.server_repository'
 
-  server_configurator.dependencies_feature:
-    class: Drupal\server_configurator\Feature\DependenciesFeature
+  server_configurator.dependencies_ajax:
+    class: Drupal\server_configurator\Presentation\Feature\Dependencies\DependenciesAjax
     arguments:
-      - '@server_configurator.field_locator'
+      - '@server_configurator.form_element_locator'
+
+  server_configurator.dependencies_options_provider:
+    class: Drupal\server_configurator\Presentation\Feature\Dependencies\DependenciesOptionsProvider
+    arguments:
       - '@server_configurator.options_builder'
 
-  server_configurator.processors_feature:
-    class: Drupal\server_configurator\Feature\ProcessorsFeature
+  server_configurator.dependencies_feature:
+    class: Drupal\server_configurator\Presentation\Feature\DependenciesFeature
     arguments:
-      - '@server_configurator.field_locator'
+      - '@server_configurator.form_element_locator'
+      - '@server_configurator.dependencies_ajax'
+      - '@server_configurator.dependencies_options_provider'
+
+  server_configurator.processors_feature:
+    class: Drupal\server_configurator\Presentation\Feature\ProcessorsFeature
+    arguments:
+      - '@server_configurator.form_element_locator'
       - '@renderer'
       - '@server_configurator.configurator_context_resolver'
 
   server_configurator.storage_feature:
-    class: Drupal\server_configurator\Feature\StorageFeature
+    class: Drupal\server_configurator\Presentation\Feature\StorageFeature
 
   server_configurator.summary_feature:
-    class: Drupal\server_configurator\Feature\SummaryFeature
+    class: Drupal\server_configurator\Presentation\Feature\SummaryFeature
 
   server_configurator.form_alter:
     class: Drupal\server_configurator\Application\ConfiguratorFormAlter
     arguments:
       - '@server_configurator.configurator_context_resolver'
       - '@server_configurator.bootstrap_manager'
+      - '@server_configurator.platform_data'
       - '@server_configurator.dependencies_feature'
       - '@server_configurator.processors_feature'
       - '@server_configurator.storage_feature'

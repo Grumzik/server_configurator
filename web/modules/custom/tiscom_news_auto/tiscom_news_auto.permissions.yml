@@ -1,0 +1,4 @@
+administer tiscom news auto:
+  title: 'Administer Tiscom News Auto'
+  description: 'Configure automatic news import and Telegram moderation.'
+  restrict access: true

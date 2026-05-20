@@ -1,0 +1,45 @@
+{%
+  set classes = [
+  'field',
+  'field--name-' ~ field_name|clean_class,
+  'field--type-' ~ field_type|clean_class,
+  'field--label-' ~ label_display,
+]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {% if label_hidden %}
+    {% for item in items %}
+      <div{{ item.attributes.addClass('field__item') }}>
+        {{ item.content
+        |render
+        |replace({
+          'TiSstor ': '',
+          'TiSstor': '',
+          'Tiscom': 'TISCOM'
+        })
+        |raw
+        }}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div{{ title_attributes.addClass('field__label') }}>
+      {{ label }}
+    </div>
+    <div class="field__items">
+      {% for item in items %}
+        <div{{ item.attributes.addClass('field__item') }}>
+          {{ item.content
+          |render
+          |replace({
+            'TiSstor ': '',
+            'TiSstor': '',
+            'Tiscom': 'TISCOM'
+          })
+          |raw
+          }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

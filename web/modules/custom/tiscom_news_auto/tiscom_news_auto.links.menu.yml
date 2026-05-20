@@ -1,0 +1,6 @@
+tiscom_news_auto.settings:
+  title: 'Tiscom News Auto'
+  description: 'Configure automatic hardware news drafts and Telegram moderation.'
+  route_name: tiscom_news_auto.settings
+  parent: system.admin_config_services
+  weight: 50

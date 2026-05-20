@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function tiscom_news_auto_schema(): array {
+  $schema['tiscom_news_auto_source_item'] = [
+    'description' => 'Stores imported source news items to prevent duplicates.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+      ],
+      'news_source_id' => [
+        'description' => 'Source plugin ID, for example techspot_hardware.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ],
+      'news_source_url' => [
+        'description' => 'Original source article URL.',
+        'type' => 'varchar',
+        'length' => 1024,
+        'not null' => TRUE,
+      ],
+      'news_source_title' => [
+        'description' => 'Original source title.',
+        'type' => 'varchar',
+        'length' => 512,
+        'not null' => FALSE,
+      ],
+      'news_source_hash' => [
+        'description' => 'Stable hash for duplicate protection.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ],
+      'news_node_id' => [
+        'description' => 'Created Drupal node ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+      'news_status' => [
+        'description' => 'Import/moderation status: draft, published, rejected, failed.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => 'draft',
+      ],
+      'news_created' => [
+        'description' => 'Created timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'news_changed' => [
+        'description' => 'Changed timestamp.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'unique keys' => [
+      'news_source_hash' => ['news_source_hash'],
+    ],
+    'indexes' => [
+      'news_source_id' => ['news_source_id'],
+      'news_node_id' => ['news_node_id'],
+      'news_status' => ['news_status'],
+    ],
+  ];
+
+  return $schema;
+}

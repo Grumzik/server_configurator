@@ -1,6 +1,7 @@
-(function (Drupal, once) {
+(function (Drupal, once,  drupalSettings) {
 
   Drupal.serverConfiguratorStorage = {
+
 
     init(context, state) {
       this.bindRowCollection(context, state);
@@ -10,8 +11,11 @@
     },
 
     refresh(state) {
-      const platform = state.getPlatform() || {};
-      const maxBays = Number(platform.storage_bays || 0);
+      // const platform = state.getPlatform() || {};
+      // const maxBays = Number(platform.storage_bays || 0);
+      const settings = drupalSettings.serverConfigurator || {};
+      const serverPlatformMap = settings.serverPlatformMap || {};
+      const maxBays = this.getMaxBaysFromServerPlatformMap(serverPlatformMap);
 
       this.applyStorageTypeRules(state);
       this.recalcLimits(maxBays);
@@ -123,8 +127,8 @@
 
     getActiveStorageFormFactor(state) {
       const form = state.getForm ? (state.getForm() || {}) : {};
-      const fromLabel = String(form.form_faktor_nakopiteley_v_dyuymah_label || '').trim();
-      const fromForm = String(form.form_faktor_nakopiteley_v_dyuymah || '').trim();
+      const fromLabel = String(form.storage_form_factor_label || '').trim();
+      const fromForm = String(form.storage_form_factor || '').trim();
       const fromPlatform = String(state.getPlatform?.()?.storage_form_factor || '').trim();
 
       return fromLabel || fromForm || fromPlatform || '';
@@ -307,8 +311,18 @@
           msg.remove();
         }
       });
-    }
+    },
+
+    getMaxBaysFromServerPlatformMap(serverPlatformMap){
+      let maxBay = 0;
+     for (const [key, value] of Object.entries(serverPlatformMap)) {
+       if(value.storage_bays >  maxBay){ maxBay = value.storage_bays}  ;
+       console.log(maxBay);
+     }
+      return maxBay;
+  }
+
 
   };
 
-})(Drupal, once);
+})(Drupal, once,  drupalSettings);

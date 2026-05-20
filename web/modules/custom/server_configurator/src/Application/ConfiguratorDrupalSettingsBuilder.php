@@ -2,10 +2,10 @@
 
 namespace Drupal\server_configurator\Application;
 
-use Drupal\server_configurator\Context\ConfiguratorContext;
-use Drupal\server_configurator\Context\PageContextFetcher;
-use Drupal\server_configurator\Data\PlatformDataProvider;
-use Drupal\server_configurator\Data\ServerDataProvider;
+use Drupal\server_configurator\Application\Context\ConfiguratorContext;
+use Drupal\server_configurator\Application\Context\PageContextFetcher;
+use Drupal\server_configurator\Infrastructure\DataProvider\PlatformDataProvider;
+use Drupal\server_configurator\Infrastructure\DataProvider\ServerDataProvider;
 
 class ConfiguratorDrupalSettingsBuilder {
 
@@ -23,9 +23,9 @@ class ConfiguratorDrupalSettingsBuilder {
       'platformMap' => $this->platformData->getPlatformMap(),
       'config' => [
         'features' => [],
-        'fields' => [],
-        'summary_fields' => [],
+        'dependencies' => [],
         'processors' => [],
+        'summary' => [],
       ],
     ];
   }
@@ -40,9 +40,9 @@ class ConfiguratorDrupalSettingsBuilder {
       'platformMap' => $this->platformData->getPlatformMap(),
       'config' => $definition ? $definition->toFrontendConfig() : [
         'features' => [],
-        'fields' => [],
-        'summary_fields' => [],
+        'dependencies' => [],
         'processors' => [],
+        'summary' => [],
       ],
     ];
   }

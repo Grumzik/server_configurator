@@ -1,0 +1,49 @@
+tiscom_news_auto.settings:
+  type: config_object
+  label: 'Tiscom News Auto settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    techspot_url:
+      type: string
+      label: 'TechSpot hardware URL'
+    count:
+      type: integer
+      label: 'News count'
+    days_back:
+      type: integer
+      label: 'Days back'
+    content_type:
+      type: string
+      label: 'Content type'
+    anons_field:
+      type: string
+      label: 'Announcement field'
+    image_field:
+      type: string
+      label: 'Image field'
+    image_directory:
+      type: string
+      label: 'Image directory'
+    import_images:
+      type: boolean
+      label: 'Import images'
+    openai_api_key:
+      type: string
+      label: 'OpenAI API key'
+    openai_model:
+      type: string
+      label: 'OpenAI model'
+    telegram_bot_token:
+      type: string
+      label: 'Telegram bot token'
+    telegram_chat_id:
+      type: string
+      label: 'Telegram chat ID'
+    telegram_webhook_secret:
+      type: string
+      label: 'Telegram webhook secret'
+    cron_interval:
+      type: integer
+      label: 'Cron interval'

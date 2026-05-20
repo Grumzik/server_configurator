@@ -21,6 +21,7 @@
       }
 
       if (serverData && Object.keys(serverData).length) {
+    console.log(`serverData from server-Configurator.js :  ${serverData}`);
         state.setServer(serverData);
       }
 

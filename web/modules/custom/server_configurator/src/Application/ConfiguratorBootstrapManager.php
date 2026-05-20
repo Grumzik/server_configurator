@@ -2,8 +2,8 @@
 
 namespace Drupal\server_configurator\Application;
 
-use Drupal\server_configurator\Context\ConfiguratorContext;
-use Drupal\server_configurator\Context\ConfiguratorContextResolver;
+use Drupal\server_configurator\Application\Context\ConfiguratorContext;
+use Drupal\server_configurator\Application\Context\ConfiguratorContextResolver;
 
 class ConfiguratorBootstrapManager {
 

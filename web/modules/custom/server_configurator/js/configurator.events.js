@@ -6,19 +6,25 @@
     const platformMap = settings.platformMap || {};
     const serverPlatformMap = settings.serverPlatformMap || {};
     const mode = state.getMode();
-    const fields = state.getFields ? state.getFields() : {};
-
-    const platformField = fields.platform_select || fields.platform || 'platform_entity_selection';
-    const selectedProcessorsField = fields.selected_processors_text || 'selected_processors_text';
-    const processorsCountField = fields.processors_count || 'kolichestvo_processorov';
-    const formFactorField = fields.form_factor || 'form_factor_units';
-    const cpuVendorField = fields.cpu_vendor || 'cpu_vendor';
-    const cpuGenerationField = fields.cpu_generation_select || 'cpu_generation_entity_selection';
-    const serverField = fields.server_select || 'server_select';
-    const storageFormFactorField = 'form_faktor_nakopiteley_v_dyuymah';
+    const platformField = 'platform_select';
+    const selectedProcessorsField = 'selected_processors_text';
+    const processorsCountField = 'kolichestvo_processorov';
+    const formFactorField = 'form_factor_units';
+    const cpuVendorField = 'cpu_vendor';
+    const cpuGenerationField = 'cpu_generation_entity_selection';
+    const serverField = 'server_select';
+    const storageFormFactorField = 'storage_form_factor';
 
     function recalc() {
       Drupal.serverConfiguratorEngine.recalculate();
+    }
+
+    function updateLanPreset(platformData) {
+      const value = platformData?.lan || '';
+      document.querySelectorAll('.js-lan-preset, .lan-preset').forEach((element) => {
+        element.textContent = value;
+        element.classList.toggle('is-empty', !value);
+      });
     }
 
     function syncPlatformToState(platformId, touch = false, labelOverride = '') {
@@ -43,6 +49,7 @@
       }
 
       state.setPlatform(platformData || {});
+      updateLanPreset(platformData || {});
 
       // Если платформа изменилась или очистилась, storage нужно полностью сбросить,
       // потому что лимит накопителей теперь относится к другой платформе.
@@ -78,13 +85,29 @@
         state.touchField(serverField);
       }
 
+
+
+
+
+      const maxBaysFromServerPlatform= Drupal.serverConfiguratorStorage.getMaxBaysFromServerPlatformMap(serverPlatformMap);
+
       state.setServer(serverData || {});
 
       if (serverData?.platform_id) {
         syncPlatformToState(serverData.platform_id, true, serverData.platform || '');
+
+        // LAN in the main configurator is derived from the platform of the
+        // selected server. Prefer the value attached to serverPlatformMap, and
+        // fall back to platformMap for backward compatibility.
+        const platformData = platformMap[String(serverData.platform_id)] || {};
+        updateLanPreset({
+          ...platformData,
+          lan: serverData.lan || platformData.lan || '',
+        });
       }
       else {
         syncPlatformToState('', false);
+        updateLanPreset({});
       }
     }
 
@@ -151,6 +174,8 @@
       });
     });
 
+
+
     function bindRadioElements(elementname) {
       once(`server-configurator-${elementname}`, `[name="${elementname}"]`, context).forEach((radio) => {
         radio.addEventListener('change', (e) => {
@@ -184,6 +209,8 @@
         }
       });
     }
+
+
 
     function bindSelectElement(elementname) {
       once(`server-configurator-${elementname}`, `select[name="${elementname}"]`, context).forEach((select) => {
@@ -226,8 +253,19 @@
 
     function bindServerTableselect() {
       const selector = `input[name="${serverField}"], select[name="${serverField}"]`;
-      const elements = Array.from(context.querySelectorAll ? context.querySelectorAll(selector) : []);
-      let hasInitialSelection = false;
+      const root = context && context.querySelectorAll ? context : document;
+      const elements = Array.from(root.querySelectorAll(selector));
+
+      // Важно: выбранную строку ищем среди ВСЕХ найденных элементов, а не только
+      // среди новых элементов once(). После AJAX добавления накопителя Drupal может
+      // заново attach-ить behavior на большой кусок формы, при этом radio сервера
+      // уже помечен once и не попадёт в цикл once(). Если считать выбор только там,
+      // выбранный сервер ошибочно сбрасывается, state.platform очищается, и storage
+      // теряет max storage_bays.
+      const selectedElement = elements.find((element) => {
+        return (element.type === 'radio' && element.checked) ||
+          (element.tagName === 'SELECT' && element.value);
+      });
 
       once('server-configurator-server-selection', selector, context).forEach((element) => {
         element.addEventListener('change', (e) => {
@@ -239,17 +277,18 @@
 
           syncServerToState(target.value || '', true);
         });
-
-        // Инициализация после AJAX: если сервер уже выбран, восстанавливаем state.
-        if ((element.type === 'radio' && element.checked) || (element.tagName === 'SELECT' && element.value)) {
-          hasInitialSelection = true;
-          syncServerToState(element.value || '', false);
-        }
       });
 
-      // Если таблица серверов перерисовалась после изменения фильтров и выбранной
-      // строки больше нет, очищаем сервер/платформу в runtime-state.
-      if (elements.length && !hasInitialSelection) {
+      // Инициализация/восстановление после любого AJAX attach.
+      if (selectedElement) {
+        syncServerToState(selectedElement.value || '', false);
+        return;
+      }
+
+      // Если таблица серверов действительно перерисовалась и выбранной строки нет,
+      // очищаем сервер/платформу. На AJAX добавления накопителя elements обычно
+      // либо пустой, либо selectedElement найден выше, поэтому storage не сбрасывается.
+      if (elements.length) {
         syncServerToState('', false);
       }
     }

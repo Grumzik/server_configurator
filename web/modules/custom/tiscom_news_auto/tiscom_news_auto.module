@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Main hooks for Tiscom News Auto.
+ */
+
+/**
+ * Implements hook_cron().
+ */
+function tiscom_news_auto_cron(): void {
+  \Drupal::service('tiscom_news_auto.importer')->runScheduled();
+}

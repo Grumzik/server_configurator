@@ -41,3 +41,184 @@ function server_configurator_form_alter(array &$form, FormStateInterface $form_s
   \Drupal::service('server_configurator.form_alter')
     ->alter($form, $form_state, $form_id);
 }
+
+/**
+ * Implements hook_views_query_alter().
+ *
+ * The fourth argument of the processor View is intentionally configured as
+ * "Global: Null". The argument is only a transport for the selected processor
+ * count; the real business rule is added here:
+ *
+ *   processor CPU Scalability >= selected processor count.
+ */
+function server_configurator_views_query_alter(Drupal\views\ViewExecutable $view, Drupal\views\Plugin\views\query\QueryPluginBase $query): void {
+  if ($view->id() !== 'cpu' || $view->current_display !== 'entity_browser_processor_for_server') {
+    return;
+  }
+
+  $processor_count = server_configurator_normalize_positive_int($view->args[3] ?? NULL);
+  if ($processor_count < 1) {
+    return;
+  }
+
+  if (!$query instanceof Drupal\views\Plugin\views\query\Sql) {
+    return;
+  }
+
+  $field_name = server_configurator_get_processor_scalability_field_name();
+  if ($field_name === NULL) {
+    return;
+  }
+
+  // If the View UI still has an equality contextual filter for scalability,
+  // remove it. The correct condition is not equality, but >=.
+  server_configurator_remove_views_conditions_for_field($query, $field_name);
+
+  $field_definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'processor');
+  $field_definition = $field_definitions[$field_name] ?? NULL;
+  if ($field_definition === NULL) {
+    return;
+  }
+
+  $table = 'node__' . $field_name;
+  $alias = $query->ensureTable($table);
+  if (!$alias) {
+    return;
+  }
+
+  $field_type = $field_definition->getType();
+
+  // Numeric/list/string fields usually store the value in *_value.
+  if ($field_type !== 'entity_reference') {
+    $column = $field_name . '_value';
+    $query->addWhere(0, "$alias.$column", $processor_count, '>=');
+    return;
+  }
+
+  // If scalability is stored as a taxonomy/entity reference, compare by the
+  // numeric value in the referenced term label/name, not by target_id order.
+  $allowed_target_ids = server_configurator_get_scalability_target_ids($field_definition, $processor_count);
+  $column = $field_name . '_target_id';
+
+  if ($allowed_target_ids) {
+    $query->addWhere(0, "$alias.$column", $allowed_target_ids, 'IN');
+  }
+  else {
+    // No referenced values can satisfy the selected processor count.
+    $query->addWhere(0, "$alias.$column", -1, '=');
+  }
+}
+
+/**
+ * Normalize a scalar value like "2" or "2--4" to a positive integer.
+ */
+function server_configurator_normalize_positive_int($value): int {
+  if (is_array($value)) {
+    $value = reset($value);
+  }
+
+  if ($value === NULL || $value === '') {
+    return 0;
+  }
+
+  if (is_string($value) && preg_match('/\d+/', $value, $matches)) {
+    $value = $matches[0];
+  }
+
+  $value = (int) $value;
+  return $value > 0 ? $value : 0;
+}
+
+/**
+ * Find the real machine name of the processor CPU Scalability field.
+ */
+function server_configurator_get_processor_scalability_field_name(): ?string {
+  $field_candidates = [
+    'field_cpu_scalability',
+    'field_scalability',
+    'field_processor_scalability',
+    'field_cpu_processor_scalability',
+  ];
+
+  $field_definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'processor');
+
+  foreach ($field_candidates as $field_name) {
+    if (isset($field_definitions[$field_name])) {
+      return $field_name;
+    }
+  }
+
+  return NULL;
+}
+
+/**
+ * Remove existing View conditions for a field so equality cannot override >=.
+ */
+function server_configurator_remove_views_conditions_for_field(Drupal\views\Plugin\views\query\Sql $query, string $field_name): void {
+  if (empty($query->where) || !is_array($query->where)) {
+    return;
+  }
+
+  $table_name = 'node__' . $field_name;
+  $needles = [
+    $table_name,
+    $field_name . '_value',
+    $field_name . '_target_id',
+  ];
+
+  foreach ($query->where as $group_id => &$group) {
+    if (empty($group['conditions']) || !is_array($group['conditions'])) {
+      continue;
+    }
+
+    foreach ($group['conditions'] as $condition_id => $condition) {
+      $field = (string) ($condition['field'] ?? '');
+
+      foreach ($needles as $needle) {
+        if ($field !== '' && str_contains($field, $needle)) {
+          unset($group['conditions'][$condition_id]);
+          break;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Return referenced scalability term/entity IDs whose visible value >= count.
+ */
+function server_configurator_get_scalability_target_ids(Drupal\Core\Field\FieldDefinitionInterface $field_definition, int $processor_count): array {
+  $settings = $field_definition->getSettings();
+  $target_type = $settings['target_type'] ?? NULL;
+  if ($target_type === NULL) {
+    return [];
+  }
+
+  $storage = \Drupal::entityTypeManager()->getStorage($target_type);
+  $query = $storage->getQuery()->accessCheck(FALSE);
+
+  $handler_settings = $settings['handler_settings'] ?? [];
+  $target_bundles = $handler_settings['target_bundles'] ?? [];
+  if ($target_bundles) {
+    $entity_type = \Drupal::entityTypeManager()->getDefinition($target_type);
+    $bundle_key = $entity_type->getKey('bundle');
+    if ($bundle_key) {
+      $query->condition($bundle_key, array_values($target_bundles), 'IN');
+    }
+  }
+
+  $ids = $query->execute();
+  if (!$ids) {
+    return [];
+  }
+
+  $allowed = [];
+  foreach ($storage->loadMultiple($ids) as $entity) {
+    $label = (string) $entity->label();
+    if (preg_match('/\d+/', $label, $matches) && (int) $matches[0] >= $processor_count) {
+      $allowed[] = (int) $entity->id();
+    }
+  }
+
+  return $allowed;
+}

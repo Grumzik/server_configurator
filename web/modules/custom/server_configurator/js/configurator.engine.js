@@ -2,7 +2,7 @@
 // считает лимиты
 // обновляет UI
 // вызывает render
-(function (Drupal) {
+(function (Drupal, drupalSettings) {
   let isUpdating = false;
   let state;
   let render;
@@ -23,12 +23,15 @@
       isUpdating = true;
 
       try {
-        const platform = state.getPlatform() || {};
-        const maxStorage = Number(platform.storage_bays || 0);
+        // const platform = state.getPlatform() || {};
+        // const maxBays = Number(platform.storage_bays || 0);
+        const settings = drupalSettings.serverConfigurator || {};
+        const serverPlatformMap = settings.serverPlatformMap || {};
 
-        Drupal.serverConfiguratorStorage.recalcLimits(maxStorage);
+        const maxBays = Drupal.serverConfiguratorStorage.getMaxBaysFromServerPlatformMap(serverPlatformMap);
+        Drupal.serverConfiguratorStorage.recalcLimits(maxBays);
         Drupal.serverConfiguratorStorage.renderSliderMarks();
-        Drupal.serverConfiguratorStorage.updateAddButtons(maxStorage);
+        Drupal.serverConfiguratorStorage.updateAddButtons(maxBays);
         render.render(state);
       }
       finally {
@@ -37,4 +40,4 @@
     }
   };
 
-})(Drupal);
+})(Drupal, drupalSettings);

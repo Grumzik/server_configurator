@@ -15,7 +15,7 @@
     }
 
     function getSummaryFieldDefinitions(state) {
-      return state.getConfig?.().summary_fields || [];
+      return state.getConfig?.().summary?.form?.fields || [];
     }
 
     function getSummarySections(state) {
@@ -96,6 +96,7 @@
 
       html += row('Форм-фактор', platform.form_factor);
       html += row('CPU Generation', platform.cpu_generation);
+      html += row('CPU Socket Count', platform.cpu_socket_count);
       html += row('TDP платформы', platform.tdp);
       html += row('Форм-фактор накопителей в дюймах', platform.storage_form_factor);
       html += row('Количество отсеков для накопителей', platform.storage_bays);

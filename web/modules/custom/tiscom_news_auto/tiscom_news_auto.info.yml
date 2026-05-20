@@ -1,0 +1,6 @@
+name: 'Tiscom News Auto'
+type: module
+description: 'Automatically prepares hardware news drafts from external sources and sends Telegram moderation buttons.'
+package: Tiscom
+core_version_requirement: ^10
+configure: tiscom_news_auto.settings

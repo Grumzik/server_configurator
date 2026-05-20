@@ -156,13 +156,8 @@
         attach(context) {
             const state = Drupal.serverConfiguratorState();
 
-            const showProcessorsField = state.getField
-                ? state.getField('show_processors', 'show_processors')
-                : 'show_processors';
-
-            const selectedProcessorsField = state.getField
-                ? state.getField('selected_processors_text', 'selected_processors_text')
-                : 'selected_processors_text';
+            const showProcessorsField = 'show_processors';
+            const selectedProcessorsField = 'selected_processors_text';
 
             const coresMinField = state.getProcessorsFilterField
                 ? state.getProcessorsFilterField('cores_min', 'cores_min')
@@ -198,7 +193,7 @@
 
             once(
                 'showProcessorsResetMain',
-                context.querySelectorAll('input[name="my_reset"], button[name="my_reset"], [data-drupal-selector*="my-reset"]')
+                context.querySelectorAll('input[name="reset_processors_button"], button[name="reset_processors_button"], [data-drupal-selector*="reset-processors-button"]')
             ).forEach((resetBtn) => {
                 resetBtn.addEventListener('click', () => {
                     const checkbox = document.querySelector(`[name="${showProcessorsField}"]`);
